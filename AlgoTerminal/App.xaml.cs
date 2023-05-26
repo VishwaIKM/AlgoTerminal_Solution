@@ -30,7 +30,6 @@ namespace AlgoTerminal
                     //ViewModel....
                     //View ....
                     services.AddSingleton<DashboardView>();
-
                 })
                 .Build();
         }

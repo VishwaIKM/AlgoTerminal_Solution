@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class DashboardViewModel
+    public class DashboardViewModel : BaseViewModel
     {
+        #region Members and Prop..
+
+
+
+        #endregion
     }
 }
