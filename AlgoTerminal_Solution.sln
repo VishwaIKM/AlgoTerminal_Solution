@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTerminal", "AlgoTerminal\AlgoTerminal.csproj", "{7BA5642A-031A-44EE-A0FB-D5DCF64D575E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoTerminal", "AlgoTerminal\AlgoTerminal.csproj", "{7BA5642A-031A-44EE-A0FB-D5DCF64D575E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTerminal_Base", "AlgoTerminal_Base\AlgoTerminal_Base.csproj", "{82B18B09-867B-460B-ADB6-24322DFD7D3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoTerminal_Base", "AlgoTerminal_Base\AlgoTerminal_Base.csproj", "{82B18B09-867B-460B-ADB6-24322DFD7D3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTerminal_Test", "AlgoTerminal_Test\AlgoTerminal_Test.csproj", "{F7C7A67F-2F48-497B-846F-660349A8BF52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAlgo", "UnitTestAlgo\UnitTestAlgo.csproj", "{06AD493E-714B-432B-AFCB-3A048FFB9711}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{82B18B09-867B-460B-ADB6-24322DFD7D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B18B09-867B-460B-ADB6-24322DFD7D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B18B09-867B-460B-ADB6-24322DFD7D3A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7C7A67F-2F48-497B-846F-660349A8BF52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7C7A67F-2F48-497B-846F-660349A8BF52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7C7A67F-2F48-497B-846F-660349A8BF52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7C7A67F-2F48-497B-846F-660349A8BF52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

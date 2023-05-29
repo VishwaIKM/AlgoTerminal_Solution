@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoTerminal.Model
+namespace AlgoTerminal_Base
 {
     public class EnumDeclaration
     {
-        //Instrument settings
         public enum EnumIndex : int
         {
             None = 0,
@@ -43,7 +42,7 @@ namespace AlgoTerminal.Model
         }
 
         //OVERALL STRG SETTING
-        public enum EnumOverallStopLoss :int
+        public enum EnumOverallStopLoss : int
         {
             MTM,
             TotalPremiumPercentage
@@ -131,7 +130,7 @@ namespace AlgoTerminal.Model
 
         //Leg Setting 
 
-        public enum EnumLegTargetProfit : int 
+        public enum EnumLegTargetProfit : int
         {
             Points,
             Underling,

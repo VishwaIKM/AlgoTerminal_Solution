@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoTerminal.Model
+namespace AlgoTerminal_Base
 {
-    public class StrategyManagerModel
+    public interface IStaddleManager
     {
-
     }
 }

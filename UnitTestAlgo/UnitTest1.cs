@@ -1,11 +1,12 @@
-namespace AlgoTerminal_Test
+
+namespace UnitTestAlgo
 {
     public class UnitTest1
     {
         [Fact]
         public void Test1()
         {
-
+             
         }
     }
 }
