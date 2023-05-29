@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoTerminal_Base
+namespace AlgoTerminal_Base.Structure
 {
     public class EnumDeclaration
     {
+        public enum EnumEntryAndExit : int { TimeBased, SignalBased, OnlyEntrySignalBased }
+
+        public enum EnumSignalType : int
+        {
+            //Sample
+            RSI,
+            EMA
+        }
         public enum EnumIndex : int
         {
             None = 0,
@@ -70,13 +78,13 @@ namespace AlgoTerminal_Base
 
         }
 
-        public enum EnumTrailingOption : int
+        public enum EnumOverallTrailingOption : int
         {
             Lock,
             LockAndTrail,
             OverallTrailAndSL
         }
-        public enum EnumTrailingOptionOverallTrailAndSLSelected : int
+        public enum EnumOverallTrailingOptionTrailAndSLSelected : int
         {
             MTM,
             TotalPremiumPercentage
@@ -148,6 +156,48 @@ namespace AlgoTerminal_Base
         {
             Points,
             PointPercentage,
+        }
+
+        public enum EnumLegReEntryOnTarget : int
+        {
+            RE_ASAP,
+            RE_RevASAP,
+            RE_MOMENTUM,
+            RE_RevMOMENTUM,
+            RE_COST,
+            RE_RevCOST
+        }
+        public enum EnumLegReEntryOnSL : int
+        {
+            RE_ASAP,
+            RE_RevASAP,
+            RE_MOMENTUM,
+            RE_RevMOMENTUM,
+            RE_COST,
+            RE_RevCOST
+        }
+
+        public enum EnumLegSimpleMomentum : int
+        {
+            UP_Points,
+            DOWN_Points,
+            UP_PointPercentage,
+            DOWN_PointPercentage,
+            UP_UnderlyingPoints,
+            DOWN_UnderlyingPoints,
+            UP_UnderlyingPointPercentage,
+            DOWN_UnderlyingPointPercentage
+        }
+
+        public enum EnumRangeBreakout : int
+        {
+            High,
+            Low
+        }
+        public enum EnumRangeBreakoutType : int
+        {
+            Underlying,
+            Instrument
         }
     }
 }

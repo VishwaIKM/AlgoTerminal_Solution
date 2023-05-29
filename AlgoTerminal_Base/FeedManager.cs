@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgoTerminal_Base
 {
-    public interface IStaddleManager
+    public class FeedManager
     {
     }
 }

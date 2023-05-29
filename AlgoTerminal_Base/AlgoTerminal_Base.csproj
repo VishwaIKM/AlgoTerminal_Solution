@@ -6,4 +6,16 @@
     <TargetFramework>net7.0-windows</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="FeedC">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\FeedC.dll</HintPath>
+    </Reference>
+    <Reference Include="FeedCM">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\FeedCM.dll</HintPath>
+    </Reference>
+    <Reference Include="LZONET">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\LZONET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
