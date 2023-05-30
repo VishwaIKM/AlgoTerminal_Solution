@@ -100,8 +100,9 @@ namespace AlgoTerminal_Base.Structure
 
         public enum EnumOptiontype : int
         {
-            Call,
-            Put
+            CE,
+            PE,
+            XX
         }
 
         public enum EnumExpiry : int
@@ -123,11 +124,11 @@ namespace AlgoTerminal_Base.Structure
 
         public enum EnumStrikeType : int
         {
-            ITM2,
-            ITM1,
-            ATM,
-            OTM1,
-            OTM2,
+            ITM2 = -2,
+            ITM1 = -1,
+            ATM = 0,
+            OTM1 = 1,
+            OTM2 = 2,
         }
 
         public enum EnumPosition : int

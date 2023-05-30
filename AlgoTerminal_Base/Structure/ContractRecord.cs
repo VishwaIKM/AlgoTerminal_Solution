@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static AlgoTerminal_Base.Structure.EnumDeclaration;
 
 namespace AlgoTerminal_Base.Structure
 {
@@ -10,15 +11,15 @@ namespace AlgoTerminal_Base.Structure
     {
         public record ContractData
         {
-            public string? Expiry;
+            public DateTime Expiry;
             public string? InstrumentType;
-            public int lotSize;
-            public string? trdSymbol;
-            public double strike;
-            public string? symbol;
-            public int TokenID;
-            public string? opttype;
-            public int freezeQnty;
+            public uint LotSize;
+            public string? TrdSymbol;
+            public double Strike;
+            public string? Symbol;
+            public uint TokenID;
+            public EnumOptiontype Opttype;
+            public int FreezeQnty;
         }
     }
 }

@@ -8,5 +8,6 @@ namespace AlgoTerminal_Base
 {
     public class FeedManager
     {
+
     }
 }

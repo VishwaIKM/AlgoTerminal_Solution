@@ -105,7 +105,7 @@ namespace AlgoTerminal_Base.Structure
             public int SelectSegment = (int)EnumSegments.Options;
             public int Lots = 1;
             public int Position = (int)EnumPosition.Buy;
-            public int OptionType = (int)EnumOptiontype.Call;
+            public int OptionType = (int)EnumOptiontype.CE;
             public int Expiry = (int)EnumExpiry.Weekly;
             public int StrikeCriteria = (int)EnumSelectStrikeCriteria.StrikeType;
             public int StrikeType = (int)EnumStrikeType.ATM;

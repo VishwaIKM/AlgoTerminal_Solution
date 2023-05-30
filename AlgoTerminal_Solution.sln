@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoTerminal_Base", "AlgoTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestAlgo", "UnitTestAlgo\UnitTestAlgo.csproj", "{06AD493E-714B-432B-AFCB-3A048FFB9711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedAndContractManager", "FeedManager\FeedAndContractManager.csproj", "{981C25DA-310D-4CC6-99D7-AE4B3100AA79}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.Build.0 = Release|Any CPU
-		{981C25DA-310D-4CC6-99D7-AE4B3100AA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{981C25DA-310D-4CC6-99D7-AE4B3100AA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{981C25DA-310D-4CC6-99D7-AE4B3100AA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{981C25DA-310D-4CC6-99D7-AE4B3100AA79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
