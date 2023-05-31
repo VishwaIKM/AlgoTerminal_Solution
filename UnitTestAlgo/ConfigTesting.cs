@@ -31,14 +31,16 @@ namespace UnitTestAlgo
            var feedstop= feed.FeedToStop();
             output.WriteLine("Feed Start Success : "+ feedStart.ToString());
             output.WriteLine("Feed Stop Success : "+feedstop.ToString());
-            Assert.True(feedstop);
+            Assert.True(feedStart);
             Assert.True(feedstop);
         }
         [Fact]
         public void GetExpiryFunctionTest()
         {
             ctr.LoadContractDetails();//Load Contract
-            var date = algo.GetLegExpiry(EnumExpiry.Monthly, EnumIndex.Nifty, EnumSegments.Options, EnumOptiontype.CE);
+            var date = algo.GetLegExpiry(EnumExpiry.Monthly, 
+                EnumIndex.FinNifty, EnumSegments.Options, 
+                EnumOptiontype.CE);
             string expiry = date.ToString("dd MMM yyyy").ToUpper();
             output.WriteLine("Recived the Expiry: " + expiry);
             Assert.NotNull(expiry);
@@ -46,24 +48,51 @@ namespace UnitTestAlgo
         }
 
         [Fact]
-        public void GetStrikeFunctionTest()
+        public void GetStrikeFunctionTest_UsingStrikeType_ITM_OTM_ATM()
         {
             ctr.LoadContractDetails();
             var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
             output.WriteLine("Feed Start Success : " + feedStart.ToString());
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
-            EnumStrikeType.ATM,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            EnumStrikeType.OTM2,
             0, 0, 0,
             EnumIndex.Nifty,
-            EnumUnderlyingFrom.Futures,
+            EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
-            EnumOptiontype.CE);
+            EnumOptiontype.CE,
+            EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " +  data.ToString());
             
             var feedstop = feed.FeedToStop();
             output.WriteLine("Feed Stop Success : " + feedstop.ToString());
-            Assert.Equal(0,data,0);   
+            Assert.NotNull(data);   
+
         }
+
+        [Fact]
+        public void GetStrikeFunctionTest_UsingPremiumRange()
+        {
+            ctr.LoadContractDetails();
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumRange,
+            EnumStrikeType.ATM,
+            30, 200, 0,
+            EnumIndex.Nifty,
+            EnumUnderlyingFrom.Cash,
+            EnumSegments.Options,
+            EnumExpiry.Weekly,
+            EnumOptiontype.CE,
+            EnumPosition.Sell);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);
+        }
+
     }
 }

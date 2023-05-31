@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Documents;
-using AlgoTerminal_Base.Request;
 using AlgoTerminal_Base.Services;
-using AlgoTerminal_Base.Structure;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using static AlgoTerminal_Base.Structure.EnumDeclaration;
 
 namespace AlgoTerminal_Base.Calculation
@@ -31,35 +27,22 @@ namespace AlgoTerminal_Base.Calculation
             EnumUnderlyingFrom enumUnderlyingFrom,
             EnumSegments enumSegments,
             EnumExpiry enumExpiry,
-            EnumOptiontype enumOptiontype)
+            EnumOptiontype enumOptiontype,
+            EnumPosition enumPosition)
         {
-           
+
             lock (SelectStrikeSettingLock)
             {
-
-                if (_contractDetails.ContractDetailsToken != null)
+                return _strike_criteria switch
                 {
-                    uint Token = _contractDetails
-                           .ContractDetailsToken
-                           .Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper()
-                       && x.Value.Opttype == enumOptiontype
-                       && x.Value.Expiry == GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype))
-                           .Select(x => x.Key)
-                           .FirstOrDefault();
-
-                    return _strike_criteria switch
-                    {
-                        EnumSelectStrikeCriteria.StrikeType => GetStrikeType(_strike_type, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype,Token),
-                        EnumSelectStrikeCriteria.PremiumRange => GetPremiumRange(_premium_lower_range, _premium_upper_range, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
-                        EnumSelectStrikeCriteria.ClosestPremium => GetClosestPremium(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
-                        EnumSelectStrikeCriteria.PremiumGreaterOrEqual => GetPremiumGreaterOrEqual(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
-                        EnumSelectStrikeCriteria.PremiumLessOrEqual => GetPremiumLessOrEqual(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
-                        EnumSelectStrikeCriteria.StraddleWidth => GetStraddleWidth(_premium),//Need to Check StraddleWidth
-                        _ => throw new NotImplementedException(),
-                    };
-                }
-                else
-                    throw new Exception("Contract Not Loaded");
+                    EnumSelectStrikeCriteria.StrikeType => GetStrikeType(_strike_type, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
+                    EnumSelectStrikeCriteria.PremiumRange => GetPremiumRange(_premium_lower_range, _premium_upper_range, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition),
+                    EnumSelectStrikeCriteria.ClosestPremium => GetClosestPremium(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
+                    EnumSelectStrikeCriteria.PremiumGreaterOrEqual => GetPremiumGreaterOrEqual(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
+                    EnumSelectStrikeCriteria.PremiumLessOrEqual => GetPremiumLessOrEqual(_premium, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
+                    EnumSelectStrikeCriteria.StraddleWidth => GetStraddleWidth(_premium),//Need to Check StraddleWidth
+                    _ => throw new NotImplementedException(),
+                };
             }
         }
 
@@ -83,34 +66,73 @@ namespace AlgoTerminal_Base.Calculation
             throw new NotImplementedException();
         }
 
-        private double GetPremiumRange(double premium_lower_range, double premium_upper_range, EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom, EnumSegments enumSegments, EnumExpiry enumExpiry, EnumOptiontype enumOptiontype)
+        private double GetPremiumRange(double premium_lower_range,
+            double premium_upper_range, EnumIndex enumIndex, EnumSegments enumSegments,
+            EnumExpiry enumExpiry, EnumOptiontype enumOptiontype, EnumPosition enumPosition)
         {
-            throw new NotImplementedException();
+            //Closest to High Pre => SELL
+            //Closest to Low Pre => BUY
+            //Range will be diff for call and put
+            if (_contractDetails.ContractDetailsToken == null) throw new Exception("Contract is Initialize");
+            if (_feed.FeedC == null) throw new Exception("Feed is Not Initialize");
+
+            DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
+            uint[] TokenList;
+            if (enumOptiontype == EnumOptiontype.CE)
+                TokenList = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper() &&
+                 x.Value.Opttype == EnumOptiontype.CE
+                 && x.Value.Expiry == exp)
+                    .Select(x => x.Key)
+                    .ToArray();
+            else if (enumOptiontype == EnumOptiontype.PE)
+                TokenList = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper() &&
+                x.Value.Opttype == EnumOptiontype.PE
+                && x.Value.Expiry == exp)
+                   .Select(x => x.Key)
+                   .ToArray();
+            else
+            { throw new NotImplementedException("Option Selection is Invalid" + enumOptiontype); }
+
+            uint[] FeedAvaliableTokenInDic = _feed.FeedC.dcFeedData.Select(x => Convert.ToUInt32(x.Key)).ToArray();
+
+            //Intersection 
+            var FinalTokenSetAfterIntersection = TokenList.Intersect(FeedAvaliableTokenInDic);
+
+            double[] premium = FinalTokenSetAfterIntersection.Select(xx => Convert.ToDouble(_feed.FeedC.dcFeedData[xx].LastTradedPrice)/100.00).Distinct().ToArray();
+
+            double[] PremiumInRange = premium.Where(x => x >= premium_lower_range && x <= premium_upper_range).ToArray();
+            if (PremiumInRange.Length <= 0) throw new Exception("No Strike Found in The Range");
+
+            if (enumPosition == EnumPosition.Buy) return PremiumInRange.Min();
+            if (enumPosition == EnumPosition.Sell) return PremiumInRange.Max();
+
+            throw new Exception("Some Calculation is Missed ==> GetPremiumRange Function");
         }
 
         private double GetStrikeType(EnumStrikeType strike_type,
             EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom,
             EnumSegments enumSegments, EnumExpiry enumExpiry,
-            EnumOptiontype enumOptiontype, uint token)
+            EnumOptiontype enumOptiontype)
         {
             //Call option = Spot Price – Strike Price ()
             //Put option  = Strike Price – Spot price (OPS Direction to Call)
-            if (_contractDetails.ContractDetailsToken !=null && _feed.FeedCM != null && _feed.FeedC != null && _feed.FeedC.dcFeedData != null && enumSegments == EnumSegments.Options)
+            if (_contractDetails.ContractDetailsToken != null && _feed.FeedCM != null && _feed.FeedC != null && _feed.FeedC.dcFeedData != null && enumSegments == EnumSegments.Options)
             {
                 double ATMStrike = 0, SpotPrice = 0, FinalStrike = 0;
                 string Symbol = enumIndex.ToString().ToUpper();
                 if (enumUnderlyingFrom == EnumUnderlyingFrom.Futures)
                 {
-                   DateTime exp =  GetLegExpiry(enumExpiry, enumIndex, EnumSegments.Futures, enumOptiontype);
-                   uint FUTToken =  _contractDetails.ContractDetailsToken.Where(x=>x.Value.Expiry == exp 
-                   && x.Value.Opttype == EnumOptiontype.XX 
-                   && x.Value.Symbol == Symbol)
-                        .Select(s=>s.Key)
-                        .FirstOrDefault();
+                    // Setting to EnumSegments.Futures => get Future Expiry first Month
+                    DateTime exp = GetLegExpiry(enumExpiry, enumIndex, EnumSegments.Futures, enumOptiontype);
+                    uint FUTToken = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                    && x.Value.Opttype == EnumOptiontype.XX
+                    && x.Value.Symbol == Symbol)
+                         .Select(s => s.Key)
+                         .FirstOrDefault();
                     if (FUTToken != 0)
-                        SpotPrice = _feed.FeedC.dcFeedData[FUTToken].LastTradedPrice/100;
+                        SpotPrice = _feed.FeedC.dcFeedData[FUTToken].LastTradedPrice / 100;
                 }
-                else //underlying Fut
+                else
                 {
                     string? SpotString;
                     if (enumIndex == EnumIndex.Nifty) SpotString = "Nifty 50";
@@ -127,19 +149,24 @@ namespace AlgoTerminal_Base.Calculation
                     }
                 }
 
-                var list = _contractDetails.ContractDetailsToken.Where(y=>y.Value.Symbol == Symbol &&
-                y.Value.Opttype == enumOptiontype).Select(x=>x.Value.Strike).ToList().Distinct();
+                var list = _contractDetails.ContractDetailsToken.Where(y => y.Value.Symbol == Symbol &&
+                y.Value.Opttype == enumOptiontype).Select(x => x.Value.Strike).ToList().Distinct();
                 //ATM Strike
                 ATMStrike = list.Aggregate((x, y) => Math.Abs(x - SpotPrice) < Math.Abs(y - SpotPrice) ? x : y);
 
-                if(strike_type == EnumStrikeType.ATM)
+                if (strike_type == EnumStrikeType.ATM)
                     return ATMStrike;
 
                 double[] sorteddata = list.ToArray();
                 Array.Sort(sorteddata);
 
                 int _atmIndex = Array.IndexOf(sorteddata, ATMStrike);
-                int _indexNeedToReturn = _atmIndex + (int)strike_type;
+                int _indexNeedToReturn;
+                if (enumOptiontype == EnumOptiontype.CE)
+                    _indexNeedToReturn = _atmIndex + (int)strike_type;
+                else
+                    _indexNeedToReturn = _atmIndex - (int)strike_type;
+
                 FinalStrike = sorteddata[_indexNeedToReturn];
                 return FinalStrike;
             }
@@ -292,7 +319,7 @@ namespace AlgoTerminal_Base.Calculation
                 if (_contractDetails.ContractDetailsToken == null)
                     throw new Exception("Contract data Not Found");
 
-                if (enumSegments == EnumSegments.Futures)
+                if (enumSegments == EnumSegments.Futures || enumExpiry == EnumExpiry.Monthly)
                 {
                     DateTime[] data = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == Symbol && x.Value.Opttype == EnumOptiontype.XX).Select(x => x.Value.Expiry).ToArray();
                     Array.Sort(data);
@@ -307,7 +334,7 @@ namespace AlgoTerminal_Base.Calculation
                     else if (enumExpiry == EnumExpiry.NextWeekly)
                         return data1[1];
                     else
-                        return data1[2];
+                        throw new Exception("Invalid Expiry Selected");
                 }
                 else
                     throw new Exception("Expiry Not Found");
