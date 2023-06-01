@@ -25,7 +25,7 @@ namespace UnitTestAlgo
         }
 
         [Fact]
-        public void Test1()
+        public void Feed_START_STOP_TEST()
         {
            var feedStart =  feed.InitializeFeedDll();
            var feedstop= feed.FeedToStop();
@@ -80,7 +80,7 @@ namespace UnitTestAlgo
             output.WriteLine("Feed Start Success : " + feedStart.ToString());
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumRange,
             EnumStrikeType.ATM,
-            30, 200, 0,
+            30, 300, 0,
             EnumIndex.Nifty,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
@@ -94,5 +94,96 @@ namespace UnitTestAlgo
             Assert.NotNull(data);
         }
 
+        [Fact]
+        public void GetStrikeFunctionTest_ClosestPremium()
+        {
+            ctr.LoadContractDetails();
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.ClosestPremium,
+            EnumStrikeType.ATM,
+            0, 0, 25,
+            EnumIndex.Nifty,
+            EnumUnderlyingFrom.Cash,
+            EnumSegments.Options,
+            EnumExpiry.Weekly,
+            EnumOptiontype.CE,
+            EnumPosition.Buy);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);
+        }
+
+        [Fact]
+        public void GetStrikeFunctionTest_PremiumGreaterOrEqual()
+        {
+            ctr.LoadContractDetails();
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumGreaterOrEqual,
+            EnumStrikeType.ATM,
+            0, 0, 100,
+            EnumIndex.Nifty,
+            EnumUnderlyingFrom.Cash,
+            EnumSegments.Options,
+            EnumExpiry.Weekly,
+            EnumOptiontype.CE,
+            EnumPosition.Buy);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);
+        }
+
+        [Fact]
+        public void GetStrikeFunctionTest_PremiumLessOrEqual()
+        {
+            ctr.LoadContractDetails();
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumLessOrEqual,
+            EnumStrikeType.ATM,
+            0, 0, 100,
+            EnumIndex.Nifty,
+            EnumUnderlyingFrom.Cash,
+            EnumSegments.Options,
+            EnumExpiry.Weekly,
+            EnumOptiontype.CE,
+            EnumPosition.Buy);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);
+        }
+
+        [Fact]
+        public void GetStrikeFunctionTest_StraddleWidth()
+        {
+            ctr.LoadContractDetails();
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.StraddleWidth,
+            EnumStrikeType.ATM,
+            0, 0, -4.9,
+            EnumIndex.Nifty,
+            EnumUnderlyingFrom.Cash,
+            EnumSegments.Options,
+            EnumExpiry.Weekly,
+            EnumOptiontype.CE,
+            EnumPosition.Buy);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);
+        }
     }
 }
