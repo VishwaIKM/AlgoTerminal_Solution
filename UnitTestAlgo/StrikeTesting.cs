@@ -1,6 +1,6 @@
 ﻿using AlgoTerminal_Base;
 using AlgoTerminal_Base.Calculation;
-using AlgoTerminal_Base.Contract;
+using AlgoTerminal_Base.DataImportFromFile;
 using AlgoTerminal_Base.Request;
 using AlgoTerminal_Base.Response;
 using AlgoTerminal_Base.Services;
@@ -9,7 +9,7 @@ using static AlgoTerminal_Base.Structure.EnumDeclaration;
 
 namespace UnitTestAlgo
 {
-    public class ConfigTesting
+    public class StrikeTesting
     {
        
         private static readonly IContractDetails ctr = new ContractDetails();
@@ -19,7 +19,7 @@ namespace UnitTestAlgo
         private static readonly IAlgoCalculation algo = new AlgoCalculation(ctr, feed);
         private readonly ITestOutputHelper output;
 
-        public ConfigTesting(ITestOutputHelper output)
+        public StrikeTesting(ITestOutputHelper output)
         {
             this.output = output;
         }
@@ -39,7 +39,7 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();//Load Contract
             var date = algo.GetLegExpiry(EnumExpiry.Monthly, 
-                EnumIndex.FinNifty, EnumSegments.Options, 
+                EnumIndex.BankNifty, EnumSegments.Options, 
                 EnumOptiontype.CE);
             string expiry = date.ToString("dd MMM yyyy").ToUpper();
             output.WriteLine("Recived the Expiry: " + expiry);

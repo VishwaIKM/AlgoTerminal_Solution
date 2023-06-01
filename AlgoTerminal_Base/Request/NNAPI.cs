@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgoTerminal_Base
+namespace AlgoTerminal_Base.Request
 {
-    public class FeedManager
+    public class NNAPI
     {
-
     }
 }

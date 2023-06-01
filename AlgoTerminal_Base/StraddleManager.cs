@@ -8,24 +8,17 @@ using AlgoTerminal_Base.Structure;
 
 namespace AlgoTerminal_Base
 {
-    public class StraddleManager
+    public class StraddleManager : IStraddleManager
     {
         #region Members
 
-        public static ConcurrentDictionary<string, StraddleRecords> Master_Dictionary = new();
+        public ConcurrentDictionary<string, StraddleRecords>? Master_Straddle_Dictionary { get; set; }
 
         #endregion
 
-        public StraddleManager()
-        {
-            Master_Dictionary.Clear();
-            LoadAllAvailableStratgy();
-        }
-
         private void LoadAllAvailableStratgy()
         {
-            StraddleRecords straddleRecords = new ();
-            Master_Dictionary.TryAdd("Hello", straddleRecords);
+
         }
     }
 }

@@ -5,6 +5,7 @@ namespace AlgoTerminal_Base.Structure
 {
     public class StraddleRecords
     {
+        #region Stratgy Level Setting ... 
         public record InstrumentSettings
         {
             public int Index = (int)EnumIndex.Nifty;
@@ -21,9 +22,9 @@ namespace AlgoTerminal_Base.Structure
 
             //TimeBased ==> EntryAndExitSetting || OnlyEntrySignalBased==> Below Time Will Be exit based
             public DateTime ExitTime = DateTime.Today.AddHours(15).AddMinutes(15); //Defult
-
+            
             //SignalBases ==> otherSignal
-            public int Signal = (int)EnumSignalType.RSI;
+            public int Signal = (int)EnumSignalType.NONE;
         }
 
         public record LegwiseSLsettings
@@ -64,7 +65,9 @@ namespace AlgoTerminal_Base.Structure
             public double TrailSLMove = 0;
 
         }
+        #endregion
 
+        #region Leg Level Setting ....
         public record LegSetting
         {
             //Leg Setting..
@@ -100,7 +103,7 @@ namespace AlgoTerminal_Base.Structure
 
         }
 
-        public record LegBuilder : LegSetting
+        public record Leg
         {
             public int SelectSegment = (int)EnumSegments.Options;
             public int Lots = 1;
@@ -111,8 +114,9 @@ namespace AlgoTerminal_Base.Structure
             public int StrikeType = (int)EnumStrikeType.ATM;
             public double PremiumRangeLower = 0;
             public double PremiumRangeUpper = 0;
-            public double Premium = 0;
+            public double Premium_or_StraddleWidth = 0;
 
         }
+        #endregion
     }
 }

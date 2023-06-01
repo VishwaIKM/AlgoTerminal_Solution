@@ -21,6 +21,23 @@ namespace AlgoTerminal_Base.Calculation
         #region Strike Setting Only ==> As per EnumDeclaration.EnumSelectStrikeCriteria
 
         private readonly object SelectStrikeSettingLock = new();
+        /// <summary>
+        ///  Provide the strike Value according to the Strike Criteria .
+        /// </summary>
+        /// <param name="_strike_criteria"></param>
+        /// <param name="_strike_type"></param>
+        /// <param name="_premium_lower_range"></param>
+        /// <param name="_premium_upper_range"></param>
+        /// <param name="_premium_or_StraddleValue"></param>
+        /// <param name="enumIndex"></param>
+        /// <param name="enumUnderlyingFrom"></param>
+        /// <param name="enumSegments"></param>
+        /// <param name="enumExpiry"></param>
+        /// <param name="enumOptiontype"></param>
+        /// <param name="enumPosition"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        /// <exception cref="CustumException">Can give Erorr if Contract not loaded, Feed is not initiated or Feed Dic do not have any token Details</exception>
         public double GetStrike(EnumSelectStrikeCriteria _strike_criteria,
             EnumStrikeType _strike_type,
             double _premium_lower_range, double _premium_upper_range, double _premium_or_StraddleValue,
@@ -66,7 +83,7 @@ namespace AlgoTerminal_Base.Calculation
                     .Select(x => x.Key)
                     .ToArray();
             if (Token.Length > 2)
-                throw new Exception("Call and Put Can not have muplitpile value");
+                throw new Exception("Call and Put Can not have muplitpile value -> logic fail :) ");
 
             double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice)/100.00;
             StraddleWidth = ATMStrike + (premium_or_StraddleValue * _ATMStraddleprice);

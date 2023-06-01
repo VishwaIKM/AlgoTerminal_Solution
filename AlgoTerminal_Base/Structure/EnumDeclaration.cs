@@ -13,6 +13,7 @@ namespace AlgoTerminal_Base.Structure
         public enum EnumSignalType : int
         {
             //Sample
+            NONE,
             RSI,
             EMA
         }
