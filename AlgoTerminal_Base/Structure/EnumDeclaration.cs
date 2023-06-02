@@ -8,6 +8,7 @@ namespace AlgoTerminal_Base.Structure
 {
     public class EnumDeclaration
     {
+        public enum EnumLogType { Warning, Error, Success, Info, Buy, Sell, Response };
         public enum EnumEntryAndExit : int { TimeBased, SignalBased, OnlyEntrySignalBased }
 
         public enum EnumSignalType : int
