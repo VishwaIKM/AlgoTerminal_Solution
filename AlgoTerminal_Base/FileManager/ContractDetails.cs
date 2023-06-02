@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using static AlgoTerminal_Base.Structure.EnumDeclaration;
 
-namespace AlgoTerminal_Base.DataImportFromFile
+namespace AlgoTerminal_Base.FileManager
 {
     public class ContractDetails : IContractDetails
     {

@@ -5,6 +5,9 @@ namespace AlgoTerminal_Base.Services
 {
     public interface IStraddleManager
     {
-        ConcurrentDictionary<string, StraddleRecords>? Master_Straddle_Dictionary { get; set; }
+        ConcurrentDictionary<string, StrategyDetails>? Master_Straddle_Dictionary { get; set; }
+        ConcurrentDictionary<string, ConcurrentDictionary<string, LegDetails>>? Straddle_LegDetails_Dictionary { get; set; }
+
+        void CheckMovement();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AlgoTerminal_Base;
 using AlgoTerminal_Base.Calculation;
-using AlgoTerminal_Base.DataImportFromFile;
+using AlgoTerminal_Base.FileManager;
 using AlgoTerminal_Base.Request;
 using AlgoTerminal_Base.Response;
 using AlgoTerminal_Base.Services;
@@ -39,7 +39,7 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();//Load Contract
             var date = algo.GetLegExpiry(EnumExpiry.Monthly, 
-                EnumIndex.BankNifty, EnumSegments.Options, 
+                EnumIndex.BANKNIFTY, EnumSegments.Options, 
                 EnumOptiontype.CE);
             string expiry = date.ToString("dd MMM yyyy").ToUpper();
             output.WriteLine("Recived the Expiry: " + expiry);
@@ -57,7 +57,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
             EnumStrikeType.OTM2,
             0, 0, 0,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
@@ -81,7 +81,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumRange,
             EnumStrikeType.ATM,
             30, 300, 0,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
@@ -104,7 +104,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.ClosestPremium,
             EnumStrikeType.ATM,
             0, 0, 25,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
@@ -127,7 +127,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumGreaterOrEqual,
             EnumStrikeType.ATM,
             0, 0, 100,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
@@ -150,7 +150,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumLessOrEqual,
             EnumStrikeType.ATM,
             0, 0, 100,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,
@@ -173,7 +173,7 @@ namespace UnitTestAlgo
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.StraddleWidth,
             EnumStrikeType.ATM,
             0, 0, -4.9,
-            EnumIndex.Nifty,
+            EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
             EnumSegments.Options,
             EnumExpiry.Weekly,

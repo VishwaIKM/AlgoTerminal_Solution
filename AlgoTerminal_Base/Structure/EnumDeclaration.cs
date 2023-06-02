@@ -19,10 +19,10 @@ namespace AlgoTerminal_Base.Structure
         }
         public enum EnumIndex : int
         {
-            None = 0,
-            Nifty = 1,
-            BankNifty = 2,
-            FinNifty = 3
+            NONE = 0,
+            NIFTY = 1,
+            BANKNIFTY = 2,
+            FINNIFTY = 3
         }
 
         public enum EnumUnderlyingFrom : int

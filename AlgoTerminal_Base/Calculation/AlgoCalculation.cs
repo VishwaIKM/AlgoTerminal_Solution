@@ -117,9 +117,9 @@ namespace AlgoTerminal_Base.Calculation
                 else
                 {
                     string? SpotString;
-                    if (enumIndex == EnumIndex.Nifty) SpotString = "Nifty 50";
-                    else if (enumIndex == EnumIndex.BankNifty) SpotString = "Nifty Bank";
-                    else if (enumIndex == EnumIndex.FinNifty) SpotString = "Nifty Fin Service";
+                    if (enumIndex == EnumIndex.NIFTY) SpotString = "Nifty 50";
+                    else if (enumIndex == EnumIndex.BANKNIFTY) SpotString = "Nifty Bank";
+                    else if (enumIndex == EnumIndex.FINNIFTY) SpotString = "Nifty Fin Service";
                     else SpotString = null;
                     if (SpotString == null)
                         throw new Exception();
