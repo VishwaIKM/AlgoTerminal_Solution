@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfKeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+    <Key>Nifty Fin Service</Key>
+    <Value>
+      <IndexName>TmlmdHkgRmluIFNlcnZpY2UgICAg</IndexName>
+      <IndexValue>19481.6</IndexValue>
+      <HighIndexValue>19512.6</HighIndexValue>
+      <LowIndexValue>19453.05</LowIndexValue>
+      <OpeningIndex>19453.5</OpeningIndex>
+      <ClosingIndex>19368.2</ClosingIndex>
+      <PercentChange>0.5854958127239351</PercentChange>
+      <YearlyHigh>19636.9</YearlyHigh>
+      <YearlyLow>14857.3</YearlyLow>
+      <NoOfUpMoves>96682</NoOfUpMoves>
+      <NoOfDownMoves>96347</NoOfDownMoves>
+      <MarketCapitalisation>0</MarketCapitalisation>
+      <NetChangeIndicator>43</NetChangeIndicator>
+      <FILLER>32</FILLER>
+    </Value>
+  </KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+  <KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+    <Key>Nifty Bank</Key>
+    <Value>
+      <IndexName>TmlmdHkgQmFuayAgICAgICAgICAg</IndexName>
+      <IndexValue>44189.3</IndexValue>
+      <HighIndexValue>44263.45</HighIndexValue>
+      <LowIndexValue>44101.25</LowIndexValue>
+      <OpeningIndex>44103.25</OpeningIndex>
+      <ClosingIndex>43937.85</ClosingIndex>
+      <PercentChange>0.5722856261742626</PercentChange>
+      <YearlyHigh>44498.6</YearlyHigh>
+      <YearlyLow>32290.55</YearlyLow>
+      <NoOfUpMoves>73028</NoOfUpMoves>
+      <NoOfDownMoves>73824</NoOfDownMoves>
+      <MarketCapitalisation>0</MarketCapitalisation>
+      <NetChangeIndicator>43</NetChangeIndicator>
+      <FILLER>32</FILLER>
+    </Value>
+  </KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+  <KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+    <Key>India VIX</Key>
+    <Value>
+      <IndexName>SW5kaWEgVklYICAgICAgICAgICAg</IndexName>
+      <IndexValue>11.1</IndexValue>
+      <HighIndexValue>11.34</HighIndexValue>
+      <LowIndexValue>10.32</LowIndexValue>
+      <OpeningIndex>11.13</OpeningIndex>
+      <ClosingIndex>11.13</ClosingIndex>
+      <PercentChange>-0.26954177897574594</PercentChange>
+      <YearlyHigh>28.13</YearlyHigh>
+      <YearlyLow>8.18</YearlyLow>
+      <NoOfUpMoves>1939</NoOfUpMoves>
+      <NoOfDownMoves>1957</NoOfDownMoves>
+      <MarketCapitalisation>0</MarketCapitalisation>
+      <NetChangeIndicator>45</NetChangeIndicator>
+      <FILLER>32</FILLER>
+    </Value>
+  </KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+  <KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+    <Key>Nifty 50</Key>
+    <Value>
+      <IndexName>TmlmdHkgNTAgICAgICAgICAgICAg</IndexName>
+      <IndexValue>18619.65</IndexValue>
+      <HighIndexValue>18640.15</HighIndexValue>
+      <LowIndexValue>18582.8</LowIndexValue>
+      <OpeningIndex>18612</OpeningIndex>
+      <ClosingIndex>18534.1</ClosingIndex>
+      <PercentChange>0.461581625220564</PercentChange>
+      <YearlyHigh>18887.6</YearlyHigh>
+      <YearlyLow>15183.4</YearlyLow>
+      <NoOfUpMoves>270357</NoOfUpMoves>
+      <NoOfDownMoves>272363</NoOfDownMoves>
+      <MarketCapitalisation>0</MarketCapitalisation>
+      <NetChangeIndicator>43</NetChangeIndicator>
+      <FILLER>32</FILLER>
+    </Value>
+  </KeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>
+</ArrayOfKeyValue2OfStringMULTIPLE_INDEX_BCAST_REC_7207>

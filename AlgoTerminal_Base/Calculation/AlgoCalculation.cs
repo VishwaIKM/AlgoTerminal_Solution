@@ -84,7 +84,7 @@ namespace AlgoTerminal_Base.Calculation
                     .ToArray();
             if (Token.Length > 2)
                 throw new Exception("Call and Put Can not have muplitpile value -> logic fail :) ");
-
+            
             double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice)/100.00;
             StraddleWidth = ATMStrike + (premium_or_StraddleValue * _ATMStraddleprice);
             uint nearest = _contractDetails.ContractDetailsToken[Token[0]].LotSize;

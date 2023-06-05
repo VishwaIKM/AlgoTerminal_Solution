@@ -16,13 +16,26 @@ namespace AlgoTerminal_Base.FileManager
         private static readonly string DefultContractPath = "C:\\CON_AKJ\\NSE_FO_contract_" + DateTime.Now.ToString("ddMMyyyy") + ".csv";
         private static readonly DirectoryInfo Info = new DirectoryInfo("C:\\CON_AKJ\\");
         private static readonly FileInfo[] filePaths = Info.GetFiles().OrderByDescending(p => p.CreationTime).Where(x => x.Name.Contains("NSE_FO_contract_") && x.Name.Contains(".csv")).ToArray();
-        private static readonly string S_Contract_File_Path = filePaths.Count() <= 0 ? DefultContractPath : filePaths[0].FullName;
+        private static string S_Contract_File_Path = filePaths.Count() <= 0 ? DefultContractPath : filePaths[0].FullName;
 
         #endregion
 
+        /// <summary>
+        /// Access of Contract Details Where Key is uint==>TOKEN
+        /// </summary>
+        /// 
+
+        #region Properties and Methods
         public ConcurrentDictionary<uint, ContractRecord.ContractData>? ContractDetailsToken { get; set; }
+        /// <summary>
+        /// Load Contract Details. The Path need to Manage Manually for now For Unit Test and Live.
+        /// </summary>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="ContractLoadingFailed_Exception"></exception>
         public void LoadContractDetails()
         {
+            //Below Contract for UnitTestCaseOnly
+            S_Contract_File_Path = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\NSE_FO_contract_01062023.csv";
             //Exception will handle in Invoke Method LvL
             if (ContractDetailsToken != null)
             {
@@ -98,7 +111,12 @@ namespace AlgoTerminal_Base.FileManager
             if (ContractDetailsToken == null)
                 throw new ContractLoadingFailed_Exception("Contract Not loaded. Probability is Contract file is blank or Used by another Process.");
         }
-
+        /// <summary>
+        /// Get Contract Details By Token
+        /// </summary>
+        /// <param name="Token"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public ContractRecord.ContractData? GetContractDetailsByToken(uint Token)
         {
             if (ContractDetailsToken == null)
@@ -109,7 +127,12 @@ namespace AlgoTerminal_Base.FileManager
 
             return null;
         }
-
+        /// <summary>
+        /// Get By Trading Symbol
+        /// </summary>
+        /// <param name="TradingSymbol"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public ContractRecord.ContractData? GetContractDetailsByTradingSymbol(string TradingSymbol)
         {
             if (ContractDetailsToken == null)
@@ -118,6 +141,6 @@ namespace AlgoTerminal_Base.FileManager
             ContractRecord.ContractData value = ContractDetailsToken.Where(x => x.Value.TrdSymbol == TradingSymbol).Select(x => x.Value).First();
             return value;
         }
-
+        #endregion
     }
 }

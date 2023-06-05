@@ -11,8 +11,12 @@ namespace AlgoTerminal_Base.FileManager
 {
     public class LogFileWriter : ILogFileWriter
     {
+        #region Members
         BlockingCollection<Param>? _blocking_collection { get; set; }
         private StreamWriter? _back_log_writer;
+        #endregion
+
+        #region Methods for Log Files
 
         /// <summary>
         /// Begin the TASK
@@ -149,6 +153,7 @@ namespace AlgoTerminal_Base.FileManager
         {
             _blocking_collection.CompleteAdding();
         }
+        #endregion
     }
     /// <summary>
     /// Blocking collection data structure

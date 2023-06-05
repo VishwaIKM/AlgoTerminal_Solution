@@ -4,6 +4,7 @@ using AlgoTerminal_Base.FileManager;
 using AlgoTerminal_Base.Request;
 using AlgoTerminal_Base.Response;
 using AlgoTerminal_Base.Services;
+using AlgoTerminal_Base.UnitTest_Resource;
 using Xunit.Abstractions;
 using static AlgoTerminal_Base.Structure.EnumDeclaration;
 
@@ -11,18 +12,38 @@ namespace UnitTestAlgo
 {
     public class StrikeTesting
     {
-       
+        //
+        //NOTE:- The Below Test Case will run on OLD Database of Contract and Feed Already loaded in ==>()==> D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources
+        // The Above Case can be run in 
+        // Live Feed also use the Comment Code
+        //
         private static readonly IContractDetails ctr = new ContractDetails();
-        static FeedCB_C _C = new();
-        static FeedCB_CM _CM = new();
+        static readonly FeedCB_C _C = new();
+        static readonly FeedCB_CM _CM = new();
         private static readonly IFeed feed = new Feed(_C, _CM, ctr);
         private static readonly IAlgoCalculation algo = new AlgoCalculation(ctr, feed);
         private readonly ITestOutputHelper output;
+        private readonly IFeedLoaderToXml feedLoader = new FeedLoaderToXml(feed,_C, _CM);
 
         public StrikeTesting(ITestOutputHelper output)
         {
             this.output = output;
         }
+
+        /// <summary>
+        /// The Below Function To restore The Feed Data Incase Remove NOTE===>()==> all calculation need to be done again if Contract and feed data Updated
+        /// </summary>
+        //
+        //[Fact]
+        //public void Feed_DataStore()
+        //{
+        //    var feedStart = feed.InitializeFeedDll();
+        //    output.WriteLine("Feed Start Success : " + feedStart.ToString());
+        //    Thread.Sleep(100000);
+        //    feedLoader.SaveDicData();
+        //    var feedstop = feed.FeedToStop();
+        //    output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+        //}
 
         [Fact]
         public void Feed_START_STOP_TEST()
@@ -50,12 +71,15 @@ namespace UnitTestAlgo
         [Fact]
         public void GetStrikeFunctionTest_UsingStrikeType_ITM_OTM_ATM()
         {
+            //Commented code for live Feed
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            //var feedStart = feed.InitializeFeedDll();
+            // Thread.Sleep(10000);
+            //output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
+          
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
-            EnumStrikeType.OTM2,
+            EnumStrikeType.ATM,
             0, 0, 0,
             EnumIndex.NIFTY,
             EnumUnderlyingFrom.Cash,
@@ -65,9 +89,10 @@ namespace UnitTestAlgo
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " +  data.ToString());
             
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
-            Assert.NotNull(data);   
+            // var feedstop = feed.FeedToStop();
+            //output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.NotNull(data);  
+            Assert.Equal(data, 18600);
 
         }
 
@@ -75,9 +100,7 @@ namespace UnitTestAlgo
         public void GetStrikeFunctionTest_UsingPremiumRange()
         {
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumRange,
             EnumStrikeType.ATM,
             30, 300, 0,
@@ -88,19 +111,15 @@ namespace UnitTestAlgo
             EnumOptiontype.CE,
             EnumPosition.Sell);
             output.WriteLine("Recived the Strike: " + data.ToString());
-
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
             Assert.NotNull(data);
+            Assert.Equal(data, 18400);
         }
 
         [Fact]
         public void GetStrikeFunctionTest_ClosestPremium()
         {
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.ClosestPremium,
             EnumStrikeType.ATM,
             0, 0, 25,
@@ -112,8 +131,7 @@ namespace UnitTestAlgo
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.Equal(data, 18750);
             Assert.NotNull(data);
         }
 
@@ -121,9 +139,7 @@ namespace UnitTestAlgo
         public void GetStrikeFunctionTest_PremiumGreaterOrEqual()
         {
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumGreaterOrEqual,
             EnumStrikeType.ATM,
             0, 0, 100,
@@ -135,8 +151,7 @@ namespace UnitTestAlgo
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+            Assert.Equal(data, 18550);
             Assert.NotNull(data);
         }
 
@@ -144,9 +159,7 @@ namespace UnitTestAlgo
         public void GetStrikeFunctionTest_PremiumLessOrEqual()
         {
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumLessOrEqual,
             EnumStrikeType.ATM,
             0, 0, 100,
@@ -158,18 +171,15 @@ namespace UnitTestAlgo
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
             Assert.NotNull(data);
+            Assert.Equal(data, 18600);
         }
 
         [Fact]
         public void GetStrikeFunctionTest_StraddleWidth()
         {
             ctr.LoadContractDetails();
-            var feedStart = feed.InitializeFeedDll();
-            Thread.Sleep(10000);
-            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+            feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
             double? data = algo.GetStrike(EnumSelectStrikeCriteria.StraddleWidth,
             EnumStrikeType.ATM,
             0, 0, -4.9,
@@ -181,9 +191,8 @@ namespace UnitTestAlgo
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
-            var feedstop = feed.FeedToStop();
-            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
             Assert.NotNull(data);
+            Assert.Equal(data, 17850);
         }
     }
 }

@@ -120,4 +120,8 @@ namespace AlgoTerminal_Base.Structure
     }
 
     #endregion
+
+    #region Strategy Runing Status..
+
+    #endregion
 }

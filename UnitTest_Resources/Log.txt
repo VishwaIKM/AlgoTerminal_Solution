@@ -1,0 +1,9 @@
+[02:13:12][Error] On Line 4 Invalid Strategy Index
+[02:16:16][Error] On Line 4 Error : Cash
+[02:16:16][Error] On Line 4 Error : Intraday
+[02:16:17][Warning] On Line 4 Error : TimeBased
+[02:16:18][Warning] On Line 4 Error : None
+[02:19:32][Error] On Line 4 Error : Cash
+[02:19:32][Error] On Line 4 Error : Intraday
+[02:19:32][Warning] On Line 4 Error : TimeBased
+[02:19:32][Warning] On Line 4 Error : None
