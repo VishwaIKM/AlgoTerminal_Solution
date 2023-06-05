@@ -69,6 +69,12 @@ namespace AlgoTerminal_Base.Structure
         public double Trailprofitby = 0;
         public double TrailAmountMove = 0;
         public double TrailSLMove = 0;
+
+        //fields after Calculation
+        public double _overAllStopLossValue = 0;
+        public double _overAllTargetValue = 0;
+        public double _overAllStopLossReEntry = 0;
+        public double _overAllReEntryTargetValue = 0;
     }
     public class LegDetails
     {
@@ -96,7 +102,7 @@ namespace AlgoTerminal_Base.Structure
         public double ReEntryOnSL = 0;
 
         public bool IsSimpleMomentumEnable = false;
-        public EnumLegSimpleMomentum SettingSimpleMomentum = EnumLegSimpleMomentum.UP_Points;
+        public EnumLegSimpleMomentum SettingSimpleMomentum = EnumLegSimpleMomentum.Points;
         public double SimpleMomentum = 0;
 
         public bool IsRangeBreakOutEnable = false;
@@ -117,11 +123,18 @@ namespace AlgoTerminal_Base.Structure
         public double PremiumRangeUpper = 0;
         public double Premium_or_StraddleWidth = 0;
 
+
+        //fields after Calculation
+
+        public double _targetValue = 0;
+        public double _stopLossValue = 0;
+        public double _trailSlStoplossValue = 0;
+        public double _reEntryTargetValue = 0;
+        public double _reEntryOnStopLossValue = 0;
+        public double _SimpleMovementumValue = 0;
+
     }
 
     #endregion
 
-    #region Strategy Runing Status..
-
-    #endregion
 }

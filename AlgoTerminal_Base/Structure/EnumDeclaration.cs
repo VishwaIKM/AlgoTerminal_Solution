@@ -218,14 +218,10 @@ namespace AlgoTerminal_Base.Structure
 
         public enum EnumLegSimpleMomentum : int
         {
-            UP_Points,
-            DOWN_Points,
-            UP_PointPercentage,
-            DOWN_PointPercentage,
-            UP_UnderlyingPoints,
-            DOWN_UnderlyingPoints,
-            UP_UnderlyingPointPercentage,
-            DOWN_UnderlyingPointPercentage
+            Points,
+            PointPercentage,
+            UnderlyingPoints,
+            UnderlyingPointPercentage
         }
 
         public enum EnumRangeBreakout : int

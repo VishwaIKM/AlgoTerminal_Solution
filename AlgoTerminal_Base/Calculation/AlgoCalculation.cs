@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Documents;
 using AlgoTerminal_Base.Services;
 using static AlgoTerminal_Base.Structure.EnumDeclaration;
@@ -9,8 +11,8 @@ namespace AlgoTerminal_Base.Calculation
 {
     public class AlgoCalculation : IAlgoCalculation
     {
-        private IContractDetails _contractDetails;
-        private IFeed _feed;
+        private readonly IContractDetails _contractDetails;
+        private readonly IFeed _feed;
 
         public AlgoCalculation(IContractDetails contractDetails, IFeed feed)
         {
@@ -64,8 +66,8 @@ namespace AlgoTerminal_Base.Calculation
             }
         }
 
-        private double GetStraddleWidth(double premium_or_StraddleValue, EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom, 
-            EnumSegments enumSegments, EnumExpiry enumExpiry, EnumOptiontype enumOptiontype, EnumPosition enumPosition, 
+        private double GetStraddleWidth(double premium_or_StraddleValue, EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom,
+            EnumSegments enumSegments, EnumExpiry enumExpiry, EnumOptiontype enumOptiontype, EnumPosition enumPosition,
             EnumSelectStrikeCriteria strike_criteria)
         {
             //ATM Strike +/- (value)*(Call LTP + Put LTP)
@@ -84,8 +86,8 @@ namespace AlgoTerminal_Base.Calculation
                     .ToArray();
             if (Token.Length > 2)
                 throw new Exception("Call and Put Can not have muplitpile value -> logic fail :) ");
-            
-            double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice)/100.00;
+
+            double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice) / 100.00;
             StraddleWidth = ATMStrike + (premium_or_StraddleValue * _ATMStraddleprice);
             uint nearest = _contractDetails.ContractDetailsToken[Token[0]].LotSize;
             double StraddleWidthNearestStrike = (double)Math.Round(StraddleWidth / nearest) * nearest;
@@ -204,15 +206,15 @@ namespace AlgoTerminal_Base.Calculation
                 List<double> list = premium.ToList();
                 index = Array.IndexOf(premium, list.Aggregate((x, y) => Math.Abs(x - _premium) < Math.Abs(y - _premium) ? x : y));
             }
-            else if(enumSelectStrikeCriteria == EnumSelectStrikeCriteria.PremiumGreaterOrEqual)
+            else if (enumSelectStrikeCriteria == EnumSelectStrikeCriteria.PremiumGreaterOrEqual)
             {
                 double[] PremiumInRange = premium.Where(x => x >= _premium).ToArray();
                 if (PremiumInRange.Length <= 0) throw new Exception("No Strike Found with in provided Range");
                 index = Array.IndexOf(premium, PremiumInRange.Min());
             }
-            else if(enumSelectStrikeCriteria == EnumSelectStrikeCriteria.PremiumLessOrEqual)
+            else if (enumSelectStrikeCriteria == EnumSelectStrikeCriteria.PremiumLessOrEqual)
             {
-                double[] PremiumInRange = premium.Where(x =>x <= _premium).ToArray();
+                double[] PremiumInRange = premium.Where(x => x <= _premium).ToArray();
                 if (PremiumInRange.Length <= 0) throw new Exception("No Strike Found with in provided Range");
                 index = Array.IndexOf(premium, PremiumInRange.Max());
             }
@@ -231,7 +233,7 @@ namespace AlgoTerminal_Base.Calculation
 
         #region Get StopLoss for Leg
 
-        private readonly object _sllock = new object();
+        private readonly object _sllock = new();
         public double GetLegStopLoss(EnumLegSL enumLegSL,
             double entryPrice,
             EnumOptiontype enumOptiontype, EnumPosition enumPosition)
@@ -398,59 +400,97 @@ namespace AlgoTerminal_Base.Calculation
         #region Get Simple Momentum
         private readonly object _mvlock = new();
         public double GetLegMomentumlock(EnumLegSimpleMomentum enumLegSimpleMomentum,
-            double MomentumPrice,
-            double CurrentPriceForStrike)
+            double momentumPrice,
+            EnumIndex enumIndex,
+            EnumExpiry enumExpiry,
+            double selectedStrike,
+            EnumOptiontype enumOptiontype,
+            EnumSegments enumSegments)
         {
             lock (_mvlock)
             {
+
+                if (_contractDetails.ContractDetailsToken == null)
+                    throw new Exception("Contract is Null");
+
+                if (_feed.FeedC == null)
+                    throw new Exception("Feed FO is NULL");
+
+                if (_feed.FeedCM == null)
+                    throw new Exception("Feed CM is NULL");
+
+                //get expiry
+                DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
+                double _current_Price = 0;
+                if (enumLegSimpleMomentum == EnumLegSimpleMomentum.Points || enumLegSimpleMomentum == EnumLegSimpleMomentum.PointPercentage)
+                {
+                    //get Token 
+                    uint Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                    && x.Value.Opttype == enumOptiontype
+                    && x.Value.Symbol == enumIndex.ToString().ToUpper()
+                    && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
+                    //get Price
+                    _current_Price = Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice / 100.00);
+                }
+                else if (enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPoints || enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPointPercentage)
+                {
+                    string? SpotString;
+                    if (enumIndex == EnumIndex.NIFTY) SpotString = "Nifty 50";
+                    else if (enumIndex == EnumIndex.BANKNIFTY) SpotString = "Nifty Bank";
+                    else if (enumIndex == EnumIndex.FINNIFTY) SpotString = "Nifty Fin Service";
+                    else SpotString = null;
+                    if (SpotString == null)
+                        throw new Exception();
+
+                    if (_feed.FeedCM.dcFeedDataIdx.TryGetValue(SpotString, out FeedCM.MULTIPLE_INDEX_BCAST_REC_7207 valueCM))
+                    {
+                        var feeddata = valueCM;
+                        _current_Price = feeddata.IndexValue;
+                    }
+                }
+                else
+                    throw new Exception("Invalid Option Selected");
+
+                if (_current_Price <= 0)
+                    throw new Exception("Invalid Price Fetched from Feed");
+
+
                 return enumLegSimpleMomentum switch
                 {
-                    EnumLegSimpleMomentum.UP_Points => GetLegSimpleMomentumUP_Points(MomentumPrice, CurrentPriceForStrike),
-                    EnumLegSimpleMomentum.DOWN_Points => GetLegSimpleMomentumDOWN_Points(MomentumPrice, CurrentPriceForStrike),
-                    EnumLegSimpleMomentum.UP_PointPercentage => GetLegSimpleMomentumUP_PointPercentage(MomentumPrice, CurrentPriceForStrike),
-                    EnumLegSimpleMomentum.DOWN_PointPercentage => GetLegSimpleMomentumDOWN_PointPercentage(MomentumPrice, CurrentPriceForStrike),
-                    EnumLegSimpleMomentum.UP_UnderlyingPoints => GetLegSimpleMomentumUP_UnderlyingPoints(MomentumPrice, CurrentPriceForStrike),
-                    EnumLegSimpleMomentum.DOWN_UnderlyingPointPercentage => GetLegSimpleDOWN_UnderlyingPointPercentage(MomentumPrice, CurrentPriceForStrike),
+                    EnumLegSimpleMomentum.Points => GetLegSimpleMomentum_Points(momentumPrice, _current_Price),
+                    EnumLegSimpleMomentum.PointPercentage => GetLegSimpleMomentum_PointPercentage(momentumPrice, _current_Price),
+                    EnumLegSimpleMomentum.UnderlyingPoints => GetLegSimpleMomentum_UnderlyingPoints(momentumPrice, _current_Price),
+                    EnumLegSimpleMomentum.UnderlyingPointPercentage => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
                     _ => throw new NotImplementedException(),
                 };
             }
         }
 
-        private double GetLegSimpleDOWN_UnderlyingPointPercentage(double momentumPrice, double currentPriceForStrike)
+        private double GetLegSimple_UnderlyingPointPercentage(double momentumPrice, double currentPriceForStrike)
         {
-            throw new NotImplementedException();
+
+            return currentPriceForStrike + (currentPriceForStrike * momentumPrice) / 100;
         }
 
-        private double GetLegSimpleMomentumUP_UnderlyingPoints(double momentumPrice, double currentPriceForStrike)
+        private double GetLegSimpleMomentum_UnderlyingPoints(double momentumPrice, double currentPriceForStrike)
         {
-            throw new NotImplementedException();
+            return currentPriceForStrike + momentumPrice;
         }
 
-        private double GetLegSimpleMomentumDOWN_PointPercentage(double momentumPrice, double currentPriceForStrike)
+        private double GetLegSimpleMomentum_PointPercentage(double momentumPrice, double currentPriceForStrike)
         {
-            throw new NotImplementedException();
+            return currentPriceForStrike + (currentPriceForStrike * momentumPrice) / 100;
         }
 
-        private double GetLegSimpleMomentumUP_PointPercentage(double momentumPrice, double currentPriceForStrike)
+        private double GetLegSimpleMomentum_Points(double momentumPrice, double currentPriceForStrike)
         {
-            throw new NotImplementedException();
-        }
-
-        private double GetLegSimpleMomentumDOWN_Points(double momentumPrice, double currentPriceForStrike)
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetLegSimpleMomentumUP_Points(double momentumPrice, double currentPriceForStrike)
-        {
-            throw new NotImplementedException();
+            return currentPriceForStrike + momentumPrice;
         }
 
         #endregion
 
         #region Get RangeBreakOut
 
-        private readonly object _RBOlock = new();
 
         /// <summary>
         /// Range Required for find High and Low price for strike
@@ -460,25 +500,68 @@ namespace AlgoTerminal_Base.Calculation
         /// <param name="DataSetOfPrice"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public double GetRangeBreaKOut(EnumRangeBreakout enumRangeBreakout, EnumRangeBreakoutType enumRangeBreakoutType, List<double> DataSetOfPrice)
+        public async Task<double> GetRangeBreaKOut(EnumRangeBreakout enumRangeBreakout,
+            EnumRangeBreakoutType enumRangeBreakoutType,
+            DateTime RangeBreakOutEndTime,
+            EnumIndex enumIndex,
+            EnumSegments enumSegments,
+            EnumExpiry enumExpiry,
+            EnumOptiontype enumOptiontype, double selectedStrike)
         {
-            lock (_RBOlock)
+            if (_contractDetails.ContractDetailsToken == null)
+                throw new Exception("Contract is Null");
+
+            if (_feed.FeedC == null)
+                throw new Exception("Feed FO is NULL");
+
+            if (_feed.FeedCM == null)
+                throw new Exception("Feed CM is NULL");
+
+            //get expiry
+            DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
+            double _current_Price = 0;
+            if (enumRangeBreakoutType == EnumRangeBreakoutType.Instrument)
             {
-                return enumRangeBreakoutType switch
-                {
-                    EnumRangeBreakoutType.Underlying => GetRangeBreaKOutUnderlying(enumRangeBreakout, DataSetOfPrice),
-                    EnumRangeBreakoutType.Instrument => GetRangeBreaKOutInstrument(enumRangeBreakout, DataSetOfPrice),
-                    _ => throw new NotImplementedException(),
-                };
+                //get Token 
+                uint Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                && x.Value.Opttype == enumOptiontype
+                && x.Value.Symbol == enumIndex.ToString().ToUpper()
+                && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
+                //get Price
+                _current_Price = Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice / 100.00);
             }
+            else if (enumRangeBreakoutType == EnumRangeBreakoutType.Underlying)
+            {
+                string? SpotString;
+                if (enumIndex == EnumIndex.NIFTY) SpotString = "Nifty 50";
+                else if (enumIndex == EnumIndex.BANKNIFTY) SpotString = "Nifty Bank";
+                else if (enumIndex == EnumIndex.FINNIFTY) SpotString = "Nifty Fin Service";
+                else SpotString = null;
+                if (SpotString == null)
+                    throw new Exception();
+
+                if (_feed.FeedCM.dcFeedDataIdx.TryGetValue(SpotString, out FeedCM.MULTIPLE_INDEX_BCAST_REC_7207 valueCM))
+                {
+                    var feeddata = valueCM;
+                    _current_Price = feeddata.IndexValue;
+                }
+            }
+            else
+                throw new Exception("Invalid Option Selected");
+            return enumRangeBreakoutType switch
+            {
+                EnumRangeBreakoutType.Underlying => await GetRangeBreaKOutUnderlying(enumRangeBreakout),
+                EnumRangeBreakoutType.Instrument => await GetRangeBreaKOutInstrument(enumRangeBreakout),
+                _ => throw new NotImplementedException(),
+            };
         }
 
-        private double GetRangeBreaKOutInstrument(EnumRangeBreakout enumRangeBreakout, List<double> dataSetOfPrice)
+        private async Task<double> GetRangeBreaKOutInstrument(EnumRangeBreakout enumRangeBreakout)
         {
             throw new NotImplementedException();
         }
 
-        private double GetRangeBreaKOutUnderlying(EnumRangeBreakout enumRangeBreakout, List<double> dataSetOfPrice)
+        private async Task<double> GetRangeBreaKOutUnderlying(EnumRangeBreakout enumRangeBreakout)
         {
             throw new NotImplementedException();
         }

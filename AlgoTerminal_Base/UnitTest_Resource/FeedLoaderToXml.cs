@@ -11,6 +11,10 @@ using System.Xml.Serialization;
 
 namespace AlgoTerminal_Base.UnitTest_Resource
 {
+
+    /// <summary>
+    /// NOTE THIS CLASS FOR ONLY TESTING DOES NOT HAVE ANY LINK WITH APPLICATION BUSINESS LOGIC
+    /// </summary>
     public class FeedLoaderToXml : IFeedLoaderToXml
     {
         private readonly IFeed feed;
