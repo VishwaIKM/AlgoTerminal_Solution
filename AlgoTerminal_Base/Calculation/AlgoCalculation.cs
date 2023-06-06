@@ -422,7 +422,7 @@ namespace AlgoTerminal_Base.Calculation
                 //get expiry
                 DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
                 double _current_Price = 0;
-                if (enumLegSimpleMomentum == EnumLegSimpleMomentum.Points || enumLegSimpleMomentum == EnumLegSimpleMomentum.PointPercentage)
+                if (enumLegSimpleMomentum == EnumLegSimpleMomentum.Points || enumLegSimpleMomentum == EnumLegSimpleMomentum.PointPercentage || enumSegments == EnumSegments.Futures)
                 {
                     //get Token 
                     uint Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
@@ -519,16 +519,23 @@ namespace AlgoTerminal_Base.Calculation
 
             //get expiry
             DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
-            double _current_Price = 0;
-            if (enumRangeBreakoutType == EnumRangeBreakoutType.Instrument)
+            List<double> SetOfPrice = new ();
+            if (enumRangeBreakoutType == EnumRangeBreakoutType.Instrument || enumSegments == EnumSegments.Futures)
             {
                 //get Token 
                 uint Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
                 && x.Value.Opttype == enumOptiontype
                 && x.Value.Symbol == enumIndex.ToString().ToUpper()
                 && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
-                //get Price
-                _current_Price = Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice / 100.00);
+
+                //add Price in the Set 
+                while (RangeBreakOutEndTime >= DateTime.Now)
+                {
+                    await Task.Delay(300);
+                    double price = Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice / 100.00);
+                    if(!SetOfPrice.Contains(price))
+                        SetOfPrice.Add(price);
+                }
             }
             else if (enumRangeBreakoutType == EnumRangeBreakoutType.Underlying)
             {
@@ -540,30 +547,35 @@ namespace AlgoTerminal_Base.Calculation
                 if (SpotString == null)
                     throw new Exception();
 
-                if (_feed.FeedCM.dcFeedDataIdx.TryGetValue(SpotString, out FeedCM.MULTIPLE_INDEX_BCAST_REC_7207 valueCM))
+                //add Price in the Set 
+                while (RangeBreakOutEndTime >= DateTime.Now)
                 {
-                    var feeddata = valueCM;
-                    _current_Price = feeddata.IndexValue;
+                    await Task.Delay(300);
+                    double price = _feed.FeedCM.dcFeedDataIdx[SpotString].IndexValue;
+                    if (!SetOfPrice.Contains(price))
+                        SetOfPrice.Add(price);
                 }
             }
             else
                 throw new Exception("Invalid Option Selected");
-            return enumRangeBreakoutType switch
+
+
+            return enumRangeBreakout switch
             {
-                EnumRangeBreakoutType.Underlying => await GetRangeBreaKOutUnderlying(enumRangeBreakout),
-                EnumRangeBreakoutType.Instrument => await GetRangeBreaKOutInstrument(enumRangeBreakout),
+                EnumRangeBreakout.High => GetRangeBreaKOutHigh(enumRangeBreakout, SetOfPrice),
+                EnumRangeBreakout.Low => GetRangeBreaKOutILow(enumRangeBreakout, SetOfPrice),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        private async Task<double> GetRangeBreaKOutInstrument(EnumRangeBreakout enumRangeBreakout)
+        private double GetRangeBreaKOutILow(EnumRangeBreakout enumRangeBreakout, List<double> _setOfPrice)
         {
-            throw new NotImplementedException();
+            return _setOfPrice.Min();
         }
 
-        private async Task<double> GetRangeBreaKOutUnderlying(EnumRangeBreakout enumRangeBreakout)
+        private  double GetRangeBreaKOutHigh(EnumRangeBreakout enumRangeBreakout, List<double> _setOfPrice)
         {
-            throw new NotImplementedException();
+             return _setOfPrice.Max();
         }
 
         #endregion

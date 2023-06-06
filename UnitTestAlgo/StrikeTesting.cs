@@ -327,7 +327,76 @@ namespace UnitTestAlgo
 
         #region Option Range BreakOut testing ORB
 
+        [Fact]
 
+        public void GetRangeBreakOut_FUTURE_High()
+        {
+            ctr.LoadContractDetails();
+
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+
+            // double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            // EnumStrikeType.ATM,
+            // 0, 0, 0,
+            // EnumIndex.NIFTY,
+            // EnumUnderlyingFrom.Futures,
+            // EnumSegments.Futures,
+            // EnumExpiry.Weekly,
+            // EnumOptiontype.XX,
+            // EnumPosition.Buy);
+            //output.WriteLine("Recived the Strike: " + data.ToString());
+            double data = -0.01;
+            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
+                EnumRangeBreakoutType.Instrument,
+                DateTime.Today.AddHours(12).AddMinutes(7),
+                EnumIndex.NIFTY,
+                EnumSegments.Futures,
+                EnumExpiry.Weekly,
+                EnumOptiontype.XX,
+                data).Result;
+
+            output.WriteLine(Price_Of_RangeBreak_Out.ToString() + " :Range BreakOut ..");
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+
+            Assert.NotNull(Price_Of_RangeBreak_Out);
+        }
+        public void GetRangeBreakOut_Underlying_High()
+        {
+            ctr.LoadContractDetails();
+
+            var feedStart = feed.InitializeFeedDll();
+            Thread.Sleep(10000);
+            output.WriteLine("Feed Start Success : " + feedStart.ToString());
+
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            EnumStrikeType.ATM,
+            0, 0, 0,
+            EnumIndex.NIFTY,
+            EnumUnderlyingFrom.Futures,
+            EnumSegments.Futures,
+            EnumExpiry.Weekly,
+            EnumOptiontype.XX,
+            EnumPosition.Buy);
+            output.WriteLine("Recived the Strike: " + data.ToString());
+
+            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
+                EnumRangeBreakoutType.Instrument,
+                DateTime.Today.AddHours(12).AddMinutes(7),
+                EnumIndex.NIFTY,
+                EnumSegments.Futures,
+                EnumExpiry.Weekly,
+                EnumOptiontype.XX,
+                data).Result;
+
+            output.WriteLine(Price_Of_RangeBreak_Out.ToString() + " :Range BreakOut ..");
+            var feedstop = feed.FeedToStop();
+            output.WriteLine("Feed Stop Success : " + feedstop.ToString());
+
+            Assert.NotNull(Price_Of_RangeBreak_Out);
+        }
 
         #endregion
     }

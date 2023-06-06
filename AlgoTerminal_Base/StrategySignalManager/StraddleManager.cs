@@ -19,7 +19,8 @@ namespace AlgoTerminal_Base.StrategySignalManager
         //For LegDetails First Key is Stratgy send is Leg Key
         public ConcurrentDictionary<string, ConcurrentDictionary<string, LegDetails>>? Straddle_LegDetails_Dictionary { get; set; }
 
-        // Live Strategy Status
+        // For ORB
+        public ConcurrentDictionary<string, double[]>? Option_Range_Breakout { get; set; }
         #endregion
 
         public void CheckMovement()
