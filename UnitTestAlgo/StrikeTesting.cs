@@ -376,9 +376,9 @@ namespace UnitTestAlgo
             0, 0, 0,
             EnumIndex.NIFTY,
             EnumUnderlyingFrom.Futures,
-            EnumSegments.Futures,
+            EnumSegments.Options,
             EnumExpiry.Weekly,
-            EnumOptiontype.XX,
+            EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
@@ -386,9 +386,9 @@ namespace UnitTestAlgo
                 EnumRangeBreakoutType.Instrument,
                 DateTime.Today.AddHours(12).AddMinutes(7),
                 EnumIndex.NIFTY,
-                EnumSegments.Futures,
+                EnumSegments.Options,
                 EnumExpiry.Weekly,
-                EnumOptiontype.XX,
+                EnumOptiontype.CE,
                 data).Result;
 
             output.WriteLine(Price_Of_RangeBreak_Out.ToString() + " :Range BreakOut ..");
