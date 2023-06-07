@@ -20,8 +20,8 @@ namespace AlgoTerminal_Base.UnitTest_Resource
         private readonly IFeed feed;
         private readonly string fileName = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\feedC_dic.xml";
         private readonly string fileName2 = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\feedCM_dic.xml";
-        private FeedCB_C _C;
-        private FeedCB_CM _CM;
+        private readonly FeedCB_C _C;
+        private readonly FeedCB_CM _CM;
 
         public FeedLoaderToXml(IFeed feed,FeedCB_C c, FeedCB_CM cM)
         {

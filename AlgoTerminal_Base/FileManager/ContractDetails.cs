@@ -35,7 +35,7 @@ namespace AlgoTerminal_Base.FileManager
         public void LoadContractDetails()
         {
             //Below Contract for UnitTestCaseOnly
-            S_Contract_File_Path = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\NSE_FO_contract_01062023.csv";
+            //S_Contract_File_Path = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\NSE_FO_contract_01062023.csv";
             //Exception will handle in Invoke Method LvL
             if (ContractDetailsToken != null)
             {
@@ -99,7 +99,7 @@ namespace AlgoTerminal_Base.FileManager
                     };
                 };
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 throw new FileNotFoundException(DefultContractPath);
             }

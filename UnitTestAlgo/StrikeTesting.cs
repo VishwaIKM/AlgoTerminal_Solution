@@ -350,7 +350,7 @@ namespace UnitTestAlgo
             double data = -0.01;
             var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
                 EnumRangeBreakoutType.Instrument,
-                DateTime.Today.AddHours(12).AddMinutes(7),
+                DateTime.Today.AddHours(14).AddMinutes(3),
                 EnumIndex.NIFTY,
                 EnumSegments.Futures,
                 EnumExpiry.Weekly,
@@ -363,6 +363,7 @@ namespace UnitTestAlgo
 
             Assert.NotNull(Price_Of_RangeBreak_Out);
         }
+        [Fact]
         public void GetRangeBreakOut_Underlying_High()
         {
             ctr.LoadContractDetails();
@@ -384,7 +385,7 @@ namespace UnitTestAlgo
 
             var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
                 EnumRangeBreakoutType.Instrument,
-                DateTime.Today.AddHours(12).AddMinutes(7),
+                DateTime.Today.AddHours(14).AddMinutes(5),
                 EnumIndex.NIFTY,
                 EnumSegments.Options,
                 EnumExpiry.Weekly,

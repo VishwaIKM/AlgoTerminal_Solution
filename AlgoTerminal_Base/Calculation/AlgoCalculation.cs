@@ -50,16 +50,16 @@ namespace AlgoTerminal_Base.Calculation
             EnumPosition enumPosition)
         {
 
-                return _strike_criteria switch
-                {
-                    EnumSelectStrikeCriteria.StrikeType => GetStrikeType(_strike_type, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
-                    EnumSelectStrikeCriteria.PremiumRange => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
-                    EnumSelectStrikeCriteria.ClosestPremium => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
-                    EnumSelectStrikeCriteria.PremiumGreaterOrEqual => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
-                    EnumSelectStrikeCriteria.PremiumLessOrEqual => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
-                    EnumSelectStrikeCriteria.StraddleWidth => GetStraddleWidth(_premium_or_StraddleValue, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
-                    _ => throw new NotImplementedException(),
-                };
+            return _strike_criteria switch
+            {
+                EnumSelectStrikeCriteria.StrikeType => GetStrikeType(_strike_type, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype),
+                EnumSelectStrikeCriteria.PremiumRange => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
+                EnumSelectStrikeCriteria.ClosestPremium => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
+                EnumSelectStrikeCriteria.PremiumGreaterOrEqual => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
+                EnumSelectStrikeCriteria.PremiumLessOrEqual => CommonFunctionForPremium(_premium_lower_range, _premium_upper_range, _premium_or_StraddleValue, enumIndex, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
+                EnumSelectStrikeCriteria.StraddleWidth => GetStraddleWidth(_premium_or_StraddleValue, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype, enumPosition, _strike_criteria),
+                _ => throw new NotImplementedException(),
+            };
         }
 
         private double GetStraddleWidth(double premium_or_StraddleValue, EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom,
@@ -236,7 +236,7 @@ namespace AlgoTerminal_Base.Calculation
         {
             return enumLegSL switch
             {
-                EnumLegSL.Points => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition , StopLoss),
+                EnumLegSL.Points => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
                 EnumLegSL.PointPercentage => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
                 EnumLegSL.underlingPercentage => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
                 EnumLegSL.Underling => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
@@ -244,11 +244,11 @@ namespace AlgoTerminal_Base.Calculation
             };
         }
 
-        private double GetLegPointPercentage_underlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition,double StopLoss)
+        private double GetLegPointPercentage_underlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
             if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE))
             {
-                return entryPrice - (entryPrice * StopLoss/100.00);
+                return entryPrice - (entryPrice * StopLoss / 100.00);
             }
             else if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE))
             {
@@ -281,82 +281,82 @@ namespace AlgoTerminal_Base.Calculation
         public double GetLegTargetProfit(EnumLegTargetProfit enumLegTP,
             double entryPrice,
             EnumOptiontype enumOptiontype,
-            EnumPosition enumPosition)
+            EnumPosition enumPosition,
+            double TargetProfit)
         {
-                return enumLegTP switch
-                {
-                    EnumLegTargetProfit.Points => GetLegPointTP(entryPrice, enumOptiontype, enumPosition),
-                    EnumLegTargetProfit.PointPercentage => GetLegPointPercentageTP(entryPrice, enumOptiontype, enumPosition),
-                    EnumLegTargetProfit.Underling => GetLegUnderlingTP(entryPrice, enumOptiontype, enumPosition),
-                    EnumLegTargetProfit.underlingPercentage => GetLegunderlingPercentageTP(entryPrice, enumOptiontype, enumPosition),
-                    _ => throw new NotImplementedException(),
-                };
+            return enumLegTP switch
+            {
+                EnumLegTargetProfit.Points => GetLegPointTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.PointPercentage => GetLegPointPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.Underling => GetLegPointTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.underlingPercentage => GetLegPointPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                _ => throw new NotImplementedException(),
+            };
         }
 
-        private double GetLegunderlingPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition)
+        private double GetLegPointPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
         {
-            throw new NotImplementedException();
+            if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE))
+            {
+                return entryPrice + (entryPrice * TargetProfit / 100.00);
+            }
+            else if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE))
+            {
+                return entryPrice - (entryPrice * TargetProfit / 100.00);
+            }
+            else
+            {
+                throw new NotImplementedException("Invalid Option");
+            }
         }
 
-        private double GetLegUnderlingTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition)
+        private double GetLegPointTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
         {
-            throw new NotImplementedException();
-        }
-
-        private double GetLegPointPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition)
-        {
-            throw new NotImplementedException();
-        }
-
-        private double GetLegPointTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition)
-        {
-            throw new NotImplementedException();
+            if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE))
+            {
+                return entryPrice + TargetProfit;
+            }
+            else if ((enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE) || (enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE))
+            {
+                return entryPrice - TargetProfit;
+            }
+            else
+            {
+                throw new NotImplementedException("Invalid Option");
+            }
         }
 
         #endregion
 
-        #region Get Taril SL Value
-        private readonly object _traillock = new();
+        #region Get Taril SL HIT Value
         /// <summary>
         /// Provide the New StopLoss When SetAmount Move in Favour OtherWise Return 0;
         /// </summary>
         /// <param name="enumLegTrailSL"></param>
         /// <param name="entryPrice"></param>
-        /// <param name="xAmount"></param>
+        /// <param name="xAmount_Percentage"></param>
         /// <param name="yStopLoss"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public double GetTrailSL(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount,
-            double yStopLoss, double ltp,
-            double CurrentStopLoss)
+        public bool GetTrailSLHit(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount_Percentage, double ltp)
         {
-            lock (_traillock)
+
+            return enumLegTrailSL switch
             {
-                return enumLegTrailSL switch
-                {
-                    EnumLegTrailSL.Points => GetLegPointTailSL(entryPrice, xAmount, yStopLoss, ltp),
-                    EnumLegTrailSL.PointPercentage => GetLegPointPercentageTrailSL(entryPrice, xAmount, yStopLoss, ltp),
-                    _ => throw new NotImplementedException(),
-                };
-            }
+                EnumLegTrailSL.Points => GetLegPointTailSL(entryPrice, xAmount_Percentage, ltp),
+                EnumLegTrailSL.PointPercentage => GetLegPointPercentageTrailSL(entryPrice, xAmount_Percentage, ltp),
+                _ => throw new NotImplementedException(),
+            };
         }
 
-        private double GetLegPointPercentageTrailSL(double entryPrice, double xAmount, double yStopLoss, double ltp)
+        private bool GetLegPointPercentageTrailSL(double entryPrice, double xAmount_Percentage, double ltp)
         {
-            if (entryPrice + entryPrice * xAmount / 100 >= ltp)
-            {
-
-            }
-            throw new NotImplementedException();
+            return (entryPrice + (entryPrice * xAmount_Percentage / 100) >= ltp);
         }
 
-        private double GetLegPointTailSL(double entryPrice, double xAmount, double yStopLoss, double ltp)
+        private bool GetLegPointTailSL(double entryPrice, double xAmount_Percentage, double ltp)
         {
-            if (entryPrice + xAmount >= ltp)
-            {
-
-            }
-            throw new NotImplementedException();
+            return (entryPrice + xAmount_Percentage >= ltp);
         }
 
         #endregion
@@ -524,8 +524,6 @@ namespace AlgoTerminal_Base.Calculation
             if (_feed.FeedCM == null)
                 throw new Exception("Feed CM is NULL");
 
-            if (RangeBreakOutEndTime > DateTime.Now)
-                throw new Exception("Invalid Time for Range Breakout");
 
             //get expiry
             DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
@@ -589,5 +587,6 @@ namespace AlgoTerminal_Base.Calculation
         }
 
         #endregion
+
     }
 }
