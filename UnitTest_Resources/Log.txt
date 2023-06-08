@@ -7,3 +7,25 @@
 [02:19:32][Error] On Line 4 Error : Intraday
 [02:19:32][Warning] On Line 4 Error : TimeBased
 [02:19:32][Warning] On Line 4 Error : None
+[03:49:09][Error] Error
+[04:16:32][Error] Error
+[04:17:06][Error] Error
+[04:18:12][Error] Error
+[04:18:23][Error] Error
+[04:20:51][Error] Error
+[04:23:00][Error] Error
+[04:23:22][Error] Error
+[04:23:34][Error] Error
+[04:24:03][Error] Error
+[04:24:15][Error] Error
+[04:28:49][Error] Error
+[04:33:12][Error] Error
+[04:33:49][Error] Error
+[04:39:17][Error] Error
+[04:40:57][Error] Error
+[04:45:46][Error] Error
+[07:07:03][Error] Error
+[07:09:30][Error] Error
+[07:10:24] Error
+[07:12:47] Error
+[07:13:06] Error

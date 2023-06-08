@@ -24,7 +24,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AlgoTerminal\AlgoTerminal.csproj" />
-    <ProjectReference Include="..\AlgoTerminal_Base\AlgoTerminal_Base.csproj" />
   </ItemGroup>
 
 </Project>

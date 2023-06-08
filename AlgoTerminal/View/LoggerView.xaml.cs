@@ -3,11 +3,11 @@
 namespace AlgoTerminal.View
 {
     /// <summary>
-    /// Interaction logic for NetPositionView.xaml
+    /// Interaction logic for LoggerView.xaml
     /// </summary>
-    public partial class NetPositionView : UserControl
+    public partial class LoggerView : UserControl
     {
-        public NetPositionView()
+        public LoggerView()
         {
             InitializeComponent();
         }

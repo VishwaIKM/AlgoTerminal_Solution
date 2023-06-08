@@ -1,17 +1,12 @@
 ﻿using AlgoTerminal.Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.DirectoryServices.ActiveDirectory;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class PortfolioViewModel:BaseViewModel
+    public class PortfolioViewModel : DockWindowViewModel
     {
+
         public ObservableCollection<PortfolioModel> StrategyDataCollection { get; set; }
         public PortfolioViewModel()
         {
@@ -27,7 +22,8 @@ namespace AlgoTerminal.ViewModel
                 StopLoss = 121.12,
                 TargetProfit = 170.23,
                 ReEntrySL = true,
-                ReEntryTP = false
+                ReEntryTP = false,
+                UserID = "ULT001"
 
             };
             StrategyDataCollection.Add(portfolioModel);
@@ -38,15 +34,16 @@ namespace AlgoTerminal.ViewModel
                 EntryTime = DateTime.Now,
                 ExitTime = DateTime.Now,
                 M2M = 121,
+                UserID = "ULT004",
                 StopLoss = 121.12,
                 TargetProfit = 170.23,
                 ReEntrySL = false,
                 ReEntryTP = false
 
             };
-           
+
             StrategyDataCollection.Add(portfolioModel2);
-           // RaisePropertyChanged(nameof(StrategyDataCollection));
+            // RaisePropertyChanged(nameof(StrategyDataCollection));
         }
 
     }

@@ -1,9 +1,11 @@
-﻿using AlgoTerminal_Base;
+﻿using AlgoTerminal.Services;
+using AlgoTerminal_Base;
 using AlgoTerminal_Base.Calculation;
 using AlgoTerminal_Base.FileManager;
 using AlgoTerminal_Base.Request;
 using AlgoTerminal_Base.Response;
 using AlgoTerminal_Base.Services;
+using AlgoTerminal_Base.StrategySignalManager;
 using AlgoTerminal_Base.UnitTest_Resource;
 using Xunit.Abstractions;
 using static AlgoTerminal_Base.Structure.EnumDeclaration;
@@ -18,8 +20,9 @@ namespace UnitTestAlgo
         // Live Feed also use the Comment Code
         //
         private static readonly IContractDetails ctr = new ContractDetails();
-        static readonly FeedCB_C _C = new();
-        static readonly FeedCB_CM _CM = new();
+        private static readonly IGeneral general = new General();
+        static readonly FeedCB_C _C = new(general);
+        static readonly FeedCB_CM _CM = new(general);
         private static readonly IFeed feed = new Feed(_C, _CM, ctr);
         private static readonly IAlgoCalculation algo = new AlgoCalculation(ctr, feed);
         private readonly ITestOutputHelper output;

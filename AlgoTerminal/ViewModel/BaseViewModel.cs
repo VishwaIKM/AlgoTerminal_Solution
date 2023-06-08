@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class BaseViewModel :INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         #region Methods
         public void RaisePropertyChanged(string propertyName)
@@ -15,10 +10,14 @@ namespace AlgoTerminal.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         #endregion
 
-        #region INotifyPropertyChanged Members
-
+        #region INotifyPropertyChanged Members 
         public event PropertyChangedEventHandler? PropertyChanged;
         public bool CanThisMethodExecute() { return true; }
         #endregion

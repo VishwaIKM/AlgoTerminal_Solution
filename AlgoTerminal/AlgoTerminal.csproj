@@ -8,22 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.72.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FeedC">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\FeedC.dll</HintPath>
+    </Reference>
+    <Reference Include="FeedCM">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\FeedCM.dll</HintPath>
+    </Reference>
+    <Reference Include="LZONET">
+      <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\LZONET.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\AlgoTerminal_Base\AlgoTerminal_Base.csproj" />
   </ItemGroup>
 
 </Project>

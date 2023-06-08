@@ -1,4 +1,7 @@
 
+using AlgoTerminal.FileManager;
+using AlgoTerminal.Services;
+using AlgoTerminal.ViewModel;
 using AlgoTerminal_Base.Calculation;
 using AlgoTerminal_Base.FileManager;
 using AlgoTerminal_Base.Request;
@@ -13,13 +16,14 @@ namespace UnitTestAlgo
     public class Strategy_Data_Load_Testing
     {
         private static readonly IContractDetails ctr = new ContractDetails();
-        static FeedCB_C _C = new();
-        static FeedCB_CM _CM = new();
+        private static readonly IGeneral general = new General(); 
+        static FeedCB_C _C = new(general);
+        static FeedCB_CM _CM = new(general);
         private static readonly IFeed feed = new Feed(_C, _CM, ctr);
         private static readonly IAlgoCalculation algo = new AlgoCalculation(ctr, feed);
         private readonly ITestOutputHelper output;
         private static  readonly IStraddleManager straddleManager = new StraddleManager();
-        private static ILogFileWriter logWriter = new LogFileWriter();
+        private static readonly ILogFileWriter logWriter = new LogFileWriter();
         private static readonly IStraddleDataBaseLoadFromCsv _data = new StraddleDataBaseLoadFromCsv(straddleManager, logWriter);
 
         public Strategy_Data_Load_Testing(ITestOutputHelper output)
