@@ -1,13 +1,9 @@
-
-using AlgoTerminal.FileManager;
-using AlgoTerminal.Services;
-using AlgoTerminal.ViewModel;
-using AlgoTerminal_Base.Calculation;
-using AlgoTerminal_Base.FileManager;
-using AlgoTerminal_Base.Request;
-using AlgoTerminal_Base.Response;
-using AlgoTerminal_Base.Services;
-using AlgoTerminal_Base.StrategySignalManager;
+using AlgoTerminal.Model.Calculation;
+using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Request;
+using AlgoTerminal.Model.Response;
+using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
 using Xunit.Abstractions;
 
 namespace UnitTestAlgo

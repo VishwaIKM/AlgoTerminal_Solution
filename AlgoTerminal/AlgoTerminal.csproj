@@ -8,7 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bela.jpg" />
+    <None Remove="Images\IKMlogo.png" />
+    <None Remove="Images\splash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dirkster.AvalonDock" Version="4.72.0" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
   </ItemGroup>
@@ -23,6 +31,12 @@
     <Reference Include="LZONET">
       <HintPath>..\..\NinjaTrader\NINJA_FEED_API\DLL\LZONET.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\bela.jpg" />
+    <Resource Include="Images\IKMlogo.png" />
+    <Resource Include="Images\splash.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,14 +1,12 @@
-﻿using AlgoTerminal.Services;
-using AlgoTerminal_Base;
-using AlgoTerminal_Base.Calculation;
-using AlgoTerminal_Base.FileManager;
-using AlgoTerminal_Base.Request;
-using AlgoTerminal_Base.Response;
-using AlgoTerminal_Base.Services;
-using AlgoTerminal_Base.StrategySignalManager;
-using AlgoTerminal_Base.UnitTest_Resource;
+﻿using AlgoTerminal.Model.Calculation;
+using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Request;
+using AlgoTerminal.Model.Response;
+using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
+using AlgoTerminal.Model.UnitTest_Resource;
 using Xunit.Abstractions;
-using static AlgoTerminal_Base.Structure.EnumDeclaration;
+using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace UnitTestAlgo
 {
@@ -62,8 +60,8 @@ namespace UnitTestAlgo
         public void GetExpiryFunctionTest()
         {
             ctr.LoadContractDetails();//Load Contract
-            var date = algo.GetLegExpiry(EnumExpiry.Monthly,
-                EnumIndex.BANKNIFTY, EnumSegments.Options,
+            var date = algo.GetLegExpiry(EnumExpiry.MONTHLY,
+                EnumIndex.BANKNIFTY, EnumSegments.OPTIONS,
                 EnumOptiontype.CE);
             string expiry = date.ToString("dd MMM yyyy").ToUpper();
             output.WriteLine("Recived the Expiry: " + expiry);
@@ -82,13 +80,13 @@ namespace UnitTestAlgo
             //output.WriteLine("Feed Start Success : " + feedStart.ToString());
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
 
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
             0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -105,13 +103,13 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumRange,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PREMIUMRANGE,
             EnumStrikeType.ATM,
             30, 300, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Sell);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -124,13 +122,13 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.ClosestPremium,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.CLOSESTPREMIUM,
             EnumStrikeType.ATM,
             0, 0, 25,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -144,13 +142,13 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumGreaterOrEqual,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PREMIUMGREATEROREQUAL,
             EnumStrikeType.ATM,
             0, 0, 100,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -164,13 +162,13 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PremiumLessOrEqual,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.PREMIUMLESSOREQUAL,
             EnumStrikeType.ATM,
             0, 0, 100,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -184,13 +182,13 @@ namespace UnitTestAlgo
         {
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();//Load the specific feed stored for unit Test.
-            double? data = algo.GetStrike(EnumSelectStrikeCriteria.StraddleWidth,
+            double? data = algo.GetStrike(EnumSelectStrikeCriteria.STRADDLEWIDTH,
             EnumStrikeType.ATM,
             0, 0, -4.9,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -209,13 +207,13 @@ namespace UnitTestAlgo
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();
 
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
              0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -224,10 +222,10 @@ namespace UnitTestAlgo
             double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.Points,
             20,
             EnumIndex.NIFTY,
-            EnumExpiry.Weekly,
+            EnumExpiry.WEEKLY,
             data,
             EnumOptiontype.CE,
-            EnumSegments.Options);
+            EnumSegments.OPTIONS);
 
             output.WriteLine("Momentum price Recived Using Points +20: " + MomentumData.ToString());
             Assert.Equal(115.15, MomentumData);
@@ -239,13 +237,13 @@ namespace UnitTestAlgo
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();
 
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
              0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -254,10 +252,10 @@ namespace UnitTestAlgo
             double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.PointPercentage,
             10,
             EnumIndex.NIFTY,
-            EnumExpiry.Weekly,
+            EnumExpiry.WEEKLY,
             data,
             EnumOptiontype.CE,
-            EnumSegments.Options);
+            EnumSegments.OPTIONS);
 
             output.WriteLine("Momentum price Recived Using Points percentage +10: " + MomentumData.ToString());
             Assert.Equal(104.665, MomentumData);
@@ -270,13 +268,13 @@ namespace UnitTestAlgo
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();
 
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
              0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -285,10 +283,10 @@ namespace UnitTestAlgo
             double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UnderlyingPoints,
             20,
             EnumIndex.NIFTY,
-            EnumExpiry.Weekly,
+            EnumExpiry.WEEKLY,
             data,
             EnumOptiontype.CE,
-            EnumSegments.Options);
+            EnumSegments.OPTIONS);
 
             output.WriteLine("Momentum price Recived Using underlying Points +20: " + MomentumData.ToString());
             Assert.Equal(18639.650000000001, MomentumData);
@@ -301,13 +299,13 @@ namespace UnitTestAlgo
             ctr.LoadContractDetails();
             feedLoader.LoadFromXml();
 
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
              0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Cash,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.CASH,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -316,10 +314,10 @@ namespace UnitTestAlgo
             double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UnderlyingPointPercentage,
             10,
             EnumIndex.NIFTY,
-            EnumExpiry.Weekly,
+            EnumExpiry.WEEKLY,
             data,
             EnumOptiontype.CE,
-            EnumSegments.Options);
+            EnumSegments.OPTIONS);
 
             output.WriteLine("Momentum price Recived Using underlyingPercentage +10: " + MomentumData.ToString());
             Assert.Equal(20481.615000000002, MomentumData);
@@ -355,8 +353,8 @@ namespace UnitTestAlgo
                 EnumRangeBreakoutType.Instrument,
                 DateTime.Today.AddHours(14).AddMinutes(3),
                 EnumIndex.NIFTY,
-                EnumSegments.Futures,
-                EnumExpiry.Weekly,
+                EnumSegments.FUTURES,
+                EnumExpiry.WEEKLY,
                 EnumOptiontype.XX,
                 data).Result;
 
@@ -375,13 +373,13 @@ namespace UnitTestAlgo
             Thread.Sleep(10000);
             output.WriteLine("Feed Start Success : " + feedStart.ToString());
 
-            double data = algo.GetStrike(EnumSelectStrikeCriteria.StrikeType,
+            double data = algo.GetStrike(EnumSelectStrikeCriteria.STRIKETYPE,
             EnumStrikeType.ATM,
             0, 0, 0,
             EnumIndex.NIFTY,
-            EnumUnderlyingFrom.Futures,
-            EnumSegments.Options,
-            EnumExpiry.Weekly,
+            EnumUnderlyingFrom.FUTURES,
+            EnumSegments.OPTIONS,
+            EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
             EnumPosition.Buy);
             output.WriteLine("Recived the Strike: " + data.ToString());
@@ -390,8 +388,8 @@ namespace UnitTestAlgo
                 EnumRangeBreakoutType.Instrument,
                 DateTime.Today.AddHours(14).AddMinutes(5),
                 EnumIndex.NIFTY,
-                EnumSegments.Options,
-                EnumExpiry.Weekly,
+                EnumSegments.OPTIONS,
+                EnumExpiry.WEEKLY,
                 EnumOptiontype.CE,
                 data).Result;
 

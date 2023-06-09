@@ -1,14 +1,13 @@
-﻿using AlgoTerminal.FileManager;
-using AlgoTerminal.Model;
-using AlgoTerminal.Services;
+﻿using AlgoTerminal.Model;
+using AlgoTerminal.Model.Calculation;
+using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Request;
+using AlgoTerminal.Model.Response;
+using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
+using AlgoTerminal.Model.Structure;
 using AlgoTerminal.View;
 using AlgoTerminal.ViewModel;
-using AlgoTerminal_Base.Calculation;
-using AlgoTerminal_Base.FileManager;
-using AlgoTerminal_Base.Request;
-using AlgoTerminal_Base.Response;
-using AlgoTerminal_Base.Services;
-using AlgoTerminal_Base.StrategySignalManager;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,7 +21,7 @@ namespace AlgoTerminal
     public partial class App : Application
     {
         public static IHost? AppHost { get; private set; }
-
+        public static string? straddlePath;
 
         public App()
         {
@@ -34,11 +33,13 @@ namespace AlgoTerminal
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
+                    //Path
+                    straddlePath = hostContext.Configuration.GetConnectionString("StraddleFilePath");
                     //DBContext ...
                     //Model ...
-                    services.AddSingleton<ControlCenterModel>();
-                    services.AddSingleton<DashboardModel>();
+                
                     services.AddSingleton<PortfolioModel>();
+                  
                     //Services ....
                     services.AddSingleton<IAlgoCalculation, AlgoCalculation>();
                     services.AddSingleton<IContractDetails, ContractDetails>();
@@ -48,19 +49,23 @@ namespace AlgoTerminal
                     services.AddSingleton<IRespNNAPI, NNAPIDLLResp>();
                     services.AddSingleton<IStraddleDataBaseLoadFromCsv, StraddleDataBaseLoadFromCsv>();
                     services.AddSingleton<IStraddleManager, StraddleManager>();
-
+                    services.AddSingleton<IApplicationManagerModel,ApplicationManagerModel>();
                     //ViewModel....
                     services.AddSingleton<DashboardViewModel>();
                     services.AddSingleton<PortfolioViewModel>();
                     services.AddSingleton<LoggerViewModel>();
                     services.AddSingleton<TradeBookViewModel>();
                     services.AddSingleton<NetPositionViewModel>();
-
+                    services.AddSingleton<LoginViewModel>();
 
                     //View ....
                     services.AddSingleton<DashboardView>(x => new()
                     {
                         DataContext = x.GetRequiredService<DashboardViewModel>()
+                    });
+                    services.AddSingleton<LoginView>(x=>new()
+                    {
+                        DataContext=x.GetRequiredService<LoginViewModel>()
                     });
 
                     //USERCONTROL'S
@@ -89,7 +94,7 @@ namespace AlgoTerminal
         {
             await AppHost!.StartAsync();
 
-            var _runTheWPF = AppHost!.Services.GetRequiredService<DashboardView>();
+            var _runTheWPF = AppHost!.Services.GetRequiredService<LoginView>();
             this.MainWindow = _runTheWPF;
             _runTheWPF.Show();
 
