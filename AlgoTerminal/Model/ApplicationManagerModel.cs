@@ -10,17 +10,19 @@ namespace AlgoTerminal.Model
     public class ApplicationManagerModel : IApplicationManagerModel
     {
         private readonly ILogFileWriter logFileWriter;
-        public ApplicationManagerModel(ILogFileWriter logFileWriter)
+        private readonly IStraddleManager straddleManager;
+
+        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager)
         {
             this.logFileWriter = logFileWriter;
-
-            ApplicationStartUpRequirement();
+            this.straddleManager = straddleManager;
         }
 
         public bool ApplicationStartUpRequirement()
         {
             try
             {
+                straddleManager.StraddleStartUP();
                 return true;
             }
             catch

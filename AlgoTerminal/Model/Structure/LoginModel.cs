@@ -8,7 +8,7 @@ namespace AlgoTerminal.Model.Structure
 {
     public class LoginModel
     {
-        public int? ID { get; set; }
+        public int? UserID { get; set; }
         public int? Password { get; set; }
     }
 }

@@ -114,7 +114,8 @@
                     <TextBox.Text>
                         <Binding 
                             Path="UserID"
-                            UpdateSourceTrigger="PropertyChanged">
+                            UpdateSourceTrigger="PropertyChanged"
+                            ValidatesOnExceptions="True">
                         </Binding>
                     </TextBox.Text>
                 </TextBox>

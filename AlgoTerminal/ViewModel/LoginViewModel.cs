@@ -21,7 +21,6 @@ namespace AlgoTerminal.ViewModel
         private string _loginStatusGUILbl;
         private readonly DashboardView dashboardView1;
         private readonly IApplicationManagerModel applicationManagerModel;
-        private readonly IStraddleManager straddleManager;
         #endregion
 
         #region Properties
@@ -32,12 +31,12 @@ namespace AlgoTerminal.ViewModel
         }
         public int? UserID
         {
-            get => UserDetails.ID;
+            get => UserDetails.UserID;
             set
             {
-                if (UserDetails.ID != value)
+                if (UserDetails.UserID != value)
                 {
-                    UserDetails.ID = value;
+                    UserDetails.UserID = value;
                     RaisePropertyChanged(nameof(UserID));
                 }
             }
@@ -81,11 +80,10 @@ namespace AlgoTerminal.ViewModel
         #endregion
 
         #region Methods
-        public LoginViewModel(DashboardView dashboardView1,IApplicationManagerModel applicationManagerModel, IStraddleManager straddleManager)
+        public LoginViewModel(DashboardView dashboardView1,IApplicationManagerModel applicationManagerModel)
         {
             this.dashboardView1 = dashboardView1;
             this.applicationManagerModel = applicationManagerModel;
-            this.straddleManager = straddleManager;
         }
 
         #endregion
@@ -112,7 +110,6 @@ namespace AlgoTerminal.ViewModel
                 App.Current.MainWindow = dashboardView1;
 
                 applicationManagerModel.ApplicationStartUpRequirement();
-                straddleManager.StraddleStartUP();
 
             }
             catch (Exception ex)
