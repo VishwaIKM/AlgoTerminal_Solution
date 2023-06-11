@@ -14,7 +14,7 @@ namespace AlgoTerminal.ViewModel
         {
             LogDataCollection ??= new();
             _LogFileWriter = logFileWriter;
-            _LogFileWriter.Start(@"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources", "Log.txt");
+            _LogFileWriter.Start(@"C:\Users\vishw\OneDrive\Documents\WORKSPACE\AlgoTerminal_Solution\UnitTest_Resources", "Log.txt");
             _LogFileWriter.DisplayLog(EnumDeclaration.EnumLogType.Warning, "Testing");
             _LogFileWriter.DisplayLog(EnumDeclaration.EnumLogType.Error, "Testing");
             _LogFileWriter.DisplayLog(EnumDeclaration.EnumLogType.Buy, "Testing");

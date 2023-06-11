@@ -2357,3 +2357,2223 @@
 [07:13:02] Testing
 [07:13:02] Testing
 [07:13:02] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35][Warning] Testing
+[09:27:35][Error] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:35] Testing
+[09:27:39][Warning] On Line 4 Error : TimeBased
+[09:27:39][Warning] On Line 4 Error : None
+[09:27:39][Error] On Line 5 Error : BUY
+[09:27:39][Error] On Line 5 Error : 
+[09:27:39][Error] On Line 5 Error : 
+[09:27:39][Error] On Line 5 Error : 
+[09:27:39][Error] On Line 6 Error : SELL
+[09:27:39][Error] On Line 6 Error : 
+[09:27:39][Error] On Line 6 Error : 
+[09:27:39][Error] On Line 6 Error : 
+[09:27:39]  Application StartUp Block Complete. 
+[09:27:39]  Application StartUp Block Complete. 
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53][Warning] Testing
+[09:28:53][Error] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[09:28:53] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59][Warning] Testing
+[11:06:59][Error] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:06:59] Testing
+[11:07:02][Warning] On Line 4 Error : TimeBased
+[11:07:02][Warning] On Line 4 Error : None
+[11:07:02][Error] On Line 5 Error : BUY
+[11:07:02][Error] On Line 5 Error : 
+[11:07:02][Error] On Line 5 Error : 
+[11:07:02][Error] On Line 5 Error : 
+[11:07:02][Error] On Line 6 Error : SELL
+[11:07:02][Error] On Line 6 Error : 
+[11:07:02][Error] On Line 6 Error : 
+[11:07:02][Error] On Line 6 Error : 
+[11:07:02]  Application StartUp Block Complete. 
+[11:07:02]  Application StartUp Block Complete. 
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39][Warning] Testing
+[11:09:39][Error] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:39] Testing
+[11:09:41][Warning] On Line 4 Error : TimeBased
+[11:09:41][Warning] On Line 4 Error : None
+[11:09:41][Error] On Line 5 Error : BUY
+[11:09:41][Error] On Line 5 Error : 
+[11:09:41][Error] On Line 5 Error : 
+[11:09:41][Error] On Line 5 Error : 
+[11:09:41][Error] On Line 6 Error : SELL
+[11:09:41][Error] On Line 6 Error : 
+[11:09:41][Error] On Line 6 Error : 
+[11:09:41][Error] On Line 6 Error : 
+[11:09:41]  Application StartUp Block Complete. 
+[11:09:41]  Application StartUp Block Complete. 
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53][Warning] Testing
+[11:10:53][Error] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:53] Testing
+[11:10:56][Warning] On Line 4 Error : TimeBased
+[11:10:56][Warning] On Line 4 Error : None
+[11:10:56][Error] On Line 5 Error : BUY
+[11:10:56][Error] On Line 5 Error : 
+[11:10:56][Error] On Line 5 Error : 
+[11:10:56][Error] On Line 5 Error : 
+[11:10:56][Error] On Line 6 Error : SELL
+[11:10:56][Error] On Line 6 Error : 
+[11:10:56][Error] On Line 6 Error : 
+[11:10:56][Error] On Line 6 Error : 
+[11:10:56]  Application StartUp Block Complete. 
+[11:10:56]  Application StartUp Block Complete. 
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32][Warning] Testing
+[11:35:32][Error] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:32] Testing
+[11:35:34][Warning] On Line 4 Error : TimeBased
+[11:35:34][Warning] On Line 4 Error : None
+[11:35:34][Error] On Line 5 Error : BUY
+[11:35:34][Error] On Line 5 Error : 
+[11:35:34][Error] On Line 5 Error : 
+[11:35:34][Error] On Line 5 Error : 
+[11:35:34][Error] On Line 6 Error : SELL
+[11:35:34][Error] On Line 6 Error : 
+[11:35:34][Error] On Line 6 Error : 
+[11:35:34][Error] On Line 6 Error : 
+[11:35:34]  Application StartUp Block Complete. 
+[11:35:34]  Application StartUp Block Complete. 
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:51] Testing
+[11:39:51][Warning] Testing
+[11:39:51][Error] Testing
+[11:39:51] Testing
+[11:39:52] Testing
+[11:39:52][Warning] Testing
+[11:39:52][Error] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:52] Testing
+[11:39:54][Warning] On Line 4 Error : TimeBased
+[11:39:54][Warning] On Line 4 Error : None
+[11:39:54][Error] On Line 5 Error : BUY
+[11:39:54][Error] On Line 5 Error : 
+[11:39:54][Error] On Line 5 Error : 
+[11:39:54][Error] On Line 5 Error : 
+[11:39:54][Error] On Line 6 Error : SELL
+[11:39:54][Error] On Line 6 Error : 
+[11:39:54][Error] On Line 6 Error : 
+[11:39:54][Error] On Line 6 Error : 
+[11:39:54]  Application StartUp Block Complete. 
+[11:39:54]  Application StartUp Block Complete. 
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:20][Warning] Testing
+[11:45:20][Error] Testing
+[11:45:20] Testing
+[11:45:20] Testing
+[11:45:21][Warning] Testing
+[11:45:21][Error] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:21] Testing
+[11:45:23][Warning] On Line 4 Error : TimeBased
+[11:45:23][Warning] On Line 4 Error : None
+[11:45:23][Error] On Line 5 Error : BUY
+[11:45:23][Error] On Line 5 Error : 
+[11:45:23][Error] On Line 5 Error : 
+[11:45:23][Error] On Line 5 Error : 
+[11:45:23][Error] On Line 6 Error : SELL
+[11:45:23][Error] On Line 6 Error : 
+[11:45:23][Error] On Line 6 Error : 
+[11:45:23][Error] On Line 6 Error : 
+[11:45:23]  Application StartUp Block Complete. 
+[11:45:23]  Application StartUp Block Complete. 
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02][Warning] Testing
+[11:47:02][Error] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:02] Testing
+[11:47:05][Warning] On Line 4 Error : TimeBased
+[11:47:05][Warning] On Line 4 Error : None
+[11:47:05][Error] On Line 5 Error : BUY
+[11:47:05][Error] On Line 5 Error : 
+[11:47:05][Error] On Line 5 Error : 
+[11:47:05][Error] On Line 5 Error : 
+[11:47:05][Error] On Line 6 Error : SELL
+[11:47:05][Error] On Line 6 Error : 
+[11:47:05][Error] On Line 6 Error : 
+[11:47:05][Error] On Line 6 Error : 
+[11:47:05]  Application StartUp Block Complete. 
+[11:47:05]  Application StartUp Block Complete. 
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14][Warning] Testing
+[11:48:14][Error] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:14] Testing
+[11:48:17][Warning] On Line 4 Error : TimeBased
+[11:48:17][Warning] On Line 4 Error : None
+[11:48:17][Error] On Line 5 Error : BUY
+[11:48:17][Error] On Line 5 Error : 
+[11:48:17][Error] On Line 5 Error : 
+[11:48:17][Error] On Line 5 Error : 
+[11:48:17][Error] On Line 6 Error : SELL
+[11:48:17][Error] On Line 6 Error : 
+[11:48:17][Error] On Line 6 Error : 
+[11:48:17][Error] On Line 6 Error : 
+[11:48:17]  Application StartUp Block Complete. 
+[11:48:17]  Application StartUp Block Complete. 
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02][Warning] Testing
+[11:49:02][Error] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:02] Testing
+[11:49:05][Warning] On Line 4 Error : TimeBased
+[11:49:05][Warning] On Line 4 Error : None
+[11:49:05][Error] On Line 5 Error : BUY
+[11:49:05][Error] On Line 5 Error : 
+[11:49:05][Error] On Line 5 Error : 
+[11:49:05][Error] On Line 5 Error : 
+[11:49:05][Error] On Line 6 Error : SELL
+[11:49:05][Error] On Line 6 Error : 
+[11:49:05][Error] On Line 6 Error : 
+[11:49:05][Error] On Line 6 Error : 
+[11:49:05]  Application StartUp Block Complete. 
+[11:49:05]  Application StartUp Block Complete. 
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56][Warning] Testing
+[11:51:56][Error] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:56] Testing
+[11:51:58][Warning] On Line 4 Error : TimeBased
+[11:51:58][Warning] On Line 4 Error : None
+[11:51:58][Error] On Line 5 Error : BUY
+[11:51:58][Error] On Line 5 Error : 
+[11:51:58][Error] On Line 5 Error : 
+[11:51:58][Error] On Line 5 Error : 
+[11:51:58][Error] On Line 6 Error : SELL
+[11:51:58][Error] On Line 6 Error : 
+[11:51:58][Error] On Line 6 Error : 
+[11:51:58][Error] On Line 6 Error : 
+[11:51:58]  Application StartUp Block Complete. 
+[11:51:58]  Application StartUp Block Complete. 
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43][Warning] Testing
+[11:52:43][Error] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:43] Testing
+[11:52:46][Warning] On Line 4 Error : TimeBased
+[11:52:46][Warning] On Line 4 Error : None
+[11:52:46][Error] On Line 5 Error : BUY
+[11:52:46][Error] On Line 5 Error : 
+[11:52:46][Error] On Line 5 Error : 
+[11:52:46][Error] On Line 5 Error : 
+[11:52:46][Error] On Line 6 Error : SELL
+[11:52:46][Error] On Line 6 Error : 
+[11:52:46][Error] On Line 6 Error : 
+[11:52:46][Error] On Line 6 Error : 
+[11:52:46]  Application StartUp Block Complete. 
+[11:52:46]  Application StartUp Block Complete. 
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30][Warning] Testing
+[12:12:30][Error] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:30] Testing
+[12:12:33][Warning] On Line 4 Error : TimeBased
+[12:12:33][Warning] On Line 4 Error : None
+[12:12:33][Error] On Line 5 Error : BUY
+[12:12:33][Error] On Line 5 Error : 
+[12:12:33][Error] On Line 5 Error : 
+[12:12:33][Error] On Line 5 Error : 
+[12:12:33][Error] On Line 6 Error : SELL
+[12:12:33][Error] On Line 6 Error : 
+[12:12:33][Error] On Line 6 Error : 
+[12:12:33][Error] On Line 6 Error : 
+[12:12:33]  Application StartUp Block Complete. 
+[12:12:33]  Application StartUp Block Complete. 
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47][Warning] Testing
+[12:13:47][Error] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:47] Testing
+[12:13:50][Warning] On Line 4 Error : TimeBased
+[12:13:50][Warning] On Line 4 Error : None
+[12:13:50][Error] On Line 5 Error : BUY
+[12:13:50][Error] On Line 5 Error : 
+[12:13:50][Error] On Line 5 Error : 
+[12:13:50][Error] On Line 5 Error : 
+[12:13:50][Error] On Line 6 Error : SELL
+[12:13:50][Error] On Line 6 Error : 
+[12:13:50][Error] On Line 6 Error : 
+[12:13:50][Error] On Line 6 Error : 
+[12:13:50]  Application StartUp Block Complete. 
+[12:13:50]  Application StartUp Block Complete. 
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27][Warning] Testing
+[12:16:27][Error] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:27] Testing
+[12:16:30][Warning] On Line 4 Error : TimeBased
+[12:16:30][Warning] On Line 4 Error : None
+[12:16:30][Error] On Line 5 Error : BUY
+[12:16:30][Error] On Line 5 Error : 
+[12:16:30][Error] On Line 5 Error : 
+[12:16:30][Error] On Line 5 Error : 
+[12:16:30][Error] On Line 6 Error : SELL
+[12:16:30][Error] On Line 6 Error : 
+[12:16:30][Error] On Line 6 Error : 
+[12:16:30][Error] On Line 6 Error : 
+[12:16:30]  Application StartUp Block Complete. 
+[12:16:30]  Application StartUp Block Complete. 
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05][Warning] Testing
+[12:31:05][Error] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:05] Testing
+[12:31:08][Warning] On Line 4 Error : TimeBased
+[12:31:08][Warning] On Line 4 Error : None
+[12:31:08][Error] On Line 5 Error : BUY
+[12:31:08][Error] On Line 5 Error : 
+[12:31:08][Error] On Line 5 Error : 
+[12:31:08][Error] On Line 5 Error : 
+[12:31:08][Error] On Line 6 Error : SELL
+[12:31:08][Error] On Line 6 Error : 
+[12:31:08][Error] On Line 6 Error : 
+[12:31:08][Error] On Line 6 Error : 
+[12:31:08]  Application StartUp Block Complete. 
+[12:31:08]  Application StartUp Block Complete. 
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24][Warning] Testing
+[12:31:24][Error] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:24] Testing
+[12:31:26][Warning] On Line 4 Error : TimeBased
+[12:31:26][Warning] On Line 4 Error : None
+[12:31:26][Error] On Line 5 Error : BUY
+[12:31:26][Error] On Line 5 Error : 
+[12:31:26][Error] On Line 5 Error : 
+[12:31:26][Error] On Line 5 Error : 
+[12:31:26][Error] On Line 6 Error : SELL
+[12:31:26][Error] On Line 6 Error : 
+[12:31:26][Error] On Line 6 Error : 
+[12:31:26][Error] On Line 6 Error : 
+[12:31:26]  Application StartUp Block Complete. 
+[12:31:26]  Application StartUp Block Complete. 
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52][Warning] Testing
+[12:31:52][Error] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:52] Testing
+[12:31:55][Warning] On Line 4 Error : TimeBased
+[12:31:55][Warning] On Line 4 Error : None
+[12:31:55][Error] On Line 5 Error : BUY
+[12:31:55][Error] On Line 5 Error : 
+[12:31:55][Error] On Line 5 Error : 
+[12:31:55][Error] On Line 5 Error : 
+[12:31:55][Error] On Line 6 Error : SELL
+[12:31:55][Error] On Line 6 Error : 
+[12:31:55][Error] On Line 6 Error : 
+[12:31:55][Error] On Line 6 Error : 
+[12:31:55]  Application StartUp Block Complete. 
+[12:31:55]  Application StartUp Block Complete. 
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:19][Warning] On Line 4 Error : TimeBased
+[12:32:19][Warning] On Line 4 Error : None
+[12:32:19][Error] On Line 5 Error : BUY
+[12:32:19][Error] On Line 5 Error : 
+[12:32:19][Error] On Line 5 Error : 
+[12:32:19][Error] On Line 5 Error : 
+[12:32:19][Error] On Line 6 Error : SELL
+[12:32:19][Error] On Line 6 Error : 
+[12:32:19][Error] On Line 6 Error : 
+[12:32:19][Error] On Line 6 Error : 
+[12:32:19]  Application StartUp Block Complete. 
+[12:32:19]  Application StartUp Block Complete. 
+[12:32:39][Warning] Testing
+[12:32:39][Error] Testing
+[12:32:39] Testing
+[12:32:39] Testing
+[12:32:39] Testing
+[12:32:39][Warning] Testing
+[12:32:39][Error] Testing
+[12:32:39] Testing
+[12:32:39] Testing
+[12:32:39][Warning] Testing
+[12:32:39][Error] Testing
+[12:32:39] Testing
+[12:32:39] Testing
+[12:32:39][Warning] Testing
+[12:32:39][Error] Testing
+[12:32:39] Testing
+[12:32:39] Testing
+[12:32:39][Warning] Testing
+[12:32:39][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40][Warning] Testing
+[12:32:40][Error] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:40] Testing
+[12:32:42][Warning] On Line 4 Error : TimeBased
+[12:32:42][Warning] On Line 4 Error : None
+[12:32:42][Error] On Line 5 Error : BUY
+[12:32:42][Error] On Line 5 Error : 
+[12:32:42][Error] On Line 5 Error : 
+[12:32:42][Error] On Line 5 Error : 
+[12:32:42][Error] On Line 6 Error : SELL
+[12:32:42][Error] On Line 6 Error : 
+[12:32:42][Error] On Line 6 Error : 
+[12:32:42][Error] On Line 6 Error : 
+[12:32:42]  Application StartUp Block Complete. 
+[12:32:42]  Application StartUp Block Complete. 
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43][Warning] Testing
+[12:40:43][Error] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:43] Testing
+[12:40:45][Warning] On Line 4 Error : TimeBased
+[12:40:45][Warning] On Line 4 Error : None
+[12:40:45][Error] On Line 5 Error : BUY
+[12:40:45][Error] On Line 5 Error : 
+[12:40:45][Error] On Line 5 Error : 
+[12:40:45][Error] On Line 5 Error : 
+[12:40:45][Error] On Line 6 Error : SELL
+[12:40:45][Error] On Line 6 Error : 
+[12:40:45][Error] On Line 6 Error : 
+[12:40:45][Error] On Line 6 Error : 
+[12:40:45]  Application StartUp Block Complete. 
+[12:40:45]  Application StartUp Block Complete. 
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09][Warning] Testing
+[01:49:09][Error] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:09] Testing
+[01:49:12][Warning] On Line 4 Error : TimeBased
+[01:49:12][Warning] On Line 4 Error : None
+[01:49:12][Error] On Line 5 Error : BUY
+[01:49:12][Error] On Line 5 Error : 
+[01:49:12][Error] On Line 5 Error : 
+[01:49:12][Error] On Line 5 Error : 
+[01:49:12][Error] On Line 6 Error : SELL
+[01:49:12][Error] On Line 6 Error : 
+[01:49:12][Error] On Line 6 Error : 
+[01:49:12][Error] On Line 6 Error : 
+[01:49:12]  Application StartUp Block Complete. 
+[01:49:12]  Application StartUp Block Complete. 
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14][Warning] Testing
+[02:08:14][Error] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:14] Testing
+[02:08:16][Warning] On Line 4 Error : TimeBased
+[02:08:16][Warning] On Line 4 Error : None
+[02:08:16][Error] On Line 5 Error : BUY
+[02:08:16][Error] On Line 5 Error : 
+[02:08:16][Error] On Line 5 Error : 
+[02:08:16][Error] On Line 5 Error : 
+[02:08:16][Error] On Line 6 Error : SELL
+[02:08:16][Error] On Line 6 Error : 
+[02:08:16][Error] On Line 6 Error : 
+[02:08:16][Error] On Line 6 Error : 
+[02:08:16]  Application StartUp Block Complete. 
+[02:08:16]  Application StartUp Block Complete. 
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00][Warning] Testing
+[02:12:00][Error] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:00] Testing
+[02:12:03][Warning] On Line 4 Error : TimeBased
+[02:12:03][Warning] On Line 4 Error : None
+[02:12:03][Error] On Line 5 Error : BUY
+[02:12:03][Error] On Line 5 Error : 
+[02:12:03][Error] On Line 5 Error : 
+[02:12:03][Error] On Line 5 Error : 
+[02:12:03][Error] On Line 6 Error : SELL
+[02:12:03][Error] On Line 6 Error : 
+[02:12:03][Error] On Line 6 Error : 
+[02:12:03][Error] On Line 6 Error : 
+[02:12:03]  Application StartUp Block Complete. 
+[02:12:03]  Application StartUp Block Complete. 
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33][Warning] Testing
+[02:34:33][Error] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:33] Testing
+[02:34:36][Warning] On Line 4 Error : TimeBased
+[02:34:36][Warning] On Line 4 Error : None
+[02:34:36][Error] On Line 5 Error : BUY
+[02:34:36][Error] On Line 5 Error : 
+[02:34:36][Error] On Line 5 Error : 
+[02:34:36][Error] On Line 5 Error : 
+[02:34:36][Error] On Line 6 Error : SELL
+[02:34:36][Error] On Line 6 Error : 
+[02:34:36][Error] On Line 6 Error : 
+[02:34:36][Error] On Line 6 Error : 
+[02:34:36]  Application StartUp Block Complete. 
+[02:34:36]  Application StartUp Block Complete. 
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00][Warning] Testing
+[02:35:00][Error] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:00] Testing
+[02:35:02][Warning] On Line 4 Error : TimeBased
+[02:35:02][Warning] On Line 4 Error : None
+[02:35:02][Error] On Line 5 Error : BUY
+[02:35:02][Error] On Line 5 Error : 
+[02:35:02][Error] On Line 5 Error : 
+[02:35:02][Error] On Line 5 Error : 
+[02:35:02][Error] On Line 6 Error : SELL
+[02:35:02][Error] On Line 6 Error : 
+[02:35:02][Error] On Line 6 Error : 
+[02:35:02][Error] On Line 6 Error : 
+[02:35:02]  Application StartUp Block Complete. 
+[02:35:02]  Application StartUp Block Complete. 
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02][Warning] Testing
+[02:42:02][Error] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:02] Testing
+[02:42:04][Warning] On Line 4 Error : TimeBased
+[02:42:04][Warning] On Line 4 Error : None
+[02:42:04][Error] On Line 5 Error : BUY
+[02:42:04][Error] On Line 5 Error : 
+[02:42:04][Error] On Line 5 Error : 
+[02:42:04][Error] On Line 5 Error : 
+[02:42:04][Error] On Line 6 Error : SELL
+[02:42:04][Error] On Line 6 Error : 
+[02:42:04][Error] On Line 6 Error : 
+[02:42:04][Error] On Line 6 Error : 
+[02:42:04]  Application StartUp Block Complete. 
+[02:42:04]  Application StartUp Block Complete. 
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04][Warning] Testing
+[02:45:04][Error] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:04] Testing
+[02:45:07][Warning] On Line 4 Error : TimeBased
+[02:45:07][Warning] On Line 4 Error : None
+[02:45:07][Error] On Line 5 Error : BUY
+[02:45:07][Error] On Line 5 Error : 
+[02:45:07][Error] On Line 5 Error : 
+[02:45:07][Error] On Line 5 Error : 
+[02:45:07][Error] On Line 6 Error : SELL
+[02:45:07][Error] On Line 6 Error : 
+[02:45:07][Error] On Line 6 Error : 
+[02:45:07][Error] On Line 6 Error : 
+[02:45:07]  Application StartUp Block Complete. 
+[02:45:07]  Application StartUp Block Complete. 
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15][Warning] Testing
+[03:11:15][Error] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:15] Testing
+[03:11:19][Warning] On Line 4 Error : TimeBased
+[03:11:19][Warning] On Line 4 Error : None
+[03:11:19][Error] On Line 5 Error : BUY
+[03:11:19][Error] On Line 5 Error : 
+[03:11:19][Error] On Line 5 Error : 
+[03:11:19][Error] On Line 5 Error : 
+[03:11:19][Error] On Line 6 Error : SELL
+[03:11:19][Error] On Line 6 Error : 
+[03:11:19][Error] On Line 6 Error : 
+[03:11:19][Error] On Line 6 Error : 
+[03:11:19]  Application StartUp Block Complete. 
+[03:11:19]  Application StartUp Block Complete. 
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28][Warning] Testing
+[03:16:28][Error] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:28] Testing
+[03:16:31][Warning] On Line 4 Error : TimeBased
+[03:16:31][Warning] On Line 4 Error : None
+[03:16:31][Error] On Line 5 Error : BUY
+[03:16:31][Error] On Line 5 Error : 
+[03:16:31][Error] On Line 5 Error : 
+[03:16:31][Error] On Line 5 Error : 
+[03:16:31][Error] On Line 6 Error : SELL
+[03:16:31][Error] On Line 6 Error : 
+[03:16:31][Error] On Line 6 Error : 
+[03:16:31][Error] On Line 6 Error : 
+[03:16:31]  Application StartUp Block Complete. 
+[03:16:31]  Application StartUp Block Complete. 

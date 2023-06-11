@@ -37,7 +37,8 @@ namespace AlgoTerminal
                     straddlePath = hostContext.Configuration.GetConnectionString("StraddleFilePath");
                     //DBContext ...
                     //Model ...
-                
+                    services.AddSingleton<FeedCB_C>();
+                    services.AddSingleton<FeedCB_CM>();
                     services.AddSingleton<PortfolioModel>();
                   
                     //Services ....

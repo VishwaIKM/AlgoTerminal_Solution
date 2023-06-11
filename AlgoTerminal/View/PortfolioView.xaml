@@ -6,21 +6,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AlgoTerminal.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="1200">
     <Grid>
-        <DataGrid x:Name="StrategyDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding StrategyDataCollection}" IsReadOnly="True" >
+        <DataGrid x:Name="StrategyDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding StrategyDataCollection}" IsReadOnly="True" CanUserSortColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="UserID" Width="*" Binding="{Binding UserID}"/>
+                <DataGridTextColumn Header="Trading Symbol" Width="160" Binding="{Binding TradingSymbol}"/>
+                <DataGridTextColumn Header="UID" Width="100" Binding="{Binding UserID}"/>
                 <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}"/>
-                <DataGridTextColumn Header="Last Entry Time" Width="*" Binding="{Binding EntryTime}"/>
-                <DataGridTextColumn Header="Last Exit Time" Width="*" Binding="{Binding ExitTime}"/>
+                <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}"/>
+                <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}"/>
                 <DataGridTextColumn Header="M2M" Width="*" Binding="{Binding M2M}"/>
                 <DataGridTextColumn Header="Stop Loss" Width="*" Binding="{Binding StopLoss}"/>
                 <DataGridTextColumn Header="Target Profit" Width="*" Binding="{Binding TargetProfit}"/>
-                <DataGridTextColumn Header="Re Entry SL" Width="*" Binding="{Binding ReEntrySL}"/>
-                <DataGridTextColumn Header="Re Entry TP" Width="*" Binding="{Binding ReEntryTP}"/>
+                <DataGridTextColumn Header="Re SL" Width="66" Binding="{Binding ReEntrySL}"/>
+                <DataGridTextColumn Header="Re TP" Width="66" Binding="{Binding ReEntryTP}"/>
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsStrategyRow}" Value="True">
+                            <Setter Property="Background" Value="CadetBlue"></Setter>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            
         </DataGrid>
     </Grid>
 </UserControl>

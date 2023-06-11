@@ -15,10 +15,18 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <Menu Grid.Row="0" DataContext="{Binding MenuViewModel}" ItemsSource="{Binding Items}">
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label>NIFTY 50 </Label>
+            <Label>NIFTY FUT</Label>
+            <Label>BANKNIFTY</Label>
+            <Label>BANKNIFTY FUT</Label>
+            <Label>FINIFTY</Label>
+            <Label>FINIFTY FUT</Label>
+        </StackPanel>
+        <Menu Grid.Row="1" DataContext="{Binding MenuViewModel}" ItemsSource="{Binding Items}">
             <Menu.Resources>
                 <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource {x:Type MenuItem}}">
                     <Setter Property="Command" Value="{Binding Command}" />
@@ -30,7 +38,7 @@
             </Menu.Resources>
         </Menu>
 
-        <dock:DockingManager Grid.Row="1"
+        <dock:DockingManager Grid.Row="2"
                          DataContext="{Binding DockManagerViewModel}"
                          DocumentsSource="{Binding Documents}"
                          AnchorablesSource="{Binding Anchorables}" >

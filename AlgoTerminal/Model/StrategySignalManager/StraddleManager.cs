@@ -4,6 +4,7 @@ using FeedC;
 using System;
 using System.Collections.Concurrent;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace AlgoTerminal.Model.StrategySignalManager
@@ -13,10 +14,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
       
         private readonly IStraddleDataBaseLoadFromCsv straddleDataBaseLoad;
         private readonly ILogFileWriter logFileWriter;
-        public StraddleManager(IStraddleDataBaseLoadFromCsv straddleDataBaseLoad, ILogFileWriter logFileWriter)
+        private readonly IAlgoCalculation algoCalculation;
+        public StraddleManager(IStraddleDataBaseLoadFromCsv straddleDataBaseLoad, ILogFileWriter logFileWriter,IAlgoCalculation algoCalculation)
         {
             this.straddleDataBaseLoad = straddleDataBaseLoad;
             this.logFileWriter = logFileWriter;
+            this.algoCalculation = algoCalculation;
         }
 
         public bool StraddleStartUP()
@@ -45,12 +48,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 logFileWriter.DisplayLog(EnumDeclaration.EnumLogType.Info, " Application StartUp Block Complete. ");
             }
         }
-        //lock needed ... (After implementation need to verify if static object have any bad effect)
+ 
         /// <summary>
-        /// Data Update to View of Portfolio Screen
+        /// Data Update to ViewModel ()=>(ProtfolioViewModel) of Portfolio Screen
         /// </summary>
         /// <returns></returns>
-        public bool DataUpdateRequest()
+        public async Task<bool> DataUpdateRequest()
         {
             //Feed Data to Update The Str Status
             return true;
@@ -61,7 +64,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="FeedLogTime"></param>
         /// <param name="stFeed"></param>
-        public void DataUpdateFrom_FO(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
+        public async Task DataUpdateFrom_FO(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
 
         }
@@ -71,7 +74,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="FeedLogTime"></param>
         /// <param name="IndexName"></param>
-        public void DataUpdateFrom_CM(uint FeedLogTime, string IndexName)
+        public async Task DataUpdateFrom_CM(uint FeedLogTime, string IndexName)
         {
 
         }
@@ -80,7 +83,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// Start the Process for #920 
         /// </summary>
         /// <returns></returns>
-        public bool StartStraddle920()
+        public async Task<bool> StartStraddle920()
         {
             return true;
         }
@@ -90,7 +93,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="KeyOfStraddle"></param>
         /// <returns></returns>
-        public bool SquareOffStraddle920(string KeyOfStraddle)
+        public async Task<bool> SquareOffStraddle920(string KeyOfStraddle)
         {
             return true;
         }
@@ -101,7 +104,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// <param name="KeyOfStraddle"></param>
         /// <param name="LegKey"></param>
         /// <returns></returns>
-        public bool SquareOffStraddle920Leg(string KeyOfStraddle,string LegKey)
+        public async Task<bool> SquareOffStraddle920Leg(string KeyOfStraddle,string LegKey)
         {
             return true;
         }
@@ -111,7 +114,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="KeyOfStraddle"></param>
         /// <returns></returns>
-        public bool StrategyReEntryStraddle920(string KeyOfStraddle)
+        public async Task<bool> StrategyReEntryStraddle920(string KeyOfStraddle)
         {
             return false;
         }

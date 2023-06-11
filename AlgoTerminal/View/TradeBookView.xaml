@@ -6,7 +6,22 @@
              xmlns:local="clr-namespace:AlgoTerminal.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <DataGrid>
+        <DataGrid.ColumnHeaderStyle>
+            <Style TargetType="DataGridColumnHeader">
+                <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Text="Header1" HorizontalAlignment="Center" FontWeight="Bold" />
+                                <TextBlock Text="Header2" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,15,0,0" />
+                            </Grid>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </DataGrid.ColumnHeaderStyle>
+
+        <!-- DataGrid columns and rows -->
+    </DataGrid>
 </UserControl>
