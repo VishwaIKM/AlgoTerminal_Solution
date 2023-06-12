@@ -11,29 +11,48 @@ namespace AlgoTerminal.Model
     {
         private readonly ILogFileWriter logFileWriter;
         private readonly IStraddleManager straddleManager;
-
-        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager)
+        private readonly IFeed feed;
+        private readonly IContractDetails contractDetails;
+        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager,IFeed feed,IContractDetails contractDetails)
         {
+            this.feed = feed;
             this.logFileWriter = logFileWriter;
             this.straddleManager = straddleManager;
+            this.contractDetails = contractDetails;
         }
 
-        public bool ApplicationStartUpRequirement()
+        public async Task<bool> ApplicationStartUpRequirement()
         {
             try
             {
-                straddleManager.StraddleStartUP();
+                contractDetails.LoadContractDetails();
+                var feedStarted = feed.InitializeFeedDll();//Feed start
+                await Task.Delay(3000);
+                var daat = straddleManager.StraddleStartUP(); // File Load          
+                await straddleManager.FirstTimeDataLoadingOnGUI();// GUI Load
+                await Task.Delay(3000);
+                await straddleManager.DataUpdateRequest();// Fire The Orders
                 return true;
             }
-            catch
+            catch(Exception ex)
             {
-                logFileWriter.DisplayLog(Structure.EnumDeclaration.EnumLogType.Info, " Application StartUp Block Complete. ");
+                logFileWriter.DisplayLog(Structure.EnumDeclaration.EnumLogType.Error, " Application StartUp Block failed.");
+                logFileWriter.WriteLog(Structure.EnumDeclaration.EnumLogType.Error, ex.ToString());
                 return false;
             }
-            finally
+          
+        }
+        public void ApplicationStopRequirement()
+        {
+            try
             {
-                logFileWriter.DisplayLog(Structure.EnumDeclaration.EnumLogType.Info, " Application StartUp Block Complete. ");
+
             }
+            catch(Exception ex)
+            {
+                logFileWriter.WriteLog(Structure.EnumDeclaration.EnumLogType.Error, ex.ToString());
+            }
+        
         }
     }
 }

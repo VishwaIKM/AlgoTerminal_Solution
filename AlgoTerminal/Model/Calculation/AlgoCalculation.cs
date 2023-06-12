@@ -193,8 +193,8 @@ namespace AlgoTerminal.Model.Calculation
                 double[] PremiumInRange = premium.Where(x => x >= premium_lower_range && x <= premium_upper_range).ToArray();
                 if (PremiumInRange.Length <= 0) throw new Exception("No Strike Found with in provided Range");
                 //GetToken =>Note need to handle if same Price find in multipile strike
-                if (enumPosition == EnumPosition.Buy) index = Array.IndexOf(premium, PremiumInRange.Min());
-                else if (enumPosition == EnumPosition.Sell) index = Array.IndexOf(premium, PremiumInRange.Max());
+                if (enumPosition == EnumPosition.BUY) index = Array.IndexOf(premium, PremiumInRange.Min());
+                else if (enumPosition == EnumPosition.SELL) index = Array.IndexOf(premium, PremiumInRange.Max());
             }
             else if (enumSelectStrikeCriteria == EnumSelectStrikeCriteria.CLOSESTPREMIUM)
             {
@@ -244,11 +244,11 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetLegPointPercentage_underlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE)
+            if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE)
             {
                 return entryPrice - entryPrice * StopLoss / 100.00;
             }
-            else if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE)
+            else if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.CE)
             {
                 return entryPrice + entryPrice * StopLoss / 100.00;
             }
@@ -260,11 +260,11 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetLegPoint_UnderlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE)
+            if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE)
             {
                 return entryPrice - StopLoss;
             }
-            else if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE)
+            else if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.CE)
             {
                 return entryPrice + StopLoss;
             }
@@ -294,11 +294,11 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetLegPointPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
         {
-            if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE)
+            if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE)
             {
                 return entryPrice + entryPrice * TargetProfit / 100.00;
             }
-            else if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE)
+            else if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.CE)
             {
                 return entryPrice - entryPrice * TargetProfit / 100.00;
             }
@@ -310,11 +310,11 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetLegPointTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
         {
-            if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.PE)
+            if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.CE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE)
             {
                 return entryPrice + TargetProfit;
             }
-            else if (enumPosition == EnumPosition.Sell && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.Buy && enumOptiontype == EnumOptiontype.CE)
+            else if (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE || enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.CE)
             {
                 return entryPrice - TargetProfit;
             }
@@ -526,7 +526,7 @@ namespace AlgoTerminal.Model.Calculation
             //get expiry
             DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
             List<double> SetOfPrice = new();
-            if (enumRangeBreakoutType == EnumRangeBreakoutType.Instrument || enumSegments == EnumSegments.FUTURES)
+            if (enumRangeBreakoutType == EnumRangeBreakoutType.INSTRUMENT || enumSegments == EnumSegments.FUTURES)
             {
                 //get Token 
                 uint Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
@@ -543,7 +543,7 @@ namespace AlgoTerminal.Model.Calculation
                         SetOfPrice.Add(price);
                 }
             }
-            else if (enumRangeBreakoutType == EnumRangeBreakoutType.Underlying)
+            else if (enumRangeBreakoutType == EnumRangeBreakoutType.UNDERLYING)
             {
                 string? SpotString;
                 if (enumIndex == EnumIndex.NIFTY) SpotString = "Nifty 50";
@@ -568,8 +568,8 @@ namespace AlgoTerminal.Model.Calculation
 
             return enumRangeBreakout switch
             {
-                EnumRangeBreakout.High => GetRangeBreaKOutHigh(enumRangeBreakout, SetOfPrice),
-                EnumRangeBreakout.Low => GetRangeBreaKOutILow(enumRangeBreakout, SetOfPrice),
+                EnumRangeBreakout.HIGH => GetRangeBreaKOutHigh(enumRangeBreakout, SetOfPrice),
+                EnumRangeBreakout.LOW => GetRangeBreaKOutILow(enumRangeBreakout, SetOfPrice),
                 _ => throw new NotImplementedException(),
             };
         }

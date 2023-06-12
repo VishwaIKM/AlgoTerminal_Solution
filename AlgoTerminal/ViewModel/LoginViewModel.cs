@@ -109,7 +109,7 @@ namespace AlgoTerminal.ViewModel
                 App.Current.MainWindow.Close();
                 App.Current.MainWindow = dashboardView1;
 
-                applicationManagerModel.ApplicationStartUpRequirement();
+                await applicationManagerModel.ApplicationStartUpRequirement();
 
             }
             catch (Exception ex)

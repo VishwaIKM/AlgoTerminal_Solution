@@ -4,7 +4,7 @@
     {
         public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error};
         public enum EnumLogType { Warning, Error, Success, Info, Buy, Sell, Response };
-        public enum EnumEntryAndExit : int { TimeBased, SignalBased, OnlyEntrySignalBased }
+        public enum EnumEntryAndExit : int { TIMEBASED, SignalBased, OnlyEntrySignalBased }
 
         public enum EnumSignalType : int
         {
@@ -36,8 +36,8 @@
         //Legwise SL settings
         public enum EnumSquareOff : int
         {
-            Partial = 1,
-            Complete = 2
+            PARTIAL = 1,
+            COMPLETE = 2
         }
 
         public enum EnumTrailSLtoBreakEvenPrice : int
@@ -167,8 +167,8 @@
 
         public enum EnumPosition : int
         {
-            Buy,
-            Sell
+            BUY,
+            SELL
         }
 
         //Leg Setting 
@@ -222,13 +222,13 @@
 
         public enum EnumRangeBreakout : int
         {
-            High,
-            Low
+            HIGH,
+            LOW
         }
         public enum EnumRangeBreakoutType : int
         {
-            Underlying,
-            Instrument
+            UNDERLYING,
+            INSTRUMENT
         }
     }
 }

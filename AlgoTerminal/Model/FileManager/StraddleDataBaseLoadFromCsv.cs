@@ -68,9 +68,9 @@ namespace AlgoTerminal.Model.FileManager
                             _logWriter.WriteLog(EnumLogType.Warning, "On Line " + _row + " Error : " + _strategy[5]);
                         if (!DateTime.TryParse(_strategy[6], out strategyDetails.ExitTime))
                             _logWriter.WriteLog(EnumLogType.Warning, "On Line " + _row + " Error : " + _strategy[6]);
-                        if (!Enum.TryParse(_strategy[7], out strategyDetails.Signal))
+                        if (!Enum.TryParse(_strategy[7].ToUpper(), out strategyDetails.Signal))
                             _logWriter.WriteLog(EnumLogType.Warning, "On Line " + _row + " Error : " + _strategy[7]);
-                        if (!Enum.TryParse(_strategy[8], out strategyDetails.SquareOff))
+                        if (!Enum.TryParse(_strategy[8].ToUpper(), out strategyDetails.SquareOff))
                             _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[8]);
 
                         if (_strategy[9].ToUpper() == "TRUE")
@@ -96,7 +96,7 @@ namespace AlgoTerminal.Model.FileManager
                             strategyDetails.IsOverallReEntryOnSLEnable = true;
                             if (!Enum.TryParse(_strategy[15], out strategyDetails.SettingOverallReEntryOnSL))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[15]);
-                            if (!double.TryParse(_strategy[16], out strategyDetails.OverallReEntryOnSL))
+                            if (!int.TryParse(_strategy[16], out strategyDetails.OverallReEntryOnSL))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[16]);
                         }
 
@@ -116,7 +116,7 @@ namespace AlgoTerminal.Model.FileManager
                             strategyDetails.IsOverallReEntryOnTgtEnable = true;
                             if (!Enum.TryParse(_strategy[21], out strategyDetails.SettingOverallReEntryOnTgt))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[21]);
-                            if (!double.TryParse(_strategy[22], out strategyDetails.OverallReEntryOnTgt))
+                            if (!int.TryParse(_strategy[22], out strategyDetails.OverallReEntryOnTgt))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[22]);
                         }
 
@@ -225,7 +225,7 @@ namespace AlgoTerminal.Model.FileManager
                             legDetails.IsReEntryOnTgtEnable = true;
                             if (!Enum.TryParse(_strategy[22], out legDetails.SettingReEntryOnTgt))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[22]);
-                            if (!double.TryParse(_strategy[23], out legDetails.ReEntryOnTgt))
+                            if (!int.TryParse(_strategy[23], out legDetails.ReEntryOnTgt))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[23]);
                         }
                         //Re entry on SL
@@ -234,7 +234,7 @@ namespace AlgoTerminal.Model.FileManager
                             legDetails.IsReEntryOnSLEnable = true;
                             if (!Enum.TryParse(_strategy[25], out legDetails.SettingReEntryOnSL))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[25]);
-                            if (!double.TryParse(_strategy[26], out legDetails.ReEntryOnSL))
+                            if (!int.TryParse(_strategy[26], out legDetails.ReEntryOnSL))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[26]);
                         }
                         //Momentum

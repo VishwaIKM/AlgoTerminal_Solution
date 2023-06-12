@@ -16,7 +16,7 @@
                 <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}"/>
                 <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}"/>
                 <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}"/>
-                <DataGridTextColumn Header="M2M" Width="*" Binding="{Binding M2M}"/>
+                <DataGridTextColumn Header="MTM" Width="*" Binding="{Binding M2M}"/>
                 <DataGridTextColumn Header="Stop Loss" Width="*" Binding="{Binding StopLoss}"/>
                 <DataGridTextColumn Header="Target Profit" Width="*" Binding="{Binding TargetProfit}"/>
                 <DataGridTextColumn Header="Re SL" Width="66" Binding="{Binding ReEntrySL}"/>
@@ -26,8 +26,9 @@
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsStrategyRow}" Value="True">
-                            <Setter Property="Background" Value="CadetBlue"></Setter>
+                            <Setter Property="Background" Value="Black"></Setter>
                             <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Foreground" Value="White"/>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

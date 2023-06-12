@@ -5,6 +5,7 @@ using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq;
+using System.Web;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.FileManager
@@ -141,6 +142,19 @@ namespace AlgoTerminal.Model.FileManager
             ContractRecord.ContractData value = ContractDetailsToken.Where(x => x.Value.TrdSymbol == TradingSymbol).Select(x => x.Value).First();
             return value;
         }
+
+        public uint GetTokenByContractValue(DateTime exp, EnumOptiontype enumOptiontype, EnumIndex enumIndex, double selectedStrike)
+        {
+            if (ContractDetailsToken == null)
+                throw new Exception("Contract File Not Loaded!");
+
+
+            return ContractDetailsToken.Where(x => x.Value.Expiry == exp
+              && x.Value.Opttype == enumOptiontype
+              && x.Value.Symbol == enumIndex.ToString().ToUpper()
+              && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
+        }
+
         #endregion
     }
 }

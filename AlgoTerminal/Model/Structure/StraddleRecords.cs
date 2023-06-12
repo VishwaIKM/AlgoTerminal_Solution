@@ -18,7 +18,7 @@ namespace AlgoTerminal.Model.Structure
         //EntrySettings
 
 
-        public EnumEntryAndExit EntryAndExitSetting = EnumEntryAndExit.TimeBased;
+        public EnumEntryAndExit EntryAndExitSetting = EnumEntryAndExit.TIMEBASED;
         public EnumStrategyType StartgyType = EnumStrategyType.INTRADAY;
 
         //TimeBased ==> EntryAndExitSetting
@@ -34,7 +34,7 @@ namespace AlgoTerminal.Model.Structure
         //LegwiseSLsettings
 
 
-        public EnumSquareOff SquareOff = EnumSquareOff.Partial;
+        public EnumSquareOff SquareOff = EnumSquareOff.PARTIAL;
 
         public bool IsTrailSLtoBreakEvenPriceEnable = false;
         public EnumTrailSLtoBreakEvenPrice TrailSLtoBreakEvenPrice = EnumTrailSLtoBreakEvenPrice.AllLegs;
@@ -49,7 +49,7 @@ namespace AlgoTerminal.Model.Structure
 
         public bool IsOverallReEntryOnSLEnable = false;
         public EnumOverallReEntryOnSL SettingOverallReEntryOnSL = EnumOverallReEntryOnSL.RE_ASAP;
-        public double OverallReEntryOnSL = 0;
+        public int OverallReEntryOnSL = 0;
 
         public bool IsOverallTargetEnable = false;
         public EnumOverallTarget SettingOverallTarget = EnumOverallTarget.MTM;
@@ -57,7 +57,7 @@ namespace AlgoTerminal.Model.Structure
 
         public bool IsOverallReEntryOnTgtEnable = false;
         public EnumOverallReEntryOnTarget SettingOverallReEntryOnTgt = EnumOverallReEntryOnTarget.RE_ASAP;
-        public double OverallReEntryOnTgt = 0;
+        public int OverallReEntryOnTgt = 0;
 
         public bool IsOverallTrallingOptionEnable = false;
         public bool IsOverallTrallSLEnable = false;
@@ -98,11 +98,11 @@ namespace AlgoTerminal.Model.Structure
 
         public bool IsReEntryOnTgtEnable = false;
         public EnumLegReEntryOnTarget SettingReEntryOnTgt = EnumLegReEntryOnTarget.RE_ASAP;
-        public double ReEntryOnTgt = 0;
+        public int ReEntryOnTgt = 0;
 
         public bool IsReEntryOnSLEnable = false;
         public EnumLegReEntryOnSL SettingReEntryOnSL = EnumLegReEntryOnSL.RE_ASAP;
-        public double ReEntryOnSL = 0;
+        public int ReEntryOnSL = 0;
 
         public bool IsSimpleMomentumEnable = false;
         public EnumLegSimpleMomentum SettingSimpleMomentum = EnumLegSimpleMomentum.Points;
@@ -110,14 +110,14 @@ namespace AlgoTerminal.Model.Structure
 
         public bool IsRangeBreakOutEnable = false;
         public DateTime RangeBreakOutEndTime = DateTime.Today.AddHours(9).AddMinutes(45);
-        public EnumRangeBreakout SettingRangeBreakOut = EnumRangeBreakout.High;
-        public EnumRangeBreakoutType SettingRangeBreakOutType = EnumRangeBreakoutType.Underlying;
+        public EnumRangeBreakout SettingRangeBreakOut = EnumRangeBreakout.HIGH;
+        public EnumRangeBreakoutType SettingRangeBreakOutType = EnumRangeBreakoutType.UNDERLYING;
 
         //Leg
 
         public EnumSegments SelectSegment = EnumSegments.OPTIONS;
         public int Lots = 1;
-        public EnumPosition Position = EnumPosition.Buy;
+        public EnumPosition Position = EnumPosition.BUY;
         public EnumOptiontype OptionType = EnumOptiontype.CE;
         public EnumExpiry Expiry = EnumExpiry.WEEKLY;
         public EnumSelectStrikeCriteria StrikeCriteria = EnumSelectStrikeCriteria.STRIKETYPE;

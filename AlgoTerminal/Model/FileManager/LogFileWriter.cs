@@ -70,16 +70,7 @@ namespace AlgoTerminal.Model.FileManager
                         loggerModel.Category = p.Ltype;
                         loggerModel.Time = DateTime.Now;
                         loggerModel.Message = p.Msg;
-                        //  Application.Current.Dispatcher.BeginInvoke(
-                        /// new Action(() =>
-                        // {
-
-                        LoggerViewModel.LogDataCollection.Add(loggerModel);
-
-                        // }),
-                        //DispatcherPriority.Background,
-                        // null
-                        // );    
+                        Application.Current.Dispatcher.BeginInvoke(new Action(() =>{LoggerViewModel.LogDataCollection.Add(loggerModel);}),DispatcherPriority.Background,null );
                     }
                 }
 

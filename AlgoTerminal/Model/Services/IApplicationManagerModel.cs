@@ -1,7 +1,9 @@
-﻿namespace AlgoTerminal.Model.Services
+﻿using System.Threading.Tasks;
+
+namespace AlgoTerminal.Model.Services
 {
     public interface IApplicationManagerModel
     {
-        bool ApplicationStartUpRequirement();
+        Task<bool> ApplicationStartUpRequirement();
     }
 }

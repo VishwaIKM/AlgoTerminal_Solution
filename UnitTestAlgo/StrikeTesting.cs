@@ -88,7 +88,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
             // var feedstop = feed.FeedToStop();
@@ -111,7 +111,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Sell);
+            EnumPosition.SELL);
             output.WriteLine("Recived the Strike: " + data.ToString());
             Assert.NotNull(data);
             Assert.Equal(18400, data);
@@ -130,7 +130,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
             Assert.Equal(18750, data);
@@ -150,7 +150,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
             Assert.Equal(18550, data);
@@ -170,7 +170,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
             Assert.NotNull(data);
@@ -190,7 +190,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
             Assert.NotNull(data);
@@ -215,7 +215,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
@@ -245,7 +245,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
@@ -276,7 +276,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
@@ -307,7 +307,7 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
@@ -349,8 +349,8 @@ namespace UnitTestAlgo
             // EnumPosition.Buy);
             //output.WriteLine("Recived the Strike: " + data.ToString());
             double data = -0.01;
-            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
-                EnumRangeBreakoutType.Instrument,
+            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.HIGH,
+                EnumRangeBreakoutType.INSTRUMENT,
                 DateTime.Today.AddHours(14).AddMinutes(3),
                 EnumIndex.NIFTY,
                 EnumSegments.FUTURES,
@@ -381,11 +381,11 @@ namespace UnitTestAlgo
             EnumSegments.OPTIONS,
             EnumExpiry.WEEKLY,
             EnumOptiontype.CE,
-            EnumPosition.Buy);
+            EnumPosition.BUY);
             output.WriteLine("Recived the Strike: " + data.ToString());
 
-            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.High,
-                EnumRangeBreakoutType.Instrument,
+            var Price_Of_RangeBreak_Out = algo.GetRangeBreaKOut(EnumRangeBreakout.HIGH,
+                EnumRangeBreakoutType.INSTRUMENT,
                 DateTime.Today.AddHours(14).AddMinutes(5),
                 EnumIndex.NIFTY,
                 EnumSegments.OPTIONS,
