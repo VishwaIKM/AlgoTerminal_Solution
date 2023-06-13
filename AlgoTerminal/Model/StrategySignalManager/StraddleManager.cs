@@ -91,12 +91,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         var stg_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
                         PortfolioModel portfolioModel = new();
                         portfolioModel.Name = stg_key;
+                        portfolioModel.Index = stg_value.Index;
                         portfolioModel.EntryTime = stg_value.EntryTime;
                         portfolioModel.ExitTime = stg_value.ExitTime;
-                        portfolioModel.Status = EnumDeclaration.EnumStrategyStatus.Added;
                         portfolioModel.UserID = stg_value.UserID;
-                        portfolioModel.IsStrategyRow = true;
-
+                        portfolioModel.innerObject ??= new();
 
                         //ADD in Portfolio for GUI
                         if (!Portfolios.ContainsKey(portfolioModel.Name))
@@ -104,7 +103,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             Portfolios.TryAdd(portfolioModel.Name, portfolioModel);
                             if (portfolioViewModel.StrategyDataCollection == null)
                                 throw new Exception("THE PortFolio VIEW->MODEL not initiated");
-                            portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
+                            //portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
 
                             //leg load
 
@@ -116,31 +115,35 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     try
                                     {
                                         var leg_value = LegDetails[Leg];
-                                        PortfolioModel portfolioModelLeg = new();
-                                        portfolioModelLeg.Name = stg_key + "(" + Leg + ")";
-                                        portfolioModelLeg.TradingSymbol = "Loading ...";
-
+                                        InnerObject innerObject = new ();
+                                        innerObject.Name = stg_key + "(" + Leg + ")";
+                                        innerObject.BuySell = leg_value.Position;
+                                        innerObject.Status = EnumStrategyStatus.Added;
+                                        innerObject.TradingSymbol = "Loading ...";
+                                        innerObject.Qty = leg_value.Lots;
+                                        portfolioModel.innerObject.Add(innerObject);
                                         //ADD TO GUI
-                                        Portfolios.TryAdd(portfolioModelLeg.Name, portfolioModelLeg);
+                                        Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, portfolioModel);
                                         if (portfolioViewModel.StrategyDataCollection == null)
                                             throw new Exception("THE PortFolio VIEW->MODEL not initiated");
-                                        portfolioViewModel.StrategyDataCollection.Add(portfolioModelLeg);
                                     }
                                     catch (Exception ex)
                                     {
                                         logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                                     }
                                 }
+                                portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
                             }
                         }
-                        return true;
+                        
                     }
                     catch (Exception ex)
                     {
                         logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                     }
-                }
 
+                }
+                return true;
 
             }
             catch (Exception ex) { logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString()); }
@@ -158,20 +161,31 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
                 {//ALL STG
 
-                    var Papa = Task.Factory.StartNew(() =>
+                    var Papa = Task.Factory.StartNew((Action)(() =>
                     {
                         List<Task> tasks = new();
                         var stg_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
                         var GUIUpdation = Portfolios[stg_key];
-                        GUIUpdation.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
+                       // GUIUpdation.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
                         GUIUpdation.ReEntryTP = stg_value.OverallReEntryOnTgt;
                         GUIUpdation.ReEntrySL = stg_value.OverallReEntryOnSL;
-                        Application.Current.Dispatcher.BeginInvoke(new Action(() => { CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection).Refresh(); }), DispatcherPriority.Background, null);
+                        Application.Current.Dispatcher.BeginInvoke(new Action(() => { CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection); }), DispatcherPriority.Background, null);
                         
                         //waiting for Entry Time
-                        while(stg_value.EntryTime > DateTime.Now)
+                        while(stg_value.EntryTime < DateTime.Now)
                         {
-                            Thread.Sleep(2000);
+                            GUIUpdation.MTM = 50;
+
+                            //Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                            //{
+
+                            //    CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection).Refresh();
+
+                            //}), DispatcherPriority.Background, null);
+                            //Thread.Sleep(100);
+                            GUIUpdation.MTM = 60;
+                            //Thread.Sleep(100);
+                            GUIUpdation.MTM = 70;
                         }
 
                         //
@@ -185,8 +199,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 try
                                 {
                                     var leg_Details = leg_value[Leg];
-                                    var GUIUpdateForLeg = Portfolios[stg_key+"("+Leg+")"];
-                                    GUIUpdateForLeg.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
+                                    var GUIUpdateForLeg = Portfolios[stg_key + "(" + Leg + ")"];
+                                    //  GUIUpdateForLeg.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
 
 
                                     //Get Trading Symbol and Token
@@ -210,8 +224,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                                     //GUI
-                                    GUIUpdateForLeg.Token = Token;
-                                    GUIUpdateForLeg.TradingSymbol = TradingSymbol;
+                                    //GUIUpdateForLeg.Token = Token;
+                                   // GUIUpdateForLeg.TradingSymbol = TradingSymbol;
                                     GUIUpdateForLeg.ReEntryTP = leg_Details.ReEntryOnTgt;
                                     GUIUpdateForLeg.ReEntrySL = leg_Details.ReEntryOnSL;
 
@@ -230,18 +244,18 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                    stg_value.Index,
                                                                                    leg_Details.SelectSegment,
                                                                                    leg_Details.Expiry,
-                                                                                   EnumOptiontype.CE,
+                                                                                   leg_Details.OptionType,
                                                                                    StrikeForLeg).Result;
                                     }
                                     if(leg_Details.IsSimpleMomentumEnable)
                                     {
-                                        Price = algoCalculation.GetLegMomentumlock(EnumLegSimpleMomentum.Points,
-                                                                                                    20,
-                                                                                                    EnumIndex.NIFTY,
-                                                                                                    EnumExpiry.WEEKLY,
+                                        Price = algoCalculation.GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
+                                                                                                    leg_Details.SimpleMomentum,
+                                                                                                    stg_value.Index,
+                                                                                                    leg_Details.Expiry,
                                                                                                     StrikeForLeg,
-                                                                                                    EnumOptiontype.CE,
-                                                                                                    EnumSegments.OPTIONS);
+                                                                                                    leg_Details.OptionType,
+                                                                                                    leg_Details.SelectSegment);
                                     }
 
 
@@ -267,7 +281,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                         Application.Current.Dispatcher.BeginInvoke(new Action(() => { CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection).Refresh(); }), DispatcherPriority.Background, null);
-                    });
+                    }));
                 }
                 
             }

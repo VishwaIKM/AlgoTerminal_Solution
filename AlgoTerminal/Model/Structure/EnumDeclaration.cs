@@ -168,7 +168,7 @@
         public enum EnumPosition : int
         {
             BUY,
-            SELL
+            SELL 
         }
 
         //Leg Setting 
