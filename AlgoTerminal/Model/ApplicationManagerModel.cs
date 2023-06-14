@@ -26,7 +26,7 @@ namespace AlgoTerminal.Model
             try
             {
                 contractDetails.LoadContractDetails();
-                //var feedStarted = feed.InitializeFeedDll();//Feed start
+                var feedStarted = feed.InitializeFeedDll();//Feed start
                 await Task.Delay(3000);
                 var daat = straddleManager.StraddleStartUP(); // File Load          
                 await straddleManager.FirstTimeDataLoadingOnGUI();// GUI Load

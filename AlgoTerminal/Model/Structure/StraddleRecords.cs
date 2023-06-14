@@ -70,11 +70,7 @@ namespace AlgoTerminal.Model.Structure
         public double TrailAmountMove = 0;
         public double TrailSLMove = 0;
 
-        //fields after Calculation
-        public double _overAllStopLossValue = 0;
-        public double _overAllTargetValue = 0;
-        public double _overAllStopLossReEntry = 0;
-        public double _overAllReEntryTargetValue = 0;
+      
 
         //User
         public string? UserID;
@@ -127,14 +123,7 @@ namespace AlgoTerminal.Model.Structure
         public double Premium_or_StraddleWidth = 0;
 
 
-        //fields after Calculation
 
-        public double _targetValue = 0;
-        public double _stopLossValue = 0;
-        public double _trailSlStoplossValue = 0;
-        public double _reEntryTargetValue = 0;
-        public double _reEntryOnStopLossValue = 0;
-        public double _SimpleMovementumValue = 0;
 
     }
 

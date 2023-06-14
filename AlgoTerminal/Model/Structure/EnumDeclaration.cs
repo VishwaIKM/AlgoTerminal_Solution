@@ -2,7 +2,7 @@
 {
     public class EnumDeclaration
     {
-        public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error};
+        public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error,None};
         public enum EnumLogType { Warning, Error, Success, Info, Buy, Sell, Response };
         public enum EnumEntryAndExit : int { TIMEBASED, SignalBased, OnlyEntrySignalBased }
 

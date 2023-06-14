@@ -118,7 +118,7 @@ namespace AlgoTerminal.Model.FileManager
         /// <param name="Token"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public ContractRecord.ContractData? GetContractDetailsByToken(uint Token)
+        public ContractRecord.ContractData GetContractDetailsByToken(uint Token)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -134,7 +134,7 @@ namespace AlgoTerminal.Model.FileManager
         /// <param name="TradingSymbol"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public ContractRecord.ContractData? GetContractDetailsByTradingSymbol(string TradingSymbol)
+        public ContractRecord.ContractData GetContractDetailsByTradingSymbol(string TradingSymbol)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -153,6 +153,16 @@ namespace AlgoTerminal.Model.FileManager
               && x.Value.Opttype == enumOptiontype
               && x.Value.Symbol == enumIndex.ToString().ToUpper()
               && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
+        }
+
+        public uint GetTokenByContractValue(DateTime expiry, EnumOptiontype xX, EnumIndex index)
+        {
+            if (ContractDetailsToken == null)
+                throw new Exception("Contract File Not Loaded!");
+
+            return ContractDetailsToken.Where(x => x.Value.Expiry == expiry
+             && x.Value.Opttype == xX
+             && x.Value.Symbol == index.ToString().ToUpper()).Select(xx => xx.Key).FirstOrDefault();
         }
 
         #endregion

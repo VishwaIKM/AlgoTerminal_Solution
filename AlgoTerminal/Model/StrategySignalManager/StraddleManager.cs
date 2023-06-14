@@ -5,6 +5,7 @@ using FeedC;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
@@ -80,7 +81,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         {
             try//MAIN
             {
-                if (straddleDataBaseLoad.Master_Straddle_Dictionary == null)
+                if (straddleDataBaseLoad.Master_Straddle_Dictionary == null || straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null)
                     throw new Exception("The strategy is Not loaded Correctly");
 
                 //Strategy load
@@ -116,14 +117,14 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     {
                                         var leg_value = LegDetails[Leg];
                                         InnerObject innerObject = new ();
-                                        innerObject.Name = stg_key + "(" + Leg + ")";
+                                        innerObject.Name = Leg;
                                         innerObject.BuySell = leg_value.Position;
                                         innerObject.Status = EnumStrategyStatus.Added;
                                         innerObject.TradingSymbol = "Loading ...";
                                         innerObject.Qty = leg_value.Lots;
                                         portfolioModel.innerObject.Add(innerObject);
                                         //ADD TO GUI
-                                        Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, portfolioModel);
+                                        Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, Portfolios[portfolioModel.Name]);
                                         if (portfolioViewModel.StrategyDataCollection == null)
                                             throw new Exception("THE PortFolio VIEW->MODEL not initiated");
                                     }
@@ -156,6 +157,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// <returns></returns>
         public async Task DataUpdateRequest()
         {
+            if(straddleDataBaseLoad.Master_Straddle_Dictionary == null || straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null) 
+                throw new Exception("Master dic not loadded posibility The Stg file not loaded."); 
+
             try
             {
                 foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
@@ -169,23 +173,14 @@ namespace AlgoTerminal.Model.StrategySignalManager
                        // GUIUpdation.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
                         GUIUpdation.ReEntryTP = stg_value.OverallReEntryOnTgt;
                         GUIUpdation.ReEntrySL = stg_value.OverallReEntryOnSL;
-                        Application.Current.Dispatcher.BeginInvoke(new Action(() => { CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection); }), DispatcherPriority.Background, null);
+                        
                         
                         //waiting for Entry Time
-                        while(stg_value.EntryTime < DateTime.Now)
+                       
+                        if(stg_value.EntryTime > DateTime.Now)
                         {
-                            GUIUpdation.MTM = 50;
-
-                            //Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                            //{
-
-                            //    CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection).Refresh();
-
-                            //}), DispatcherPriority.Background, null);
-                            //Thread.Sleep(100);
-                            GUIUpdation.MTM = 60;
-                            //Thread.Sleep(100);
-                            GUIUpdation.MTM = 70;
+                           int milisecond = (int)(stg_value.EntryTime-DateTime.Now).TotalMilliseconds;
+                           Thread.Sleep(milisecond);
                         }
 
                         //
@@ -194,93 +189,125 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         foreach (string Leg in leg_value.Keys)
                         {//ALL LEG
 
-                            var bacha = Task.Factory.StartNew(() =>
+                            var bacha = Task.Factory.StartNew(async () =>
                             {
+                                var leg_Details = leg_value[Leg];
+                                var GUICurrentLeg = GUIUpdation.innerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
                                 try
                                 {
-                                    var leg_Details = leg_value[Leg];
-                                    var GUIUpdateForLeg = Portfolios[stg_key + "(" + Leg + ")"];
+                                  
                                     //  GUIUpdateForLeg.Status = EnumDeclaration.EnumStrategyStatus.Waiting;
 
 
                                     //Get Trading Symbol and Token
-                                    DateTime Expiry = algoCalculation.GetLegExpiry(leg_Details.Expiry,
+                                        DateTime Expiry = algoCalculation.GetLegExpiry(leg_Details.Expiry,
+                                                                                           stg_value.Index,
+                                                                                           leg_Details.SelectSegment,
+                                                                                           leg_Details.OptionType);
+
+
+                                        double StrikeForLeg = EnumSegments.OPTIONS == leg_Details.SelectSegment ? algoCalculation.GetStrike(leg_Details.StrikeCriteria,
+                                                                                           leg_Details.StrikeType,
+                                                                                           leg_Details.PremiumRangeLower,
+                                                                                           leg_Details.PremiumRangeUpper,
+                                                                                           leg_Details.Premium_or_StraddleWidth,
+                                                                                           stg_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
+                                                                                           stg_value.UnderlyingFrom,
+                                                                                           leg_Details.SelectSegment,
+                                                                                           leg_Details.Expiry,
+                                                                                           leg_Details.OptionType,
+                                                                                           leg_Details.Position) :
+                                                                                           -0.01;
+
+                                        uint Token = EnumSegments.OPTIONS == leg_Details.SelectSegment ? contractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_value.Index, StrikeForLeg) : 
+                                    contractDetails.GetTokenByContractValue(Expiry,EnumOptiontype.XX,stg_value.Index);
+                                        string TradingSymbol = contractDetails.GetContractDetailsByToken(Token).TrdSymbol ?? throw new Exception("for " + Token + " Trading Symbol was not Found in Contract Details.");
+
+
+                                        //GUI
+                                        GUICurrentLeg.Token = Token;
+                                        GUICurrentLeg.TradingSymbol = TradingSymbol;
+                                        GUICurrentLeg.Status = EnumStrategyStatus.Waiting;
+
+
+
+
+
+                                        //Simple Movement or RanageBreak Out Enable
+
+                                        if (leg_Details.IsSimpleMomentumEnable == true && leg_Details.IsRangeBreakOutEnable == true)
+                                            throw new Exception("Simple Momentum and Range Break Out both are Enable");
+
+
+                                        double Price = 0;
+                                        if (leg_Details.IsRangeBreakOutEnable)
+                                        {
+                                            Price = await algoCalculation.GetRangeBreaKOut(leg_Details.SettingRangeBreakOut,
+                                                                                       leg_Details.SettingRangeBreakOutType,
+                                                                                       leg_Details.RangeBreakOutEndTime,
                                                                                        stg_value.Index,
                                                                                        leg_Details.SelectSegment,
-                                                                                       leg_Details.OptionType);
-                                    double StrikeForLeg  = algoCalculation.GetStrike(leg_Details.StrikeCriteria,
-                                                                                        leg_Details.StrikeType,
-                                                                                        leg_Details.PremiumRangeLower, 
-                                                                                        leg_Details.PremiumRangeUpper, 
-                                                                                        leg_Details.Premium_or_StraddleWidth,
-                                                                                        stg_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
-                                                                                        stg_value.UnderlyingFrom,
-                                                                                        leg_Details.SelectSegment,
-                                                                                        leg_Details.Expiry,
-                                                                                        leg_Details.OptionType,
-                                                                                        leg_Details.Position);
-                                    uint Token = contractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_value.Index, StrikeForLeg);
-                                    string? TradingSymbol = contractDetails.GetContractDetailsByToken(Token).TrdSymbol;
+                                                                                       leg_Details.Expiry,
+                                                                                       leg_Details.OptionType,
+                                                                                       StrikeForLeg,Token);
+                                        }
+                                        else if (leg_Details.IsSimpleMomentumEnable)
+                                        {
+                                            Price = await algoCalculation.GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
+                                                                                                        leg_Details.SimpleMomentum,
+                                                                                                        stg_value.Index,
+                                                                                                        leg_Details.Expiry,
+                                                                                                        StrikeForLeg,
+                                                                                                        leg_Details.OptionType,
+                                                                                                        leg_Details.SelectSegment);
+                                        }
+                                        else
+                                        {
+                                            Price = algoCalculation.GetStrikePriceLTP(Token);
+                                        }
 
 
-                                    //GUI
-                                    //GUIUpdateForLeg.Token = Token;
-                                   // GUIUpdateForLeg.TradingSymbol = TradingSymbol;
-                                    GUIUpdateForLeg.ReEntryTP = leg_Details.ReEntryOnTgt;
-                                    GUIUpdateForLeg.ReEntrySL = leg_Details.ReEntryOnSL;
+                                        //Place the Order Using NNAPI 
 
-                                    //Simple Movement or RanageBreak Out Enable
+                                        //GUI
+                                        GUICurrentLeg.EntryPrice = Price;
+                                        GUICurrentLeg.Status = EnumStrategyStatus.Running;
+                                        GUICurrentLeg.EntryTime = DateTime.Now;
 
-                                    if (leg_Details.IsSimpleMomentumEnable == true && leg_Details.IsRangeBreakOutEnable == true)
-                                        throw new Exception("Simple Momentum and Range Break Out both are Enable");
+                                        
+                                        if (leg_Details.IsReEntryOnSLEnable == true)
+                                        {
+                                            GUICurrentLeg.ReEntrySL = algoCalculation.GetLegStopLoss(leg_Details.SettingStopLoss,
+                                                                                                            Price,
+                                                                                                            leg_Details.OptionType,
+                                                                                                            leg_Details.Position,
+                                                                                                            leg_Details.StopLoss);
+                                        }
 
-
-                                    double Price;
-                                    if (leg_Details.IsRangeBreakOutEnable)
-                                    {
-                                        Price = algoCalculation.GetRangeBreaKOut(leg_Details.SettingRangeBreakOut,
-                                                                                   leg_Details.SettingRangeBreakOutType,
-                                                                                   leg_Details.RangeBreakOutEndTime,
-                                                                                   stg_value.Index,
-                                                                                   leg_Details.SelectSegment,
-                                                                                   leg_Details.Expiry,
-                                                                                   leg_Details.OptionType,
-                                                                                   StrikeForLeg).Result;
-                                    }
-                                    if(leg_Details.IsSimpleMomentumEnable)
-                                    {
-                                        Price = algoCalculation.GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
-                                                                                                    leg_Details.SimpleMomentum,
-                                                                                                    stg_value.Index,
-                                                                                                    leg_Details.Expiry,
-                                                                                                    StrikeForLeg,
-                                                                                                    leg_Details.OptionType,
-                                                                                                    leg_Details.SelectSegment);
-                                    }
-
-
-                                    //Place the Order Using NNAPI 
-
-
-                                    //GUI
-                                   
-
-
+                                        if (leg_Details.IsReEntryOnTgtEnable == true)
+                                        {
+                                            GUICurrentLeg.TargetProfit = algoCalculation.GetLegTargetProfit(leg_Details.SettingTargetProfit,
+                                                                                                                                Price,
+                                                                                                                                leg_Details.OptionType,
+                                                                                                                                leg_Details.Position,
+                                                                                                                                leg_Details.StopLoss);
+                                        } 
                                 }
                                 catch (Exception ex)
                                 {
+                                    GUICurrentLeg.Status = EnumStrategyStatus.Error;
                                     logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                                 }
 
                             });
                             tasks.Add(bacha);
                         }
+                        //STG Detail when any leg place
+
                         Task.WaitAll(tasks.ToArray());
-                        //Now Update STG
 
+                        //STG DETAILS when all leg place
 
-
-                        Application.Current.Dispatcher.BeginInvoke(new Action(() => { CollectionViewSource.GetDefaultView(portfolioViewModel.StrategyDataCollection).Refresh(); }), DispatcherPriority.Background, null);
                     }));
                 }
                 

@@ -81,8 +81,8 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private int _reEntrySl;
-        public int ReEntrySL
+        private double _reEntrySl;
+        public double ReEntrySL
         {
             get => _reEntrySl; set
             {
@@ -93,9 +93,9 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private int _reEntryTP;
+        private double _reEntryTP;
 
-        public int ReEntryTP
+        public double ReEntryTP
         {
             get => _reEntryTP; set
             {
@@ -108,6 +108,17 @@ namespace AlgoTerminal.Model.Structure
         }
 
         public ObservableCollection<InnerObject> innerObject { get; set; } = new ObservableCollection<InnerObject>();
+
+        //For Calculation
+
+        public double BuyAveragePrice { get; set; }
+        public double SellAveragePrice { get; set; }
+        public int BuyTradedQty { get; set; }
+        public int SellTradedQty { get; set;}
+        public double Expenses { get; set;}
+
+
+
     }
     public class InnerObject : BaseViewModel
     {
@@ -123,17 +134,168 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        public string? TradingSymbol { get; set; }    
-        public EnumStrategyStatus Status { get; set; }
-        public double EntryPrice { get; set; }
-        public double ExitPrice { get; set; }
-        public DateTime EntryTime { get; set; }
-        public DateTime ExitTime { get; set; }
-        public double MTM { get; set; }
-        public EnumPosition BuySell { get; set; }
-        public int Qty { get; set; }
+        private string _tradingSymbol = "Loading...";
+        public string TradingSymbol
+        {
+            get => _tradingSymbol; set
+            {
+                if (_tradingSymbol != value)
+                {
+                    _tradingSymbol = value;
+                    OnPropertyChanged(nameof(TradingSymbol));
+                }
+            }
+        }
+        private EnumStrategyStatus _status = EnumStrategyStatus.None;
+        public EnumStrategyStatus Status
+        {
+            get => _status; set
+            {
+                if (_status != value)
+                {
+                    _status = value;
+                    OnPropertyChanged(nameof(Status));
+                }
+            }
+        }
+        private double _entryPrice;
+        public double EntryPrice
+        {
+            get => _entryPrice; set
+            {
+                if (_entryPrice != value)
+                {
+                    _entryPrice = value;
+                    OnPropertyChanged(nameof(EntryPrice));
+                }
+            }
+        }
+        private double _exitPrice;
+        public double ExitPrice
+        {
+            get => _exitPrice; set
+            {
+                if (_exitPrice != value)
+                {
+                    _exitPrice = value;
+                    OnPropertyChanged(nameof(ExitPrice));
+                }
+            }
+        }
+        private DateTime _entryTime;
+        public DateTime EntryTime
+        {
+            get => _entryTime; set
+            {
+                if (_entryTime != value)
+                {
+                    _entryTime = value;
+                    OnPropertyChanged(nameof(EntryTime));
+                }
+            }
+        }
+        private DateTime _exitTime;
+        public DateTime ExitTime
+        {
+            get => _exitTime; set
+            {
+                if (_exitTime != value)
+                {
+                    _exitTime = value;
+                    OnPropertyChanged(nameof(ExitTime));
+                }
+            }
+        }
+        private double _mtm;
+        public double MTM
+        {
+            get => _mtm; set
+            {
+                if (_mtm != value)
+                {
+                    _mtm = value;
+                    OnPropertyChanged(nameof(MTM));
+                }
+            }
+        }
+        private EnumPosition _buysell;
+        public EnumPosition BuySell
+        {
+            get => _buysell; set
+            {
+                if (_buysell != value)
+                {
+                    _buysell = value;
+                    OnPropertyChanged(nameof(BuySell));
+                }
+            }
+        }
+        private int _qty = 0;
+        public int Qty
+        {
+            get => _qty; set
+            {
+                if (_qty != value)
+                {
+                    _qty = value;
+                    OnPropertyChanged(nameof(Qty));
+                }
+            }
+        }
 
+        private double _reEntrySl;
+        public double ReEntrySL
+        {
+            get => _reEntrySl; set
+            {
+                if (_reEntrySl != value)
+                {
+                    _reEntrySl = value;
+                    OnPropertyChanged(nameof(ReEntrySL));
+                }
+            }
+        }
+        private double _reEntryTP;
+
+        public double ReEntryTP
+        {
+            get => _reEntryTP; set
+            {
+                if (_reEntryTP != value)
+                {
+                    _reEntryTP = value;
+                    OnPropertyChanged(nameof(ReEntryTP));
+                }
+            }
+        }
+        private double _stopLoss;
+        public double StopLoss
+        {
+            get => _stopLoss; set
+            {
+                if (_stopLoss != value)
+                {
+                    _stopLoss = value;
+                    OnPropertyChanged(nameof(StopLoss));
+                }
+            }
+        }
+        private double _targetprofit;
+
+        public double TargetProfit
+        {
+            get => _targetprofit; set
+            {
+                if (_targetprofit != value)
+                {
+                    _targetprofit = value;
+                    OnPropertyChanged(nameof(TargetProfit));
+                }
+            }
+        }
         //Hidden INFO
         public uint Token { get; set; }
+        //For Calculation
+        public double Expenses { get; set; }
     }
 }

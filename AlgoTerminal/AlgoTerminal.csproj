@@ -5,12 +5,17 @@
     <TargetFramework>net7.0-windows7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>bela.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\bela.jpg" />
     <None Remove="Images\IKMlogo.png" />
     <None Remove="Images\splash.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bela.ico" />
   </ItemGroup>
 
   <ItemGroup>
