@@ -1,14 +1,10 @@
-﻿using AlgoTerminal.Model.Structure;
-using FeedC;
-using System.Collections.Concurrent;
+﻿using FeedC;
 using System.Threading.Tasks;
 
 namespace AlgoTerminal.Model.Services
 {
     public interface IStraddleManager
     {
-        ConcurrentDictionary<string, PortfolioModel> Portfolios { get; set; }
-
         Task DataUpdateFrom_CM(uint FeedLogTime, string IndexName);
         Task DataUpdateFrom_FO(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed);
         Task DataUpdateRequest();

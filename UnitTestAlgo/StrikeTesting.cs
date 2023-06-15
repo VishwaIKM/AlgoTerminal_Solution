@@ -219,7 +219,7 @@ namespace UnitTestAlgo
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
-            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.Points,
+            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.POINTS,
             20,
             EnumIndex.NIFTY,
             EnumExpiry.WEEKLY,
@@ -249,7 +249,7 @@ namespace UnitTestAlgo
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
-            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.PointPercentage,
+            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.POINTPERCENTAGE,
             10,
             EnumIndex.NIFTY,
             EnumExpiry.WEEKLY,
@@ -280,7 +280,7 @@ namespace UnitTestAlgo
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
-            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UnderlyingPoints,
+            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UNDERLING,
             20,
             EnumIndex.NIFTY,
             EnumExpiry.WEEKLY,
@@ -311,7 +311,7 @@ namespace UnitTestAlgo
             output.WriteLine("Recived the Strike: " + data.ToString());
 
 
-            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UnderlyingPointPercentage,
+            double MomentumData = algo.GetLegMomentumlock(EnumLegSimpleMomentum.UNDERLINGPERCENTAGE,
             10,
             EnumIndex.NIFTY,
             EnumExpiry.WEEKLY,

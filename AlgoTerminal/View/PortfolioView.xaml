@@ -63,6 +63,8 @@
                             <DataGridTextColumn Header="TP" Width="50" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Re SL" Width="66" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Re TP" Width="66" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="RES" Width="66" Binding="{Binding RES}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DataTemplate>

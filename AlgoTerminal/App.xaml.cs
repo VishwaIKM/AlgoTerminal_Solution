@@ -1,6 +1,7 @@
 ﻿using AlgoTerminal.Model;
 using AlgoTerminal.Model.Calculation;
 using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Request;
 using AlgoTerminal.Model.Response;
 using AlgoTerminal.Model.Services;
@@ -33,9 +34,12 @@ namespace AlgoTerminal
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
-                    //Path
+                    //File HardCode Path
                     straddlePath = hostContext.Configuration.GetConnectionString("StraddleFilePath");
+
+
                     //DBContext ...
+
                     //Model ...
                     services.AddSingleton<FeedCB_C>();
                     services.AddSingleton<FeedCB_CM>();
@@ -43,6 +47,7 @@ namespace AlgoTerminal
                   
                     //Services ....
                     services.AddSingleton<IAlgoCalculation, AlgoCalculation>();
+                    services.AddSingleton<IModeratorManagerModel,ModeratorManagerModel>();
                     services.AddSingleton<IContractDetails, ContractDetails>();
                     services.AddSingleton<IFeed, Feed>();
                     services.AddSingleton<IGeneral, General>();
@@ -51,6 +56,8 @@ namespace AlgoTerminal
                     services.AddSingleton<IStraddleDataBaseLoadFromCsv, StraddleDataBaseLoadFromCsv>();
                     services.AddSingleton<IStraddleManager, StraddleManager>();
                     services.AddSingleton<IApplicationManagerModel,ApplicationManagerModel>();
+
+
                     //ViewModel....
                     services.AddSingleton<DashboardViewModel>();
                     services.AddSingleton<PortfolioViewModel>();

@@ -262,7 +262,7 @@ namespace AlgoTerminal.Model.Calculation
             EnumIndex enumIndex, uint Token)
         {
             double entryPrice;
-            if ((enumLegSL == EnumLegSL.Underling || enumLegSL == EnumLegSL.underlingPercentage))
+            if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
                 entryPrice = UnderLingValue(enumIndex);
             else
                 entryPrice = GetInstrumentPrice(Token);
@@ -272,29 +272,47 @@ namespace AlgoTerminal.Model.Calculation
 
             return enumLegSL switch
             {
-                EnumLegSL.Points => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
-                EnumLegSL.PointPercentage => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
-                EnumLegSL.underlingPercentage => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
-                EnumLegSL.Underling => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.POINTS => GetLegPoint_SL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.POINTPERCENTAGE => GetLegPointPercentage_SL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.UNDERLINGPERCENTAGE => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.UNDERLING => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
                 _ => throw new NotImplementedException(),
             };
         }
-
         private double GetLegPointPercentage_underlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if ((enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE))
-                return entryPrice - entryPrice * StopLoss / 100.00;
-            else if ((enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumOptiontype == EnumOptiontype.PE && enumPosition == EnumPosition.BUY))
+            if ((enumPosition == EnumPosition.BUY &&  enumOptiontype == EnumOptiontype.PE) ||((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
                 return entryPrice + entryPrice * StopLoss / 100.00;
+            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)&& enumPosition == EnumPosition.BUY))
+                return entryPrice - entryPrice * StopLoss / 100.00;
             else
                 throw new NotImplementedException("Invalid Option");
         }
 
         private double GetLegPoint_UnderlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if ((enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE))
+            if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+                return entryPrice + StopLoss;
+            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.BUY))
                 return entryPrice - StopLoss;
-            else if ((enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumOptiontype == EnumOptiontype.PE && enumPosition == EnumPosition.BUY))
+            else
+                throw new NotImplementedException("Invalid Option");
+        }
+        private double GetLegPointPercentage_SL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
+        {
+            if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice - entryPrice * StopLoss / 100.00;
+            else if (enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice + entryPrice * StopLoss / 100.00;
+            else
+                throw new NotImplementedException("Invalid Option");
+        }
+
+        private double GetLegPoint_SL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
+        {
+            if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice - StopLoss;
+            else if (enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
                 return entryPrice + StopLoss;
             else
                 throw new NotImplementedException("Invalid Option");
@@ -303,37 +321,65 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Get Target Profit for Leg
         public double GetLegTargetProfit(EnumLegTargetProfit enumLegTP,
-            double entryPrice,
             EnumOptiontype enumOptiontype,
             EnumPosition enumPosition,
-            double TargetProfit)
+            double TargetProfit, EnumSegments enumSegments,
+            EnumIndex enumIndex, uint Token)
         {
+            double entryPrice;
+            if ((enumLegTP == EnumLegTargetProfit.UNDERLING || enumLegTP == EnumLegTargetProfit.UNDERLINGPERCENTAGE))
+                entryPrice = UnderLingValue(enumIndex);
+            else
+                entryPrice = GetInstrumentPrice(Token);
+
+            if (enumSegments == EnumSegments.FUTURES)
+                enumOptiontype = EnumOptiontype.XX;
+
             return enumLegTP switch
             {
-                EnumLegTargetProfit.Points => GetLegPointTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
-                EnumLegTargetProfit.PointPercentage => GetLegPointPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
-                EnumLegTargetProfit.Underling => GetLegPointTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
-                EnumLegTargetProfit.underlingPercentage => GetLegPointPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.POINTS => GetLegPoint_TP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.POINTPERCENTAGE => GetLegPointPercentage_TP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.UNDERLING => GetLegUnderlingTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.UNDERLINGPERCENTAGE => GetLegUnderlingPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        private double GetLegPointPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
+        private double GetLegUnderlingPercentageTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if ((enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE))
-                return entryPrice + entryPrice * TargetProfit / 100.00;
-            else if ((enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumOptiontype == EnumOptiontype.PE && enumPosition == EnumPosition.BUY))
-                return entryPrice - entryPrice * TargetProfit / 100.00;
+            if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+                return entryPrice - entryPrice * StopLoss / 100.00;
+            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.BUY))
+                return entryPrice + entryPrice * StopLoss / 100.00;
             else
                 throw new NotImplementedException("Invalid Option");
         }
 
-        private double GetLegPointTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double TargetProfit)
+        private double GetLegUnderlingTP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if ((enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE))
-                return entryPrice + TargetProfit;
-            else if ((enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)) || (enumOptiontype == EnumOptiontype.PE && enumPosition == EnumPosition.BUY))
-                return entryPrice - TargetProfit;
+            if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+                return entryPrice - StopLoss;
+            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.BUY))
+                return entryPrice + StopLoss;
+            else
+                throw new NotImplementedException("Invalid Option");
+        }
+        private double GetLegPointPercentage_TP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
+        {
+            if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice + entryPrice * StopLoss / 100.00;
+            else if (enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice - entryPrice * StopLoss / 100.00;
+            else
+                throw new NotImplementedException("Invalid Option");
+        }
+
+        private double GetLegPoint_TP(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
+        {
+            if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice + StopLoss;
+            else if (enumPosition == EnumPosition.SELL && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                return entryPrice - StopLoss;
             else
                 throw new NotImplementedException("Invalid Option");
         }
@@ -355,8 +401,8 @@ namespace AlgoTerminal.Model.Calculation
 
             return enumLegTrailSL switch
             {
-                EnumLegTrailSL.Points => GetLegPointTailSL(entryPrice, xAmount_Percentage, ltp),
-                EnumLegTrailSL.PointPercentage => GetLegPointPercentageTrailSL(entryPrice, xAmount_Percentage, ltp),
+                EnumLegTrailSL.POINTS => GetLegPointTailSL(entryPrice, xAmount_Percentage, ltp),
+                EnumLegTrailSL.POINTPERCENTAGE => GetLegPointPercentageTrailSL(entryPrice, xAmount_Percentage, ltp),
                 _ => throw new NotImplementedException(),
             };
         }
@@ -406,7 +452,7 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Get Simple Momentum Initial Value Only
         /// <summary>
-        /// Simple Momentum => . This function will not hold the order  
+        /// Simple Momentum => . This function will  hold the order  
         /// </summary>
         /// <param name="enumLegSimpleMomentum"></param>
         /// <param name="momentumPrice"></param>
@@ -424,9 +470,9 @@ namespace AlgoTerminal.Model.Calculation
             , uint Token)
         {
             double _current_Price;
-            if (enumLegSimpleMomentum == EnumLegSimpleMomentum.Points || enumLegSimpleMomentum == EnumLegSimpleMomentum.PointPercentage)
+            if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
                 _current_Price = GetInstrumentPrice(Token);
-            else if (enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPoints || enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPointPercentage)
+            else if (enumLegSimpleMomentum == EnumLegSimpleMomentum.UNDERLING || enumLegSimpleMomentum == EnumLegSimpleMomentum.UNDERLINGPERCENTAGE)
                 _current_Price = UnderLingValue(enumIndex);
             else
                 throw new Exception("Invalid Option Selected");
@@ -438,14 +484,14 @@ namespace AlgoTerminal.Model.Calculation
 
             var value = enumLegSimpleMomentum switch
             {
-                EnumLegSimpleMomentum.Points => GetLegSimpleMomentum_UnderlyingPoints(momentumPrice, _current_Price),
-                EnumLegSimpleMomentum.PointPercentage => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
-                EnumLegSimpleMomentum.UnderlyingPoints => GetLegSimpleMomentum_UnderlyingPoints(momentumPrice, _current_Price),
-                EnumLegSimpleMomentum.UnderlyingPointPercentage => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
+                EnumLegSimpleMomentum.POINTS => GetLegSimpleMomentum_UnderlyingPoints(momentumPrice, _current_Price),
+                EnumLegSimpleMomentum.POINTPERCENTAGE => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
+                EnumLegSimpleMomentum.UNDERLING => GetLegSimpleMomentum_UnderlyingPoints(momentumPrice, _current_Price),
+                EnumLegSimpleMomentum.UNDERLINGPERCENTAGE => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
                 _ => throw new NotImplementedException(),
             };
 
-            if (enumLegSimpleMomentum == EnumLegSimpleMomentum.Points || enumLegSimpleMomentum == EnumLegSimpleMomentum.PointPercentage)
+            if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
             {
                 if (momentumPrice > 0)
                 {
@@ -459,7 +505,7 @@ namespace AlgoTerminal.Model.Calculation
                 }
                 return GetInstrumentPrice(Token);
             }
-            else if (enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPoints || enumLegSimpleMomentum == EnumLegSimpleMomentum.UnderlyingPointPercentage)
+            else if (enumLegSimpleMomentum == EnumLegSimpleMomentum.UNDERLING || enumLegSimpleMomentum == EnumLegSimpleMomentum.UNDERLINGPERCENTAGE)
             {
                 if (momentumPrice > 0)
                 {
@@ -516,7 +562,7 @@ namespace AlgoTerminal.Model.Calculation
                 throw new Exception("Feed CM is NULL");
 
 
-           
+
             List<double> SetOfPrice = new();
             if (enumRangeBreakoutType == EnumRangeBreakoutType.INSTRUMENT)
             {

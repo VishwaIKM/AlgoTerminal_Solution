@@ -4,7 +4,7 @@
     {
         public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error,None};
         public enum EnumLogType { Warning, Error, Success, Info, Buy, Sell, Response };
-        public enum EnumEntryAndExit : int { TIMEBASED, SignalBased, OnlyEntrySignalBased }
+        public enum EnumEntryAndExit : int { TIMEBASED, SIGNALBASED, OnlyEntrySignalBased }
 
         public enum EnumSignalType : int
         {
@@ -31,7 +31,7 @@
         {
             INTRADAY = 1,
             BTST = 2,
-            Positional = 3
+            POSITIONAL = 3
         }
         //Legwise SL settings
         public enum EnumSquareOff : int
@@ -42,49 +42,49 @@
 
         public enum EnumTrailSLtoBreakEvenPrice : int
         {
-            AllLegs = 1,
-            SlLegs = 2
+            ALLLEGS = 1,
+            SLLEGS = 2
         }
 
         //OVERALL STRG SETTING
         public enum EnumOverallStopLoss : int
         {
             MTM,
-            TotalPremiumPercentage
+            TOTALPREMIUMPERCENTAGE
         }
 
         public enum EnumOverallReEntryOnSL : int
         {
-            RE_ASAP,
-            RE_RevASAP,
-            RE_MOMENTUM,
-            RE_RevMOMENTUM
+            REASAP,
+            REREVASAP,
+            REMOMENTUM,
+            REREVMOMENTUM
 
         }
         public enum EnumOverallTarget : int
         {
             MTM,
-            TotalPremiumPercentage
+            TOTALPREMIUMPERCENTAGE
         }
         public enum EnumOverallReEntryOnTarget : int
         {
-            RE_ASAP,
-            RE_RevASAP,
-            RE_MOMENTUM,
-            RE_RevMOMENTUM
+            REASAP,
+            REREVASAP,
+            REMOMENTUM,
+            REREVMOMENTUM
 
         }
 
         public enum EnumOverallTrailingOption : int
         {
-            Lock,
-            LockAndTrail,
-            OverallTrailAndSL
+            LOCK,
+            LOCKANDTRAIL,
+            OVERALLTRAILANDSL
         }
         public enum EnumOverallTrailingOptionTrailAndSLSelected : int
         {
             MTM,
-            TotalPremiumPercentage
+            TOTALPREMIUMPERCENTAGE
         }
 
         //Legs
@@ -175,49 +175,49 @@
 
         public enum EnumLegTargetProfit : int
         {
-            Points,
-            Underling,
-            PointPercentage,
-            underlingPercentage
+            POINTS,
+            UNDERLING,
+            POINTPERCENTAGE,
+            UNDERLINGPERCENTAGE
         }
         public enum EnumLegSL : int
         {
-            Points,
-            Underling,
-            PointPercentage,
-            underlingPercentage
+            POINTS,
+            UNDERLING,
+            POINTPERCENTAGE,
+            UNDERLINGPERCENTAGE
         }
         public enum EnumLegTrailSL : int
         {
-            Points,
-            PointPercentage,
+            POINTS,
+            POINTPERCENTAGE,
         }
 
         public enum EnumLegReEntryOnTarget : int
         {
-            RE_ASAP,
-            RE_RevASAP,
-            RE_MOMENTUM,
-            RE_RevMOMENTUM,
-            RE_COST,
-            RE_RevCOST
+            REASAP,
+            REREVASAP,
+            REMOMENTUM,
+            REREVMOMENTUM,
+            RECOST,
+            REREVCOST
         }
         public enum EnumLegReEntryOnSL : int
         {
-            RE_ASAP,
-            RE_RevASAP,
-            RE_MOMENTUM,
-            RE_RevMOMENTUM,
-            RE_COST,
-            RE_RevCOST
+            REASAP,
+            REREVASAP,
+            REMOMENTUM,
+            REREVMOMENTUM,
+            RECOST,
+            REREVCOST
         }
 
         public enum EnumLegSimpleMomentum : int
         {
-            Points,
-            PointPercentage,
-            UnderlyingPoints,
-            UnderlyingPointPercentage
+            POINTS,
+            POINTPERCENTAGE,
+            UNDERLING,
+            UNDERLINGPERCENTAGE
         }
 
         public enum EnumRangeBreakout : int

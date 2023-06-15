@@ -109,7 +109,7 @@ namespace AlgoTerminal.Model.Structure
 
         public ObservableCollection<InnerObject> innerObject { get; set; } = new ObservableCollection<InnerObject>();
 
-        //For Calculation
+        //For Calculation They Must update after Trade
 
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }
@@ -122,6 +122,18 @@ namespace AlgoTerminal.Model.Structure
     }
     public class InnerObject : BaseViewModel
     {
+        private double _ltp;
+        public double LTP
+        {
+            get { return _ltp; } set
+            {
+                if (_ltp != value)
+                {
+                    _ltp = value;
+                    OnPropertyChanged(nameof(LTP));
+                }
+            }
+        }
         private string _name = "Loading...";
         public string Name
         {

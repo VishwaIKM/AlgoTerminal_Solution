@@ -37,7 +37,7 @@ namespace AlgoTerminal.Model.Structure
         public EnumSquareOff SquareOff = EnumSquareOff.PARTIAL;
 
         public bool IsTrailSLtoBreakEvenPriceEnable = false;
-        public EnumTrailSLtoBreakEvenPrice TrailSLtoBreakEvenPrice = EnumTrailSLtoBreakEvenPrice.AllLegs;
+        public EnumTrailSLtoBreakEvenPrice TrailSLtoBreakEvenPrice = EnumTrailSLtoBreakEvenPrice.ALLLEGS;
 
 
         //OverallStrategySettings
@@ -48,7 +48,7 @@ namespace AlgoTerminal.Model.Structure
         public double OverallStopLoss = 0;
 
         public bool IsOverallReEntryOnSLEnable = false;
-        public EnumOverallReEntryOnSL SettingOverallReEntryOnSL = EnumOverallReEntryOnSL.RE_ASAP;
+        public EnumOverallReEntryOnSL SettingOverallReEntryOnSL = EnumOverallReEntryOnSL.REASAP;
         public int OverallReEntryOnSL = 0;
 
         public bool IsOverallTargetEnable = false;
@@ -56,12 +56,12 @@ namespace AlgoTerminal.Model.Structure
         public double OverallTarget = 0;
 
         public bool IsOverallReEntryOnTgtEnable = false;
-        public EnumOverallReEntryOnTarget SettingOverallReEntryOnTgt = EnumOverallReEntryOnTarget.RE_ASAP;
+        public EnumOverallReEntryOnTarget SettingOverallReEntryOnTgt = EnumOverallReEntryOnTarget.REASAP;
         public int OverallReEntryOnTgt = 0;
 
         public bool IsOverallTrallingOptionEnable = false;
         public bool IsOverallTrallSLEnable = false;
-        public EnumOverallTrailingOption SettingOverallTrallSL = EnumOverallTrailingOption.Lock;
+        public EnumOverallTrailingOption SettingOverallTrallSL = EnumOverallTrailingOption.LOCK;
         public EnumOverallTrailingOptionTrailAndSLSelected SettingTrallingOption = EnumOverallTrailingOptionTrailAndSLSelected.MTM;
         public double IfProfitReach = 0;
         public double LockProfit = 0;
@@ -80,28 +80,28 @@ namespace AlgoTerminal.Model.Structure
         //LegSetting
 
         public bool IsTargetProfitEnable = false;
-        public EnumLegTargetProfit SettingTargetProfit = EnumLegTargetProfit.Points;
+        public EnumLegTargetProfit SettingTargetProfit = EnumLegTargetProfit.POINTS;
         public double TargetProfit = 0;
 
         public bool IsStopLossEnable = false;
-        public EnumLegSL SettingStopLoss = EnumLegSL.Points;
+        public EnumLegSL SettingStopLoss = EnumLegSL.POINTS;
         public double StopLoss = 0;
 
         public bool IsTrailSlEnable = false;
-        public EnumLegTrailSL SettingTrailEnable = EnumLegTrailSL.Points;
+        public EnumLegTrailSL SettingTrailEnable = EnumLegTrailSL.POINTS;
         public double TrailSlAmount = 0;
         public double TrailSlStopLoss = 0;
 
         public bool IsReEntryOnTgtEnable = false;
-        public EnumLegReEntryOnTarget SettingReEntryOnTgt = EnumLegReEntryOnTarget.RE_ASAP;
+        public EnumLegReEntryOnTarget SettingReEntryOnTgt = EnumLegReEntryOnTarget.REASAP;
         public int ReEntryOnTgt = 0;
 
         public bool IsReEntryOnSLEnable = false;
-        public EnumLegReEntryOnSL SettingReEntryOnSL = EnumLegReEntryOnSL.RE_ASAP;
+        public EnumLegReEntryOnSL SettingReEntryOnSL = EnumLegReEntryOnSL.REASAP;
         public int ReEntryOnSL = 0;
 
         public bool IsSimpleMomentumEnable = false;
-        public EnumLegSimpleMomentum SettingSimpleMomentum = EnumLegSimpleMomentum.Points;
+        public EnumLegSimpleMomentum SettingSimpleMomentum = EnumLegSimpleMomentum.POINTS;
         public double SimpleMomentum = 0;
 
         public bool IsRangeBreakOutEnable = false;

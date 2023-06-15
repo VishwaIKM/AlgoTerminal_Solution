@@ -1216,3 +1216,2035 @@
 [05:11:47][Error] On Line 11 Error : 
 [05:11:47][Error] On Line 11 Error : 
 [05:11:47]  Application StartUp Block Complete. 
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02][Warning] Testing
+[09:57:02][Error] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:02] Testing
+[09:57:09][Error] On Line 5 Error : 
+[09:57:09][Error] On Line 5 Error : 
+[09:57:09][Error] On Line 5 Error : 
+[09:57:09][Error] On Line 6 Error : 
+[09:57:09][Error] On Line 6 Error : 
+[09:57:09][Error] On Line 6 Error : 
+[09:57:09][Error] On Line 8 Error : 
+[09:57:09][Error] On Line 8 Error : 
+[09:57:09][Error] On Line 8 Error : 
+[09:57:09][Error] On Line 9 Error : 
+[09:57:09][Error] On Line 9 Error : 
+[09:57:09][Error] On Line 9 Error : 
+[09:57:09][Error] On Line 10 Error : 
+[09:57:09][Error] On Line 10 Error : 
+[09:57:09][Error] On Line 10 Error : 
+[09:57:09][Error] On Line 11 Error : 
+[09:57:09][Error] On Line 11 Error : 
+[09:57:09][Error] On Line 11 Error : 
+[09:57:09]  Application StartUp Block Complete. 
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55][Warning] Testing
+[10:01:55][Error] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:01:55] Testing
+[10:02:15][Error] On Line 5 Error : 
+[10:02:15][Error] On Line 5 Error : 
+[10:02:15][Error] On Line 5 Error : 
+[10:02:15][Error] On Line 6 Error : 
+[10:02:15][Error] On Line 6 Error : 
+[10:02:15][Error] On Line 6 Error : 
+[10:02:15][Error] On Line 8 Error : 
+[10:02:15][Error] On Line 8 Error : 
+[10:02:15][Error] On Line 8 Error : 
+[10:02:15][Error] On Line 9 Error : 
+[10:02:15][Error] On Line 9 Error : 
+[10:02:15][Error] On Line 9 Error : 
+[10:02:15][Error] On Line 10 Error : 
+[10:02:15][Error] On Line 10 Error : 
+[10:02:15][Error] On Line 10 Error : 
+[10:02:15][Error] On Line 11 Error : 
+[10:02:15][Error] On Line 11 Error : 
+[10:02:15][Error] On Line 11 Error : 
+[10:02:15]  Application StartUp Block Complete. 
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55][Warning] Testing
+[11:22:55][Error] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:22:55] Testing
+[11:23:02][Error] On Line 5 Error : 
+[11:23:02][Error] On Line 5 Error : 
+[11:23:02][Error] On Line 5 Error : 
+[11:23:02][Error] On Line 6 Error : 
+[11:23:02][Error] On Line 6 Error : 
+[11:23:02][Error] On Line 6 Error : 
+[11:23:02][Error] On Line 8 Error : 
+[11:23:02][Error] On Line 8 Error : 
+[11:23:02][Error] On Line 8 Error : 
+[11:23:02][Error] On Line 9 Error : 
+[11:23:02][Error] On Line 9 Error : 
+[11:23:02][Error] On Line 9 Error : 
+[11:23:02][Error] On Line 10 Error : 
+[11:23:02][Error] On Line 10 Error : 
+[11:23:02][Error] On Line 10 Error : 
+[11:23:02][Error] On Line 11 Error : 
+[11:23:02][Error] On Line 11 Error : 
+[11:23:02][Error] On Line 11 Error : 
+[11:23:02]  Application StartUp Block Complete. 
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39][Warning] Testing
+[11:47:39][Error] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:39] Testing
+[11:47:46][Error] On Line 5 Error : 
+[11:47:46][Error] On Line 5 Error : 
+[11:47:46][Error] On Line 5 Error : 
+[11:47:46][Error] On Line 6 Error : 
+[11:47:46][Error] On Line 6 Error : 
+[11:47:46][Error] On Line 6 Error : 
+[11:47:46][Error] On Line 8 Error : 
+[11:47:46][Error] On Line 8 Error : 
+[11:47:46][Error] On Line 8 Error : 
+[11:47:46][Error] On Line 9 Error : 
+[11:47:46][Error] On Line 9 Error : 
+[11:47:46][Error] On Line 9 Error : 
+[11:47:46][Error] On Line 10 Error : 
+[11:47:46][Error] On Line 10 Error : 
+[11:47:46][Error] On Line 10 Error : 
+[11:47:46][Error] On Line 11 Error : 
+[11:47:46][Error] On Line 11 Error : 
+[11:47:46][Error] On Line 11 Error : 
+[11:47:46]  Application StartUp Block Complete. 
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07][Warning] Testing
+[11:55:07][Error] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:07] Testing
+[11:55:13][Error] On Line 5 Error : 
+[11:55:13][Error] On Line 5 Error : 
+[11:55:13][Error] On Line 5 Error : 
+[11:55:13][Error] On Line 6 Error : 
+[11:55:13][Error] On Line 6 Error : 
+[11:55:13][Error] On Line 6 Error : 
+[11:55:13][Error] On Line 8 Error : 
+[11:55:13][Error] On Line 8 Error : 
+[11:55:13][Error] On Line 8 Error : 
+[11:55:13][Error] On Line 9 Error : 
+[11:55:13][Error] On Line 9 Error : 
+[11:55:13][Error] On Line 9 Error : 
+[11:55:13][Error] On Line 10 Error : 
+[11:55:13][Error] On Line 10 Error : 
+[11:55:13][Error] On Line 10 Error : 
+[11:55:13][Error] On Line 11 Error : 
+[11:55:13][Error] On Line 11 Error : 
+[11:55:13][Error] On Line 11 Error : 
+[11:55:13]  Application StartUp Block Complete. 
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22][Warning] Testing
+[12:11:22][Error] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:22] Testing
+[12:11:28][Error] On Line 5 Error : 
+[12:11:28][Error] On Line 5 Error : 
+[12:11:28][Error] On Line 5 Error : 
+[12:11:28][Error] On Line 6 Error : 
+[12:11:28][Error] On Line 6 Error : 
+[12:11:28][Error] On Line 6 Error : 
+[12:11:28][Error] On Line 7 Invalid Strategy Index
+[12:11:28][Error]  Application StartUp Block Complete. 
+[12:11:28][Error]  Application StartUp Block Complete.    at AlgoTerminal.Model.FileManager.StraddleDataBaseLoadFromCsv.LoadStaddleStratgy(String path) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\FileManager\StraddleDataBaseLoadFromCsv.cs:line 283
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.StraddleStartUP() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 58
+[12:11:28]  Application StartUp Block Complete. 
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29][Warning] Testing
+[12:14:29][Error] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:29] Testing
+[12:14:35][Error] On Line 5 Error : 
+[12:14:35][Error] On Line 5 Error : 
+[12:14:35][Error] On Line 5 Error : 
+[12:14:35][Error] On Line 6 Error : 
+[12:14:35][Error] On Line 6 Error : 
+[12:14:35][Error] On Line 6 Error : 
+[12:14:35][Error] On Line 7 Invalid Strategy Index
+[12:14:35][Error]  Application StartUp Block Complete. 
+[12:14:35][Error]  Application StartUp Block Complete.    at AlgoTerminal.Model.FileManager.StraddleDataBaseLoadFromCsv.LoadStaddleStratgy(String path) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\FileManager\StraddleDataBaseLoadFromCsv.cs:line 283
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.StraddleStartUP() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 58
+[12:14:35]  Application StartUp Block Complete. 
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54][Warning] Testing
+[12:14:54][Error] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:14:54] Testing
+[12:15:00][Error] On Line 5 Error : 
+[12:15:00][Error] On Line 5 Error : 
+[12:15:00][Error] On Line 5 Error : 
+[12:15:00][Error] On Line 6 Error : 
+[12:15:00][Error] On Line 6 Error : 
+[12:15:00][Error] On Line 6 Error : 
+[12:15:00][Error] On Line 7 Invalid Strategy Index
+[12:15:00][Error]  Application StartUp Block Complete. 
+[12:15:00][Error]  Application StartUp Block Complete.    at AlgoTerminal.Model.FileManager.StraddleDataBaseLoadFromCsv.LoadStaddleStratgy(String path) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\FileManager\StraddleDataBaseLoadFromCsv.cs:line 283
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.StraddleStartUP() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 58
+[12:15:00]  Application StartUp Block Complete. 
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10][Warning] Testing
+[12:16:10][Error] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:10] Testing
+[12:16:16][Error] On Line 5 Error : 
+[12:16:16][Error] On Line 5 Error : 
+[12:16:16][Error] On Line 5 Error : 
+[12:16:16][Error] On Line 6 Error : 
+[12:16:16][Error] On Line 6 Error : 
+[12:16:16][Error] On Line 6 Error : 
+[12:16:16][Error] On Line 7 Error : 
+[12:16:16][Error] On Line 7 Error : 
+[12:16:16][Error] On Line 7 Error : 
+[12:16:16][Error] On Line 9 Error : 
+[12:16:16][Error] On Line 9 Error : 
+[12:16:16][Error] On Line 9 Error : 
+[12:16:16][Error] On Line 10 Error : 
+[12:16:16][Error] On Line 10 Error : 
+[12:16:16][Error] On Line 10 Error : 
+[12:16:16][Error] On Line 11 Error : 
+[12:16:16][Error] On Line 11 Error : 
+[12:16:16][Error] On Line 11 Error : 
+[12:16:16][Error] On Line 12 Error : 
+[12:16:16][Error] On Line 12 Error : 
+[12:16:16][Error] On Line 12 Error : 
+[12:16:16]  Application StartUp Block Complete. 
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12][Warning] Testing
+[12:27:12][Error] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:12] Testing
+[12:27:18][Error] On Line 5 Error : 
+[12:27:18][Error] On Line 5 Error : 
+[12:27:18][Error] On Line 5 Error : 
+[12:27:18][Error] On Line 6 Error : 
+[12:27:18][Error] On Line 6 Error : 
+[12:27:18][Error] On Line 6 Error : 
+[12:27:18][Error] On Line 7 Error : 
+[12:27:18][Error] On Line 7 Error : 
+[12:27:18][Error] On Line 7 Error : 
+[12:27:18][Error] On Line 9 Error : 
+[12:27:18][Error] On Line 9 Error : 
+[12:27:18][Error] On Line 9 Error : 
+[12:27:18][Error] On Line 10 Error : 
+[12:27:18][Error] On Line 10 Error : 
+[12:27:18][Error] On Line 10 Error : 
+[12:27:18][Error] On Line 11 Error : 
+[12:27:18][Error] On Line 11 Error : 
+[12:27:18][Error] On Line 11 Error : 
+[12:27:18][Error] On Line 12 Error : 
+[12:27:18][Error] On Line 12 Error : 
+[12:27:18][Error] On Line 12 Error : 
+[12:27:18]  Application StartUp Block Complete. 
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51][Warning] Testing
+[12:28:51][Error] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:51] Testing
+[12:28:57][Error] On Line 5 Error : 
+[12:28:57][Error] On Line 5 Error : 
+[12:28:57][Error] On Line 5 Error : 
+[12:28:57][Error] On Line 6 Error : 
+[12:28:57][Error] On Line 6 Error : 
+[12:28:57][Error] On Line 6 Error : 
+[12:28:57][Error] On Line 7 Error : 
+[12:28:57][Error] On Line 7 Error : 
+[12:28:57][Error] On Line 7 Error : 
+[12:28:57][Error] On Line 9 Error : 
+[12:28:57][Error] On Line 9 Error : 
+[12:28:57][Error] On Line 9 Error : 
+[12:28:57][Error] On Line 10 Error : 
+[12:28:57][Error] On Line 10 Error : 
+[12:28:57][Error] On Line 10 Error : 
+[12:28:57][Error] On Line 11 Error : 
+[12:28:57][Error] On Line 11 Error : 
+[12:28:57][Error] On Line 11 Error : 
+[12:28:57][Error] On Line 12 Error : 
+[12:28:57][Error] On Line 12 Error : 
+[12:28:57][Error] On Line 12 Error : 
+[12:28:57]  Application StartUp Block Complete. 
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16][Warning] Testing
+[12:32:16][Error] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:16] Testing
+[12:32:22][Error] On Line 5 Error : 
+[12:32:22][Error] On Line 5 Error : 
+[12:32:22][Error] On Line 5 Error : 
+[12:32:22][Error] On Line 6 Error : 
+[12:32:22][Error] On Line 6 Error : 
+[12:32:22][Error] On Line 6 Error : 
+[12:32:22][Error] On Line 7 Error : 
+[12:32:22][Error] On Line 7 Error : 
+[12:32:22][Error] On Line 7 Error : 
+[12:32:22][Error] On Line 9 Error : 
+[12:32:22][Error] On Line 9 Error : 
+[12:32:22][Error] On Line 9 Error : 
+[12:32:22][Error] On Line 10 Error : 
+[12:32:22][Error] On Line 10 Error : 
+[12:32:22][Error] On Line 10 Error : 
+[12:32:22][Error] On Line 11 Error : 
+[12:32:22][Error] On Line 11 Error : 
+[12:32:22][Error] On Line 11 Error : 
+[12:32:22][Error] On Line 12 Error : 
+[12:32:22][Error] On Line 12 Error : 
+[12:32:22][Error] On Line 12 Error : 
+[12:32:22]  Application StartUp Block Complete. 
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15][Warning] Testing
+[12:33:15][Error] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:15] Testing
+[12:33:21][Error] On Line 5 Error : 
+[12:33:21][Error] On Line 5 Error : 
+[12:33:21][Error] On Line 5 Error : 
+[12:33:21][Error] On Line 6 Error : 
+[12:33:21][Error] On Line 6 Error : 
+[12:33:21][Error] On Line 6 Error : 
+[12:33:21][Error] On Line 7 Error : 
+[12:33:21][Error] On Line 7 Error : 
+[12:33:21][Error] On Line 7 Error : 
+[12:33:21][Error] On Line 9 Error : 
+[12:33:21][Error] On Line 9 Error : 
+[12:33:21][Error] On Line 9 Error : 
+[12:33:21][Error] On Line 10 Error : 
+[12:33:21][Error] On Line 10 Error : 
+[12:33:21][Error] On Line 10 Error : 
+[12:33:21][Error] On Line 11 Error : 
+[12:33:21][Error] On Line 11 Error : 
+[12:33:21][Error] On Line 11 Error : 
+[12:33:21][Error] On Line 12 Error : 
+[12:33:21][Error] On Line 12 Error : 
+[12:33:21][Error] On Line 12 Error : 
+[12:33:21]  Application StartUp Block Complete. 
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37][Warning] Testing
+[12:35:37][Error] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:37] Testing
+[12:35:50][Error] On Line 5 Error : 
+[12:35:50][Error] On Line 5 Error : 
+[12:35:50][Error] On Line 5 Error : 
+[12:35:50][Error] On Line 6 Error : 
+[12:35:50][Error] On Line 6 Error : 
+[12:35:50][Error] On Line 6 Error : 
+[12:35:50][Error] On Line 7 Error : 
+[12:35:50][Error] On Line 7 Error : 
+[12:35:50][Error] On Line 7 Error : 
+[12:35:50][Error] On Line 9 Error : 
+[12:35:50][Error] On Line 9 Error : 
+[12:35:50][Error] On Line 9 Error : 
+[12:35:50][Error] On Line 10 Error : 
+[12:35:50][Error] On Line 10 Error : 
+[12:35:50][Error] On Line 10 Error : 
+[12:35:50][Error] On Line 11 Error : 
+[12:35:50][Error] On Line 11 Error : 
+[12:35:50][Error] On Line 11 Error : 
+[12:35:50][Error] On Line 12 Error : 
+[12:35:50][Error] On Line 12 Error : 
+[12:35:50][Error] On Line 12 Error : 
+[12:35:50]  Application StartUp Block Complete. 
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17][Warning] Testing
+[12:43:17][Error] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:17] Testing
+[12:43:23][Error] On Line 5 Error : 
+[12:43:23][Error] On Line 5 Error : 
+[12:43:23][Error] On Line 5 Error : 
+[12:43:23][Error] On Line 6 Error : 
+[12:43:23][Error] On Line 6 Error : 
+[12:43:23][Error] On Line 6 Error : 
+[12:43:23][Error] On Line 7 Error : 
+[12:43:23][Error] On Line 7 Error : 
+[12:43:23][Error] On Line 7 Error : 
+[12:43:23][Error] On Line 9 Error : 
+[12:43:23][Error] On Line 9 Error : 
+[12:43:23][Error] On Line 9 Error : 
+[12:43:23][Error] On Line 10 Error : 
+[12:43:23][Error] On Line 10 Error : 
+[12:43:23][Error] On Line 10 Error : 
+[12:43:23][Error] On Line 11 Error : 
+[12:43:23][Error] On Line 11 Error : 
+[12:43:23][Error] On Line 11 Error : 
+[12:43:23][Error] On Line 12 Error : 
+[12:43:23][Error] On Line 12 Error : 
+[12:43:23][Error] On Line 12 Error : 
+[12:43:23]  Application StartUp Block Complete. 
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20][Warning] Testing
+[01:29:20][Error] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:20] Testing
+[01:29:26][Error] On Line 5 Error : 
+[01:29:26][Error] On Line 5 Error : 
+[01:29:26][Error] On Line 5 Error : 
+[01:29:26][Error] On Line 6 Error : 
+[01:29:26][Error] On Line 6 Error : 
+[01:29:26][Error] On Line 6 Error : 
+[01:29:26][Error] On Line 7 Error : 
+[01:29:26][Error] On Line 7 Error : 
+[01:29:26][Error] On Line 7 Error : 
+[01:29:26][Error] On Line 9 Error : 
+[01:29:26][Error] On Line 9 Error : 
+[01:29:26][Error] On Line 9 Error : 
+[01:29:26][Error] On Line 10 Error : 
+[01:29:26][Error] On Line 10 Error : 
+[01:29:26][Error] On Line 10 Error : 
+[01:29:26][Error] On Line 11 Error : 
+[01:29:26][Error] On Line 11 Error : 
+[01:29:26][Error] On Line 11 Error : 
+[01:29:26][Error] On Line 12 Error : 
+[01:29:26][Error] On Line 12 Error : 
+[01:29:26][Error] On Line 12 Error : 
+[01:29:26]  Application StartUp Block Complete. 
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:38] Testing
+[01:35:38][Warning] Testing
+[01:35:38][Error] Testing
+[01:35:38] Testing
+[01:35:39] Testing
+[01:35:39][Warning] Testing
+[01:35:39][Error] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:39] Testing
+[01:35:49][Error] On Line 5 Error : 
+[01:35:49][Error] On Line 5 Error : 
+[01:35:49][Error] On Line 5 Error : 
+[01:35:49][Error] On Line 6 Error : 
+[01:35:49][Error] On Line 6 Error : 
+[01:35:49][Error] On Line 6 Error : 
+[01:35:49][Error] On Line 7 Error : 
+[01:35:49][Error] On Line 7 Error : 
+[01:35:49][Error] On Line 7 Error : 
+[01:35:49][Error] On Line 9 Error : 
+[01:35:49][Error] On Line 9 Error : 
+[01:35:49][Error] On Line 9 Error : 
+[01:35:49][Error] On Line 10 Error : 
+[01:35:49][Error] On Line 10 Error : 
+[01:35:49][Error] On Line 10 Error : 
+[01:35:49][Error] On Line 11 Error : 
+[01:35:49][Error] On Line 11 Error : 
+[01:35:49][Error] On Line 11 Error : 
+[01:35:49][Error] On Line 12 Error : 
+[01:35:49][Error] On Line 12 Error : 
+[01:35:49][Error] On Line 12 Error : 
+[01:35:49]  Application StartUp Block Complete. 
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:44][Error] Testing
+[02:00:44] Testing
+[02:00:44] Testing
+[02:00:44][Warning] Testing
+[02:00:45][Error] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45][Warning] Testing
+[02:00:45][Error] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45][Warning] Testing
+[02:00:45][Error] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45][Warning] Testing
+[02:00:45][Error] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:45] Testing
+[02:00:51][Error] On Line 5 Error : 
+[02:00:51][Error] On Line 5 Error : 
+[02:00:51][Error] On Line 5 Error : 
+[02:00:51][Error] On Line 6 Error : 
+[02:00:51][Error] On Line 6 Error : 
+[02:00:51][Error] On Line 6 Error : 
+[02:00:51][Error] On Line 7 Error : 
+[02:00:51][Error] On Line 7 Error : 
+[02:00:51][Error] On Line 7 Error : 
+[02:00:51][Error] On Line 9 Error : 
+[02:00:51][Error] On Line 9 Error : 
+[02:00:51][Error] On Line 9 Error : 
+[02:00:51][Error] On Line 10 Error : 
+[02:00:51][Error] On Line 10 Error : 
+[02:00:51][Error] On Line 10 Error : 
+[02:00:51][Error] On Line 11 Error : 
+[02:00:51][Error] On Line 11 Error : 
+[02:00:51][Error] On Line 11 Error : 
+[02:00:51][Error] On Line 12 Error : 
+[02:00:51][Error] On Line 12 Error : 
+[02:00:51][Error] On Line 12 Error : 
+[02:00:51]  Application StartUp Block Complete. 
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11][Warning] Testing
+[02:31:11][Error] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:11] Testing
+[02:31:17][Error] On Line 5 Error : 
+[02:31:17][Error] On Line 5 Error : 
+[02:31:17][Error] On Line 5 Error : 
+[02:31:17][Error] On Line 6 Error : 
+[02:31:17][Error] On Line 6 Error : 
+[02:31:17][Error] On Line 6 Error : 
+[02:31:17][Error] On Line 7 Error : 
+[02:31:17][Error] On Line 7 Error : 
+[02:31:17][Error] On Line 7 Error : 
+[02:31:17][Error] On Line 9 Error : 
+[02:31:17][Error] On Line 9 Error : 
+[02:31:17][Error] On Line 9 Error : 
+[02:31:17][Error] On Line 10 Error : 
+[02:31:17][Error] On Line 10 Error : 
+[02:31:17][Error] On Line 10 Error : 
+[02:31:17][Error] On Line 11 Error : 
+[02:31:17][Error] On Line 11 Error : 
+[02:31:17][Error] On Line 11 Error : 
+[02:31:17][Error] On Line 12 Error : 
+[02:31:17][Error] On Line 12 Error : 
+[02:31:17][Error] On Line 12 Error : 
+[02:31:17]  Application StartUp Block Complete. 
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36][Warning] Testing
+[02:54:36][Error] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:36] Testing
+[02:54:41][Error] On Line 5 Error : 
+[02:54:41][Error] On Line 5 Error : 
+[02:54:41][Error] On Line 5 Error : 
+[02:54:41][Error] On Line 6 Error : 
+[02:54:41][Error] On Line 6 Error : 
+[02:54:41][Error] On Line 6 Error : 
+[02:54:41][Error] On Line 7 Error : 
+[02:54:41][Error] On Line 7 Error : 
+[02:54:41][Error] On Line 7 Error : 
+[02:54:41][Error] On Line 9 Error : 
+[02:54:41][Error] On Line 9 Error : 
+[02:54:41][Error] On Line 9 Error : 
+[02:54:41][Error] On Line 10 Error : 
+[02:54:41][Error] On Line 10 Error : 
+[02:54:41][Error] On Line 10 Error : 
+[02:54:41][Error] On Line 11 Error : 
+[02:54:41][Error] On Line 11 Error : 
+[02:54:41][Error] On Line 11 Error : 
+[02:54:42][Error] On Line 12 Error : 
+[02:54:42][Error] On Line 12 Error : 
+[02:54:42][Error] On Line 12 Error : 
+[02:54:42]  Application StartUp Block Complete. 
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35][Warning] Testing
+[03:13:35][Error] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:35] Testing
+[03:13:41][Error] On Line 5 Error : 
+[03:13:41][Error] On Line 5 Error : 
+[03:13:41][Error] On Line 5 Error : 
+[03:13:41][Error] On Line 6 Error : 
+[03:13:41][Error] On Line 6 Error : 
+[03:13:41][Error] On Line 6 Error : 
+[03:13:41][Error] On Line 7 Error : 
+[03:13:41][Error] On Line 7 Error : 
+[03:13:41][Error] On Line 7 Error : 
+[03:13:41][Error] On Line 9 Error : 
+[03:13:41][Error] On Line 9 Error : 
+[03:13:41][Error] On Line 9 Error : 
+[03:13:41][Error] On Line 10 Error : 
+[03:13:41][Error] On Line 10 Error : 
+[03:13:41][Error] On Line 10 Error : 
+[03:13:41][Error] On Line 11 Error : 
+[03:13:41][Error] On Line 11 Error : 
+[03:13:41][Error] On Line 11 Error : 
+[03:13:41][Error] On Line 12 Error : 
+[03:13:41][Error] On Line 12 Error : 
+[03:13:41][Error] On Line 12 Error : 
+[03:13:41]  Application StartUp Block Complete. 
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30][Warning] Testing
+[03:19:30][Error] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:30] Testing
+[03:19:36][Error] On Line 5 Error : 
+[03:19:36][Error] On Line 5 Error : 
+[03:19:36][Error] On Line 5 Error : 
+[03:19:36][Error] On Line 6 Error : 
+[03:19:36][Error] On Line 6 Error : 
+[03:19:36][Error] On Line 6 Error : 
+[03:19:36][Error] On Line 7 Error : 
+[03:19:36][Error] On Line 7 Error : 
+[03:19:36][Error] On Line 7 Error : 
+[03:19:36][Error] On Line 9 Error : 
+[03:19:36][Error] On Line 9 Error : 
+[03:19:36][Error] On Line 9 Error : 
+[03:19:36][Error] On Line 10 Error : 
+[03:19:36][Error] On Line 10 Error : 
+[03:19:36][Error] On Line 10 Error : 
+[03:19:36][Error] On Line 11 Error : 
+[03:19:36][Error] On Line 11 Error : 
+[03:19:36][Error] On Line 11 Error : 
+[03:19:36][Error] On Line 12 Error : 
+[03:19:36][Error] On Line 12 Error : 
+[03:19:36][Error] On Line 12 Error : 
+[03:19:36]  Application StartUp Block Complete. 
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40][Warning] Testing
+[03:20:40][Error] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:40] Testing
+[03:20:47][Error] On Line 5 Error : 
+[03:20:47][Error] On Line 5 Error : 
+[03:20:47][Error] On Line 5 Error : 
+[03:20:47][Error] On Line 6 Error : 
+[03:20:47][Error] On Line 6 Error : 
+[03:20:47][Error] On Line 6 Error : 
+[03:20:47][Error] On Line 7 Error : 
+[03:20:47][Error] On Line 7 Error : 
+[03:20:47][Error] On Line 7 Error : 
+[03:20:47][Error] On Line 9 Error : 
+[03:20:47][Error] On Line 9 Error : 
+[03:20:47][Error] On Line 9 Error : 
+[03:20:47][Error] On Line 10 Error : 
+[03:20:47][Error] On Line 10 Error : 
+[03:20:47][Error] On Line 10 Error : 
+[03:20:47][Error] On Line 11 Error : 
+[03:20:47][Error] On Line 11 Error : 
+[03:20:47][Error] On Line 11 Error : 
+[03:20:47][Error] On Line 12 Error : 
+[03:20:47][Error] On Line 12 Error : 
+[03:20:47][Error] On Line 12 Error : 
+[03:20:47]  Application StartUp Block Complete. 
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36][Warning] Testing
+[03:23:36][Error] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:36] Testing
+[03:23:41][Error] On Line 5 Error : 
+[03:23:41][Error] On Line 5 Error : 
+[03:23:41][Error] On Line 5 Error : 
+[03:23:41][Error] On Line 6 Error : 
+[03:23:41][Error] On Line 6 Error : 
+[03:23:41][Error] On Line 6 Error : 
+[03:23:41][Error] On Line 7 Error : 
+[03:23:41][Error] On Line 7 Error : 
+[03:23:41][Error] On Line 7 Error : 
+[03:23:41][Error] On Line 9 Error : 
+[03:23:41][Error] On Line 9 Error : 
+[03:23:41][Error] On Line 9 Error : 
+[03:23:41][Error] On Line 10 Error : 
+[03:23:41][Error] On Line 10 Error : 
+[03:23:42][Error] On Line 10 Error : 
+[03:23:42][Error] On Line 11 Error : 
+[03:23:42][Error] On Line 11 Error : 
+[03:23:42][Error] On Line 11 Error : 
+[03:23:42][Error] On Line 12 Error : 
+[03:23:42][Error] On Line 12 Error : 
+[03:23:42][Error] On Line 12 Error : 
+[03:23:42]  Application StartUp Block Complete. 
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50][Warning] Testing
+[04:46:50][Error] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:50] Testing
+[04:46:56][Error] On Line 5 Error : 
+[04:46:56][Error] On Line 5 Error : 
+[04:46:56][Error] On Line 5 Error : 
+[04:46:56][Error] On Line 6 Error : 
+[04:46:56][Error] On Line 6 Error : 
+[04:46:56][Error] On Line 6 Error : 
+[04:46:56][Error] On Line 7 Error : 
+[04:46:56][Error] On Line 7 Error : 
+[04:46:56][Error] On Line 7 Error : 
+[04:46:56][Error] On Line 9 Error : 
+[04:46:56][Error] On Line 9 Error : 
+[04:46:56][Error] On Line 9 Error : 
+[04:46:56][Error] On Line 10 Error : 
+[04:46:56][Error] On Line 10 Error : 
+[04:46:56][Error] On Line 10 Error : 
+[04:46:56][Error] On Line 11 Error : 
+[04:46:56][Error] On Line 11 Error : 
+[04:46:56][Error] On Line 11 Error : 
+[04:46:56][Error] On Line 12 Error : 
+[04:46:56][Error] On Line 12 Error : 
+[04:46:56][Error] On Line 12 Error : 
+[04:46:56]  Application StartUp Block Complete. 
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '35003' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '55374' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '55324' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '55387' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '55323' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282
+[04:46:59][Error] System.Collections.Generic.KeyNotFoundException: The given key '55318' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 282

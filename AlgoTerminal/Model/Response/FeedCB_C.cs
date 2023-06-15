@@ -13,9 +13,13 @@ namespace AlgoTerminal.Model.Response
         }
         public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
-            if (_general.IsTokenFound(stFeed.Token.ToString()))
+           if(_general.PortfolioLegByTokens.ContainsKey(stFeed.Token))
             {
-
+               var legs =  _general.PortfolioLegByTokens[stFeed.Token];
+                foreach(var leg in legs)
+                {
+                    leg.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice)/100.00,2);
+                }
             }
         }
 
