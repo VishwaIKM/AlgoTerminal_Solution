@@ -19,12 +19,15 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label>NIFTY 50 </Label>
-            <Label>NIFTY FUT</Label>
-            <Label>BANKNIFTY</Label>
-            <Label>BANKNIFTY FUT</Label>
-            <Label>FINIFTY</Label>
-            <Label>FINIFTY FUT</Label>
+            <Label Content="Sever Connected" FontStyle="Normal" FontSize="26" Foreground="Green" VerticalAlignment="Center">
+              
+            </Label>
+            <Label Content="Nifty 50" Margin="10" FontSize="18" VerticalAlignment="Center"/>
+            <Label Content="Nifty fut" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
+            <Label Content="BankNifty" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
+            <Label Content="BankNifty fut" Margin="10" FontSize="18"  VerticalAlignment="Center"/>
+            <Label Content="FinNifty" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
+            <Label Content="FinNifty fut" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
         <Menu Grid.Row="1" DataContext="{Binding MenuViewModel}" ItemsSource="{Binding Items}">
             <Menu.Resources>
@@ -41,10 +44,11 @@
         <dock:DockingManager Grid.Row="2"
                          DataContext="{Binding DockManagerViewModel}"
                          DocumentsSource="{Binding Documents}"
-                         AnchorablesSource="{Binding Anchorables}" >
+                         AnchorablesSource="{Binding Anchorables}" 
+                            >
 
             <dock:DockingManager.Resources>
-
+               
                 <!-- add views for specific ViewModels -->
                 <DataTemplate DataType="{x:Type vm:PortfolioViewModel}">
                     <local:PortfolioView />
@@ -63,7 +67,7 @@
 
             <dock:DockingManager.LayoutItemContainerStyle>
                 <!-- you can add additional bindings from the layoutitem to the DockWindowViewModel -->
-                <Style TargetType="{x:Type dock:LayoutItem}" >
+                <Style TargetType="{x:Type dock:LayoutItem}">
                     <Setter Property="Title" Value="{Binding Model.Title}" />
                     <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}" />
                     <Setter Property="CanClose" Value="{Binding Model.CanClose}" />

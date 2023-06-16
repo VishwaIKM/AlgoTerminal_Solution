@@ -101,7 +101,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         portfolioModel.EntryTime = stg_value.EntryTime;
                         portfolioModel.ExitTime = stg_value.ExitTime;
                         portfolioModel.UserID = stg_value.UserID;
-                        portfolioModel.innerObject ??= new();
+                        portfolioModel.InnerObject ??= new();
 
                         //ADD in Portfolio for GUI
                         if (!general.Portfolios.ContainsKey(portfolioModel.Name))
@@ -127,7 +127,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         innerObject.Status = EnumStrategyStatus.Added;
                                         innerObject.TradingSymbol = "Loading ...";
                                         innerObject.Qty = leg_value.Lots;
-                                        portfolioModel.innerObject.Add(innerObject);
+                                        portfolioModel.InnerObject.Add(innerObject);
                                         //ADD TO GUI
                                         general.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, general.Portfolios[portfolioModel.Name]);
                                         if (portfolioViewModel.StrategyDataCollection == null)
@@ -192,7 +192,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             var bacha = Task.Factory.StartNew(async () =>
                             {
                                 var leg_Details = leg_value[Leg];
-                                var portfolio_leg_value = Portfolio_value.innerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+                                var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
                                 try
                                 {
 
@@ -225,7 +225,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
 
-
+                                    portfolio_leg_value.Qty = portfolio_leg_value.Qty * (int)contractDetails.GetContractDetailsByToken(Token).LotSize;
                                     //Porfolio leg Update
                                     portfolio_leg_value.Token = Token;
                                     portfolio_leg_value.TradingSymbol = TradingSymbol;
@@ -291,7 +291,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
 
-                                    //Bind to Dic responsibile for Feed Update ....
+                                    //Bind to Dic responsibile for Feed load ....
                                     if (general.PortfolioLegByTokens.TryGetValue(Token, out List<InnerObject> value))
                                     {
                                         var legs = value;
@@ -333,7 +333,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             else
                             {
                                 await Task.Delay(SquareofSeconds);
-                                await SquareOffStraddle920(stg_key);
+                                if ((Portfolio_value.SellTradedQty - Portfolio_value.BuyTradedQty) != 0)
+                                    await SquareOffStraddle920(Portfolio_value);
+
                             }
                         }
 
@@ -343,7 +345,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
             }
             catch (Exception ex)
             {
-                logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
+                logFileWriter.WriteLog(EnumLogType.Error, ex.ToString());
             }
         }
 
@@ -383,8 +385,31 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="KeyOfStraddle"></param>
         /// <returns></returns>
-        public async Task<bool> SquareOffStraddle920(string KeyOfStraddle)
+        public async Task<bool> SquareOffStraddle920(PortfolioModel PM)
         {
+            if (PM.BuyTradedQty - PM.SellTradedQty != 0)
+            {
+                var _totalLeg = PM.InnerObject;
+                foreach (var leg in _totalLeg)
+                {
+                    if (leg.ExitPrice != 0)
+                    {
+                        //Get LTP
+
+                        double _currentLTP = algoCalculation.GetStrikePriceLTP(leg.Token);
+                        //qty
+                        //Token
+                        //S_Nnapi.PlaceOrder(tokenId, price, orderQty, transType, orderType, triggerPrice, marketWatch_OrderID, strUserdata);
+
+                        //NNAPI request Place the Leg Order.
+
+
+                        await Task.Delay(50);
+                    }
+                }
+            }
+
+
             return true;
         }
 

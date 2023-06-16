@@ -8,8 +8,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
     public class General : IGeneral
     {
         private List<string> TokenList = new List<string>();
+        //MAIN portfolio dic
         public ConcurrentDictionary<string, PortfolioModel> Portfolios { get; set; } // key()=> stg {"name"}
+
+        //Support 
         public ConcurrentDictionary<uint, List<InnerObject>> PortfolioLegByTokens { get; set; } //KEY()=>uint 
+
+        
         public void AddToken(string token)
         {
             TokenList.Add(token);

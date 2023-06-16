@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1200">
     <Grid>
+       
+        <Grid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="DarkGray" />
+        </Grid.Resources>
         <DataGrid
             x:Name="objDatagrid"
             ItemsSource="{Binding StrategyDataCollection}"
@@ -15,10 +19,17 @@
             GridLinesVisibility="Horizontal"
             CanUserDeleteRows="False"
             AutoGenerateColumns="False"
-            BorderBrush="Gray"
-            FontSize="14"
+            BorderBrush="White"
+            FontSize="18"
+            FontStyle="Normal"
             HorizontalScrollBarVisibility="Auto"
             VerticalScrollBarVisibility="Auto">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Black" />
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.RowDetailsTemplate >
                 <DataTemplate>
                     <DataGrid
@@ -26,12 +37,13 @@
                          GridLinesVisibility="Horizontal"
                          IsReadOnly="True"
                          AutoGenerateColumns="False"
-                         ItemsSource="{Binding Path=innerObject}"
+                         ItemsSource="{Binding Path=InnerObject}"
                          Width="1900"
-                         FontSize="12"
+                         FontSize="14"
+                        BorderThickness="2"
                          BorderBrush="Gray">
                         <!--Below is LegDetails binding-->
-            
+
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding Name}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Trading Symbol" Width="*" Binding="{Binding TradingSymbol}" IsReadOnly="True"/>
@@ -57,6 +69,20 @@
                             <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="MTM" Width="*" Binding="{Binding MTM}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="C P/L" Width="*" Binding="{Binding PNL}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsMyValueNegative}" Value="True">
+                                                <Setter Property="Foreground" Value="Red"></Setter>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding IsMyValueNegative}" Value="False">
+                                                <Setter Property="Foreground" Value="Green"></Setter>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="B/S" Width="*" Binding="{Binding BuySell}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Qty" Width="*" Binding="{Binding Qty}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="SL" Width="50" Binding="{Binding StopLoss}" IsReadOnly="True"/>
@@ -66,6 +92,7 @@
                             <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="RES" Width="66" Binding="{Binding RES}" IsReadOnly="True"/>
                         </DataGrid.Columns>
+                     
                     </DataGrid>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
@@ -84,7 +111,22 @@
                 <DataGridTextColumn Header="Index" Width="*" Binding="{Binding Index}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="MTM" Width="*" Binding="{Binding MTM}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="P/L" Width="*" Binding="{Binding PNL}" IsReadOnly="True">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMyValueNegative}" Value="True">
+                                    <Setter Property="Foreground" Value="Red"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsMyValueNegative}" Value="False">
+                                    <Setter Property="Foreground" Value="Green"></Setter>
+                                    <Setter Property="FontSize" Value="15"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="SL" Width="*" Binding="{Binding StopLoss}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="TP" Width="*" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Re SL" Width="*" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>

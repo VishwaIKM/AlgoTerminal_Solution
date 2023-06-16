@@ -46,16 +46,18 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private double _mtm;
-        public double MTM { get=> _mtm; set
+        private double _pnl;
+        public double PNL { get=> _pnl; set
             {
-                if(_mtm != value)
+                if(_pnl != value)
                 {
-                    _mtm = value;
-                    OnPropertyChanged(nameof(MTM));   
+                    _pnl = value;
+                    OnPropertyChanged(nameof(PNL));
+                    OnPropertyChanged(nameof(IsMyValueNegative));
                 }
             }
         }
+        public bool IsMyValueNegative { get { return PNL < 0; }}
         private double _stopLoss;
         public double StopLoss
         {
@@ -107,10 +109,9 @@ namespace AlgoTerminal.Model.Structure
             }
         }
 
-        public ObservableCollection<InnerObject> innerObject { get; set; } = new ObservableCollection<InnerObject>();
+        public ObservableCollection<InnerObject> InnerObject { get; set; } = new ObservableCollection<InnerObject>();
 
         //For Calculation They Must update after Trade
-
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }
         public int BuyTradedQty { get; set; }
@@ -227,6 +228,20 @@ namespace AlgoTerminal.Model.Structure
                 {
                     _mtm = value;
                     OnPropertyChanged(nameof(MTM));
+                }
+            }
+        }
+        public bool IsMyValueNegative { get { return PNL < 0; }}
+        private double _pnl;
+        public double PNL
+        {
+            get => _pnl; set
+            {
+                if (_pnl != value)
+                {
+                    _pnl = value;
+                    OnPropertyChanged(nameof(PNL));
+                    OnPropertyChanged(nameof(IsMyValueNegative));
                 }
             }
         }
