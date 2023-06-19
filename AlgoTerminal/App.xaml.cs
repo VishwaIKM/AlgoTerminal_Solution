@@ -44,6 +44,8 @@ namespace AlgoTerminal
                     services.AddSingleton<FeedCB_C>();
                     services.AddSingleton<FeedCB_CM>();
                     services.AddSingleton<PortfolioModel>();
+                    //services.AddSingleton<NNAPIRequest>();
+                    services.AddSingleton<NNAPIDLLResp>();
                   
                     //Services ....
                     services.AddSingleton<IAlgoCalculation, AlgoCalculation>();
@@ -52,10 +54,11 @@ namespace AlgoTerminal
                     services.AddSingleton<IFeed, Feed>();
                     services.AddSingleton<IGeneral, General>();
                     services.AddSingleton<ILogFileWriter, LogFileWriter>();
-                    services.AddSingleton<IRespNNAPI, NNAPIDLLResp>();
+
                     services.AddSingleton<IStraddleDataBaseLoadFromCsv, StraddleDataBaseLoadFromCsv>();
                     services.AddSingleton<IStraddleManager, StraddleManager>();
                     services.AddSingleton<IApplicationManagerModel,ApplicationManagerModel>();
+                    services.AddSingleton<IDashboardModel, DashboardModel>();
 
 
                     //ViewModel....
@@ -65,6 +68,7 @@ namespace AlgoTerminal
                     services.AddSingleton<TradeBookViewModel>();
                     services.AddSingleton<NetPositionViewModel>();
                     services.AddSingleton<LoginViewModel>();
+                    services.AddSingleton<OrderBookViewModel>();
 
                     //View ....
                     services.AddSingleton<DashboardView>(x => new()
@@ -92,6 +96,10 @@ namespace AlgoTerminal
                     services.AddSingleton<NetPositionView>(x => new()
                     {
                         DataContext = x.GetRequiredService<NetPositionViewModel>()
+                    });
+                    services.AddSingleton<OrderBookView>(x => new()
+                    {
+                        DataContext = x.GetRequiredService<OrderBookViewModel>()
                     });
 
                 })

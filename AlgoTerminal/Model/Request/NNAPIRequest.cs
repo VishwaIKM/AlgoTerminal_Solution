@@ -1,5 +1,7 @@
 ﻿using AlgoTerminal.Model.NNAPI;
+using AlgoTerminal.Model.Response;
 using AlgoTerminal.Model.Services;
+using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,28 +13,27 @@ namespace AlgoTerminal.Model.Request
     public class NNAPIRequest
     {
                 #region Members
-        static readonly object _placeOrderLock = new object();
-        static readonly object _modifyOrderLock = new object();
-        static readonly object _cancelOrderLock = new object();
+        static readonly object _placeOrderLock = new ();
+        static readonly object _modifyOrderLock = new ();
+        static readonly object _cancelOrderLock = new ();
         #endregion
+        public static NNAPIDLLResp S_ResponseObj;
+        public static NNAPI.NNAPI Nnapi;
+        public NNAPIRequest()
+        {
+            S_ResponseObj = new NNAPIDLLResp();
+            Nnapi = new NNAPI.NNAPI(S_ResponseObj);
+        }
 
         #region instances
-        private readonly IRespNNAPI Resp;
-        private readonly NNAPI.NNAPI Nnapi; // = new NNAPI.NNAPI(S_ResponseObj);
-        #endregion
-        public NNAPIRequest(IRespNNAPI Resp)
-        { 
-            this.Resp = Resp;
-            Nnapi ??= new(this.Resp);
-        }
+
         #region Methods
         /// <summary>
         /// TO Connect with Server With parm IP and Port Required
         /// </summary>
         public int InitializeServer()
         {
-            return 0;
-            //return Nnapi.Init(Config.S_Moderator_IP, Config.S_Moderator_Port);
+            return Nnapi.Init("192.168.1.50", 3007);
         }
 
 
@@ -43,7 +44,7 @@ namespace AlgoTerminal.Model.Request
         /// </summary>
         public void LoginRequest()
         {
-           // Nnapi.Login(LoginVM.S_User_Id, LoginVM.S_Password);
+           Nnapi.Login(5001, 12345);
 
         }
 
@@ -169,3 +170,4 @@ namespace AlgoTerminal.Model.Request
         #endregion
     }
 }
+#endregion

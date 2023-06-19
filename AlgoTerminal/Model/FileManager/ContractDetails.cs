@@ -1,8 +1,10 @@
 ﻿using AlgoTerminal.Model.CustumException;
 using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using System;
 using System.Collections.Concurrent;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -18,6 +20,10 @@ namespace AlgoTerminal.Model.FileManager
         private static readonly DirectoryInfo Info = new DirectoryInfo("C:\\CON_AKJ\\");
         private static readonly FileInfo[] filePaths = Info.GetFiles().OrderByDescending(p => p.CreationTime).Where(x => x.Name.Contains("NSE_FO_contract_") && x.Name.Contains(".csv")).ToArray();
         private static string S_Contract_File_Path = filePaths.Count() <= 0 ? DefultContractPath : filePaths[0].FullName;
+
+        public static uint NiftyFutureToken;
+        public static uint BankNiftyFutureToken;
+        public static uint FinNiftyFutureToken;
 
         #endregion
 
@@ -111,6 +117,8 @@ namespace AlgoTerminal.Model.FileManager
 
             if (ContractDetailsToken == null)
                 throw new ContractLoadingFailed_Exception("Contract Not loaded. Probability is Contract file is blank or Used by another Process.");
+
+            LoadFutToken();
         }
         /// <summary>
         /// Get Contract Details By Token
@@ -163,6 +171,25 @@ namespace AlgoTerminal.Model.FileManager
             return ContractDetailsToken.Where(x => x.Value.Expiry == expiry
              && x.Value.Opttype == xX
              && x.Value.Symbol == index.ToString().ToUpper()).Select(xx => xx.Key).FirstOrDefault();
+        }
+
+        private void LoadFutToken()
+        {
+            DateTime[] exp = ContractDetailsToken.Where(x => x.Value.Symbol == "NIFTY" && x.Value.InstrumentType == "FUTIDX").Select(x => Convert.ToDateTime(x.Value.Expiry)).ToArray();
+
+            if (exp.Count() > 0)
+            {
+                Array.Sort(exp);
+                string eNifty = string.Format("NIFTY{0}FUT", exp[0].ToString("yyMMM").ToUpper());
+                string finNifty = string.Format("FINNIFTY{0}FUT", exp[0].ToString("yyMMM").ToUpper());
+                string eBank = string.Format("BANKNIFTY{0}FUT", exp[0].ToString("yyMMM").ToUpper());
+
+                NiftyFutureToken = ContractDetailsToken.Where(x=>x.Value.TrdSymbol == eNifty).Select(x=>x.Key).First();
+                BankNiftyFutureToken = ContractDetailsToken.Where(x => x.Value.TrdSymbol == eBank).Select(x => x.Key).First();
+                FinNiftyFutureToken = ContractDetailsToken.Where(x => x.Value.TrdSymbol == finNifty).Select(x => x.Key).First();
+
+
+            }
         }
 
         #endregion

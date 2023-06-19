@@ -1,4 +1,5 @@
 ﻿using AlgoTerminal.Model.Services;
+using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
 
@@ -6,6 +7,16 @@ namespace AlgoTerminal.Model.Response
 {
     public class NNAPIDLLResp : IRespNNAPI
     {
+        private readonly LoginViewModel loginViewModel;
+
+        public NNAPIDLLResp()
+        {
+
+        }
+        public NNAPIDLLResp(LoginViewModel loginViewModel)
+        {
+            loginViewModel = loginViewModel ?? throw new ArgumentNullException(nameof(loginViewModel));
+        }
         public void ChangePasswordResponse(bool Success, int UserID, int NewPassword, string MessageText)
         {
             throw new NotImplementedException();
@@ -43,7 +54,7 @@ namespace AlgoTerminal.Model.Response
 
         public void LoginResponse(bool LoginSuccess, string MessageText)
         {
-            throw new NotImplementedException();
+            loginViewModel.LoginResponse(LoginSuccess, MessageText);
         }
 
         public void OpenOrderHistory(int Token, int Price, int Qty, int PendingQty, string BuySell, long AdminOrderID, ulong ExchOrdId, int iUserData, string StrUserData, int TriggerPrice, int TradedQty, long TradedValue, string OrderType, string Time, string Status, string StatusDetail, string RejectionReason)

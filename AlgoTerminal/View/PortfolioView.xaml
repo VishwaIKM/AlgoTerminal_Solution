@@ -90,7 +90,6 @@
                             <DataGridTextColumn Header="Re SL" Width="66" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Re TP" Width="66" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="RES" Width="66" Binding="{Binding RES}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                      
                     </DataGrid>
@@ -107,10 +106,10 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 <!--Below is StgDetails binding-->
-                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Index" Width="*" Binding="{Binding Index}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Name" Width="120" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Index" Width="120" Binding="{Binding Index}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Entry Time" Width="220" Binding="{Binding EntryTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Exit Time" Width="220" Binding="{Binding ExitTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="P/L" Width="*" Binding="{Binding PNL}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
@@ -131,7 +130,7 @@
                 <DataGridTextColumn Header="TP" Width="*" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Re SL" Width="*" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Re TP" Width="*" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="UID" Width="*" Binding="{Binding UserID}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="UID" Width="100" Binding="{Binding UserID}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

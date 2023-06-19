@@ -8819,3 +8819,2900 @@
    at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 650
    at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass10_2.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 281
 [06:54:45][Error] Streatgy Name Stg1  ExitTime is invalid in Congif File.
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48][Warning] Testing
+[09:46:48][Error] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:48] Testing
+[09:46:54][Error] On Line 5 Error : 
+[09:46:54][Error] On Line 5 Error : 
+[09:46:54][Error] On Line 5 Error : 
+[09:46:54][Error] On Line 6 Error : 
+[09:46:54][Error] On Line 6 Error : 
+[09:46:54][Error] On Line 6 Error : 
+[09:46:54][Error] On Line 7 Error : 
+[09:46:54][Error] On Line 7 Error : 
+[09:46:54][Error] On Line 7 Error : 
+[09:46:54][Error] On Line 9 Error : 
+[09:46:54][Error] On Line 9 Error : 
+[09:46:54][Error] On Line 9 Error : 
+[09:46:54][Error] On Line 10 Error : 
+[09:46:54][Error] On Line 10 Error : 
+[09:46:54][Error] On Line 10 Error : 
+[09:46:54][Error] On Line 11 Error : 
+[09:46:54][Error] On Line 11 Error : 
+[09:46:54][Error] On Line 11 Error : 
+[09:46:54][Error] On Line 12 Error : 
+[09:46:54][Error] On Line 12 Error : 
+[09:46:54][Error] On Line 12 Error : 
+[09:46:54]  Application StartUp Block Complete. 
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27][Warning] Testing
+[09:47:27][Error] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:27] Testing
+[09:47:43][Error] On Line 5 Error : 
+[09:47:43][Error] On Line 5 Error : 
+[09:47:43][Error] On Line 5 Error : 
+[09:47:43][Error] On Line 6 Error : 
+[09:47:43][Error] On Line 6 Error : 
+[09:47:43][Error] On Line 6 Error : 
+[09:47:43][Error] On Line 7 Error : 
+[09:47:43][Error] On Line 7 Error : 
+[09:47:43][Error] On Line 7 Error : 
+[09:47:43][Error] On Line 9 Error : 
+[09:47:43][Error] On Line 9 Error : 
+[09:47:43][Error] On Line 9 Error : 
+[09:47:43][Error] On Line 10 Error : 
+[09:47:43][Error] On Line 10 Error : 
+[09:47:43][Error] On Line 10 Error : 
+[09:47:43][Error] On Line 11 Error : 
+[09:47:43][Error] On Line 11 Error : 
+[09:47:43][Error] On Line 11 Error : 
+[09:47:43][Error] On Line 12 Error : 
+[09:47:43][Error] On Line 12 Error : 
+[09:47:43][Error] On Line 12 Error : 
+[09:47:43]  Application StartUp Block Complete. 
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32][Warning] Testing
+[10:29:32][Error] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:32] Testing
+[10:29:38][Error] On Line 5 Error : 
+[10:29:38][Error] On Line 5 Error : 
+[10:29:38][Error] On Line 5 Error : 
+[10:29:38][Error] On Line 6 Error : 
+[10:29:38][Error] On Line 6 Error : 
+[10:29:38][Error] On Line 6 Error : 
+[10:29:38][Error] On Line 7 Error : 
+[10:29:38][Error] On Line 7 Error : 
+[10:29:38][Error] On Line 7 Error : 
+[10:29:38][Error] On Line 9 Error : 
+[10:29:38][Error] On Line 9 Error : 
+[10:29:38][Error] On Line 9 Error : 
+[10:29:38][Error] On Line 10 Error : 
+[10:29:38][Error] On Line 10 Error : 
+[10:29:38][Error] On Line 10 Error : 
+[10:29:38][Error] On Line 11 Error : 
+[10:29:38][Error] On Line 11 Error : 
+[10:29:38][Error] On Line 11 Error : 
+[10:29:38][Error] On Line 12 Error : 
+[10:29:38][Error] On Line 12 Error : 
+[10:29:38][Error] On Line 12 Error : 
+[10:29:38]  Application StartUp Block Complete. 
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:44] Testing
+[10:36:44][Warning] Testing
+[10:36:44][Error] Testing
+[10:36:44] Testing
+[10:36:45] Testing
+[10:36:45][Warning] Testing
+[10:36:45][Error] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45][Warning] Testing
+[10:36:45][Error] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:36:45] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02][Warning] Testing
+[10:37:02][Error] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:02] Testing
+[10:37:08][Error] On Line 5 Error : 
+[10:37:08][Error] On Line 5 Error : 
+[10:37:08][Error] On Line 5 Error : 
+[10:37:08][Error] On Line 6 Error : 
+[10:37:08][Error] On Line 6 Error : 
+[10:37:08][Error] On Line 6 Error : 
+[10:37:08][Error] On Line 7 Error : 
+[10:37:08][Error] On Line 7 Error : 
+[10:37:08][Error] On Line 7 Error : 
+[10:37:08][Error] On Line 9 Error : 
+[10:37:08][Error] On Line 9 Error : 
+[10:37:08][Error] On Line 9 Error : 
+[10:37:08][Error] On Line 10 Error : 
+[10:37:08][Error] On Line 10 Error : 
+[10:37:08][Error] On Line 10 Error : 
+[10:37:08][Error] On Line 11 Error : 
+[10:37:08][Error] On Line 11 Error : 
+[10:37:08][Error] On Line 11 Error : 
+[10:37:08][Error] On Line 12 Error : 
+[10:37:08][Error] On Line 12 Error : 
+[10:37:08][Error] On Line 12 Error : 
+[10:37:08]  Application StartUp Block Complete. 
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30][Warning] Testing
+[10:38:30][Error] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:30] Testing
+[10:38:36][Error] On Line 5 Error : 
+[10:38:36][Error] On Line 5 Error : 
+[10:38:36][Error] On Line 5 Error : 
+[10:38:36][Error] On Line 6 Error : 
+[10:38:36][Error] On Line 6 Error : 
+[10:38:36][Error] On Line 6 Error : 
+[10:38:36][Error] On Line 7 Error : 
+[10:38:36][Error] On Line 7 Error : 
+[10:38:36][Error] On Line 7 Error : 
+[10:38:36][Error] On Line 9 Error : 
+[10:38:36][Error] On Line 9 Error : 
+[10:38:36][Error] On Line 9 Error : 
+[10:38:36][Error] On Line 10 Error : 
+[10:38:36][Error] On Line 10 Error : 
+[10:38:36][Error] On Line 10 Error : 
+[10:38:36][Error] On Line 11 Error : 
+[10:38:36][Error] On Line 11 Error : 
+[10:38:36][Error] On Line 11 Error : 
+[10:38:36][Error] On Line 12 Error : 
+[10:38:36][Error] On Line 12 Error : 
+[10:38:36][Error] On Line 12 Error : 
+[10:38:36]  Application StartUp Block Complete. 
+[10:41:24][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25][Warning] Testing
+[10:41:25][Error] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:25] Testing
+[10:41:31][Error] On Line 5 Error : 
+[10:41:31][Error] On Line 5 Error : 
+[10:41:31][Error] On Line 5 Error : 
+[10:41:31][Error] On Line 6 Error : 
+[10:41:31][Error] On Line 6 Error : 
+[10:41:31][Error] On Line 6 Error : 
+[10:41:31][Error] On Line 7 Error : 
+[10:41:31][Error] On Line 7 Error : 
+[10:41:31][Error] On Line 7 Error : 
+[10:41:31][Error] On Line 9 Error : 
+[10:41:31][Error] On Line 9 Error : 
+[10:41:31][Error] On Line 9 Error : 
+[10:41:31][Error] On Line 10 Error : 
+[10:41:31][Error] On Line 10 Error : 
+[10:41:31][Error] On Line 10 Error : 
+[10:41:31][Error] On Line 11 Error : 
+[10:41:31][Error] On Line 11 Error : 
+[10:41:31][Error] On Line 11 Error : 
+[10:41:31][Error] On Line 12 Error : 
+[10:41:31][Error] On Line 12 Error : 
+[10:41:31][Error] On Line 12 Error : 
+[10:41:31]  Application StartUp Block Complete. 
+[10:41:34] Stg Time is Already passed Details: Stg2
+[10:42:27][Warning] Testing
+[10:42:27][Error] Testing
+[10:42:27] Testing
+[10:42:27] Testing
+[10:42:27] Testing
+[10:42:27][Warning] Testing
+[10:42:27][Error] Testing
+[10:42:27] Testing
+[10:42:27] Testing
+[10:42:27][Warning] Testing
+[10:42:27][Error] Testing
+[10:42:27] Testing
+[10:42:27] Testing
+[10:42:27][Warning] Testing
+[10:42:27][Error] Testing
+[10:42:27] Testing
+[10:42:27] Testing
+[10:42:27][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28][Warning] Testing
+[10:42:28][Error] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:28] Testing
+[10:42:37][Error] On Line 5 Error : 
+[10:42:37][Error] On Line 5 Error : 
+[10:42:37][Error] On Line 5 Error : 
+[10:42:37][Error] On Line 6 Error : 
+[10:42:37][Error] On Line 6 Error : 
+[10:42:37][Error] On Line 6 Error : 
+[10:42:37][Error] On Line 7 Error : 
+[10:42:37][Error] On Line 7 Error : 
+[10:42:37][Error] On Line 7 Error : 
+[10:42:37][Error] On Line 9 Error : 
+[10:42:37][Error] On Line 9 Error : 
+[10:42:37][Error] On Line 9 Error : 
+[10:42:37][Error] On Line 10 Error : 
+[10:42:37][Error] On Line 10 Error : 
+[10:42:37][Error] On Line 10 Error : 
+[10:42:37][Error] On Line 11 Error : 
+[10:42:37][Error] On Line 11 Error : 
+[10:42:37][Error] On Line 11 Error : 
+[10:42:37][Error] On Line 12 Error : 
+[10:42:37][Error] On Line 12 Error : 
+[10:42:37][Error] On Line 12 Error : 
+[10:42:37]  Application StartUp Block Complete. 
+[10:42:42] Stg Time is Already passed Details: Stg2
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03][Warning] Testing
+[10:43:03][Error] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:03] Testing
+[10:43:09][Error] On Line 5 Error : 
+[10:43:09][Error] On Line 5 Error : 
+[10:43:09][Error] On Line 5 Error : 
+[10:43:09][Error] On Line 6 Error : 
+[10:43:09][Error] On Line 6 Error : 
+[10:43:09][Error] On Line 6 Error : 
+[10:43:09][Error] On Line 7 Error : 
+[10:43:09][Error] On Line 7 Error : 
+[10:43:09][Error] On Line 7 Error : 
+[10:43:09][Error] On Line 9 Error : 
+[10:43:09][Error] On Line 9 Error : 
+[10:43:09][Error] On Line 9 Error : 
+[10:43:09][Error] On Line 10 Error : 
+[10:43:09][Error] On Line 10 Error : 
+[10:43:09][Error] On Line 10 Error : 
+[10:43:09][Error] On Line 11 Error : 
+[10:43:09][Error] On Line 11 Error : 
+[10:43:09][Error] On Line 11 Error : 
+[10:43:09][Error] On Line 12 Error : 
+[10:43:09][Error] On Line 12 Error : 
+[10:43:09][Error] On Line 12 Error : 
+[10:43:09]  Application StartUp Block Complete. 
+[10:43:12] Stg Time is Already passed Details: Stg2
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29][Warning] Testing
+[10:44:29][Error] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:29] Testing
+[10:44:36][Error] On Line 5 Error : 
+[10:44:36][Error] On Line 5 Error : 
+[10:44:36][Error] On Line 5 Error : 
+[10:44:36][Error] On Line 6 Error : 
+[10:44:36][Error] On Line 6 Error : 
+[10:44:36][Error] On Line 6 Error : 
+[10:44:36][Error] On Line 7 Error : 
+[10:44:36][Error] On Line 7 Error : 
+[10:44:36][Error] On Line 7 Error : 
+[10:44:36][Error] On Line 9 Error : 
+[10:44:36][Error] On Line 9 Error : 
+[10:44:36][Error] On Line 9 Error : 
+[10:44:36][Error] On Line 10 Error : 
+[10:44:36][Error] On Line 10 Error : 
+[10:44:36][Error] On Line 10 Error : 
+[10:44:36][Error] On Line 11 Error : 
+[10:44:36][Error] On Line 11 Error : 
+[10:44:36][Error] On Line 11 Error : 
+[10:44:36][Error] On Line 12 Error : 
+[10:44:36][Error] On Line 12 Error : 
+[10:44:36][Error] On Line 12 Error : 
+[10:44:36]  Application StartUp Block Complete. 
+[10:44:39][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16][Warning] Testing
+[10:51:16][Error] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:16] Testing
+[10:51:22][Error] On Line 5 Error : 
+[10:51:22][Error] On Line 5 Error : 
+[10:51:22][Error] On Line 5 Error : 
+[10:51:22][Error] On Line 6 Error : 
+[10:51:22][Error] On Line 6 Error : 
+[10:51:22][Error] On Line 6 Error : 
+[10:51:22][Error] On Line 7 Error : 
+[10:51:22][Error] On Line 7 Error : 
+[10:51:22][Error] On Line 7 Error : 
+[10:51:22][Error] On Line 9 Error : 
+[10:51:22][Error] On Line 9 Error : 
+[10:51:22][Error] On Line 9 Error : 
+[10:51:22][Error] On Line 10 Error : 
+[10:51:22][Error] On Line 10 Error : 
+[10:51:22][Error] On Line 10 Error : 
+[10:51:22][Error] On Line 11 Error : 
+[10:51:22][Error] On Line 11 Error : 
+[10:51:22][Error] On Line 11 Error : 
+[10:51:22][Error] On Line 12 Error : 
+[10:51:22][Error] On Line 12 Error : 
+[10:51:22][Error] On Line 12 Error : 
+[10:51:22]  Application StartUp Block Complete. 
+[10:51:25][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33][Warning] Testing
+[10:54:33][Error] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:33] Testing
+[10:54:39][Error] On Line 5 Error : 
+[10:54:39][Error] On Line 5 Error : 
+[10:54:39][Error] On Line 5 Error : 
+[10:54:39][Error] On Line 6 Error : 
+[10:54:39][Error] On Line 6 Error : 
+[10:54:39][Error] On Line 6 Error : 
+[10:54:39][Error] On Line 7 Error : 
+[10:54:39][Error] On Line 7 Error : 
+[10:54:39][Error] On Line 7 Error : 
+[10:54:39][Error] On Line 9 Error : 
+[10:54:39][Error] On Line 9 Error : 
+[10:54:39][Error] On Line 9 Error : 
+[10:54:39][Error] On Line 10 Error : 
+[10:54:39][Error] On Line 10 Error : 
+[10:54:39][Error] On Line 10 Error : 
+[10:54:39][Error] On Line 11 Error : 
+[10:54:39][Error] On Line 11 Error : 
+[10:54:39][Error] On Line 11 Error : 
+[10:54:39][Error] On Line 12 Error : 
+[10:54:39][Error] On Line 12 Error : 
+[10:54:39][Error] On Line 12 Error : 
+[10:54:39]  Application StartUp Block Complete. 
+[10:54:42][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06][Warning] Testing
+[11:09:06][Error] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:06] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:50][Error] Testing
+[11:09:50] Testing
+[11:09:50] Testing
+[11:09:50][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51][Warning] Testing
+[11:09:51][Error] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:51] Testing
+[11:09:57][Error] On Line 5 Error : 
+[11:09:57][Error] On Line 5 Error : 
+[11:09:57][Error] On Line 5 Error : 
+[11:09:57][Error] On Line 6 Error : 
+[11:09:57][Error] On Line 6 Error : 
+[11:09:57][Error] On Line 6 Error : 
+[11:09:57][Error] On Line 7 Error : 
+[11:09:57][Error] On Line 7 Error : 
+[11:09:57][Error] On Line 7 Error : 
+[11:09:57][Error] On Line 9 Error : 
+[11:09:57][Error] On Line 9 Error : 
+[11:09:57][Error] On Line 9 Error : 
+[11:09:57][Error] On Line 10 Error : 
+[11:09:57][Error] On Line 10 Error : 
+[11:09:57][Error] On Line 10 Error : 
+[11:09:57][Error] On Line 11 Error : 
+[11:09:57][Error] On Line 11 Error : 
+[11:09:57][Error] On Line 11 Error : 
+[11:09:57][Error] On Line 12 Error : 
+[11:09:57][Error] On Line 12 Error : 
+[11:09:57][Error] On Line 12 Error : 
+[11:09:57]  Application StartUp Block Complete. 
+[11:10:00][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06][Warning] Testing
+[11:25:06][Error] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:06] Testing
+[11:25:12][Error] On Line 5 Error : 
+[11:25:12][Error] On Line 5 Error : 
+[11:25:12][Error] On Line 5 Error : 
+[11:25:12][Error] On Line 6 Error : 
+[11:25:12][Error] On Line 6 Error : 
+[11:25:12][Error] On Line 6 Error : 
+[11:25:12][Error] On Line 7 Error : 
+[11:25:12][Error] On Line 7 Error : 
+[11:25:12][Error] On Line 7 Error : 
+[11:25:12][Error] On Line 9 Error : 
+[11:25:12][Error] On Line 9 Error : 
+[11:25:12][Error] On Line 9 Error : 
+[11:25:12][Error] On Line 10 Error : 
+[11:25:12][Error] On Line 10 Error : 
+[11:25:12][Error] On Line 10 Error : 
+[11:25:12][Error] On Line 11 Error : 
+[11:25:12][Error] On Line 11 Error : 
+[11:25:12][Error] On Line 11 Error : 
+[11:25:12][Error] On Line 12 Error : 
+[11:25:12][Error] On Line 12 Error : 
+[11:25:12][Error] On Line 12 Error : 
+[11:25:12]  Application StartUp Block Complete. 
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26][Warning] Testing
+[11:28:26][Error] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:28:26] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34][Warning] Testing
+[11:34:34][Error] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:34] Testing
+[11:34:40][Error] On Line 5 Error : 
+[11:34:40][Error] On Line 5 Error : 
+[11:34:40][Error] On Line 5 Error : 
+[11:34:40][Error] On Line 6 Error : 
+[11:34:40][Error] On Line 6 Error : 
+[11:34:40][Error] On Line 6 Error : 
+[11:34:40][Error] On Line 7 Error : 
+[11:34:40][Error] On Line 7 Error : 
+[11:34:40][Error] On Line 7 Error : 
+[11:34:40][Error] On Line 9 Error : 
+[11:34:40][Error] On Line 9 Error : 
+[11:34:40][Error] On Line 9 Error : 
+[11:34:40][Error] On Line 10 Error : 
+[11:34:40][Error] On Line 10 Error : 
+[11:34:40][Error] On Line 10 Error : 
+[11:34:40][Error] On Line 11 Error : 
+[11:34:40][Error] On Line 11 Error : 
+[11:34:40][Error] On Line 11 Error : 
+[11:34:40][Error] On Line 12 Error : 
+[11:34:40][Error] On Line 12 Error : 
+[11:34:40][Error] On Line 12 Error : 
+[11:34:40]  Application StartUp Block Complete. 
+[11:34:43][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10][Warning] Testing
+[11:36:10][Error] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:10] Testing
+[11:36:16][Error] On Line 5 Error : 
+[11:36:16][Error] On Line 5 Error : 
+[11:36:16][Error] On Line 5 Error : 
+[11:36:16][Error] On Line 6 Error : 
+[11:36:16][Error] On Line 6 Error : 
+[11:36:16][Error] On Line 6 Error : 
+[11:36:16][Error] On Line 7 Error : 
+[11:36:16][Error] On Line 7 Error : 
+[11:36:16][Error] On Line 7 Error : 
+[11:36:16][Error] On Line 9 Error : 
+[11:36:16][Error] On Line 9 Error : 
+[11:36:16][Error] On Line 9 Error : 
+[11:36:16][Error] On Line 10 Error : 
+[11:36:16][Error] On Line 10 Error : 
+[11:36:16][Error] On Line 10 Error : 
+[11:36:16][Error] On Line 11 Error : 
+[11:36:16][Error] On Line 11 Error : 
+[11:36:16][Error] On Line 11 Error : 
+[11:36:16][Error] On Line 12 Error : 
+[11:36:16][Error] On Line 12 Error : 
+[11:36:16][Error] On Line 12 Error : 
+[11:36:16]  Application StartUp Block Complete. 
+[11:36:19][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40][Warning] Testing
+[11:45:40][Error] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:40] Testing
+[11:45:47][Error] On Line 5 Error : 
+[11:45:47][Error] On Line 5 Error : 
+[11:45:47][Error] On Line 5 Error : 
+[11:45:47][Error] On Line 6 Error : 
+[11:45:47][Error] On Line 6 Error : 
+[11:45:47][Error] On Line 6 Error : 
+[11:45:47][Error] On Line 7 Error : 
+[11:45:47][Error] On Line 7 Error : 
+[11:45:47][Error] On Line 7 Error : 
+[11:45:47][Error] On Line 9 Error : 
+[11:45:47][Error] On Line 9 Error : 
+[11:45:47][Error] On Line 9 Error : 
+[11:45:47][Error] On Line 10 Error : 
+[11:45:47][Error] On Line 10 Error : 
+[11:45:47][Error] On Line 10 Error : 
+[11:45:47][Error] On Line 11 Error : 
+[11:45:47][Error] On Line 11 Error : 
+[11:45:47][Error] On Line 11 Error : 
+[11:45:47][Error] On Line 12 Error : 
+[11:45:47][Error] On Line 12 Error : 
+[11:45:47][Error] On Line 12 Error : 
+[11:45:47]  Application StartUp Block Complete. 
+[11:45:50][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44][Warning] Testing
+[11:50:44][Error] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:44] Testing
+[11:50:50][Error] On Line 5 Error : 
+[11:50:50][Error] On Line 5 Error : 
+[11:50:50][Error] On Line 5 Error : 
+[11:50:50][Error] On Line 6 Error : 
+[11:50:50][Error] On Line 6 Error : 
+[11:50:50][Error] On Line 6 Error : 
+[11:50:50][Error] On Line 7 Error : 
+[11:50:50][Error] On Line 7 Error : 
+[11:50:50][Error] On Line 7 Error : 
+[11:50:50][Error] On Line 9 Error : 
+[11:50:50][Error] On Line 9 Error : 
+[11:50:50][Error] On Line 9 Error : 
+[11:50:50][Error] On Line 10 Error : 
+[11:50:50][Error] On Line 10 Error : 
+[11:50:50][Error] On Line 10 Error : 
+[11:50:50][Error] On Line 11 Error : 
+[11:50:50][Error] On Line 11 Error : 
+[11:50:50][Error] On Line 11 Error : 
+[11:50:50][Error] On Line 12 Error : 
+[11:50:50][Error] On Line 12 Error : 
+[11:50:50][Error] On Line 12 Error : 
+[11:50:50]  Application StartUp Block Complete. 
+[11:50:53][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28][Warning] Testing
+[11:52:28][Error] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:28] Testing
+[11:52:34][Error] On Line 5 Error : 
+[11:52:34][Error] On Line 5 Error : 
+[11:52:34][Error] On Line 5 Error : 
+[11:52:34][Error] On Line 6 Error : 
+[11:52:34][Error] On Line 6 Error : 
+[11:52:34][Error] On Line 6 Error : 
+[11:52:34][Error] On Line 7 Error : 
+[11:52:34][Error] On Line 7 Error : 
+[11:52:34][Error] On Line 7 Error : 
+[11:52:34][Error] On Line 9 Error : 
+[11:52:34][Error] On Line 9 Error : 
+[11:52:34][Error] On Line 9 Error : 
+[11:52:34][Error] On Line 10 Error : 
+[11:52:34][Error] On Line 10 Error : 
+[11:52:34][Error] On Line 10 Error : 
+[11:52:34][Error] On Line 11 Error : 
+[11:52:34][Error] On Line 11 Error : 
+[11:52:34][Error] On Line 11 Error : 
+[11:52:34][Error] On Line 12 Error : 
+[11:52:34][Error] On Line 12 Error : 
+[11:52:34][Error] On Line 12 Error : 
+[11:52:34]  Application StartUp Block Complete. 
+[11:52:37][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36][Warning] Testing
+[11:53:36][Error] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:36] Testing
+[11:53:42][Error] On Line 5 Error : 
+[11:53:42][Error] On Line 5 Error : 
+[11:53:42][Error] On Line 5 Error : 
+[11:53:42][Error] On Line 6 Error : 
+[11:53:42][Error] On Line 6 Error : 
+[11:53:42][Error] On Line 6 Error : 
+[11:53:42][Error] On Line 7 Error : 
+[11:53:42][Error] On Line 7 Error : 
+[11:53:42][Error] On Line 7 Error : 
+[11:53:42][Error] On Line 9 Error : 
+[11:53:42][Error] On Line 9 Error : 
+[11:53:42][Error] On Line 9 Error : 
+[11:53:42][Error] On Line 10 Error : 
+[11:53:42][Error] On Line 10 Error : 
+[11:53:42][Error] On Line 10 Error : 
+[11:53:42][Error] On Line 11 Error : 
+[11:53:42][Error] On Line 11 Error : 
+[11:53:42][Error] On Line 11 Error : 
+[11:53:42][Error] On Line 12 Error : 
+[11:53:42][Error] On Line 12 Error : 
+[11:53:42][Error] On Line 12 Error : 
+[11:53:42]  Application StartUp Block Complete. 
+[11:53:45][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35][Warning] Testing
+[11:57:35][Error] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:35] Testing
+[11:57:41][Error] On Line 5 Error : 
+[11:57:41][Error] On Line 5 Error : 
+[11:57:41][Error] On Line 5 Error : 
+[11:57:41][Error] On Line 6 Error : 
+[11:57:41][Error] On Line 6 Error : 
+[11:57:41][Error] On Line 6 Error : 
+[11:57:41][Error] On Line 7 Error : 
+[11:57:41][Error] On Line 7 Error : 
+[11:57:41][Error] On Line 7 Error : 
+[11:57:41][Error] On Line 9 Error : 
+[11:57:41][Error] On Line 9 Error : 
+[11:57:41][Error] On Line 9 Error : 
+[11:57:41][Error] On Line 10 Error : 
+[11:57:41][Error] On Line 10 Error : 
+[11:57:41][Error] On Line 10 Error : 
+[11:57:41][Error] On Line 11 Error : 
+[11:57:41][Error] On Line 11 Error : 
+[11:57:41][Error] On Line 11 Error : 
+[11:57:41][Error] On Line 12 Error : 
+[11:57:41][Error] On Line 12 Error : 
+[11:57:41][Error] On Line 12 Error : 
+[11:57:41]  Application StartUp Block Complete. 
+[11:57:44][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:57:44][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25][Warning] Testing
+[12:01:25][Error] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:25] Testing
+[12:01:32][Error] On Line 5 Error : 
+[12:01:32][Error] On Line 5 Error : 
+[12:01:32][Error] On Line 5 Error : 
+[12:01:32][Error] On Line 6 Error : 
+[12:01:32][Error] On Line 6 Error : 
+[12:01:32][Error] On Line 6 Error : 
+[12:01:32][Error] On Line 7 Error : 
+[12:01:32][Error] On Line 7 Error : 
+[12:01:32][Error] On Line 7 Error : 
+[12:01:32][Error] On Line 9 Error : 
+[12:01:32][Error] On Line 9 Error : 
+[12:01:32][Error] On Line 9 Error : 
+[12:01:32][Error] On Line 10 Error : 
+[12:01:32][Error] On Line 10 Error : 
+[12:01:32][Error] On Line 10 Error : 
+[12:01:32][Error] On Line 11 Error : 
+[12:01:32][Error] On Line 11 Error : 
+[12:01:32][Error] On Line 11 Error : 
+[12:01:32][Error] On Line 12 Error : 
+[12:01:32][Error] On Line 12 Error : 
+[12:01:32][Error] On Line 12 Error : 
+[12:01:32]  Application StartUp Block Complete. 
+[12:01:35][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09][Warning] Testing
+[01:20:09][Error] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:09] Testing
+[01:20:12][Error]  Application StartUp Block failed.
+[01:20:12][Error] System.InvalidOperationException: Sequence contains no elements
+   at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at AlgoTerminal.Model.FileManager.ContractDetails.LoadFutToken() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\FileManager\ContractDetails.cs:line 188
+   at AlgoTerminal.Model.FileManager.ContractDetails.LoadContractDetails() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\FileManager\ContractDetails.cs:line 121
+   at AlgoTerminal.Model.ApplicationManagerModel.ApplicationStartUpRequirement() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\ApplicationManagerModel.cs:line 28
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05][Warning] Testing
+[01:21:05][Error] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:21:05] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17][Warning] Testing
+[01:24:17][Error] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:24:17] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10][Warning] Testing
+[01:25:10][Error] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:10] Testing
+[01:25:15][Error] On Line 5 Error : 
+[01:25:15][Error] On Line 5 Error : 
+[01:25:15][Error] On Line 5 Error : 
+[01:25:15][Error] On Line 6 Error : 
+[01:25:15][Error] On Line 6 Error : 
+[01:25:15][Error] On Line 6 Error : 
+[01:25:15][Error] On Line 7 Error : 
+[01:25:15][Error] On Line 7 Error : 
+[01:25:15][Error] On Line 7 Error : 
+[01:25:15][Error] On Line 9 Error : 
+[01:25:15][Error] On Line 9 Error : 
+[01:25:15][Error] On Line 9 Error : 
+[01:25:15][Error] On Line 10 Error : 
+[01:25:15][Error] On Line 10 Error : 
+[01:25:15][Error] On Line 10 Error : 
+[01:25:15][Error] On Line 11 Error : 
+[01:25:15][Error] On Line 11 Error : 
+[01:25:15][Error] On Line 11 Error : 
+[01:25:15][Error] On Line 12 Error : 
+[01:25:15][Error] On Line 12 Error : 
+[01:25:15][Error] On Line 12 Error : 
+[01:25:15]  Application StartUp Block Complete. 
+[01:25:18][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:25:18][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51][Warning] Testing
+[01:48:51][Error] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:51] Testing
+[01:48:57][Error] On Line 5 Error : 
+[01:48:57][Error] On Line 5 Error : 
+[01:48:57][Error] On Line 5 Error : 
+[01:48:57][Error] On Line 6 Error : 
+[01:48:57][Error] On Line 6 Error : 
+[01:48:57][Error] On Line 6 Error : 
+[01:48:57][Error] On Line 7 Error : 
+[01:48:57][Error] On Line 7 Error : 
+[01:48:57][Error] On Line 7 Error : 
+[01:48:57][Error] On Line 9 Error : 
+[01:48:57][Error] On Line 9 Error : 
+[01:48:57][Error] On Line 9 Error : 
+[01:48:57][Error] On Line 10 Error : 
+[01:48:57][Error] On Line 10 Error : 
+[01:48:57][Error] On Line 10 Error : 
+[01:48:57][Error] On Line 11 Error : 
+[01:48:57][Error] On Line 11 Error : 
+[01:48:57][Error] On Line 11 Error : 
+[01:48:57][Error] On Line 12 Error : 
+[01:48:57][Error] On Line 12 Error : 
+[01:48:57][Error] On Line 12 Error : 
+[01:48:57]  Application StartUp Block Complete. 
+[01:49:00][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[01:49:00][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:25] Testing
+[01:53:25] Testing
+[01:53:25][Warning] Testing
+[01:53:25][Error] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:26] Testing
+[01:53:31][Error] On Line 5 Error : 
+[01:53:31][Error] On Line 5 Error : 
+[01:53:31][Error] On Line 5 Error : 
+[01:53:31][Error] On Line 6 Error : 
+[01:53:31][Error] On Line 6 Error : 
+[01:53:31][Error] On Line 6 Error : 
+[01:53:31][Error] On Line 7 Error : 
+[01:53:31][Error] On Line 7 Error : 
+[01:53:31][Error] On Line 7 Error : 
+[01:53:31][Error] On Line 9 Error : 
+[01:53:31][Error] On Line 9 Error : 
+[01:53:31][Error] On Line 9 Error : 
+[01:53:31][Error] On Line 10 Error : 
+[01:53:31][Error] On Line 10 Error : 
+[01:53:31][Error] On Line 10 Error : 
+[01:53:31][Error] On Line 11 Error : 
+[01:53:31][Error] On Line 11 Error : 
+[01:53:31][Error] On Line 11 Error : 
+[01:53:31][Error] On Line 12 Error : 
+[01:53:31][Error] On Line 12 Error : 
+[01:53:31][Error] On Line 12 Error : 
+[01:53:31]  Application StartUp Block Complete. 
+[01:53:34][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[01:53:34][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49][Warning] Testing
+[02:31:49][Error] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:31:49] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45][Warning] Testing
+[02:32:45][Error] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:32:45] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54][Warning] Testing
+[02:37:54][Error] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:37:54] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58][Warning] Testing
+[02:39:58][Error] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:39:58] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00][Warning] Testing
+[02:41:00][Error] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:41:00] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38][Warning] Testing
+[02:42:38][Error] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:42:38] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26][Warning] Testing
+[02:45:26][Error] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:45:26] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11][Warning] Testing
+[02:47:11][Error] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:47:11] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10][Warning] Testing
+[02:48:10][Error] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing
+[02:48:10] Testing

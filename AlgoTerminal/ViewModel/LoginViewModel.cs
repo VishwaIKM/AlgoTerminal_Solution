@@ -10,12 +10,15 @@ using AlgoTerminal.Model.Structure;
 using AlgoTerminal.View;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
+using AlgoTerminal.Model.Request;
+using System.Windows.Threading;
 
 namespace AlgoTerminal.ViewModel
 {
     public class LoginViewModel:BaseViewModel
     {
         #region Members and Inst.
+        public static NNAPIRequest nnapi = new NNAPIRequest();
         LoginModel _login = new();
         private bool _isloginvisibile = true;
         private string _loginStatusGUILbl;
@@ -84,32 +87,45 @@ namespace AlgoTerminal.ViewModel
         {
             this.dashboardView1 = dashboardView1;
             this.applicationManagerModel = applicationManagerModel;
+
+            bool a = Convert.ToBoolean(nnapi.InitializeServer());
+            if (!a)
+                MessageBox.Show("Not able to connect the server.");
+
         }
 
         #endregion
 
         #region ICommand BUTTON Method 
+
+        public void LoginResponse(bool loginSuccess, string messageText)
+        {
+           
+            Application.Current.Dispatcher.BeginInvoke(new Action(async () => 
+            {
+                if (loginSuccess)
+                {
+                    dashboardView1.Show();
+                    App.Current.MainWindow.Close();
+                    App.Current.MainWindow = dashboardView1;
+
+                    await applicationManagerModel.ApplicationStartUpRequirement();
+                }
+                else
+                    MessageBox.Show(messageText);
+
+            }), 
+            DispatcherPriority.Background, 
+            null);
+           
+        }
         async void LoginCommandMethodExcute()
         {
             IsLoginButtonEnable = false;
             try
             {
-                //bool _IsValid = await _userAuthentication.ValidLogin(UserID, Password);
-                //if (_IsValid)
-                //{
-                //    _loadingView.Show();
-                //    App.Current.MainWindow.Close();
-                //    App.Current.MainWindow = _loadingView;
-                //}
-                //else
-                //    LoginStatusGUILbl = "Incorrect ID or PassWord";
 
-                //Valid
-                dashboardView1.Show();
-                App.Current.MainWindow.Close();
-                App.Current.MainWindow = dashboardView1;
-
-                await applicationManagerModel.ApplicationStartUpRequirement();
+                nnapi.LoginRequest();
 
             }
             catch (Exception ex)

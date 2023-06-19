@@ -31,7 +31,7 @@
       <HintPath>bin\Debug\net7.0-windows7.0\FeedC.dll</HintPath>
     </Reference>
     <Reference Include="FeedCM">
-      <HintPath>bin\Debug\net7.0-windows7.0\FeedCM.dll</HintPath>
+      <HintPath>..\..\..\WorkSpace\FEED PROJECT\FeedIkm\FeedCM\bin\Debug\FeedCM.dll</HintPath>
     </Reference>
     <Reference Include="LZONET">
       <HintPath>bin\Debug\net7.0-windows7.0\LZONET.dll</HintPath>
