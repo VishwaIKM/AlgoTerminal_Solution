@@ -1,4 +1,6 @@
 ﻿using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
+using AlgoTerminal.Model.Structure;
 using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -7,16 +9,7 @@ namespace AlgoTerminal.Model.Response
 {
     public class NNAPIDLLResp : IRespNNAPI
     {
-        private readonly LoginViewModel loginViewModel;
-
-        public NNAPIDLLResp()
-        {
-
-        }
-        public NNAPIDLLResp(LoginViewModel loginViewModel)
-        {
-            loginViewModel = loginViewModel ?? throw new ArgumentNullException(nameof(loginViewModel));
-        }
+      
         public void ChangePasswordResponse(bool Success, int UserID, int NewPassword, string MessageText)
         {
             throw new NotImplementedException();
@@ -44,7 +37,10 @@ namespace AlgoTerminal.Model.Response
 
         public void ErrorNotification(string ErrorDescription)
         {
-            throw new NotImplementedException();
+            
+           LoginViewModel.login.ErrorResponse(ErrorDescription);
+            if (ErrorDescription.Contains("Unknown Message Received. Message Header: 0"))
+                FeedCB_C._dashboard._connected = false;
         }
 
         public void GetPosition(int Token, int BuyTradedQty, long BuyTradedValue, int SellTradedQty, long SellTradedValue)
@@ -54,7 +50,7 @@ namespace AlgoTerminal.Model.Response
 
         public void LoginResponse(bool LoginSuccess, string MessageText)
         {
-            loginViewModel.LoginResponse(LoginSuccess, MessageText);
+           LoginViewModel.login.LoginResponse(LoginSuccess, MessageText);
         }
 
         public void OpenOrderHistory(int Token, int Price, int Qty, int PendingQty, string BuySell, long AdminOrderID, ulong ExchOrdId, int iUserData, string StrUserData, int TriggerPrice, int TradedQty, long TradedValue, string OrderType, string Time, string Status, string StatusDetail, string RejectionReason)

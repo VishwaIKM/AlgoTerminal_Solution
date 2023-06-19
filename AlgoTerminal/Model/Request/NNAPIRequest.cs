@@ -17,8 +17,8 @@ namespace AlgoTerminal.Model.Request
         static readonly object _modifyOrderLock = new ();
         static readonly object _cancelOrderLock = new ();
         #endregion
-        public static NNAPIDLLResp S_ResponseObj;
-        public static NNAPI.NNAPI Nnapi;
+        private readonly NNAPIDLLResp S_ResponseObj;
+        private readonly NNAPI.NNAPI Nnapi;
         public NNAPIRequest()
         {
             S_ResponseObj = new NNAPIDLLResp();
@@ -42,9 +42,9 @@ namespace AlgoTerminal.Model.Request
         /// USER ID (INT)
         /// PSSWOARD (INT)
         /// </summary>
-        public void LoginRequest()
+        public void LoginRequest(int UserID, int Password)
         {
-           Nnapi.Login(5001, 12345);
+           Nnapi.Login(UserID, Password);
 
         }
 

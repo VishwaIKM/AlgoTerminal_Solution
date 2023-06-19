@@ -20,7 +20,7 @@ namespace AlgoTerminal.Model.Response
         const string FinFutFormat = "Fin-F {0} ({1})";
         const int PriceDivisor = 100;
         private readonly IGeneral _general;
-        private readonly IDashboardModel _dashboard;
+        public static IDashboardModel _dashboard;
         public FeedCB_C(IGeneral general, IDashboardModel dashboardModel)
         {
             _general = general;

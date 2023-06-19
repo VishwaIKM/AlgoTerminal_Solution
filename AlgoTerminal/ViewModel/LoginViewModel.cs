@@ -12,18 +12,23 @@ using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Request;
 using System.Windows.Threading;
+using System.Runtime.CompilerServices;
+using Microsoft.Extensions.DependencyInjection;
+using AlgoTerminal.Model.Response;
 
 namespace AlgoTerminal.ViewModel
 {
     public class LoginViewModel:BaseViewModel
     {
         #region Members and Inst.
-        public static NNAPIRequest nnapi = new NNAPIRequest();
         LoginModel _login = new();
         private bool _isloginvisibile = true;
         private string _loginStatusGUILbl;
         private readonly DashboardView dashboardView1;
         private readonly IApplicationManagerModel applicationManagerModel;
+        private readonly NNAPIRequest nNAPIRequest;
+        public static LoginViewModel login;
+      
         #endregion
 
         #region Properties
@@ -83,12 +88,14 @@ namespace AlgoTerminal.ViewModel
         #endregion
 
         #region Methods
-        public LoginViewModel(DashboardView dashboardView1,IApplicationManagerModel applicationManagerModel)
+        public LoginViewModel(DashboardView dashboardView1,IApplicationManagerModel applicationManagerModel,NNAPIRequest nNAPIRequest)
         {
+            login = this;
+            this.nNAPIRequest = nNAPIRequest;
             this.dashboardView1 = dashboardView1;
             this.applicationManagerModel = applicationManagerModel;
 
-            bool a = Convert.ToBoolean(nnapi.InitializeServer());
+            bool a = Convert.ToBoolean(nNAPIRequest.InitializeServer());
             if (!a)
                 MessageBox.Show("Not able to connect the server.");
 
@@ -97,7 +104,10 @@ namespace AlgoTerminal.ViewModel
         #endregion
 
         #region ICommand BUTTON Method 
-
+        public void ErrorResponse(string message)
+        {
+            LoginStatusGUILbl = message;
+        }
         public void LoginResponse(bool loginSuccess, string messageText)
         {
            
@@ -105,6 +115,7 @@ namespace AlgoTerminal.ViewModel
             {
                 if (loginSuccess)
                 {
+                    FeedCB_C._dashboard._connected = true;
                     dashboardView1.Show();
                     App.Current.MainWindow.Close();
                     App.Current.MainWindow = dashboardView1;
@@ -112,7 +123,9 @@ namespace AlgoTerminal.ViewModel
                     await applicationManagerModel.ApplicationStartUpRequirement();
                 }
                 else
-                    MessageBox.Show(messageText);
+                {
+                    LoginStatusGUILbl = messageText;
+                }
 
             }), 
             DispatcherPriority.Background, 
@@ -125,7 +138,7 @@ namespace AlgoTerminal.ViewModel
             try
             {
 
-                nnapi.LoginRequest();
+                nNAPIRequest.LoginRequest((int)UserID, (int)Password);
 
             }
             catch (Exception ex)
