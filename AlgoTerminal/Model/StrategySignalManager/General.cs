@@ -6,26 +6,28 @@ using System.Collections.Generic;
 
 namespace AlgoTerminal.Model.StrategySignalManager
 {
-    public class General : IGeneral
+    public class General
     {
       
-        private List<string> TokenList = new List<string>();
+        public static List<string> TokenList = new List<string>();
         //MAIN portfolio dic
-        public ConcurrentDictionary<string, PortfolioModel> Portfolios { get; set; } // key()=> stg {"name"}
+        public static ConcurrentDictionary<string, PortfolioModel>? Portfolios { get; set; } // key()=> stg {"name"}
 
         //Support 
-        public ConcurrentDictionary<uint, List<InnerObject>> PortfolioLegByTokens { get; set; } //KEY()=>uint 
+        public static ConcurrentDictionary<uint, List<InnerObject>>? PortfolioLegByTokens { get; set; } //KEY()=>uint 
 
-        public void AddToken(string token)
+        //Usinf
+
+        public static void AddToken(string token)
         {
             TokenList.Add(token);
         }
-        public void RemoveToken(string token)
+        public static void RemoveToken(string token)
         {
             TokenList.Remove(token);
         }
 
-        public bool IsTokenFound(string token)
+        public static bool IsTokenFound(string token)
         {
             return TokenList.Contains(token);
         }

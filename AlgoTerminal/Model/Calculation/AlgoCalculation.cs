@@ -1,4 +1,5 @@
-﻿using AlgoTerminal.Model.Request;
+﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Request;
 using AlgoTerminal.Model.Services;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,9 @@ namespace AlgoTerminal.Model.Calculation
 {
     public class AlgoCalculation : IAlgoCalculation
     {
-        private readonly IContractDetails _contractDetails;
+       
         private readonly IFeed _feed;
+        private readonly ILogFileWriter _logFileWriter;
 
         private const double STT_Opt = 0.00060;
         private const double Stt_Fut = 0.0001;
@@ -40,9 +42,9 @@ namespace AlgoTerminal.Model.Calculation
                 throw new Exception("Feed for F&O is NULL");
             return Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice) / 100.00;
         }
-        public AlgoCalculation(IContractDetails contractDetails, IFeed feed)
+        public AlgoCalculation(IFeed feed, ILogFileWriter logFileWriter)
         {
-            _contractDetails = contractDetails;
+            _logFileWriter = logFileWriter;
             _feed = feed;
         }
 
@@ -95,14 +97,14 @@ namespace AlgoTerminal.Model.Calculation
             //ATM Strike +/- (value) * (Call LTP + Put LTP)
 
             double StraddleWidth;
-            if (_contractDetails.ContractDetailsToken == null || _feed.FeedC == null)
+            if (ContractDetails.ContractDetailsToken == null || _feed.FeedC == null)
                 throw new Exception("Contract not Loaded or Feed not Init");
             //Set Spot according to underlying Form
             double ATMStrike = GetStrikeType(EnumStrikeType.ATM, enumIndex, enumUnderlyingFrom, enumSegments, enumExpiry, enumOptiontype);
             DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
 
             //GET CE AND PE TOKEN
-            uint[] Token = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper()
+            uint[] Token = ContractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper()
                  && x.Value.Expiry == exp
                  && x.Value.Strike == ATMStrike)
                     .Select(x => x.Key)
@@ -112,7 +114,7 @@ namespace AlgoTerminal.Model.Calculation
 
             double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice) / 100.00;
             StraddleWidth = ATMStrike + premium_or_StraddleValue * _ATMStraddleprice;
-            uint nearest = _contractDetails.ContractDetailsToken[Token[0]].LotSize;
+            uint nearest = ContractDetails.ContractDetailsToken[Token[0]].LotSize;
             double StraddleWidthNearestStrike = (double)Math.Round(StraddleWidth / nearest) * nearest;
             return StraddleWidthNearestStrike;
         }
@@ -123,7 +125,7 @@ namespace AlgoTerminal.Model.Calculation
         {
             //Call option = Spot Price – Strike Price ()
             //Put option  = Strike Price – Spot price (OPS Direction to Call)
-            if (_contractDetails.ContractDetailsToken != null && _feed.FeedCM != null && _feed.FeedC != null && _feed.FeedC.dcFeedData != null && enumSegments == EnumSegments.OPTIONS)
+            if (ContractDetails.ContractDetailsToken != null && _feed.FeedCM != null && _feed.FeedC != null && _feed.FeedC.dcFeedData != null && enumSegments == EnumSegments.OPTIONS)
             {
                 double ATMStrike = 0, SpotPrice = 0, FinalStrike = 0;
                 string Symbol = enumIndex.ToString().ToUpper();
@@ -131,7 +133,7 @@ namespace AlgoTerminal.Model.Calculation
                 {
                     // Setting to EnumSegments.Futures => get Future Expiry first Month
                     DateTime exp = GetLegExpiry(enumExpiry, enumIndex, EnumSegments.FUTURES, enumOptiontype);
-                    uint FUTToken = _contractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                    uint FUTToken = ContractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
                     && x.Value.Opttype == EnumOptiontype.XX
                     && x.Value.Symbol == Symbol)
                          .Select(s => s.Key)
@@ -156,7 +158,7 @@ namespace AlgoTerminal.Model.Calculation
                     }
                 }
 
-                var list = _contractDetails.ContractDetailsToken.Where(y => y.Value.Symbol == Symbol &&
+                var list = ContractDetails.ContractDetailsToken.Where(y => y.Value.Symbol == Symbol &&
                 y.Value.Opttype == enumOptiontype).Select(x => x.Value.Strike).ToList().Distinct();
                 //ATM Strike
                 ATMStrike = list.Aggregate((x, y) => Math.Abs(x - SpotPrice) < Math.Abs(y - SpotPrice) ? x : y);
@@ -193,13 +195,13 @@ namespace AlgoTerminal.Model.Calculation
             //Closest to Low Pre => BUY
             //Range will be diff for call and put
 
-            if (_contractDetails.ContractDetailsToken == null) throw new Exception("Contract is Initialize");
+            if (ContractDetails.ContractDetailsToken == null) throw new Exception("Contract is Initialize");
             if (_feed.FeedC == null) throw new Exception("Feed is Not Initialize");
             //expiry
             DateTime exp = GetLegExpiry(enumExpiry, enumIndex, enumSegments, enumOptiontype);
 
             //valid Token
-            uint[] TokenList = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper() &&
+            uint[] TokenList = ContractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == enumIndex.ToString().ToUpper() &&
                  x.Value.Opttype == enumOptiontype
                  && x.Value.Expiry == exp)
                     .Select(x => x.Key)
@@ -245,10 +247,10 @@ namespace AlgoTerminal.Model.Calculation
             {
                 throw new Exception("Invalid Option for Select Strike Option");
             }
-            if (index >= 0 && _contractDetails != null)
+            if (index >= 0)
             {
                 Token = FinalTokenSetAfterIntersection.ElementAt(index);
-                return _contractDetails.ContractDetailsToken[Token].Strike;
+                return ContractDetails.ContractDetailsToken[Token].Strike;
             }
             throw new Exception("Some Calculation is Missed ==> GetPremiumRange Function");
         }
@@ -424,16 +426,16 @@ namespace AlgoTerminal.Model.Calculation
         {
             string Symbol = enumIndex.ToString().ToUpper();
 
-            if (_contractDetails.ContractDetailsToken == null)
+            if (ContractDetails.ContractDetailsToken == null)
                 throw new Exception("Contract data Not Found");
 
             if (enumSegments == EnumSegments.FUTURES || enumExpiry == EnumExpiry.MONTHLY)
             {
-                DateTime[] data = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == Symbol && x.Value.Opttype == EnumOptiontype.XX).Select(x => x.Value.Expiry).ToArray();
+                DateTime[] data = ContractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == Symbol && x.Value.Opttype == EnumOptiontype.XX).Select(x => x.Value.Expiry).ToArray();
                 Array.Sort(data);
                 return data[0];
             }
-            DateTime[] data1 = _contractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == Symbol && x.Value.Opttype == enumOptiontype).Select(x => x.Value.Expiry).Distinct().ToArray();
+            DateTime[] data1 = ContractDetails.ContractDetailsToken.Where(x => x.Value.Symbol == Symbol && x.Value.Opttype == enumOptiontype).Select(x => x.Value.Expiry).Distinct().ToArray();
             if (data1.Count() > 0)
             {
                 Array.Sort(data1);
@@ -552,7 +554,7 @@ namespace AlgoTerminal.Model.Calculation
             EnumIndex enumIndex
             , uint Token)
         {
-            if (_contractDetails.ContractDetailsToken == null)
+            if (ContractDetails.ContractDetailsToken == null)
                 throw new Exception("Contract is Null");
 
             if (_feed.FeedC == null)

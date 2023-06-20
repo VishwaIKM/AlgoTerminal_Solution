@@ -1,6 +1,5 @@
 ﻿using AlgoTerminal.Model.FileManager;
-using AlgoTerminal.Model.Request;
-using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using FeedC;
 using System;
@@ -19,18 +18,17 @@ namespace AlgoTerminal.Model.Response
         const string BankFutFormat = "Bank-F {0} ({1})";
         const string FinFutFormat = "Fin-F {0} ({1})";
         const int PriceDivisor = 100;
-        private readonly IGeneral _general;
         public static IDashboardModel _dashboard;
-        public FeedCB_C(IGeneral general, IDashboardModel dashboardModel)
+        public FeedCB_C(IDashboardModel dashboardModel)
         {
-            _general = general;
+         
             _dashboard = dashboardModel;
         }
         public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
-            if (_general.PortfolioLegByTokens.ContainsKey(stFeed.Token))
+            if (General.PortfolioLegByTokens.ContainsKey(stFeed.Token))
             {
-                var legs = _general.PortfolioLegByTokens[stFeed.Token];
+                var legs = General.PortfolioLegByTokens[stFeed.Token];
                 foreach (var leg in legs)
                 {
                     //MTM//LTP when order is placed
@@ -45,13 +43,13 @@ namespace AlgoTerminal.Model.Response
                         leg.PNL = Math.Round((Pnl * leg.Qty - _exp) / 100.00, 2);
 
                         //stg Update 
-                        var stg = _general.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();
+                        var stg = General.Portfolios[leg.StgName];// General.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();
                         double finalLtp = 0;
-                        foreach (var x in stg.Value.InnerObject)
+                        foreach (var x in stg.InnerObject)
                         {
                             finalLtp += x.PNL;
                         }
-                        stg.Value.PNL = Math.Round(finalLtp, 2);
+                        stg.PNL = Math.Round(finalLtp, 2);
                     }
                 }
             }

@@ -7,21 +7,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.Request
 {
     public class NNAPIRequest
     {
-                #region Members
-        static readonly object _placeOrderLock = new ();
-        static readonly object _modifyOrderLock = new ();
-        static readonly object _cancelOrderLock = new ();
+        #region Members
+        static readonly object _placeOrderLock = new();
+        static readonly object _modifyOrderLock = new();
+        static readonly object _cancelOrderLock = new();
         #endregion
         private readonly NNAPIDLLResp S_ResponseObj;
         private readonly NNAPI.NNAPI Nnapi;
-        public NNAPIRequest()
+        private readonly ILogFileWriter logFileWriter;
+        public NNAPIRequest(ILogFileWriter logFileWriter)
         {
-            S_ResponseObj = new NNAPIDLLResp();
+            this.logFileWriter = logFileWriter;
+            S_ResponseObj = new NNAPIDLLResp(logFileWriter);
             Nnapi = new NNAPI.NNAPI(S_ResponseObj);
         }
 
@@ -44,7 +47,7 @@ namespace AlgoTerminal.Model.Request
         /// </summary>
         public void LoginRequest(int UserID, int Password)
         {
-           Nnapi.Login(UserID, Password);
+            Nnapi.Login(UserID, Password);
 
         }
 
@@ -69,34 +72,47 @@ namespace AlgoTerminal.Model.Request
         /// <param name="orderType"></param>
         /// <param name="triggerPrice"></param>
         /// <param name="marketWatch_OrderID"></param>
-        internal void PlaceOrderRequest(string OrderType, int tokenId, int price, int orderQty, TransType transType, OrderType orderType, int triggerPrice, int marketWatch_OrderID,int strUserdata =-1)
+        internal void PlaceOrderRequest(int tokenId, double price1, int orderQty, EnumPosition Buysell, OrderType orderType, int triggerPrice, int marketWatch_OrderID, int strUserdata = -1)
         {
             lock (_placeOrderLock)
             {
-                if (price > 0 && orderQty > 0)
+                int price = 0;
+                try
                 {
-                    try
+                    price = (int)(price1 * 100);
+                    if (price > 0 && orderQty > 0)
                     {
+
+                        TransType transType = Buysell == EnumPosition.BUY ? TransType.B : TransType.S;
                         Nnapi.PlaceOrder(tokenId, price, orderQty, transType, orderType, triggerPrice, marketWatch_OrderID, strUserdata);
 
-                        //if (transType == TransType.B)
-                        //    General.S_Logger.DisplayLog(E_Log_Type.Success, "Order Type :" + orderType + " Order ID :" + marketWatch_OrderID + " TransType :B " +
-                        //        " Token Id :" + tokenId + " Price :" + price + " Trigger Price: " + triggerPrice + " has been Placed.");
-                        //else
-                        //    General.S_Logger.DisplayLog(E_Log_Type.Success, "Order Type :" + orderType + " Order ID :" + marketWatch_OrderID + " TransType :S " +
-                        //        " Token Id :" + tokenId + " Price :" + price + " Trigger Price: " + triggerPrice + " has been Placed.");
-                    }
-                    catch (Exception e)
-                    {
-                        //General.S_Logger.DisplayLog(E_Log_Type.Error, "Unable to Place Order To Server");
-                        //General.S_Logger.WriteLog(E_Log_Type.Error, e.ToString());
-                    }
-                }
-                else
-                {
-                    /*General.S_Logger.DisplayLog(E_Log_Type.Error, "Price or Quantity is 0. Order did not placed.");*/
-                }
+                        if (transType == TransType.B)
+                        {
+                            logFileWriter.DisplayLog(EnumLogType.Success, "Order Type :" + orderType + " Order ID :" + marketWatch_OrderID + " TransType :B " +
+                                " Token Id :" + tokenId + " Price :" + price + " Trigger Price: " + triggerPrice + " has been Placed.");
+                        }
+                        else
+                        {
+                            logFileWriter.DisplayLog(EnumLogType.Success, "Order Type :" + orderType + " Order ID :" + marketWatch_OrderID + " TransType :S " +
+                                " Token Id :" + tokenId + " Price :" + price + " Trigger Price: " + triggerPrice + " has been Placed.");
+                        }
 
+                    }
+                    else
+                    {
+                        logFileWriter.DisplayLog(EnumLogType.Error, "Price or Quantity is 0. Order did not placed.");
+                    }
+                }
+                catch (OverflowException)
+                {
+                    logFileWriter.DisplayLog(EnumLogType.Error, "unable to Convert the Price.");
+                    logFileWriter.WriteLog(EnumLogType.Error, "OverFlowException");
+                }
+                catch (Exception e)
+                {
+                    logFileWriter.DisplayLog(EnumLogType.Error, "Unable to Place Order To Server");
+                    logFileWriter.WriteLog(EnumLogType.Error, e.ToString());
+                }
             }
         }
 

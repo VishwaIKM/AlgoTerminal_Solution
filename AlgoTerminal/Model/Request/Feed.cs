@@ -14,17 +14,17 @@ namespace AlgoTerminal.Model.Request
         //Instance 
         private FeedCB_C _C;
         private FeedCB_CM _CM;
-        private IContractDetails _ContractDetails;
+      
 
 
         #endregion
 
         #region Methods
-        public Feed(FeedCB_C c, FeedCB_CM cM, IContractDetails contractDetails)
+        public Feed(FeedCB_C c, FeedCB_CM cM)
         {
             _C = c;
             _CM = cM;
-            _ContractDetails = contractDetails;
+          
         }
         /// <summary>
         /// SEND REQUEST TO ALL FEED DLL TO STOP THE FEED

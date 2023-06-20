@@ -12,7 +12,7 @@ using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.FileManager
 {
-    public class ContractDetails : IContractDetails
+    public class ContractDetails
     {
         #region Find the latest avaliable Contract file in CON AKJ
 
@@ -33,14 +33,15 @@ namespace AlgoTerminal.Model.FileManager
         /// 
 
         #region Properties and Methods
-        public ConcurrentDictionary<uint, ContractRecord.ContractData>? ContractDetailsToken { get; set; }
+        public static ConcurrentDictionary<uint, ContractRecord.ContractData>? ContractDetailsToken { get; set; }
         /// <summary>
         /// Load Contract Details. The Path need to Manage Manually for now For Unit Test and Live.
         /// </summary>
         /// <exception cref="FileNotFoundException"></exception>
         /// <exception cref="ContractLoadingFailed_Exception"></exception>
-        public void LoadContractDetails()
+        public static void LoadContractDetails()
         {
+           
             //Below Contract for UnitTestCaseOnly
             //S_Contract_File_Path = @"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources\NSE_FO_contract_01062023.csv";
             //Exception will handle in Invoke Method LvL
@@ -126,7 +127,7 @@ namespace AlgoTerminal.Model.FileManager
         /// <param name="Token"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public ContractRecord.ContractData GetContractDetailsByToken(uint Token)
+        public static ContractRecord.ContractData GetContractDetailsByToken(uint Token)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -142,7 +143,7 @@ namespace AlgoTerminal.Model.FileManager
         /// <param name="TradingSymbol"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public ContractRecord.ContractData GetContractDetailsByTradingSymbol(string TradingSymbol)
+        public static ContractRecord.ContractData GetContractDetailsByTradingSymbol(string TradingSymbol)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -151,7 +152,7 @@ namespace AlgoTerminal.Model.FileManager
             return value;
         }
 
-        public uint GetTokenByContractValue(DateTime exp, EnumOptiontype enumOptiontype, EnumIndex enumIndex, double selectedStrike)
+        public static uint GetTokenByContractValue(DateTime exp, EnumOptiontype enumOptiontype, EnumIndex enumIndex, double selectedStrike)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -163,7 +164,7 @@ namespace AlgoTerminal.Model.FileManager
               && x.Value.Strike == selectedStrike).Select(xx => xx.Key).FirstOrDefault();
         }
 
-        public uint GetTokenByContractValue(DateTime expiry, EnumOptiontype xX, EnumIndex index)
+        public static uint GetTokenByContractValue(DateTime expiry, EnumOptiontype xX, EnumIndex index)
         {
             if (ContractDetailsToken == null)
                 throw new Exception("Contract File Not Loaded!");
@@ -173,7 +174,7 @@ namespace AlgoTerminal.Model.FileManager
              && x.Value.Symbol == index.ToString().ToUpper()).Select(xx => xx.Key).FirstOrDefault();
         }
 
-        private void LoadFutToken()
+        private static void LoadFutToken()
         {
             DateTime[] exp = ContractDetailsToken.Where(x => x.Value.Symbol == "NIFTY" && x.Value.InstrumentType == "FUTIDX").Select(x => Convert.ToDateTime(x.Value.Expiry)).ToArray();
 

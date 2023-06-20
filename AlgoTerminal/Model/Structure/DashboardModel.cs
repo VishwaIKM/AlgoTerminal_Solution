@@ -1,10 +1,19 @@
 ﻿using AlgoTerminal.ViewModel;
+using System.Drawing;
+using System.Windows.Media;
 
 namespace AlgoTerminal.Model.Structure
 {
     public class DashboardModel : BaseViewModel, IDashboardModel
     {
         //SERVER
+        public Brush ConnectedColor { 
+            get
+            {
+                if(_connected == true) { return Brushes.Green; }
+                return Brushes.Red;
+            }
+                }
         private bool cc;
         public bool _connected
         {
@@ -15,6 +24,8 @@ namespace AlgoTerminal.Model.Structure
                 {
                     cc = value;
                     OnPropertyChanged(nameof(Connected));
+                    OnPropertyChanged(nameof(_connected));
+                    OnPropertyChanged(nameof(ConnectedColor));
                 }
             }
         }

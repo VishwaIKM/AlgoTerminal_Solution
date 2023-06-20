@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <DataGrid ItemsSource="{Binding NetPositionCollection}" AutoGenerateColumns="False"  CanUserSortColumns = "True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Trading Symbol" Width="110" Binding="{Binding TradingSymbol}"/>
+                <DataGridTextColumn Header="Buy Qunatity" Width="110" Binding="{Binding BuyQuantity}"/>
+                <DataGridTextColumn Header="Sell Qunatity" Width="110" Binding="{Binding SellQuantity}"/>
+                <DataGridTextColumn Header="Buy Avg Price" Width="110" Binding="{Binding BuyAvgPrice}"/>
+                <DataGridTextColumn Header="Sell Avg Price" Width="110" Binding="{Binding SellAvgPrice}"/>
+                <DataGridTextColumn Header="Net Value" Width="110" Binding="{Binding NetValue}"/>
+                <DataGridTextColumn Header="Net Quantity" Width="110" Binding="{Binding NetQuantity}"/>
+                <DataGridTextColumn Header="MTM" Width="110" Binding="{Binding MTM}"/>
+                <DataGridTextColumn Header="LTP" Width="110" Binding="{Binding LTP}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </UserControl>

@@ -1,4 +1,6 @@
-﻿using AlgoTerminal.Model.Services;
+﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.NNAPI;
+using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.Structure;
 using AlgoTerminal.ViewModel;
 using FeedC;
@@ -26,26 +28,23 @@ namespace AlgoTerminal.Model.StrategySignalManager
         private readonly ILogFileWriter logFileWriter;
         private readonly IAlgoCalculation algoCalculation;
         private readonly PortfolioViewModel portfolioViewModel;
-        private readonly IContractDetails contractDetails;
-        private readonly IModeratorManagerModel moderatorManagerModel;
-        private readonly IGeneral general;
+      
+       
+        
         public StraddleManager(IStraddleDataBaseLoadFromCsv straddleDataBaseLoad,
             ILogFileWriter logFileWriter,
             IAlgoCalculation algoCalculation,
-            PortfolioViewModel portfolioViewModel,
-            IContractDetails contractDetails,
-            IModeratorManagerModel moderatorManagerModel,
-            IGeneral general)
+            PortfolioViewModel portfolioViewModel
+           )
         {
-            this.general = general;
-            this.general.Portfolios ??= new();
-            this.general.PortfolioLegByTokens ??= new();
+           
+            General.Portfolios ??= new();
+            General.PortfolioLegByTokens ??= new();
             this.straddleDataBaseLoad = straddleDataBaseLoad;
             this.logFileWriter = logFileWriter;
             this.algoCalculation = algoCalculation;
             this.portfolioViewModel = portfolioViewModel;
-            this.contractDetails = contractDetails;
-            this.moderatorManagerModel = moderatorManagerModel;
+           
         }
         /// <summary>
         /// fILE lOADING
@@ -104,9 +103,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         portfolioModel.InnerObject ??= new();
 
                         //ADD in Portfolio for GUI
-                        if (!general.Portfolios.ContainsKey(portfolioModel.Name))
+                        if (!General.Portfolios.ContainsKey(portfolioModel.Name))
                         {
-                            general.Portfolios.TryAdd(portfolioModel.Name, portfolioModel);
+                            General.Portfolios.TryAdd(portfolioModel.Name, portfolioModel);
                             if (portfolioViewModel.StrategyDataCollection == null)
                                 throw new Exception("THE PortFolio VIEW->MODEL not initiated");
                             //portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
@@ -122,6 +121,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     {
                                         var leg_value = LegDetails[Leg];
                                         InnerObject innerObject = new();
+                                        innerObject.StgName = stg_key;
                                         innerObject.Name = Leg;
                                         innerObject.BuySell = leg_value.Position;
                                         innerObject.Status = EnumStrategyStatus.Added;
@@ -129,7 +129,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         innerObject.Qty = leg_value.Lots;
                                         portfolioModel.InnerObject.Add(innerObject);
                                         //ADD TO GUI
-                                        general.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, general.Portfolios[portfolioModel.Name]);
+                                        General.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, General.Portfolios[portfolioModel.Name]);
                                         if (portfolioViewModel.StrategyDataCollection == null)
                                             throw new Exception("THE PortFolio VIEW -> MODEL not initiated");
                                     }
@@ -161,7 +161,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// <returns></returns>
         public async Task DataUpdateRequest()
         {
-            general.PortfolioLegByTokens ??= new();
+            General.PortfolioLegByTokens ??= new();
             if (straddleDataBaseLoad.Master_Straddle_Dictionary == null || straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null)
                 throw new Exception("Master dic not loadded posibility The Stg file not loaded.");
 
@@ -174,7 +174,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     {
                         List<Task> tasks = new();
                         var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
-                        var Portfolio_value = general.Portfolios[stg_key];
+                        var Portfolio_value = General.Portfolios[stg_key];
 
                         //waiting for Entry Time
                         if (stg_setting_value.EntryTime >= DateTime.Now)
@@ -220,13 +220,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                            leg_Details.Position) :
                                                                                            -0.01;
 
-                                        uint Token = EnumSegments.OPTIONS == leg_Details.SelectSegment ? contractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_setting_value.Index, StrikeForLeg) :
-                                    contractDetails.GetTokenByContractValue(Expiry, EnumOptiontype.XX, stg_setting_value.Index);
-                                        string TradingSymbol = contractDetails.GetContractDetailsByToken(Token).TrdSymbol ?? throw new Exception("for " + Token + " Trading Symbol was not Found in Contract Details.");
+                                        uint Token = EnumSegments.OPTIONS == leg_Details.SelectSegment ? ContractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_setting_value.Index, StrikeForLeg) :
+                                    ContractDetails.GetTokenByContractValue(Expiry, EnumOptiontype.XX, stg_setting_value.Index);
+                                        string TradingSymbol = ContractDetails.GetContractDetailsByToken(Token).TrdSymbol ?? throw new Exception("for " + Token + " Trading Symbol was not Found in Contract Details.");
 
 
 
-                                        portfolio_leg_value.Qty = portfolio_leg_value.Qty * (int)contractDetails.GetContractDetailsByToken(Token).LotSize;
+                                        portfolio_leg_value.Qty = portfolio_leg_value.Qty * (int)ContractDetails.GetContractDetailsByToken(Token).LotSize;
                                         //Porfolio leg Update
                                         portfolio_leg_value.Token = Token;
                                         portfolio_leg_value.TradingSymbol = TradingSymbol;
@@ -284,20 +284,23 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                                         //Place the Order Using NNAPI 
-
+                                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID,portfolio_leg_value);
+                                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token,price1:_currentLTP,orderQty: portfolio_leg_value.Qty,
+                                             Buysell: portfolio_leg_value.BuySell,OrderType.LIMIT,0,OrderID);
                                         //GUI
                                         portfolio_leg_value.EntryPrice = _currentLTP;
-                                        portfolio_leg_value.Status = EnumStrategyStatus.Running;
+                                        portfolio_leg_value.Status = EnumStrategyStatus.WaitingForConfirmation;
                                         portfolio_leg_value.EntryTime = DateTime.Now;
 
 
 
                                         //Bind to Dic responsibile for Feed load ....
-                                        if (general.PortfolioLegByTokens.TryGetValue(Token, out List<InnerObject> value))
+                                        if (General.PortfolioLegByTokens.TryGetValue(Token, out List<InnerObject> value))
                                         {
                                             var legs = value;
                                             legs.Add(portfolio_leg_value);
-                                            general.PortfolioLegByTokens[Token] = legs;
+                                            General.PortfolioLegByTokens[Token] = legs;
                                         }
                                         else
                                         {
@@ -305,7 +308,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                             {
                                             portfolio_leg_value
                                             };
-                                            general.PortfolioLegByTokens.TryAdd(Token, legs);
+                                            General.PortfolioLegByTokens.TryAdd(Token, legs);
                                         }
                                     }
                                     catch (Exception ex)

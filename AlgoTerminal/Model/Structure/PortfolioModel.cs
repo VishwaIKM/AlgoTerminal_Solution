@@ -136,6 +136,7 @@ namespace AlgoTerminal.Model.Structure
             }
         }
         private string _name = "Loading...";
+        public string StgName { get; set; }
         public string Name
         {
             get => _name; set

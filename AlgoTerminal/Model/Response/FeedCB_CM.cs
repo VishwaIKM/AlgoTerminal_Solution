@@ -8,26 +8,21 @@ namespace AlgoTerminal.Model.Response
 {
     public class FeedCB_CM : IFeedRespCMIdx
     {
-        private readonly IGeneral _general;
+       
         private readonly IDashboardModel _dashboard;
         const string k_nifty_index_format = "Nifty-S {0} ({1})";
         const string k_bank_index_format = "Bank-S {0} ({1})";
         const string k_fin_nifty_format = "FinNifty-S {0} ({1})";
         const string k_priceformat = "0.00";
 
-        public FeedCB_CM(IGeneral general,IDashboardModel dashboardModel)
+        public FeedCB_CM(IDashboardModel dashboardModel)
         {
-            _general = general;
-            _dashboard = dashboardModel;
-            
+            _dashboard = dashboardModel; 
         }
 
         public void Feed_CMIdx_CallBack(uint FeedLogTime, string IndexName)
         {
-            //
-            //string value = string.Format(k_nifty_index_format, val.IndexValue.ToString(k_priceformat), (val.IndexValue - val.ClosingIndex).ToString(k_priceformat));
-            //int diffPrice = Convert.ToInt32(val.IndexValue - val.ClosingIndex);
-            //General.S_Main_Form.mainVM.UpdateIndexTicker(IndexName, value, diffPrice);
+           //Not in Use
         }
 
         public void Feed_CMIdx_CallBack_Data(MULTIPLE_INDEX_BCAST_REC_7207 mULTIPLE_INDEX_BCAST_REC_7207, string text)

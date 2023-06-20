@@ -7,7 +7,7 @@ using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.Structure
 {
-    public class LoggerModel
+    public sealed class LoggerModel
     {
         public DateTime Time { get; set; }
         public EnumLogType Category { get; set; }  // Type of log

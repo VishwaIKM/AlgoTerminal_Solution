@@ -1,6 +1,6 @@
 ﻿namespace AlgoTerminal.Model.Structure
 {
-    public class NetPosition
+    public sealed class NetPosition
     {
         public int TradedQtyBuy { get; set; }
         public int TradedQtySell { get; set; }

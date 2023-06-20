@@ -1,8 +1,7 @@
-﻿using AlgoTerminal.Model.Services;
+﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Services;
+using AlgoTerminal.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AlgoTerminal.Model
@@ -12,25 +11,25 @@ namespace AlgoTerminal.Model
         private readonly ILogFileWriter logFileWriter;
         private readonly IStraddleManager straddleManager;
         private readonly IFeed feed;
-        private readonly IContractDetails contractDetails;
-        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager,IFeed feed,IContractDetails contractDetails)
+
+        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager,IFeed feed)
         {
             this.feed = feed;
             this.logFileWriter = logFileWriter;
             this.straddleManager = straddleManager;
-            this.contractDetails = contractDetails;
+          
         }
 
         public async Task<bool> ApplicationStartUpRequirement()
         {
             try
             {
-                contractDetails.LoadContractDetails();
+                ContractDetails.LoadContractDetails();
                 var feedStarted = feed.InitializeFeedDll();//Feed start
-                await Task.Delay(3000);
+                await Task.Delay(1000);
                 var daat = straddleManager.StraddleStartUP(); // File Load          
                 await straddleManager.FirstTimeDataLoadingOnGUI();// GUI Load
-                await Task.Delay(3000);
+                await Task.Delay(1000);
                 await straddleManager.DataUpdateRequest();// Fire The Orders
                 return true;
             }
@@ -46,7 +45,8 @@ namespace AlgoTerminal.Model
         {
             try
             {
-
+                var feedStarted = feed.FeedToStop();//Feed start
+                LoginViewModel.NNAPIRequest.LogOutRequest();
             }
             catch(Exception ex)
             {

@@ -49,12 +49,8 @@ namespace AlgoTerminal
                   
                     //Services ....
                     services.AddSingleton<IAlgoCalculation, AlgoCalculation>();
-                    services.AddSingleton<IModeratorManagerModel,ModeratorManagerModel>();
-                    services.AddSingleton<IContractDetails, ContractDetails>();
                     services.AddSingleton<IFeed, Feed>();
-                    services.AddSingleton<IGeneral, General>();
                     services.AddSingleton<ILogFileWriter, LogFileWriter>();
-
                     services.AddSingleton<IStraddleDataBaseLoadFromCsv, StraddleDataBaseLoadFromCsv>();
                     services.AddSingleton<IStraddleManager, StraddleManager>();
                     services.AddSingleton<IApplicationManagerModel,ApplicationManagerModel>();

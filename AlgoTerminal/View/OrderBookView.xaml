@@ -10,10 +10,72 @@
     <Grid>
         <TabControl>
             <TabItem Header="Open">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="LightGray">
+                    <DataGrid x:Name="OpenOrderBook" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding OpenOrderBook}"   CanUserSortColumns = "True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Client ID" Width="80" Binding="{Binding ClientID}" SortDirection="Descending"/>
+                            <DataGridTextColumn Header="Status" Width="80" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Header="Trading Symbol" Width="110" Binding="{Binding TradingSymbol}"/>
+                            <DataGridTextColumn Header="Buy Sell" Width="70" Binding="{Binding BuySell}"/>
+                            <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price}"/>
+                            <DataGridTextColumn Header="Order Qty" Width="80" Binding="{Binding OrderQty}"/>
+                            <DataGridTextColumn Header="Traded Qty" Width="80" Binding="{Binding TradedQty}"/>
+                            <DataGridTextColumn Header="Trigger Price" Width="80" Binding="{Binding TriggerPrice}"/>
+                            <DataGridTextColumn Header="ModeratorID" Width="90" Binding="{Binding ModeratorID}"/>
+                            <DataGridTextColumn Header="Exch. ID" Width="170" Binding="{Binding ExchnageID}"/>
+                            <DataGridTextColumn Header="Last Update" Width="170" Binding="{Binding UpdateTime}"/>
+                            <DataGridTextColumn Header="Rejection Reason" Width="170" Binding="{Binding RejectionReason}"/>
+                        </DataGrid.Columns>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding BUYSELL}" Value="BUY">
+                                        <Setter Property="Background" Value="LightGreen"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding BUYSELL}" Value="SELL">
+                                        <Setter Property="Background" Value="LightPink"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                    </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Header="Complete/Rejected">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="LightGray">
+                    <DataGrid x:Name="CloseOrderBook" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding CloseOrderBook}"   CanUserSortColumns = "True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Client ID" Width="80" Binding="{Binding ClientID}" SortDirection="Descending"/>
+                            <DataGridTextColumn Header="Status" Width="80" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Header="Trading Symbol" Width="110" Binding="{Binding TradingSymbol}"/>
+                            <DataGridTextColumn Header="Buy Sell" Width="70" Binding="{Binding BuySell}"/>
+                            <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price}"/>
+                            <DataGridTextColumn Header="Order Qty" Width="80" Binding="{Binding OrderQty}"/>
+                            <DataGridTextColumn Header="Traded Qty" Width="80" Binding="{Binding TradedQty}"/>
+                            <DataGridTextColumn Header="Trigger Price" Width="80" Binding="{Binding TriggerPrice}"/>
+                            <DataGridTextColumn Header="ModeratorID" Width="90" Binding="{Binding ModeratorID}"/>
+                            <DataGridTextColumn Header="Exch. ID" Width="170" Binding="{Binding ExchangeID}"/>
+                            <DataGridTextColumn Header="Last Update" Width="170" Binding="{Binding UpdateTime}"/>
+                            <DataGridTextColumn Header="Rejection Reason" Width="170" Binding="{Binding RejectionReason}"/>
+                        </DataGrid.Columns>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding BUYSELL}" Value="BUY">
+                                        <Setter Property="Background" Value="LightGreen"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding BUYSELL}" Value="SELL">
+                                        <Setter Property="Background" Value="LightPink"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                    </DataGrid>
+                </Grid>
             </TabItem>
         </TabControl>
 

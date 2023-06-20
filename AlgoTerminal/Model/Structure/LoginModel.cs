@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgoTerminal.Model.Structure
 {
-    public class LoginModel
+    public sealed class LoginModel
     {
         public int? UserID { get; set; }
         public int? Password { get; set; }

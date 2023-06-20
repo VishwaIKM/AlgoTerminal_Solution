@@ -26,7 +26,9 @@ namespace AlgoTerminal.ViewModel
         private string _loginStatusGUILbl;
         private readonly DashboardView dashboardView1;
         private readonly IApplicationManagerModel applicationManagerModel;
-        private readonly NNAPIRequest nNAPIRequest;
+
+        //As i have Used the OLD code ine new Porject the dependency inversion principal fail (I have to re-write the old code in order to fix the Code Design Issue.)
+        public static NNAPIRequest NNAPIRequest;
         public static LoginViewModel login;
       
         #endregion
@@ -91,11 +93,11 @@ namespace AlgoTerminal.ViewModel
         public LoginViewModel(DashboardView dashboardView1,IApplicationManagerModel applicationManagerModel,NNAPIRequest nNAPIRequest)
         {
             login = this;
-            this.nNAPIRequest = nNAPIRequest;
+            NNAPIRequest = nNAPIRequest;
             this.dashboardView1 = dashboardView1;
             this.applicationManagerModel = applicationManagerModel;
 
-            bool a = Convert.ToBoolean(nNAPIRequest.InitializeServer());
+            bool a = Convert.ToBoolean(NNAPIRequest.InitializeServer());
             if (!a)
                 MessageBox.Show("Not able to connect the server.");
 
@@ -138,7 +140,7 @@ namespace AlgoTerminal.ViewModel
             try
             {
 
-                nNAPIRequest.LoginRequest((int)UserID, (int)Password);
+                NNAPIRequest.LoginRequest((int)UserID, (int)Password);
 
             }
             catch (Exception ex)
@@ -161,10 +163,6 @@ namespace AlgoTerminal.ViewModel
         #region ICommand
         public ICommand LoginCommand => new RelayCommand2(LoginCommandMethodExcute, CanThisMethodExecute);
         public ICommand ExitAppCommand => new RelayCommand2(ExitCommandMethodExcute, CanThisMethodExecute);
-
-
-
-
         #endregion
     }
 }

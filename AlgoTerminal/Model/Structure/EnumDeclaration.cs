@@ -1,8 +1,8 @@
 ﻿namespace AlgoTerminal.Model.Structure
 {
-    public class EnumDeclaration
+    public sealed class EnumDeclaration
     {
-        public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error,None};
+        public enum EnumStrategyStatus { Added, Stopped, Running, Waiting,Complete,Error,None,WaitingForMM,WatingForORB,WaitingForConfirmation,InvalidTime,CompleteBySL,CompleteByTP};
         public enum EnumLogType { Warning, Error, Success, Info, Buy, Sell, Response };
         public enum EnumEntryAndExit : int { TIMEBASED, SIGNALBASED, OnlyEntrySignalBased }
 
