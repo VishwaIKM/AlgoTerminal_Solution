@@ -14799,3 +14799,818 @@
 [07:00:32]  Application StartUp Block Complete. 
 [07:00:33][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
 [07:00:33][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:16:39][Error] On Line 5 Error : 
+[10:16:39][Error] On Line 5 Error : 
+[10:16:39][Error] On Line 5 Error : 
+[10:16:39][Error] On Line 6 Error : 
+[10:16:39][Error] On Line 6 Error : 
+[10:16:39][Error] On Line 6 Error : 
+[10:16:39][Error] On Line 7 Error : 
+[10:16:39][Error] On Line 7 Error : 
+[10:16:39][Error] On Line 7 Error : 
+[10:16:39][Error] On Line 9 Error : 
+[10:16:39][Error] On Line 9 Error : 
+[10:16:39][Error] On Line 9 Error : 
+[10:16:39][Error] On Line 10 Error : 
+[10:16:39][Error] On Line 10 Error : 
+[10:16:39][Error] On Line 10 Error : 
+[10:16:39][Error] On Line 11 Error : 
+[10:16:39][Error] On Line 11 Error : 
+[10:16:39][Error] On Line 11 Error : 
+[10:16:39][Error] On Line 12 Error : 
+[10:16:39][Error] On Line 12 Error : 
+[10:16:39][Error] On Line 12 Error : 
+[10:16:39]  Application StartUp Block Complete. 
+[10:16:41][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:17:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :5105 Trigger Price: 0 has been Placed.
+[10:17:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :5105 Trigger Price: 0 has been Placed.
+[10:17:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2910 Trigger Price: 0 has been Placed.
+[10:17:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677
+[10:17:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677
+[10:17:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57679
+[10:23:13][Error] On Line 5 Error : 
+[10:23:13][Error] On Line 5 Error : 
+[10:23:13][Error] On Line 5 Error : 
+[10:23:13][Error] On Line 6 Error : 
+[10:23:13][Error] On Line 6 Error : 
+[10:23:13][Error] On Line 6 Error : 
+[10:23:13][Error] On Line 7 Error : 
+[10:23:13][Error] On Line 7 Error : 
+[10:23:13][Error] On Line 7 Error : 
+[10:23:13][Error] On Line 9 Error : 
+[10:23:13][Error] On Line 9 Error : 
+[10:23:13][Error] On Line 9 Error : 
+[10:23:13][Error] On Line 10 Error : 
+[10:23:13][Error] On Line 10 Error : 
+[10:23:13][Error] On Line 10 Error : 
+[10:23:13][Error] On Line 11 Error : 
+[10:23:13][Error] On Line 11 Error : 
+[10:23:13][Error] On Line 11 Error : 
+[10:23:13][Error] On Line 12 Error : 
+[10:23:13][Error] On Line 12 Error : 
+[10:23:13][Error] On Line 12 Error : 
+[10:23:13]  Application StartUp Block Complete. 
+[10:23:14][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:24:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :5170 Trigger Price: 0 has been Placed.
+[10:24:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :5170 Trigger Price: 0 has been Placed.
+[10:24:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2980 Trigger Price: 0 has been Placed.
+[10:24:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 120
+[10:24:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 120
+[10:24:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57679   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 120
+[10:26:17][Error] On Line 5 Error : 
+[10:26:17][Error] On Line 5 Error : 
+[10:26:17][Error] On Line 5 Error : 
+[10:26:17][Error] On Line 6 Error : 
+[10:26:17][Error] On Line 6 Error : 
+[10:26:17][Error] On Line 6 Error : 
+[10:26:17][Error] On Line 7 Error : 
+[10:26:17][Error] On Line 7 Error : 
+[10:26:17][Error] On Line 7 Error : 
+[10:26:17][Error] On Line 9 Error : 
+[10:26:17][Error] On Line 9 Error : 
+[10:26:17][Error] On Line 9 Error : 
+[10:26:17][Error] On Line 10 Error : 
+[10:26:17][Error] On Line 10 Error : 
+[10:26:17][Error] On Line 10 Error : 
+[10:26:17][Error] On Line 11 Error : 
+[10:26:17][Error] On Line 11 Error : 
+[10:26:17][Error] On Line 11 Error : 
+[10:26:17][Error] On Line 12 Error : 
+[10:26:17][Error] On Line 12 Error : 
+[10:26:17][Error] On Line 12 Error : 
+[10:26:17]  Application StartUp Block Complete. 
+[10:26:18][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:27:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2970 Trigger Price: 0 has been Placed.
+[10:27:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :5165 Trigger Price: 0 has been Placed.
+[10:27:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :5165 Trigger Price: 0 has been Placed.
+[10:33:53][Error] On Line 5 Error : 
+[10:33:53][Error] On Line 5 Error : 
+[10:33:53][Error] On Line 5 Error : 
+[10:33:53][Error] On Line 6 Error : 
+[10:33:53][Error] On Line 6 Error : 
+[10:33:53][Error] On Line 6 Error : 
+[10:33:53][Error] On Line 7 Error : 
+[10:33:53][Error] On Line 7 Error : 
+[10:33:53][Error] On Line 7 Error : 
+[10:33:53][Error] On Line 9 Error : 
+[10:33:53][Error] On Line 9 Error : 
+[10:33:53][Error] On Line 9 Error : 
+[10:33:53][Error] On Line 10 Error : 
+[10:33:53][Error] On Line 10 Error : 
+[10:33:53][Error] On Line 10 Error : 
+[10:33:53][Error] On Line 11 Error : 
+[10:33:53][Error] On Line 11 Error : 
+[10:33:53][Error] On Line 11 Error : 
+[10:33:53][Error] On Line 12 Error : 
+[10:33:53][Error] On Line 12 Error : 
+[10:33:53][Error] On Line 12 Error : 
+[10:33:53]  Application StartUp Block Complete. 
+[10:33:54][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:34:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4630 Trigger Price: 0 has been Placed.
+[10:34:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :4630 Trigger Price: 0 has been Placed.
+[10:34:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2625 Trigger Price: 0 has been Placed.
+[10:49:12][Error] On Line 5 Error : 
+[10:49:12][Error] On Line 5 Error : 
+[10:49:12][Error] On Line 5 Error : 
+[10:49:12][Error] On Line 6 Error : 
+[10:49:12][Error] On Line 6 Error : 
+[10:49:12][Error] On Line 6 Error : 
+[10:49:12][Error] On Line 7 Error : 
+[10:49:12][Error] On Line 7 Error : 
+[10:49:12][Error] On Line 7 Error : 
+[10:49:12][Error] On Line 9 Error : 
+[10:49:12][Error] On Line 9 Error : 
+[10:49:12][Error] On Line 9 Error : 
+[10:49:12][Error] On Line 10 Error : 
+[10:49:12][Error] On Line 10 Error : 
+[10:49:12][Error] On Line 10 Error : 
+[10:49:12][Error] On Line 11 Error : 
+[10:49:12][Error] On Line 11 Error : 
+[10:49:12][Error] On Line 11 Error : 
+[10:49:12][Error] On Line 12 Error : 
+[10:49:12][Error] On Line 12 Error : 
+[10:49:12][Error] On Line 12 Error : 
+[10:49:12]  Application StartUp Block Complete. 
+[10:49:13][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:50:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2350 Trigger Price: 0 has been Placed.
+[10:50:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4230 Trigger Price: 0 has been Placed.
+[10:50:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :4230 Trigger Price: 0 has been Placed.
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57679   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 122
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57679   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.Collection`1.Remove(T item)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 96
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 122
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.Collection`1.Remove(T item)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 96
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 122
+[10:50:00][Error] Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: 57677   at System.Windows.Data.CollectionView.OnCollectionChanged(Object sender, NotifyCollectionChangedEventArgs args)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.Collection`1.Remove(T item)
+   at AlgoTerminal.Model.Response.NNAPIDLLResp.OrderConfirmation(Int32 Token, Int32 Price, Int32 Qty, Int32 PendingQty, String BuySell, Int64 AdminOrderID, UInt64 ExchOrdId, Int32 iUserData, String StrUserData, Int32 TriggerPrice, Int32 TradedQty, Int64 TradedValue, String OrderType, String Time, String Status, String StatusDetail, String RejectionReason) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Response\NNAPIDLLResp.cs:line 96
+[10:54:24][Error] On Line 5 Error : 
+[10:54:24][Error] On Line 5 Error : 
+[10:54:24][Error] On Line 5 Error : 
+[10:54:24][Error] On Line 6 Error : 
+[10:54:24][Error] On Line 6 Error : 
+[10:54:24][Error] On Line 6 Error : 
+[10:54:24][Error] On Line 7 Error : 
+[10:54:24][Error] On Line 7 Error : 
+[10:54:24][Error] On Line 7 Error : 
+[10:54:24][Error] On Line 9 Error : 
+[10:54:24][Error] On Line 9 Error : 
+[10:54:24][Error] On Line 9 Error : 
+[10:54:24][Error] On Line 10 Error : 
+[10:54:24][Error] On Line 10 Error : 
+[10:54:24][Error] On Line 10 Error : 
+[10:54:24][Error] On Line 11 Error : 
+[10:54:24][Error] On Line 11 Error : 
+[10:54:24][Error] On Line 11 Error : 
+[10:54:24][Error] On Line 12 Error : 
+[10:54:24][Error] On Line 12 Error : 
+[10:54:24][Error] On Line 12 Error : 
+[10:54:24]  Application StartUp Block Complete. 
+[10:54:25][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:55:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4180 Trigger Price: 0 has been Placed.
+[10:55:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2305 Trigger Price: 0 has been Placed.
+[10:55:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :4180 Trigger Price: 0 has been Placed.
+[10:59:23][Error] On Line 5 Error : 
+[10:59:23][Error] On Line 5 Error : 
+[10:59:23][Error] On Line 5 Error : 
+[10:59:23][Error] On Line 6 Error : 
+[10:59:23][Error] On Line 6 Error : 
+[10:59:23][Error] On Line 6 Error : 
+[10:59:23][Error] On Line 7 Error : 
+[10:59:23][Error] On Line 7 Error : 
+[10:59:23][Error] On Line 7 Error : 
+[10:59:23][Error] On Line 9 Error : 
+[10:59:23][Error] On Line 9 Error : 
+[10:59:23][Error] On Line 9 Error : 
+[10:59:23][Error] On Line 10 Error : 
+[10:59:23][Error] On Line 10 Error : 
+[10:59:23][Error] On Line 10 Error : 
+[10:59:23][Error] On Line 11 Error : 
+[10:59:23][Error] On Line 11 Error : 
+[10:59:23][Error] On Line 11 Error : 
+[10:59:23][Error] On Line 12 Error : 
+[10:59:23][Error] On Line 12 Error : 
+[10:59:23][Error] On Line 12 Error : 
+[10:59:23]  Application StartUp Block Complete. 
+[10:59:25][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[10:59:40] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57675 Price :6115 Trigger Price: 0 has been Placed.
+[10:59:40] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57675 Price :6115 Trigger Price: 0 has been Placed.
+[10:59:40] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57677 Price :3565 Trigger Price: 0 has been Placed.
+[11:05:20][Error] On Line 5 Error : 
+[11:05:20][Error] On Line 5 Error : 
+[11:05:20][Error] On Line 5 Error : 
+[11:05:20][Error] On Line 6 Error : 
+[11:05:20][Error] On Line 6 Error : 
+[11:05:20][Error] On Line 6 Error : 
+[11:05:20][Error] On Line 7 Error : 
+[11:05:20][Error] On Line 7 Error : 
+[11:05:20][Error] On Line 7 Error : 
+[11:05:20][Error] On Line 9 Error : 
+[11:05:20][Error] On Line 9 Error : 
+[11:05:20][Error] On Line 9 Error : 
+[11:05:20][Error] On Line 10 Error : 
+[11:05:20][Error] On Line 10 Error : 
+[11:05:20][Error] On Line 10 Error : 
+[11:05:20][Error] On Line 11 Error : 
+[11:05:20][Error] On Line 11 Error : 
+[11:05:20][Error] On Line 11 Error : 
+[11:05:20][Error] On Line 12 Error : 
+[11:05:20][Error] On Line 12 Error : 
+[11:05:20][Error] On Line 12 Error : 
+[11:05:20]  Application StartUp Block Complete. 
+[11:05:21][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:06:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57675 Price :6165 Trigger Price: 0 has been Placed.
+[11:06:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57677 Price :3604 Trigger Price: 0 has been Placed.
+[11:06:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57675 Price :6165 Trigger Price: 0 has been Placed.
+[11:06:00] Order Status : ClientID: 1 ModID: 20230621000022 Status: put order request
+[11:06:00] Order Status : ClientID: 1 ModID: 20230621000022 Status: rejected
+[11:06:00] Order Status : ClientID: 2 ModID: 20230621000023 Status: put order request
+[11:06:00] Order Status : ClientID: 2 ModID: 20230621000023 Status: rejected
+[11:06:00] Order Status : ClientID: 3 ModID: 20230621000024 Status: put order request
+[11:06:00] Order Status : ClientID: 3 ModID: 20230621000024 Status: rejected
+[11:11:56][Error] On Line 5 Error : 
+[11:11:56][Error] On Line 5 Error : 
+[11:11:56][Error] On Line 5 Error : 
+[11:11:56][Error] On Line 6 Error : 
+[11:11:56][Error] On Line 6 Error : 
+[11:11:56][Error] On Line 6 Error : 
+[11:11:56][Error] On Line 7 Error : 
+[11:11:56][Error] On Line 7 Error : 
+[11:11:56][Error] On Line 7 Error : 
+[11:11:56][Error] On Line 9 Error : 
+[11:11:56][Error] On Line 9 Error : 
+[11:11:56][Error] On Line 9 Error : 
+[11:11:56][Error] On Line 10 Error : 
+[11:11:56][Error] On Line 10 Error : 
+[11:11:56][Error] On Line 10 Error : 
+[11:11:56][Error] On Line 11 Error : 
+[11:11:56][Error] On Line 11 Error : 
+[11:11:56][Error] On Line 11 Error : 
+[11:11:56][Error] On Line 12 Error : 
+[11:11:56][Error] On Line 12 Error : 
+[11:11:56][Error] On Line 12 Error : 
+[11:11:56]  Application StartUp Block Complete. 
+[11:11:57][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[11:12:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57675 Price :5245 Trigger Price: 0 has been Placed.
+[11:12:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57677 Price :2975 Trigger Price: 0 has been Placed.
+[11:12:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57675 Price :5245 Trigger Price: 0 has been Placed.
+[11:12:00] Order Status : ClientID: 1 ModID: 20230621000025 Status: put order request
+[11:12:00] Order Status : ClientID: 1 ModID: 20230621000025 Status: rejected
+[11:12:00] Order Status : ClientID: 3 ModID: 20230621000026 Status: put order request
+[11:12:00] Order Status : ClientID: 3 ModID: 20230621000026 Status: rejected
+[11:12:00] Order Status : ClientID: 2 ModID: 20230621000027 Status: put order request
+[11:12:00] Order Status : ClientID: 2 ModID: 20230621000027 Status: rejected
+[01:18:39][Error] On Line 5 Error : 
+[01:18:39][Error] On Line 5 Error : 
+[01:18:39][Error] On Line 5 Error : 
+[01:18:39][Error] On Line 6 Error : 
+[01:18:39][Error] On Line 6 Error : 
+[01:18:39][Error] On Line 6 Error : 
+[01:18:39][Error] On Line 7 Error : 
+[01:18:39][Error] On Line 7 Error : 
+[01:18:39][Error] On Line 7 Error : 
+[01:18:39][Error] On Line 9 Error : 
+[01:18:39][Error] On Line 9 Error : 
+[01:18:39][Error] On Line 9 Error : 
+[01:18:39][Error] On Line 10 Error : 
+[01:18:39][Error] On Line 10 Error : 
+[01:18:39][Error] On Line 10 Error : 
+[01:18:39][Error] On Line 11 Error : 
+[01:18:39][Error] On Line 11 Error : 
+[01:18:39][Error] On Line 11 Error : 
+[01:18:39][Error] On Line 12 Error : 
+[01:18:39][Error] On Line 12 Error : 
+[01:18:39][Error] On Line 12 Error : 
+[01:18:39]  Application StartUp Block Complete. 
+[01:18:41][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:19:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2790 Trigger Price: 0 has been Placed.
+[01:19:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :5055 Trigger Price: 0 has been Placed.
+[01:19:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :5055 Trigger Price: 0 has been Placed.
+[01:19:00] Order Status : ClientID: 2 ModID: 20230621000001 Status: put order request
+[01:19:00] Order Status : ClientID: 2 ModID: 20230621000001 Status: open pending
+[01:19:00] Order Status : ClientID: 3 ModID: 20230621000002 Status: put order request
+[01:19:00] Order Status : ClientID: 3 ModID: 20230621000002 Status: open pending
+[01:19:00] Order Status : ClientID: 1 ModID: 20230621000003 Status: put order request
+[01:19:00] Order Status : ClientID: 1 ModID: 20230621000003 Status: open pending
+[01:19:00] Order Status : ClientID: 1 ModID: 20230621000003 Status: open
+[01:19:00] Order Status : ClientID: 2 ModID: 20230621000001 Status: open
+[01:19:00] Order Status : ClientID: 3 ModID: 20230621000002 Status: open
+[01:19:27] Order Status : ClientID: 2 ModID: 20230621000001 Status: complete
+[01:19:29] Order Status : ClientID: 3 ModID: 20230621000002 Status: complete
+[01:19:31] Order Status : ClientID: 1 ModID: 20230621000003 Status: complete
+[01:25:06][Error] On Line 5 Error : 
+[01:25:06][Error] On Line 5 Error : 
+[01:25:06][Error] On Line 5 Error : 
+[01:25:06][Error] On Line 6 Error : 
+[01:25:06][Error] On Line 6 Error : 
+[01:25:06][Error] On Line 6 Error : 
+[01:25:06][Error] On Line 7 Error : 
+[01:25:06][Error] On Line 7 Error : 
+[01:25:06][Error] On Line 7 Error : 
+[01:25:06][Error] On Line 9 Error : 
+[01:25:06][Error] On Line 9 Error : 
+[01:25:06][Error] On Line 9 Error : 
+[01:25:06][Error] On Line 10 Error : 
+[01:25:06][Error] On Line 10 Error : 
+[01:25:06][Error] On Line 10 Error : 
+[01:25:06][Error] On Line 11 Error : 
+[01:25:06][Error] On Line 11 Error : 
+[01:25:06][Error] On Line 11 Error : 
+[01:25:06][Error] On Line 12 Error : 
+[01:25:06][Error] On Line 12 Error : 
+[01:25:06][Error] On Line 12 Error : 
+[01:25:06]  Application StartUp Block Complete. 
+[01:25:08][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:26:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4890 Trigger Price: 0 has been Placed.
+[01:26:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2675 Trigger Price: 0 has been Placed.
+[01:26:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :4890 Trigger Price: 0 has been Placed.
+[01:26:00] Order Status : ClientID: 1 ModID: 20230621000004 Status: put order request
+[01:26:00] Order Status : ClientID: 1 ModID: 20230621000004 Status: open pending
+[01:26:00] Order Status : ClientID: 2 ModID: 20230621000005 Status: put order request
+[01:26:00] Order Status : ClientID: 2 ModID: 20230621000005 Status: open pending
+[01:26:00] Order Status : ClientID: 3 ModID: 20230621000006 Status: put order request
+[01:26:00] Order Status : ClientID: 3 ModID: 20230621000006 Status: open pending
+[01:26:00] Order Status : ClientID: 3 ModID: 20230621000006 Status: open
+[01:26:00] Order Status : ClientID: 1 ModID: 20230621000004 Status: open
+[01:26:00] Order Status : ClientID: 2 ModID: 20230621000005 Status: open
+[01:26:29] Token: 57679 Traded Qty. : 50 Traded Price: 2675 Traded ID: 800004 ExchangeOrderId: 10000000005 AdminOrderID: 20230621000005
+[01:26:31] Order Status : ClientID: 2 ModID: 20230621000005 Status: complete
+[01:26:31] Token: 57677 Traded Qty. : 50 Traded Price: 4890 Traded ID: 800005 ExchangeOrderId: 10000000004 AdminOrderID: 20230621000004
+[01:26:32] Order Status : ClientID: 1 ModID: 20230621000004 Status: complete
+[01:26:32] Token: 57677 Traded Qty. : 250 Traded Price: 4890 Traded ID: 800003 ExchangeOrderId: 10000000006 AdminOrderID: 20230621000006
+[01:26:32] Order Status : ClientID: 3 ModID: 20230621000006 Status: complete
+[01:28:57][Error] On Line 5 Error : 
+[01:28:57][Error] On Line 5 Error : 
+[01:28:57][Error] On Line 5 Error : 
+[01:28:57][Error] On Line 6 Error : 
+[01:28:57][Error] On Line 6 Error : 
+[01:28:57][Error] On Line 6 Error : 
+[01:28:57][Error] On Line 7 Error : 
+[01:28:57][Error] On Line 7 Error : 
+[01:28:57][Error] On Line 7 Error : 
+[01:28:57][Error] On Line 9 Error : 
+[01:28:57][Error] On Line 9 Error : 
+[01:28:57][Error] On Line 9 Error : 
+[01:28:57][Error] On Line 10 Error : 
+[01:28:57][Error] On Line 10 Error : 
+[01:28:57][Error] On Line 10 Error : 
+[01:28:57][Error] On Line 11 Error : 
+[01:28:57][Error] On Line 11 Error : 
+[01:28:57][Error] On Line 11 Error : 
+[01:28:57][Error] On Line 12 Error : 
+[01:28:57][Error] On Line 12 Error : 
+[01:28:57][Error] On Line 12 Error : 
+[01:28:57]  Application StartUp Block Complete. 
+[01:28:58][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[01:29:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4940 Trigger Price: 0 has been Placed.
+[01:29:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :57679 Price :2705 Trigger Price: 0 has been Placed.
+[01:29:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :57677 Price :4940 Trigger Price: 0 has been Placed.
+[01:29:00] Order Status : ClientID: 1 ModID: 20230621000007 Status: put order request
+[01:29:00] Order Status : ClientID: 1 ModID: 20230621000007 Status: open pending
+[01:29:00] Order Status : ClientID: 2 ModID: 20230621000008 Status: put order request
+[01:29:00] Order Status : ClientID: 2 ModID: 20230621000008 Status: open pending
+[01:29:00] Order Status : ClientID: 3 ModID: 20230621000009 Status: put order request
+[01:29:00] Order Status : ClientID: 3 ModID: 20230621000009 Status: open pending
+[01:29:00] Order Status : ClientID: 1 ModID: 20230621000007 Status: open
+[01:29:00] Order Status : ClientID: 2 ModID: 20230621000008 Status: open
+[01:29:00] Order Status : ClientID: 3 ModID: 20230621000009 Status: open
+[01:29:19] Token: 57677 Traded Qty. : 250 Traded Price: 4940 Traded ID: 800006 ExchangeOrderId: 10000000009 AdminOrderID: 20230621000009
+[01:29:19] Token: 57677 Traded Qty. : 50 Traded Price: 4940 Traded ID: 800008 ExchangeOrderId: 10000000007 AdminOrderID: 20230621000007
+[01:29:19] Order Status : ClientID: 1 ModID: 20230621000007 Status: complete
+[01:29:19] Order Status : ClientID: 3 ModID: 20230621000009 Status: complete
+[01:29:19] Token: 57679 Traded Qty. : 50 Traded Price: 2705 Traded ID: 800007 ExchangeOrderId: 10000000008 AdminOrderID: 20230621000008
+[01:29:19] Order Status : ClientID: 2 ModID: 20230621000008 Status: complete
+[02:11:47][Error] On Line 5 Error : 
+[02:11:47][Error] On Line 5 Error : 
+[02:11:47][Error] On Line 5 Error : 
+[02:11:47][Error] On Line 6 Error : 
+[02:11:47][Error] On Line 6 Error : 
+[02:11:47][Error] On Line 6 Error : 
+[02:11:47][Error] On Line 7 Error : 
+[02:11:47][Error] On Line 7 Error : 
+[02:11:47][Error] On Line 7 Error : 
+[02:11:47][Error] On Line 9 Error : 
+[02:11:47][Error] On Line 9 Error : 
+[02:11:47][Error] On Line 9 Error : 
+[02:11:47][Error] On Line 10 Error : 
+[02:11:47][Error] On Line 10 Error : 
+[02:11:47][Error] On Line 10 Error : 
+[02:11:47][Error] On Line 11 Error : 
+[02:11:47][Error] On Line 11 Error : 
+[02:11:47][Error] On Line 11 Error : 
+[02:11:47][Error] On Line 12 Error : 
+[02:11:47][Error] On Line 12 Error : 
+[02:11:47][Error] On Line 12 Error : 
+[02:11:47]  Application StartUp Block Complete. 
+[02:11:48][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:11:48][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:15:00][Error] On Line 5 Error : 
+[02:15:00][Error] On Line 5 Error : 
+[02:15:00][Error] On Line 5 Error : 
+[02:15:00][Error] On Line 6 Error : 
+[02:15:00][Error] On Line 6 Error : 
+[02:15:00][Error] On Line 6 Error : 
+[02:15:00][Error] On Line 7 Error : 
+[02:15:00][Error] On Line 7 Error : 
+[02:15:00][Error] On Line 7 Error : 
+[02:15:00][Error] On Line 9 Error : 
+[02:15:00][Error] On Line 9 Error : 
+[02:15:00][Error] On Line 9 Error : 
+[02:15:00][Error] On Line 10 Error : 
+[02:15:00][Error] On Line 10 Error : 
+[02:15:00][Error] On Line 10 Error : 
+[02:15:00][Error] On Line 11 Error : 
+[02:15:00][Error] On Line 11 Error : 
+[02:15:00][Error] On Line 11 Error : 
+[02:15:00][Error] On Line 12 Error : 
+[02:15:00][Error] On Line 12 Error : 
+[02:15:00][Error] On Line 12 Error : 
+[02:15:00]  Application StartUp Block Complete. 
+[02:15:02][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:15:02][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:21:19][Error] On Line 5 Error : 
+[02:21:19][Error] On Line 5 Error : 
+[02:21:19][Error] On Line 5 Error : 
+[02:21:19][Error] On Line 6 Error : 
+[02:21:19][Error] On Line 6 Error : 
+[02:21:19][Error] On Line 6 Error : 
+[02:21:19][Error] On Line 7 Error : 
+[02:21:19][Error] On Line 7 Error : 
+[02:21:19][Error] On Line 7 Error : 
+[02:21:19][Error] On Line 9 Error : 
+[02:21:19][Error] On Line 9 Error : 
+[02:21:19][Error] On Line 9 Error : 
+[02:21:19][Error] On Line 10 Error : 
+[02:21:19][Error] On Line 10 Error : 
+[02:21:19][Error] On Line 10 Error : 
+[02:21:19][Error] On Line 11 Error : 
+[02:21:19][Error] On Line 11 Error : 
+[02:21:19][Error] On Line 11 Error : 
+[02:21:19][Error] On Line 12 Error : 
+[02:21:19][Error] On Line 12 Error : 
+[02:21:19][Error] On Line 12 Error : 
+[02:21:19]  Application StartUp Block Complete. 
+[02:21:20][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:21:20][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:22:35][Error] On Line 5 Error : 
+[02:22:35][Error] On Line 5 Error : 
+[02:22:35][Error] On Line 5 Error : 
+[02:22:35][Error] On Line 6 Error : 
+[02:22:35][Error] On Line 6 Error : 
+[02:22:35][Error] On Line 6 Error : 
+[02:22:35][Error] On Line 7 Error : 
+[02:22:35][Error] On Line 7 Error : 
+[02:22:35][Error] On Line 7 Error : 
+[02:22:35][Error] On Line 9 Error : 
+[02:22:35][Error] On Line 9 Error : 
+[02:22:35][Error] On Line 9 Error : 
+[02:22:35][Error] On Line 10 Error : 
+[02:22:35][Error] On Line 10 Error : 
+[02:22:35][Error] On Line 10 Error : 
+[02:22:35][Error] On Line 11 Error : 
+[02:22:35][Error] On Line 11 Error : 
+[02:22:35][Error] On Line 11 Error : 
+[02:22:35][Error] On Line 12 Error : 
+[02:22:35][Error] On Line 12 Error : 
+[02:22:35][Error] On Line 12 Error : 
+[02:22:35]  Application StartUp Block Complete. 
+[02:22:37][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:22:37][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:30:51][Error] On Line 5 Error : 
+[02:30:51][Error] On Line 5 Error : 
+[02:30:51][Error] On Line 5 Error : 
+[02:30:51][Error] On Line 6 Error : 
+[02:30:51][Error] On Line 6 Error : 
+[02:30:51][Error] On Line 6 Error : 
+[02:30:51][Error] On Line 7 Error : 
+[02:30:51][Error] On Line 7 Error : 
+[02:30:51][Error] On Line 7 Error : 
+[02:30:51][Error] On Line 9 Error : 
+[02:30:51][Error] On Line 9 Error : 
+[02:30:51][Error] On Line 9 Error : 
+[02:30:51][Error] On Line 10 Error : 
+[02:30:51][Error] On Line 10 Error : 
+[02:30:51][Error] On Line 10 Error : 
+[02:30:51][Error] On Line 11 Error : 
+[02:30:51][Error] On Line 11 Error : 
+[02:30:51][Error] On Line 11 Error : 
+[02:30:51][Error] On Line 12 Error : 
+[02:30:51][Error] On Line 12 Error : 
+[02:30:51][Error] On Line 12 Error : 
+[02:30:51]  Application StartUp Block Complete. 
+[02:30:52][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:30:52][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:33:12][Error] On Line 5 Error : 
+[02:33:12][Error] On Line 5 Error : 
+[02:33:12][Error] On Line 5 Error : 
+[02:33:12][Error] On Line 6 Error : 
+[02:33:12][Error] On Line 6 Error : 
+[02:33:12][Error] On Line 6 Error : 
+[02:33:12][Error] On Line 7 Error : 
+[02:33:12][Error] On Line 7 Error : 
+[02:33:12][Error] On Line 7 Error : 
+[02:33:12][Error] On Line 9 Error : 
+[02:33:12][Error] On Line 9 Error : 
+[02:33:12][Error] On Line 9 Error : 
+[02:33:12][Error] On Line 10 Error : 
+[02:33:12][Error] On Line 10 Error : 
+[02:33:12][Error] On Line 10 Error : 
+[02:33:12][Error] On Line 11 Error : 
+[02:33:12][Error] On Line 11 Error : 
+[02:33:12][Error] On Line 11 Error : 
+[02:33:12][Error] On Line 12 Error : 
+[02:33:12][Error] On Line 12 Error : 
+[02:33:12][Error] On Line 12 Error : 
+[02:33:12]  Application StartUp Block Complete. 
+[02:33:13][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:33:13][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:36:51][Error] On Line 5 Error : 
+[02:36:51][Error] On Line 5 Error : 
+[02:36:51][Error] On Line 5 Error : 
+[02:36:51][Error] On Line 6 Error : 
+[02:36:51][Error] On Line 6 Error : 
+[02:36:51][Error] On Line 6 Error : 
+[02:36:51][Error] On Line 7 Error : 
+[02:36:51][Error] On Line 7 Error : 
+[02:36:51][Error] On Line 7 Error : 
+[02:36:51][Error] On Line 9 Error : 
+[02:36:51][Error] On Line 9 Error : 
+[02:36:51][Error] On Line 9 Error : 
+[02:36:51][Error] On Line 10 Error : 
+[02:36:51][Error] On Line 10 Error : 
+[02:36:51][Error] On Line 10 Error : 
+[02:36:51][Error] On Line 11 Error : 
+[02:36:51][Error] On Line 11 Error : 
+[02:36:51][Error] On Line 11 Error : 
+[02:36:51][Error] On Line 12 Error : 
+[02:36:51][Error] On Line 12 Error : 
+[02:36:51][Error] On Line 12 Error : 
+[02:36:51]  Application StartUp Block Complete. 
+[02:36:53][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:36:53][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[02:38:54][Error] On Line 5 Error : 
+[02:38:54][Error] On Line 5 Error : 
+[02:38:54][Error] On Line 5 Error : 
+[02:38:54][Error] On Line 6 Error : 
+[02:38:54][Error] On Line 6 Error : 
+[02:38:54][Error] On Line 6 Error : 
+[02:38:54][Error] On Line 7 Error : 
+[02:38:54][Error] On Line 7 Error : 
+[02:38:54][Error] On Line 7 Error : 
+[02:38:54][Error] On Line 9 Error : 
+[02:38:54][Error] On Line 9 Error : 
+[02:38:54][Error] On Line 9 Error : 
+[02:38:54][Error] On Line 10 Error : 
+[02:38:54][Error] On Line 10 Error : 
+[02:38:54][Error] On Line 10 Error : 
+[02:38:54][Error] On Line 11 Error : 
+[02:38:54][Error] On Line 11 Error : 
+[02:38:54][Error] On Line 11 Error : 
+[02:38:54][Error] On Line 12 Error : 
+[02:38:54][Error] On Line 12 Error : 
+[02:38:54][Error] On Line 12 Error : 
+[02:38:54]  Application StartUp Block Complete. 
+[02:38:55][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:38:55][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:19:28][Error] On Line 5 Error : 
+[03:19:28][Error] On Line 5 Error : 
+[03:19:28][Error] On Line 5 Error : 
+[03:19:28][Error] On Line 6 Error : 
+[03:19:28][Error] On Line 6 Error : 
+[03:19:28][Error] On Line 6 Error : 
+[03:19:28][Error] On Line 7 Error : 
+[03:19:28][Error] On Line 7 Error : 
+[03:19:28][Error] On Line 7 Error : 
+[03:19:28][Error] On Line 9 Error : 
+[03:19:28][Error] On Line 9 Error : 
+[03:19:28][Error] On Line 9 Error : 
+[03:19:28][Error] On Line 10 Error : 
+[03:19:28][Error] On Line 10 Error : 
+[03:19:28][Error] On Line 10 Error : 
+[03:19:28][Error] On Line 11 Error : 
+[03:19:28][Error] On Line 11 Error : 
+[03:19:28][Error] On Line 11 Error : 
+[03:19:28][Error] On Line 12 Error : 
+[03:19:28][Error] On Line 12 Error : 
+[03:19:28][Error] On Line 12 Error : 
+[03:19:28]  Application StartUp Block Complete. 
+[03:19:30][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:20:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :57677 Price :4395 Trigger Price: 0 has been Placed.
+[03:20:00] Order Type :LIMIT Order ID :2 TransType :B  Token Id :57677 Price :4395 Trigger Price: 0 has been Placed.
+[03:20:00] Order Type :LIMIT Order ID :3 TransType :S  Token Id :57679 Price :2215 Trigger Price: 0 has been Placed.
+[03:20:00] Order Status : ClientID: 1 ModID: 20230621000010 Status: put order request
+[03:20:00] Order Status : ClientID: 1 ModID: 20230621000010 Status: open pending
+[03:20:00] Order Status : ClientID: 2 ModID: 20230621000011 Status: put order request
+[03:20:00] Order Status : ClientID: 2 ModID: 20230621000011 Status: open pending
+[03:20:00] Order Status : ClientID: 3 ModID: 20230621000012 Status: put order request
+[03:20:00] Order Status : ClientID: 3 ModID: 20230621000012 Status: open pending
+[03:20:00] Order Status : ClientID: 1 ModID: 20230621000010 Status: open
+[03:20:00] Order Status : ClientID: 3 ModID: 20230621000012 Status: open
+[03:20:00] Order Status : ClientID: 2 ModID: 20230621000011 Status: open
+[03:20:44] Token: 57679 Traded Qty. : 50 Traded Price: 2215 Traded ID: 800009 ExchangeOrderId: 10000000012 AdminOrderID: 20230621000012
+[03:20:44] Order Status : ClientID: 3 ModID: 20230621000012 Status: complete
+[03:20:44] Token: 57677 Traded Qty. : 250 Traded Price: 4395 Traded ID: 800010 ExchangeOrderId: 10000000011 AdminOrderID: 20230621000011
+[03:20:44] Order Status : ClientID: 2 ModID: 20230621000011 Status: complete
+[03:20:44] Token: 57677 Traded Qty. : 50 Traded Price: 4395 Traded ID: 800011 ExchangeOrderId: 10000000010 AdminOrderID: 20230621000010
+[03:20:44] Order Status : ClientID: 1 ModID: 20230621000010 Status: complete
+[03:35:05][Error] On Line 5 Error : 
+[03:35:05][Error] On Line 5 Error : 
+[03:35:05][Error] On Line 5 Error : 
+[03:35:05][Error] On Line 6 Error : 
+[03:35:05][Error] On Line 6 Error : 
+[03:35:05][Error] On Line 6 Error : 
+[03:35:05][Error] On Line 7 Error : 
+[03:35:05][Error] On Line 7 Error : 
+[03:35:05][Error] On Line 7 Error : 
+[03:35:05][Error] On Line 9 Error : 
+[03:35:05][Error] On Line 9 Error : 
+[03:35:05][Error] On Line 9 Error : 
+[03:35:05][Error] On Line 10 Error : 
+[03:35:05][Error] On Line 10 Error : 
+[03:35:05][Error] On Line 10 Error : 
+[03:35:05][Error] On Line 11 Error : 
+[03:35:05][Error] On Line 11 Error : 
+[03:35:05][Error] On Line 11 Error : 
+[03:35:05][Error] On Line 12 Error : 
+[03:35:05][Error] On Line 12 Error : 
+[03:35:05][Error] On Line 12 Error : 
+[03:35:05]  Application StartUp Block Complete. 
+[03:35:07][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:35:07][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[03:35:37][Error] On Line 5 Error : 
+[03:35:37][Error] On Line 5 Error : 
+[03:35:37][Error] On Line 5 Error : 
+[03:35:37][Error] On Line 6 Error : 
+[03:35:37][Error] On Line 6 Error : 
+[03:35:37][Error] On Line 6 Error : 
+[03:35:37][Error] On Line 7 Error : 
+[03:35:37][Error] On Line 7 Error : 
+[03:35:37][Error] On Line 7 Error : 
+[03:35:37][Error] On Line 9 Error : 
+[03:35:37][Error] On Line 9 Error : 
+[03:35:37][Error] On Line 9 Error : 
+[03:35:37][Error] On Line 10 Error : 
+[03:35:37][Error] On Line 10 Error : 
+[03:35:37][Error] On Line 10 Error : 
+[03:35:37][Error] On Line 11 Error : 
+[03:35:37][Error] On Line 11 Error : 
+[03:35:37][Error] On Line 11 Error : 
+[03:35:37][Error] On Line 12 Error : 
+[03:35:37][Error] On Line 12 Error : 
+[03:35:37][Error] On Line 12 Error : 
+[03:35:37]  Application StartUp Block Complete. 
+[03:35:39][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:36:00][Error] System.Collections.Generic.KeyNotFoundException: The given key '57677' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 652
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass8_3.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 295
+[03:36:00][Error] System.Collections.Generic.KeyNotFoundException: The given key '57677' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 652
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass8_3.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 295
+[03:36:00][Error] System.Collections.Generic.KeyNotFoundException: The given key '57679' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(TKey key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at AlgoTerminal.Model.Calculation.AlgoCalculation.GetStrikePriceLTP(UInt32 Token) in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\Calculation\AlgoCalculation.cs:line 652
+   at AlgoTerminal.Model.StrategySignalManager.StraddleManager.<>c__DisplayClass8_3.<<DataUpdateRequest>b__1>d.MoveNext() in D:\Development Vishwa\AlgoTerminal_Solution\AlgoTerminal\Model\StrategySignalManager\StraddleManager.cs:line 295
+[03:36:00][Error] Streatgy Name Stg1  ExitTime is invalid in Congif File.
+[04:21:29][Error] On Line 5 Error : 
+[04:21:29][Error] On Line 5 Error : 
+[04:21:29][Error] On Line 5 Error : 
+[04:21:29][Error] On Line 6 Error : 
+[04:21:29][Error] On Line 6 Error : 
+[04:21:29][Error] On Line 6 Error : 
+[04:21:29][Error] On Line 7 Error : 
+[04:21:29][Error] On Line 7 Error : 
+[04:21:29][Error] On Line 7 Error : 
+[04:21:29][Error] On Line 9 Error : 
+[04:21:29][Error] On Line 9 Error : 
+[04:21:29][Error] On Line 9 Error : 
+[04:21:29][Error] On Line 10 Error : 
+[04:21:29][Error] On Line 10 Error : 
+[04:21:29][Error] On Line 10 Error : 
+[04:21:29][Error] On Line 11 Error : 
+[04:21:29][Error] On Line 11 Error : 
+[04:21:29][Error] On Line 11 Error : 
+[04:21:29][Error] On Line 12 Error : 
+[04:21:29][Error] On Line 12 Error : 
+[04:21:29][Error] On Line 12 Error : 
+[04:21:29]  Application StartUp Block Complete. 
+[04:21:30][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[04:21:30][Warning] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[06:38:11][Error] On Line 5 Error : 
+[06:38:11][Error] On Line 5 Error : 
+[06:38:11][Error] On Line 5 Error : 
+[06:38:11][Error] On Line 6 Error : 
+[06:38:11][Error] On Line 6 Error : 
+[06:38:11][Error] On Line 6 Error : 
+[06:38:11][Error] On Line 7 Error : 
+[06:38:11][Error] On Line 7 Error : 
+[06:38:11][Error] On Line 7 Error : 
+[06:38:11][Error] On Line 9 Error : 
+[06:38:11][Error] On Line 9 Error : 
+[06:38:11][Error] On Line 9 Error : 
+[06:38:11][Error] On Line 10 Error : 
+[06:38:11][Error] On Line 10 Error : 
+[06:38:11][Error] On Line 10 Error : 
+[06:38:11][Error] On Line 11 Error : 
+[06:38:11][Error] On Line 11 Error : 
+[06:38:11][Error] On Line 11 Error : 
+[06:38:11][Error] On Line 12 Error : 
+[06:38:11][Error] On Line 12 Error : 
+[06:38:11][Error] On Line 12 Error : 
+[06:38:11]  Application StartUp Block Complete. 
+[06:38:13] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[06:38:13] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[06:43:42][Error] On Line 5 Error : 
+[06:43:42][Error] On Line 5 Error : 
+[06:43:42][Error] On Line 5 Error : 
+[06:43:42][Error] On Line 6 Error : 
+[06:43:42][Error] On Line 6 Error : 
+[06:43:42][Error] On Line 6 Error : 
+[06:43:42][Error] On Line 7 Error : 
+[06:43:42][Error] On Line 7 Error : 
+[06:43:42][Error] On Line 7 Error : 
+[06:43:42][Error] On Line 9 Error : 
+[06:43:42][Error] On Line 9 Error : 
+[06:43:42][Error] On Line 9 Error : 
+[06:43:42][Error] On Line 10 Error : 
+[06:43:42][Error] On Line 10 Error : 
+[06:43:42][Error] On Line 10 Error : 
+[06:43:42][Error] On Line 11 Error : 
+[06:43:42][Error] On Line 11 Error : 
+[06:43:42][Error] On Line 11 Error : 
+[06:43:42][Error] On Line 12 Error : 
+[06:43:42][Error] On Line 12 Error : 
+[06:43:42][Error] On Line 12 Error : 
+[06:43:42]  Application StartUp Block Complete. 
+[06:43:43] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[06:43:43] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[06:56:09][Error] On Line 5 Error : 
+[06:56:09][Error] On Line 5 Error : 
+[06:56:09][Error] On Line 5 Error : 
+[06:56:09][Error] On Line 6 Error : 
+[06:56:09][Error] On Line 6 Error : 
+[06:56:09][Error] On Line 6 Error : 
+[06:56:09][Error] On Line 7 Error : 
+[06:56:09][Error] On Line 7 Error : 
+[06:56:09][Error] On Line 7 Error : 
+[06:56:09][Error] On Line 9 Error : 
+[06:56:09][Error] On Line 9 Error : 
+[06:56:09][Error] On Line 9 Error : 
+[06:56:09][Error] On Line 10 Error : 
+[06:56:09][Error] On Line 10 Error : 
+[06:56:09][Error] On Line 10 Error : 
+[06:56:09][Error] On Line 11 Error : 
+[06:56:09][Error] On Line 11 Error : 
+[06:56:09][Error] On Line 11 Error : 
+[06:56:09][Error] On Line 12 Error : 
+[06:56:09][Error] On Line 12 Error : 
+[06:56:09][Error] On Line 12 Error : 
+[06:56:09]  Application StartUp Block Complete. 
+[06:56:10] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[06:56:10] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[07:10:30][Error] On Line 5 Error : 
+[07:10:30][Error] On Line 5 Error : 
+[07:10:30][Error] On Line 5 Error : 
+[07:10:30][Error] On Line 6 Error : 
+[07:10:30][Error] On Line 6 Error : 
+[07:10:30][Error] On Line 6 Error : 
+[07:10:30][Error] On Line 7 Error : 
+[07:10:30][Error] On Line 7 Error : 
+[07:10:30][Error] On Line 7 Error : 
+[07:10:30][Error] On Line 9 Error : 
+[07:10:30][Error] On Line 9 Error : 
+[07:10:30][Error] On Line 9 Error : 
+[07:10:30][Error] On Line 10 Error : 
+[07:10:30][Error] On Line 10 Error : 
+[07:10:30][Error] On Line 10 Error : 
+[07:10:30][Error] On Line 11 Error : 
+[07:10:30][Error] On Line 11 Error : 
+[07:10:30][Error] On Line 11 Error : 
+[07:10:30][Error] On Line 12 Error : 
+[07:10:30][Error] On Line 12 Error : 
+[07:10:30][Error] On Line 12 Error : 
+[07:10:30]  Application StartUp Block Complete. 
+[07:10:32] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[07:10:32] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1

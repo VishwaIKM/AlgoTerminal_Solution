@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding NetPositionCollection}" AutoGenerateColumns="False"  CanUserSortColumns = "True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <DataGrid ItemsSource="{Binding NetPositionCollection}" AutoGenerateColumns="False"  CanUserSortColumns = "True" IsReadOnly="True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Trading Symbol" Width="110" Binding="{Binding TradingSymbol}"/>
                 <DataGridTextColumn Header="Buy Qunatity" Width="110" Binding="{Binding BuyQuantity}"/>

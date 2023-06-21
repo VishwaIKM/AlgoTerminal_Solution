@@ -72,5 +72,45 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
+        private double _netvalue;
+        public double NetValue
+        {
+            get => _netvalue;
+            set
+            {
+                if (value != _netvalue)
+                {
+                    _netvalue = value;
+                    OnPropertyChanged(nameof(NetValue));
+                }
+            }
+        }
+
+        private double _ltp;
+        private double _mtm;
+        public double MTM
+        {
+            get => _mtm;
+            set
+            {
+                if (value != _mtm)
+                {
+                    _mtm = value;
+                    OnPropertyChanged(nameof(MTM));
+                }
+            }
+        }
+        public double LTP
+        {
+            get => _ltp;
+            set
+            {
+                if (value != _ltp)
+                {
+                    _ltp = value;
+                    OnPropertyChanged(nameof(LTP));
+                }
+            }
+        }
     }
 }

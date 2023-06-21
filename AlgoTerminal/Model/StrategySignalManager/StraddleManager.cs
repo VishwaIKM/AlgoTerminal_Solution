@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Threading;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
@@ -28,6 +29,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         private readonly ILogFileWriter logFileWriter;
         private readonly IAlgoCalculation algoCalculation;
         private readonly PortfolioViewModel portfolioViewModel;
+     
       
        
         
@@ -78,7 +80,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         }
 
         /// <summary>
-        /// 
+        /// Load the Config Data From Master to Portfolio and inner Object .
         /// </summary>
         /// <returns></returns>
         public async Task<bool> FirstTimeDataLoadingOnGUI()
@@ -127,7 +129,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         innerObject.Status = EnumStrategyStatus.Added;
                                         innerObject.TradingSymbol = "Loading ...";
                                         innerObject.Qty = leg_value.Lots;
-                                        portfolioModel.InnerObject.Add(innerObject);
+                                        await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                                        {
+
+                                            portfolioModel.InnerObject.Add(innerObject);
+
+                                        }), DispatcherPriority.Background, null);
+                                       
                                         //ADD TO GUI
                                         General.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, General.Portfolios[portfolioModel.Name]);
                                         if (portfolioViewModel.StrategyDataCollection == null)
@@ -138,7 +146,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                                     }
                                 }
-                                portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
+                                await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                                {
+
+                                    portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
+
+                                }), DispatcherPriority.Background, null);
+                             
                             }
                         }
                     }
@@ -226,7 +240,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
 
-                                        portfolio_leg_value.Qty = portfolio_leg_value.Qty * (int)ContractDetails.GetContractDetailsByToken(Token).LotSize;
+                                        portfolio_leg_value.Qty *= (int)ContractDetails.GetContractDetailsByToken(Token).LotSize;
                                         //Porfolio leg Update
                                         portfolio_leg_value.Token = Token;
                                         portfolio_leg_value.TradingSymbol = TradingSymbol;
@@ -294,22 +308,30 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         portfolio_leg_value.EntryTime = DateTime.Now;
 
 
+                                       
+                                            //Bind to Dic responsibile for Feed load ....
+                                            //if (General.PortfolioLegByTokens.TryGetValue(Token, out List<InnerObject> value))
+                                            //{
+                                            //    var legs = value;
+                                            //    legs.Add(portfolio_leg_value);
+                                            //    General.PortfolioLegByTokens[Token] = legs;
+                                            //}
+                                            //else
+                                            //{
+                                            //    List<InnerObject> legs = new()
+                                            //    {
+                                            //        portfolio_leg_value
+                                            //    };
+                                            //    General.PortfolioLegByTokens.TryAdd(Token, legs);
+                                            //}
+                                            // below function is more safe as above is missed to add in case of multi thread
+                                            General.PortfolioLegByTokens.AddOrUpdate(Token, new List<InnerObject>() {portfolio_leg_value }, (key, list) =>
+                                                {
+                                                    list.Add(portfolio_leg_value);
+                                                    return list;
+                                                });
+                                       
 
-                                        //Bind to Dic responsibile for Feed load ....
-                                        if (General.PortfolioLegByTokens.TryGetValue(Token, out List<InnerObject> value))
-                                        {
-                                            var legs = value;
-                                            legs.Add(portfolio_leg_value);
-                                            General.PortfolioLegByTokens[Token] = legs;
-                                        }
-                                        else
-                                        {
-                                            List<InnerObject> legs = new()
-                                            {
-                                            portfolio_leg_value
-                                            };
-                                            General.PortfolioLegByTokens.TryAdd(Token, legs);
-                                        }
                                     }
                                     catch (Exception ex)
                                     {
@@ -339,12 +361,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     await Task.Delay(SquareofSeconds);
                                     if ((Portfolio_value.SellTradedQty - Portfolio_value.BuyTradedQty) != 0)
                                         await SquareOffStraddle920(Portfolio_value);
-
                                 }
                             }
                         }
                         else {
-                            logFileWriter.DisplayLog(EnumLogType.Warning, "Can not placed the Streatgy. Time is Already passed NameOfThe Stg : " + stg_key.ToString()); 
+                            logFileWriter.DisplayLog(EnumLogType.Info, "Can not placed the Streatgy. Time is Already passed NameOfThe Stg : " + stg_key.ToString()); 
                         }
 
                     }));

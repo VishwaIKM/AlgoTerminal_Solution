@@ -6,5 +6,9 @@ namespace AlgoTerminal.ViewModel
     public class TradeBookViewModel : DockWindowViewModel
     {
         public static ObservableCollection<TradeBookModel> TradeDataCollection { get; set; }
+        public TradeBookViewModel()
+        {
+            TradeDataCollection ??= new();
+        }
     }
 }

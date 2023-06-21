@@ -45,6 +45,7 @@ namespace AlgoTerminal
                     services.AddSingleton<FeedCB_CM>();
                     services.AddSingleton<PortfolioModel>();
                     services.AddSingleton<NNAPIRequest>();
+                   
                     //services.AddSingleton<NNAPIDLLResp>();
                   
                     //Services ....

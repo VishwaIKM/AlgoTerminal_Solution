@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:AlgoTerminal.View"
+             xmlns:local="clr-namespace:AlgoTerminal.View" xmlns:viewmodel="clr-namespace:AlgoTerminal.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:PortfolioViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1200">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=StopCommand}" Key="T" Modifiers="Ctrl"/>
+    </UserControl.InputBindings>
     <Grid>
-       
         <Grid.Resources>
             <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="DarkGray" />
         </Grid.Resources>
         <DataGrid
             x:Name="objDatagrid"
             ItemsSource="{Binding StrategyDataCollection}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
             CanUserAddRows="False"
             IsReadOnly="True"
             GridLinesVisibility="Horizontal"
@@ -30,7 +33,7 @@
                     <Setter Property="Foreground" Value="White" />
                 </Style>
             </DataGrid.Resources>
-            <DataGrid.RowDetailsTemplate >
+            <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
                     <DataGrid
                          x:Name="objInnerDatagrid"
@@ -91,11 +94,10 @@
                             <DataGridTextColumn Header="Re TP" Width="66" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
                         </DataGrid.Columns>
-                     
+
                     </DataGrid>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
-
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
@@ -132,6 +134,11 @@
                 <DataGridTextColumn Header="Re TP" Width="*" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="UID" Width="100" Binding="{Binding UserID}" IsReadOnly="True"/>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Stop Selected Stg" Command="{Binding StopCommand}" Foreground="White" Background="DarkGray" FontStyle="Italic" FontSize="14" InputGestureText="Ctrl+T" BorderBrush="Black" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
     </Grid>
 </UserControl>

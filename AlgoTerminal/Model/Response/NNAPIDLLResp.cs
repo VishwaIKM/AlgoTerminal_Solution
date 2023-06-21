@@ -5,6 +5,9 @@ using AlgoTerminal.Model.Structure;
 using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Threading;
+using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.Response
 {
@@ -22,7 +25,7 @@ namespace AlgoTerminal.Model.Response
 
         public void EndGetPosition()
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public void EndOpenOrderHistory()
@@ -42,20 +45,64 @@ namespace AlgoTerminal.Model.Response
 
         public void ErrorNotification(string ErrorDescription)
         {
-            
-           LoginViewModel.login.ErrorResponse(ErrorDescription);
+
+            LoginViewModel.login.ErrorResponse(ErrorDescription);
             if (ErrorDescription.Contains("Unknown Message Received. Message Header: 0"))
                 FeedCB_C._dashboard._connected = false;
         }
 
         public void GetPosition(int Token, int BuyTradedQty, long BuyTradedValue, int SellTradedQty, long SellTradedValue)
         {
-            //throw new NotImplementedException();
+            try
+            {
+                var contract = ContractDetails.GetContractDetailsByToken((uint)Token);
+                if (contract == null)
+                    throw new Exception("Did not Find Token Details in Contract File. = " + Token);
+
+
+                if (OrderManagerModel.NetPosition_Dicc_By_Token.ContainsKey(Token))
+                {
+                    NetPositionModel netPositionModel = OrderManagerModel.NetPosition_Dicc_By_Token[Token];
+                    netPositionModel.BuyQuantity = BuyTradedQty;
+                    netPositionModel.SellQuantity = SellTradedQty;
+                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? BuyTradedValue / BuyTradedQty : 0;
+                    netPositionModel.SellAvgPrice = SellTradedQty != 0 ? SellTradedValue / SellTradedQty : 0;
+                    netPositionModel.NetValue = BuyTradedValue - SellTradedValue;
+                    netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
+                }
+                else
+                {
+                    NetPositionModel netPositionModel = new();
+                    netPositionModel.TradingSymbol = contract.TrdSymbol;
+                    netPositionModel.BuyQuantity = BuyTradedQty;
+                    netPositionModel.SellQuantity = SellTradedQty;
+                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0? BuyTradedValue / BuyTradedQty:0;
+                    netPositionModel.SellAvgPrice = SellTradedQty !=0 ?SellTradedValue/ SellTradedQty:0;
+                    netPositionModel.NetValue = BuyTradedValue - SellTradedValue;
+                    netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
+
+                    if(OrderManagerModel.NetPosition_Dicc_By_Token.TryAdd(Token,netPositionModel))
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            NetPositionViewModel.NetPositionCollection.Add(netPositionModel);
+
+                        }), DispatcherPriority.Background, null);
+                    }
+                    
+                }
+               
+            }
+            catch(Exception ex)
+            {
+                _logFileWriter.DisplayLog(EnumLogType.Error,"For Token "+ Token + " Erorr Occur While Receving Net Postion from MOD check logFile for more Details.");
+                _logFileWriter.WriteLog(EnumLogType.Error, ex.ToString());
+            }
         }
 
         public void LoginResponse(bool LoginSuccess, string MessageText)
         {
-           LoginViewModel.login.LoginResponse(LoginSuccess, MessageText);
+            LoginViewModel.login.LoginResponse(LoginSuccess, MessageText);
         }
 
         public void OpenOrderHistory(int Token, int Price, int Qty, int PendingQty, string BuySell, long AdminOrderID, ulong ExchOrdId, int iUserData, string StrUserData, int TriggerPrice, int TradedQty, long TradedValue, string OrderType, string Time, string Status, string StatusDetail, string RejectionReason)
@@ -63,7 +110,7 @@ namespace AlgoTerminal.Model.Response
             //throw new NotImplementedException();
         }
 
-        public void OrderConfirmation(int Token, int Price, int Qty, int PendingQty, string BuySell, long AdminOrderID, 
+        public void OrderConfirmation(int Token, int Price, int Qty, int PendingQty, string BuySell, long AdminOrderID,
             ulong ExchOrdId, int iUserData, string StrUserData, int TriggerPrice, int TradedQty, long TradedValue, string OrderType,
             string Time, string Status, string StatusDetail, string RejectionReason)
         {
@@ -71,7 +118,7 @@ namespace AlgoTerminal.Model.Response
             {
                 var contract = ContractDetails.GetContractDetailsByToken((uint)Token);
                 if (contract == null)
-                    throw new Exception("Did not Find Token Details in Contract File. = " +Token);
+                    throw new Exception("Did not Find Token Details in Contract File. = " + Token);
                 //Two Things Need to Update Order=>forManual Order Validation as well as Portfolio Screen
 
                 //OrderBook will remain common for auto order as well as manual order.
@@ -88,16 +135,27 @@ namespace AlgoTerminal.Model.Response
                     orderBookModel.RejectionReason = RejectionReason;
 
 
-                    if(!(Status == "modify" || Status == "modified" || Status == "open" || Status == "open pending" 
-                        || Status == "Trigger Pending" || Status == "put order request") && RejectionReason.Contains("NSE Error"))
+                    if ((Status == "modify" || Status == "modified" || Status == "open" || Status == "open pending"
+                        || Status == "Trigger Pending" || Status == "put order request") && (!RejectionReason.Contains("NSE Error") || !RejectionReason.Contains("Server Not Connected")))
                     {
-                        if (OrderBookViewModel.OpenOrderBook.Contains(orderBookModel))
-                            OrderBookViewModel.OpenOrderBook.Remove(orderBookModel);
 
-                        if(!OrderBookViewModel.CloseOrderBook.Contains(orderBookModel))
-                            OrderBookViewModel.CloseOrderBook.Add(orderBookModel);
+                      //will check and the invert this
+
                     }
-                  
+                    else
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+
+                            if (OrderBookViewModel.OpenOrderBook.Contains(orderBookModel))
+                                OrderBookViewModel.OpenOrderBook.Remove(orderBookModel);
+
+                            if (!OrderBookViewModel.CloseOrderBook.Contains(orderBookModel))
+                                OrderBookViewModel.CloseOrderBook.Add(orderBookModel);
+
+                        }), DispatcherPriority.Background, null);
+                    }
+
                 }
                 else
                 {
@@ -108,7 +166,7 @@ namespace AlgoTerminal.Model.Response
                     orderBookModel.BuySell = BuySell == "B" ? EnumDeclaration.EnumPosition.BUY : EnumDeclaration.EnumPosition.SELL;
                     orderBookModel.Price = Price;
                     orderBookModel.OrderQty = Qty;
-                    orderBookModel.TradedQty = Qty- PendingQty;
+                    orderBookModel.TradedQty = Qty - PendingQty;
                     orderBookModel.TriggerPrice = TriggerPrice;
                     orderBookModel.ModeratorID = AdminOrderID;
                     orderBookModel.ExchangeID = ExchOrdId;
@@ -116,15 +174,29 @@ namespace AlgoTerminal.Model.Response
                     orderBookModel.RejectionReason = RejectionReason;
 
                     //Add to ViewModel Obser
-                    OrderManagerModel.OrderBook_Dicc_By_ClientID.TryAdd(iUserData, orderBookModel);
-                    OrderBookViewModel.OpenOrderBook.Add(orderBookModel);
+                    if (OrderManagerModel.OrderBook_Dicc_By_ClientID.TryAdd(iUserData, orderBookModel))
+                    {
+                        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                        {
 
+                            OrderBookViewModel.OpenOrderBook.Add(orderBookModel);
+
+                        }), DispatcherPriority.Background, null);
+
+                    }
                 }
+                _logFileWriter.DisplayLog(EnumLogType.Info, "Order Status : ClientID: " + iUserData + " ModID: " + AdminOrderID + " Status: " + Status);
+
 
                 #endregion
-                
+
+
+
             }
-            catch(Exception ex) { _logFileWriter.DisplayLog(EnumDeclaration.EnumLogType.Error, "Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: " + Token); }
+            catch (Exception ex)
+            {
+                _logFileWriter.DisplayLog(EnumLogType.Error, "Check Log! Recived Unhandle Error in OrderConfirmation from Moderatot for TOKEN: " + Token + ex.StackTrace);
+            }
 
         }
 
@@ -135,12 +207,12 @@ namespace AlgoTerminal.Model.Response
 
         public void ReceiveOrderType(string Description, string DefaultValue, List<string> lstOrderTypes)
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public void StartGetPosition()
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public void StartOpenOrderHistory()
@@ -155,7 +227,7 @@ namespace AlgoTerminal.Model.Response
 
         public void StartTradeHistory()
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
 
         public void Trade(int Token, int TradeQty, int TradePrice, string BuySell, int TradeID, ulong ExchOrdId, long AdminOrderID, string TradeTime, int iUserData, string StrUserData)
@@ -177,23 +249,70 @@ namespace AlgoTerminal.Model.Response
                 tradeBookModel.TradeID = TradeID;
                 tradeBookModel.ModeratorID = AdminOrderID;
                 tradeBookModel.ExchnageID = ExchOrdId;
-                TradeBookViewModel.TradeDataCollection ??= new ();
-                TradeBookViewModel.TradeDataCollection.Add(tradeBookModel);
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                 
+                    TradeBookViewModel.TradeDataCollection.Add(tradeBookModel);
 
+                }), DispatcherPriority.Background, null);
 
+                string _logDisplay = "Token: " + Token + " Traded Qty. : " + TradeQty + " Traded Price: " + TradePrice + " Traded ID: " + TradeID + " ExchangeOrderId: " + ExchOrdId + " AdminOrderID: " + AdminOrderID + "";
+                if (tradeBookModel.BuySell == EnumPosition.BUY)
+                    _logFileWriter.DisplayLog(EnumLogType.Buy, _logDisplay);
+                else
+                    _logFileWriter.DisplayLog(EnumLogType.Sell, _logDisplay);
+
+                #region Portfolio
                 //Portfolio Screen only process automated order. Manaul Order should not be processed in Porfolio as they are not part of STg.
+
+
                 if (OrderManagerModel.Portfolio_Dicc_By_ClientID.ContainsKey(iUserData))
                 {
                     var leg_Details = OrderManagerModel.Portfolio_Dicc_By_ClientID[iUserData];
-                    leg_Details.Status = EnumDeclaration.EnumStrategyStatus.Running;
+
+                    if(tradeBookModel.BuySell == EnumPosition.BUY)
+                    {
+                        leg_Details.BuyTradedQty += TradeQty;
+                        leg_Details.BuyValue = TradePrice * TradeQty;
+                    }
+                    else
+                    {
+                        leg_Details.SellTradedQty += TradeQty;
+                        leg_Details.SellTradedQty = TradePrice * TradeQty;
+                    }
+
+                    //When Equal means Leg Complete --> IF Portfolio logic changes and Modify portfolio added Then Below logic may give incorrect data
+
+                    if(leg_Details.BuyTradedQty == leg_Details.SellTradedQty)
+                    {
+                        leg_Details.Status = EnumStrategyStatus.Complete;
+                        leg_Details.ExitTime = DateTime.Now;
+
+                        if(leg_Details.BuySell == EnumPosition.BUY)
+                        {
+                            leg_Details.ExitPrice = leg_Details.SellValue / leg_Details.SellTradedQty;
+                        }
+                        else
+                        {
+                            leg_Details.ExitPrice = leg_Details.BuyValue / leg_Details.BuyTradedQty;
+                        }
+                    }
+                    else
+                    {
+                        leg_Details.Status = EnumStrategyStatus.Running;
+                    }
+                 
 
                 }
+
+
+                #endregion
             }
             catch (Exception ex)
             {
 
             }
-           
+
 
         }
 

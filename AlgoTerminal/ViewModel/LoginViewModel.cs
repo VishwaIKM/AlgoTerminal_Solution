@@ -123,6 +123,9 @@ namespace AlgoTerminal.ViewModel
                     App.Current.MainWindow = dashboardView1;
 
                     await applicationManagerModel.ApplicationStartUpRequirement();
+
+                    BuySellView buySellView = new BuySellView();  
+                    buySellView.Show();
                 }
                 else
                 {

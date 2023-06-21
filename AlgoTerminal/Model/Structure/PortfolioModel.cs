@@ -324,6 +324,12 @@ namespace AlgoTerminal.Model.Structure
         //Hidden INFO
         public uint Token { get; set; }
         //For Calculation
+        public double BuyAveragePrice { get; set; }
+        public double SellAveragePrice { get; set; }
+        public double BuyValue { get; set; }
+        public double SellValue { get; set; }
+        public int BuyTradedQty { get; set; }
+        public int SellTradedQty { get; set; }
         public double Expenses { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace AlgoTerminal.Model.Response
         }
         public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
+            #region PortFolio Work
             if (General.PortfolioLegByTokens.ContainsKey(stFeed.Token))
             {
                 var legs = General.PortfolioLegByTokens[stFeed.Token];
@@ -53,7 +54,9 @@ namespace AlgoTerminal.Model.Response
                     }
                 }
             }
+            #endregion
 
+            #region Fut Price Update
             if (ContractDetails.NiftyFutureToken == stFeed.Token)
             {
                 _dashboard.NiftyFut = string.Format(NiftyFutFormat, (stFeed.LastTradedPrice / (double)PriceDivisor).ToString(PriceFormat), (((int)stFeed.LastTradedPrice - stFeed.ClosingPrice) / (double)PriceDivisor).ToString(PriceFormat));
@@ -66,6 +69,18 @@ namespace AlgoTerminal.Model.Response
             {
                 _dashboard.BankNiftyFut = string.Format(BankFutFormat, (stFeed.LastTradedPrice / (double)PriceDivisor).ToString(PriceFormat), (((int)stFeed.LastTradedPrice - stFeed.ClosingPrice) / (double)PriceDivisor).ToString(PriceFormat));
             }
+
+            #endregion
+
+            #region Netpostion
+
+            if(OrderManagerModel.NetPosition_Dicc_By_Token.ContainsKey((int)stFeed.Token))
+            {
+                var value = OrderManagerModel.NetPosition_Dicc_By_Token[(int)stFeed.Token];
+                value.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice) / 100.00, 2);
+                value.MTM = Math.Round(value.NetValue + value.NetQuantity * value.LTP,2);
+            }
+            #endregion
 
         }
 
