@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using AlgoTerminal.Model.Structure;
 
@@ -13,9 +14,13 @@ namespace AlgoTerminal.Model
         public static ConcurrentDictionary<int, OrderBookModel> OrderBook_Dicc_By_ClientID = new();//key=>OrderID
         public static ConcurrentDictionary<int, InnerObject> Portfolio_Dicc_By_ClientID = new(); //leg wise details //key=>OrderID
         public static ConcurrentDictionary<int, NetPositionModel> NetPosition_Dicc_By_Token = new();
+       
+
         #endregion
 
         #region Methods
+
+      
         public static int GetOrderId()
         {
             lock (_locker)
@@ -30,6 +35,8 @@ namespace AlgoTerminal.Model
                 _orderId = orderId;
             }
         }
+
+       
         #endregion
     }
 }

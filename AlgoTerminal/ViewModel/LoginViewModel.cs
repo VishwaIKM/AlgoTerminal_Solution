@@ -18,7 +18,7 @@ using AlgoTerminal.Model.Response;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class LoginViewModel:BaseViewModel
+    public sealed class LoginViewModel:BaseViewModel
     {
         #region Members and Inst.
         LoginModel _login = new();
@@ -30,7 +30,8 @@ namespace AlgoTerminal.ViewModel
         //As i have Used the OLD code ine new Porject the dependency inversion principal fail (I have to re-write the old code in order to fix the Code Design Issue.)
         public static NNAPIRequest NNAPIRequest;
         public static LoginViewModel login;
-      
+    
+
         #endregion
 
         #region Properties
@@ -124,7 +125,7 @@ namespace AlgoTerminal.ViewModel
 
                     await applicationManagerModel.ApplicationStartUpRequirement();
 
-                    BuySellView buySellView = new BuySellView();  
+                    BuySellView buySellView = App.AppHost!.Services.GetRequiredService<BuySellView>();
                     buySellView.Show();
                 }
                 else

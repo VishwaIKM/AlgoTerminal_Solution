@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoTerminal.View"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:AlgoTerminal.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:BuySellViewModel}"
         Title="Place Order" Height="350" Width="1000"
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Background="Transparent">
+        Background="Transparent"
+        Topmost="True">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,15 +22,23 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding Path=SubmitCommand}" 
+                    Key="Enter" 
+                    Modifiers=""/>
+        <KeyBinding Command="{Binding Path=ExitCommand}"
+                    Key="Esc"
+                    Modifiers=""/>
+    </Window.InputBindings>
     <materialDesign:Card  UniformCornerRadius="15"
         Background="{DynamicResource MaterialDesignPaper}"
         Margin="25" >
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="1"
@@ -56,25 +65,26 @@
             <StackPanel Grid.Row="3"
                 Orientation="Horizontal"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                        >
-                
-                    <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" 
+                VerticalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" 
                             materialDesign:ButtonAssist.CornerRadius="10" 
                             ToolTip="Place The Order"
                              Background="Blue"
                             Foreground="White"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Margin="3">
+                            Margin="3"
+                            Command="{Binding SubmitCommand}"
+                        >
                         <TextBlock Text="SUBMIT" />
                     </Button>
                 <Button Style="{StaticResource MaterialDesignFlatLightBgButton}" 
                             materialDesign:ButtonAssist.CornerRadius="10" 
-                            ToolTip="Place The Order"
+                            ToolTip="Exit From Window"
                             Background="Gray"
                             Foreground="White"
                             IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                            Margin="3">
+                            Margin="3"
+                            Command="{Binding ExitCommand}">
                     <TextBlock Text="EXIT" />
                 </Button>
 

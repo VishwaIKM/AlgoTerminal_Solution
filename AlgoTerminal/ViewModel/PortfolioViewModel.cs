@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class PortfolioViewModel : DockWindowViewModel, IPortfolioViewModel
+    public sealed class PortfolioViewModel : DockWindowViewModel, IPortfolioViewModel
     {
         private ObservableCollection<PortfolioModel>? _strategyView;
         public ObservableCollection<PortfolioModel>? StrategyDataCollection { get => _strategyView; set { _strategyView = value; RaisePropertyChanged(nameof(StrategyDataCollection)); } }

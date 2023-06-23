@@ -66,6 +66,7 @@ namespace AlgoTerminal
                     services.AddSingleton<NetPositionViewModel>();
                     services.AddSingleton<LoginViewModel>();
                     services.AddSingleton<OrderBookViewModel>();
+                    services.AddSingleton<BuySellViewModel>();
 
                     //View ....
                     services.AddSingleton<DashboardView>(x => new()
@@ -97,6 +98,10 @@ namespace AlgoTerminal
                     services.AddSingleton<OrderBookView>(x => new()
                     {
                         DataContext = x.GetRequiredService<OrderBookViewModel>()
+                    });
+                    services.AddSingleton<BuySellView>(x => new()
+                    {
+                        DataContext = x.GetRequiredService<BuySellViewModel>()
                     });
 
                 })

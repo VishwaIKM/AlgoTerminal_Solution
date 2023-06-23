@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AlgoTerminal.ViewModel
 {
-    public class OrderBookViewModel : DockWindowViewModel
+    public sealed class OrderBookViewModel : DockWindowViewModel
     {
         public static ObservableCollection<OrderBookModel>? OpenOrderBook { get; set; }
         public static ObservableCollection<OrderBookModel>? CloseOrderBook { get; set; }

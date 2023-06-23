@@ -1,4 +1,5 @@
 ﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using FeedC;
@@ -19,9 +20,9 @@ namespace AlgoTerminal.Model.Response
         const string FinFutFormat = "Fin-F {0} ({1})";
         const int PriceDivisor = 100;
         public static IDashboardModel _dashboard;
+        private readonly IStraddleManager _straddleManager;
         public FeedCB_C(IDashboardModel dashboardModel)
         {
-         
             _dashboard = dashboardModel;
         }
         public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
@@ -72,15 +73,7 @@ namespace AlgoTerminal.Model.Response
 
             #endregion
 
-            #region Netpostion
-
-            if(OrderManagerModel.NetPosition_Dicc_By_Token.ContainsKey((int)stFeed.Token))
-            {
-                var value = OrderManagerModel.NetPosition_Dicc_By_Token[(int)stFeed.Token];
-                value.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice) / 100.00, 2);
-                value.MTM = Math.Round(value.NetValue + value.NetQuantity * value.LTP,2);
-            }
-            #endregion
+           
 
         }
 

@@ -15614,3 +15614,141 @@
 [07:10:30]  Application StartUp Block Complete. 
 [07:10:32] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
 [07:10:32] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[02:31:09][Error] On Line 5 Error : 
+[02:31:09][Error] On Line 5 Error : 
+[02:31:09][Error] On Line 5 Error : 
+[02:31:09][Error] On Line 6 Error : 
+[02:31:09][Error] On Line 6 Error : 
+[02:31:09][Error] On Line 6 Error : 
+[02:31:09][Error] On Line 7 Error : 
+[02:31:09][Error] On Line 7 Error : 
+[02:31:09][Error] On Line 7 Error : 
+[02:31:09][Error] On Line 9 Error : 
+[02:31:09][Error] On Line 9 Error : 
+[02:31:09][Error] On Line 9 Error : 
+[02:31:09][Error] On Line 10 Error : 
+[02:31:09][Error] On Line 10 Error : 
+[02:31:09][Error] On Line 10 Error : 
+[02:31:09][Error] On Line 11 Error : 
+[02:31:09][Error] On Line 11 Error : 
+[02:31:09][Error] On Line 11 Error : 
+[02:31:09][Error] On Line 12 Error : 
+[02:31:09][Error] On Line 12 Error : 
+[02:31:09][Error] On Line 12 Error : 
+[02:31:09]  Application StartUp Block Complete. 
+[02:31:10] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:04:09][Error] On Line 5 Error : 
+[03:04:09][Error] On Line 5 Error : 
+[03:04:09][Error] On Line 5 Error : 
+[03:04:09][Error] On Line 6 Error : 
+[03:04:09][Error] On Line 6 Error : 
+[03:04:09][Error] On Line 6 Error : 
+[03:04:09][Error] On Line 7 Error : 
+[03:04:09][Error] On Line 7 Error : 
+[03:04:09][Error] On Line 7 Error : 
+[03:04:09][Error] On Line 9 Error : 
+[03:04:09][Error] On Line 9 Error : 
+[03:04:09][Error] On Line 9 Error : 
+[03:04:09][Error] On Line 10 Error : 
+[03:04:09][Error] On Line 10 Error : 
+[03:04:09][Error] On Line 10 Error : 
+[03:04:09][Error] On Line 11 Error : 
+[03:04:09][Error] On Line 11 Error : 
+[03:04:09][Error] On Line 11 Error : 
+[03:04:09][Error] On Line 12 Error : 
+[03:04:09][Error] On Line 12 Error : 
+[03:04:09][Error] On Line 12 Error : 
+[03:04:09]  Application StartUp Block Complete. 
+[03:04:11] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:05:48][Error] On Line 5 Error : 
+[03:05:48][Error] On Line 5 Error : 
+[03:05:48][Error] On Line 5 Error : 
+[03:05:48][Error] On Line 6 Error : 
+[03:05:48][Error] On Line 6 Error : 
+[03:05:48][Error] On Line 6 Error : 
+[03:05:48][Error] On Line 7 Error : 
+[03:05:48][Error] On Line 7 Error : 
+[03:05:48][Error] On Line 7 Error : 
+[03:05:48][Error] On Line 9 Error : 
+[03:05:48][Error] On Line 9 Error : 
+[03:05:48][Error] On Line 9 Error : 
+[03:05:48][Error] On Line 10 Error : 
+[03:05:48][Error] On Line 10 Error : 
+[03:05:48][Error] On Line 10 Error : 
+[03:05:48][Error] On Line 11 Error : 
+[03:05:48][Error] On Line 11 Error : 
+[03:05:48][Error] On Line 11 Error : 
+[03:05:48][Error] On Line 12 Error : 
+[03:05:48][Error] On Line 12 Error : 
+[03:05:48][Error] On Line 12 Error : 
+[03:05:48]  Application StartUp Block Complete. 
+[03:05:50] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:07:39][Error] On Line 5 Error : 
+[03:07:39][Error] On Line 5 Error : 
+[03:07:39][Error] On Line 5 Error : 
+[03:07:39][Error] On Line 6 Error : 
+[03:07:39][Error] On Line 6 Error : 
+[03:07:39][Error] On Line 6 Error : 
+[03:07:39][Error] On Line 7 Error : 
+[03:07:39][Error] On Line 7 Error : 
+[03:07:39][Error] On Line 7 Error : 
+[03:07:39][Error] On Line 9 Error : 
+[03:07:39][Error] On Line 9 Error : 
+[03:07:39][Error] On Line 9 Error : 
+[03:07:39][Error] On Line 10 Error : 
+[03:07:39][Error] On Line 10 Error : 
+[03:07:39][Error] On Line 10 Error : 
+[03:07:39][Error] On Line 11 Error : 
+[03:07:39][Error] On Line 11 Error : 
+[03:07:39][Error] On Line 11 Error : 
+[03:07:39][Error] On Line 12 Error : 
+[03:07:39][Error] On Line 12 Error : 
+[03:07:39][Error] On Line 12 Error : 
+[03:07:39]  Application StartUp Block Complete. 
+[03:07:41] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:29:40][Error] On Line 5 Error : 
+[03:29:40][Error] On Line 5 Error : 
+[03:29:40][Error] On Line 5 Error : 
+[03:29:40][Error] On Line 6 Error : 
+[03:29:40][Error] On Line 6 Error : 
+[03:29:40][Error] On Line 6 Error : 
+[03:29:40][Error] On Line 7 Error : 
+[03:29:40][Error] On Line 7 Error : 
+[03:29:40][Error] On Line 7 Error : 
+[03:29:40][Error] On Line 9 Error : 
+[03:29:40][Error] On Line 9 Error : 
+[03:29:40][Error] On Line 9 Error : 
+[03:29:40][Error] On Line 10 Error : 
+[03:29:40][Error] On Line 10 Error : 
+[03:29:40][Error] On Line 10 Error : 
+[03:29:40][Error] On Line 11 Error : 
+[03:29:40][Error] On Line 11 Error : 
+[03:29:40][Error] On Line 11 Error : 
+[03:29:40][Error] On Line 12 Error : 
+[03:29:40][Error] On Line 12 Error : 
+[03:29:40][Error] On Line 12 Error : 
+[03:29:40]  Application StartUp Block Complete. 
+[03:29:41] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
+[03:32:30][Error] On Line 5 Error : 
+[03:32:30][Error] On Line 5 Error : 
+[03:32:30][Error] On Line 5 Error : 
+[03:32:30][Error] On Line 6 Error : 
+[03:32:30][Error] On Line 6 Error : 
+[03:32:30][Error] On Line 6 Error : 
+[03:32:30][Error] On Line 7 Error : 
+[03:32:30][Error] On Line 7 Error : 
+[03:32:30][Error] On Line 7 Error : 
+[03:32:30][Error] On Line 9 Error : 
+[03:32:30][Error] On Line 9 Error : 
+[03:32:30][Error] On Line 9 Error : 
+[03:32:30][Error] On Line 10 Error : 
+[03:32:30][Error] On Line 10 Error : 
+[03:32:30][Error] On Line 10 Error : 
+[03:32:30][Error] On Line 11 Error : 
+[03:32:30][Error] On Line 11 Error : 
+[03:32:30][Error] On Line 11 Error : 
+[03:32:30][Error] On Line 12 Error : 
+[03:32:30][Error] On Line 12 Error : 
+[03:32:30][Error] On Line 12 Error : 
+[03:32:30]  Application StartUp Block Complete. 
+[03:32:32] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg2
