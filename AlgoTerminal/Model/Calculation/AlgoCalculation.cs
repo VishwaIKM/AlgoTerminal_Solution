@@ -1,10 +1,11 @@
 ﻿using AlgoTerminal.Model.FileManager;
-using AlgoTerminal.Model.Request;
+using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.Structure;
+using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
@@ -12,7 +13,7 @@ namespace AlgoTerminal.Model.Calculation
 {
     public class AlgoCalculation : IAlgoCalculation
     {
-       
+
         private readonly IFeed _feed;
         private readonly ILogFileWriter _logFileWriter;
 
@@ -256,6 +257,89 @@ namespace AlgoTerminal.Model.Calculation
         }
         #endregion
 
+        #region IS SL HIT FOR LEG
+        public bool Get_if_SL_is_HIT(double CurrentStopLossValue, EnumLegSL enumLegSL,
+            EnumOptiontype enumOptiontype, EnumPosition enumPosition,
+            EnumIndex enumIndex, uint Token)
+        {
+            double CurrentPrice;
+            if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
+            {
+                CurrentPrice = UnderLingValue(enumIndex);
+                if (CurrentPrice != 0)
+                {
+                    if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+                    {
+                        if (CurrentPrice >= CurrentStopLossValue) return true;
+                    }
+                    else
+                    {
+                        if (CurrentPrice <= CurrentStopLossValue) return true;
+                    }
+
+                }
+            }
+            else
+            {
+                CurrentPrice = GetInstrumentPrice(Token);
+                if (CurrentPrice != 0)
+                {
+                    if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                    {
+                        if (CurrentStopLossValue >= CurrentPrice) return true;
+                    }
+                    else
+                    {
+                        if (CurrentStopLossValue <= CurrentPrice) return true;
+                    }
+                }
+            }
+            return false;
+        }
+        #endregion
+
+        #region IS TP HIT FOR LEG
+        public bool Get_if_TP_is_HIT(double CurrentTargetProfitValue, EnumLegSL enumLegSL,
+            EnumOptiontype enumOptiontype, EnumPosition enumPosition,
+            EnumIndex enumIndex, uint Token)
+        {
+            double CurrentPrice;
+            if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
+            {
+                CurrentPrice = UnderLingValue(enumIndex);
+                if (CurrentPrice != 0)
+                {
+                    if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+                    {
+                        if (CurrentPrice <= CurrentTargetProfitValue) return true;
+                    }
+                    else
+                    {
+                        if (CurrentPrice >= CurrentTargetProfitValue) return true;
+                    }
+
+                }
+            }
+            else
+            {
+                CurrentPrice = GetInstrumentPrice(Token);
+                if (CurrentPrice != 0)
+                {
+                    if (enumPosition == EnumPosition.BUY && (enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX || enumOptiontype == EnumOptiontype.PE))
+                    {
+                        if (CurrentTargetProfitValue <= CurrentPrice) return true;
+                    }
+                    else
+                    {
+                        if (CurrentTargetProfitValue >= CurrentPrice) return true;
+                    }
+                }
+            }
+            return false;
+        }
+        #endregion
+
+
         #region Get StopLoss for Leg
         public double GetLegStopLoss(EnumLegSL enumLegSL,
             EnumOptiontype enumOptiontype, EnumPosition enumPosition,
@@ -283,9 +367,9 @@ namespace AlgoTerminal.Model.Calculation
         }
         private double GetLegPointPercentage_underlyingSL(double entryPrice, EnumOptiontype enumOptiontype, EnumPosition enumPosition, double StopLoss)
         {
-            if ((enumPosition == EnumPosition.BUY &&  enumOptiontype == EnumOptiontype.PE) ||((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
+            if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
                 return entryPrice + entryPrice * StopLoss / 100.00;
-            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX)&& enumPosition == EnumPosition.BUY))
+            else if ((enumPosition == EnumPosition.SELL && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.BUY))
                 return entryPrice - entryPrice * StopLoss / 100.00;
             else
                 throw new NotImplementedException("Invalid Option");
@@ -385,6 +469,55 @@ namespace AlgoTerminal.Model.Calculation
             else
                 throw new NotImplementedException("Invalid Option");
         }
+
+        #endregion
+
+        #region Get Re-Entry Details for Leg When SL Hit
+
+        public InnerObject GetLegDetailsForRentry(EnumLegReEntryOnSL enumLegReEntryOnSL, InnerObject OldLegDetails)
+        {
+            return enumLegReEntryOnSL switch
+            {
+                EnumLegReEntryOnSL.RECOST => GetLegReEntryForCOST_SL(OldLegDetails),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private InnerObject GetLegReEntryForCOST_SL(InnerObject OldLegDetails)
+        {
+            InnerObject newLegDetails = new();
+            newLegDetails.Status = EnumStrategyStatus.Added;
+            newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+            newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
+            newLegDetails.Qty = OldLegDetails.Qty;
+            if (newLegDetails.Name.Contains("."))
+            {
+                var data = newLegDetails.Name.Split('.');
+                var LastName = double.TryParse(data[1], out double value) ? value : 0;
+                if (LastName != 0)
+                {
+                    LastName += 0.01;
+                    newLegDetails.Name = data[0] + ".01";
+                }
+            }
+            else
+            {
+                newLegDetails.Name = OldLegDetails.Name + ".01";
+            }
+            newLegDetails.EntryTime = OldLegDetails.EntryTime;
+            newLegDetails.Token = OldLegDetails.Token;
+
+            //calculate the STOP LOSS VALUE
+
+            return newLegDetails;
+
+        }
+
+        #endregion
+
+        #region Get Re-Entry Details for Leg When TP Hit
+
+
 
         #endregion
 
@@ -650,6 +783,84 @@ namespace AlgoTerminal.Model.Calculation
             if (_feed.FeedC == null)
                 throw new Exception("Feed for F&O not init.");
             return Convert.ToDouble(_feed.FeedC.dcFeedData[Token].LastTradedPrice) / 100.00;
+
+        }
+        #endregion
+
+        #region Get Overall SL Value
+
+        public double GetOverallStopLossValue(double TotalPremium, double TotalMTM, EnumOverallStopLoss enumOverallStopLoss, double stopLossValue)
+        {
+            return enumOverallStopLoss switch
+            {
+                EnumOverallStopLoss.TOTALPREMIUMPERCENTAGE => GetOverallStopLossValueUsingPremium(TotalPremium, stopLossValue),
+                EnumOverallStopLoss.MTM => GetOverallStopLossValueUsingMtm(stopLossValue, TotalMTM),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private double GetOverallStopLossValueUsingMtm(double stopLossValue, double TotalMTM)
+        {
+            return TotalMTM - stopLossValue;
+        }
+
+        private double GetOverallStopLossValueUsingPremium(double TotalPremium, double stopLossValue)
+        {
+            return TotalPremium - (TotalPremium * stopLossValue / 100.0);
+        }
+
+        #endregion
+
+        #region Get Overall TP Value
+
+        public double GetOverallTargetProfitValue(double TotalPremium, double TotalMTM, EnumOverallTarget enumOverallTargetProfit, double TargetPofit)
+        {
+            return enumOverallTargetProfit switch
+            {
+                EnumOverallTarget.TOTALPREMIUMPERCENTAGE => GetOverallTPValueUsingPremium(TotalPremium, TargetPofit),
+                EnumOverallTarget.MTM => GetOverallTPValueUsingMtm(TargetPofit, TotalMTM),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private double GetOverallTPValueUsingMtm(double targetPofit, double totalMTM)
+        {
+            return totalMTM + targetPofit;
+        }
+
+        private double GetOverallTPValueUsingPremium(double totalPremium, double targetPofit)
+        {
+            return totalPremium + (totalPremium * targetPofit / 100.0);
+        }
+        #endregion
+
+        #region Check if Overall SL is HIT
+
+        public bool Is_overall_sl_hit(double TotalPremium, double PnL, double OverallStopLoss)
+        {
+            var _currentPremium = TotalPremium + PnL;
+            if (OverallStopLoss >= _currentPremium)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
+
+        #endregion
+
+        #region Check if Overall TP is HIT
+
+        public bool Is_overall_tp_hit(double TotalPremium, double PnL, double OverallTargetProfit)
+        {
+            var _currentPremium = TotalPremium + PnL;
+            if (OverallTargetProfit <= _currentPremium)
+            {
+                return true;
+            }
+
+            return false;
 
         }
         #endregion

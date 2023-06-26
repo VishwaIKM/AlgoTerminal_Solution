@@ -112,6 +112,7 @@
                 <DataGridTextColumn Header="Index" Width="120" Binding="{Binding Index}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Entry Time" Width="220" Binding="{Binding EntryTime}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Exit Time" Width="220" Binding="{Binding ExitTime}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="MTM" Width="130" Binding="{Binding MTM}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="P/L" Width="*" Binding="{Binding PNL}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">

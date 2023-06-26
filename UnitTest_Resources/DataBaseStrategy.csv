@@ -1,12 +1,12 @@
 *Range Breakout and Momentum can not select for a leg together,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 StrategyName(UniqueKey),Select Index,Underlying from,Strategy Type,EntryAndExitSetting,Entry Time(HH:MM:SS),Exit Time(HH:MM:SS),Signal,Square Off,IsTrailSLtoBreakEvenPriceEnable,TrailSLtoBreakEvenPrice,IsOverallStopLossEnable,SettingOverallStopLoss,OverallStopLoss,IsOverallReEntryOnSLEnable,SettingOverallReEntryOnSL,OverallReEntryOnSL,IsOverallTargetEnable,SettingOverallTarget,OverallTarget,IsOverallReEntryOnTgtEnable,SettingOverallReEntryOnTgt,OverallReEntryOnTgt,IsOverallTrallingOptionEnable,IsOverallTrallSLEnable,SettingOverallTrallSL,SettingTrallingOption,IfProfitReach,LockProfit,ForEveryIncreaseInProfitBy,Trailprofitby,TrailAmountMove,TrailSLMove,USERID
 LEG1(Legnumber),SelectSegment,Lots,Position,OptionType,Expiry,StrikeCriteria,StrikeType,PremiumRangeLower,PremiumRangeUpper,Premium_or_StraddleWidth,IsTargetProfitEnable,SettingTargetProfit,TargetProfit,IsStopLossEnable,SettingStopLoss,StopLoss,IsTrailSlEnable,SettingTrailEnable,TrailSlAmount,TrailSlStopLoss,IsReEntryOnTgtEnable,SettingReEntryOnTgt,ReEntryOnTgt,IsReEntryOnSLEnable,SettingReEntryOnSL,ReEntryOnSL,IsSimpleMomentumEnable,SettingSimpleMomentum,SimpleMomentum,IsRangeBreakOutEnable,RangeBreakOutEndTime,SettingRangeBreakOut,SettingRangeBreakOutType
-Stg1,NIFTY,Cash,Intraday,TimeBased,15:36:00,15:25:00,None,Partial,FALSE,,,,,,,,,,,,,,,,,,,,,,,,RAM01
-LEG1,Options,1,BUY,CE,Weekly,StrikeType,ATM,,,,,,,,,,,,,,,,,,,,,,,,,,
-LEG2,Options,1,SELL,CE,Weekly,StrikeType,OTM1,,,,,,,,,,,,,,,,,,,,,,,,,,
+Stg1,NIFTY,Cash,Intraday,TimeBased,14:23:00,15:25:00,None,Partial,FALSE,,,,,,,,,,,,,,,,,,,,,,,,RAM01
+LEG1,Options,1,BUY,CE,Weekly,StrikeType,ATM,,,,TRUE,POINTS,5,TRUE,POINTS,5,,,,,,,,,,,,,,,,,
+LEG2,Options,1,SELL,CE,Weekly,StrikeType,OTM1,,,,TRUE,POINTS,5,TRUE,POINTS,5,,,,,,,,,,,,,,,,,
 LEG3,Options,5,BUY,CE,Weekly,StrikeType,ATM,,,,TRUE,UNDERLING,50,TRUE,UNDERLING,50,,,,,,,,,,,,,,,,,
-Stg2,NIFTY,Cash,Intraday,TimeBased,09:40:00,15:25:00,None,Partial,FALSE,,,,,,,,,,,,,,,,,,,,,,,,RAM02
-LEG1,Options,1,BUY,CE,Weekly,StrikeType,ITM5,,,,,,,,,,,,,,,,,,,,,,,,,,
-LEG2,Options,1,SELL,PE,Weekly,StrikeType,OTM5,,,,,,,,,,,,,,,,,,,,,,,,,,
-LEG3,Options,1,SELL,PE,Weekly,StrikeType,OTM6,,,,,,,,,,,,,,,,,,,,,,,,,,
-LEG4,futures,1,SELL,CE,Weekly,StrikeType,OTM7,,,,,,,,,,,,,,,,,,,,,,,,,,
+Stg2,NIFTY,Cash,Intraday,TimeBased,14:23:00,15:25:00,None,Partial,FALSE,,,,,,,,,,,,,,,,,,,,,,,,RAM02
+LEG1,Options,1,BUY,CE,Weekly,StrikeType,ITM5,,,,TRUE,POINTS,5,TRUE,POINTS,5,,,,,,,,,,,,,,,,,
+LEG2,Options,1,SELL,PE,Weekly,StrikeType,OTM5,,,,TRUE,POINTS,5,TRUE,POINTS,5,,,,,,,,,,,,,,,,,
+LEG3,Options,5,BUY,CE,Weekly,StrikeType,ATM,,,,TRUE,POINTS,5,TRUE,POINTS,5,,,,,,,,,,,,,,,,,
+LEG4,futures,1,SELL,CE,Weekly,StrikeType,OTM7,,,,TRUE,POINTS,1,TRUE,POINTS,1,,,,,,,,,,,,,,,,,

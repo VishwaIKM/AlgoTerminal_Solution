@@ -3,20 +3,13 @@ using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.Structure;
 using AlgoTerminal.ViewModel;
-using FeedC;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows;
-using System.Windows.Data;
-using System.Windows.Input;
 using System.Windows.Threading;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
@@ -28,7 +21,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
         private readonly IStraddleDataBaseLoadFromCsv straddleDataBaseLoad;
         private readonly ILogFileWriter logFileWriter;
         private readonly IAlgoCalculation algoCalculation;
-        private readonly PortfolioViewModel portfolioViewModel;
         DispatcherTimer dispatcherTimer = new();
 
 
@@ -36,8 +28,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
         public StraddleManager(IStraddleDataBaseLoadFromCsv straddleDataBaseLoad,
             ILogFileWriter logFileWriter,
-            IAlgoCalculation algoCalculation,
-            PortfolioViewModel portfolioViewModel
+            IAlgoCalculation algoCalculation
            )
         {
 
@@ -46,18 +37,18 @@ namespace AlgoTerminal.Model.StrategySignalManager
             this.straddleDataBaseLoad = straddleDataBaseLoad;
             this.logFileWriter = logFileWriter;
             this.algoCalculation = algoCalculation;
-            this.portfolioViewModel = portfolioViewModel;
 
-            StartMonitoringCommand();
+
+
 
         }
 
         #region Update The TRAIL SL ==> SL HIT ==> TP HIT ==> RE-ENTRY COMMAND:
-      
+
         private void StartMonitoringCommand()
         {
             dispatcherTimer.Tick += new EventHandler(MonitoringThread);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
             dispatcherTimer.Start();
         }
 
@@ -68,11 +59,214 @@ namespace AlgoTerminal.Model.StrategySignalManager
             //1. IS SL HIT SQUARE OFF CHECK IF RENTRY ON SL |(LEG/STG) => Decrement the RE Count
             //2. IS TP HIT SQUARE OFF CHECK IF RENTRY ON TP |(LEG/STG) => Decrement the RE Count
             //3. IS TRAIL SL AMOUNT HIT => Update TARIL AND SL FOR LEG or STG
-            //4.
+            //4. Partail leg squre off or full stg if any leg sl hit
+            try
+            {
 
+                foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
+                {//ALL STG
+                    var Parent = Task.Factory.StartNew((Action)(async () =>
+                    {
+
+                        bool IsStgSquareOffRequestSend = false;
+                        var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
+                        var Portfolio_value = General.Portfolios[stg_key];
+                        var leg_value = straddleDataBaseLoad.Straddle_LegDetails_Dictionary[stg_key];
+                        foreach (string Leg in leg_value.Keys)
+                        {//ALL LEG
+                            var leg_Details = leg_value[Leg];
+                            var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+                            try
+                            {
+                                if (portfolio_leg_value.ExitPrice == 0 && portfolio_leg_value.Status != EnumStrategyStatus.Added) // Exit price != 0 means this leg is Complete
+                                {
+                                    //Check Leg SL
+                                    #region Check SL/ TP for LEG
+                                    bool SL_HIT = false, TP_HIT = false;
+                                    if (leg_Details.IsStopLossEnable == true && portfolio_leg_value.StopLoss > 0)
+                                    {
+                                        SL_HIT = algoCalculation.Get_if_SL_is_HIT(portfolio_leg_value.StopLoss,
+                                                                                        leg_Details.SettingStopLoss,
+                                                                                        leg_Details.OptionType,
+                                                                                        leg_Details.Position,
+                                                                                        stg_setting_value.Index,
+                                                                                        portfolio_leg_value.Token);
+
+                                        if (SL_HIT)
+                                        {
+                                            logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
+                                            portfolio_leg_value.Status = EnumStrategyStatus.CompleteBySL;
+                                        }
+                                    }
+
+                                    if (leg_Details.IsTargetProfitEnable == true && portfolio_leg_value.TargetProfit > 0)
+                                    {
+                                        TP_HIT = algoCalculation.Get_if_TP_is_HIT(portfolio_leg_value.TargetProfit,
+                                                                                        leg_Details.SettingStopLoss,
+                                                                                        leg_Details.OptionType,
+                                                                                        leg_Details.Position,
+                                                                                        stg_setting_value.Index,
+                                                                                        portfolio_leg_value.Token);
+                                        if (TP_HIT)
+                                        {
+                                            logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
+                                            portfolio_leg_value.Status = EnumStrategyStatus.CompleteByTP;
+                                        }
+                                    }
+                                    //Check if partial squre of enable or complete
+
+                                    if (stg_setting_value.SquareOff == EnumSquareOff.PARTIAL && (SL_HIT || TP_HIT))
+                                    {
+                                        //leg squareOff
+                                        await SquareOffStraddle920Leg(portfolio_leg_value);
+
+                                    }
+                                    else if (stg_setting_value.SquareOff == EnumSquareOff.COMPLETE && (SL_HIT || TP_HIT))
+                                    {
+                                        IsStgSquareOffRequestSend = true;
+                                        //Stg SquareOff
+                                        await SquareOffStraddle920(Portfolio_value);
+
+
+                                    }
+
+                                    //check re-entry of Leg {Place =>if true}
+                                    if (leg_Details.IsReEntryOnSLEnable == true && SL_HIT)
+                                    {
+                                        if (portfolio_leg_value.TotalReentryOnSL > 0)
+                                        {
+                                            portfolio_leg_value.TotalReentryOnSL--;
+                                            //CODE HERE
+                                            var NewLeg = algoCalculation.GetLegDetailsForRentry(leg_Details.SettingReEntryOnSL,portfolio_leg_value);
+
+                                            //calculate new StopLoss For Leg
+
+                                        }
+                                    }
+                                    if (leg_Details.IsReEntryOnTgtEnable == true && TP_HIT)
+                                    {
+                                        if (portfolio_leg_value.TotalReentryOnTP > 0)
+                                        {
+                                            portfolio_leg_value.TotalReentryOnTP--;
+                                            //CODE HERE
+
+                                        }
+                                    }
+                                    #endregion
+                                }
+                            }
+                            catch { }
+
+                        }
+                        if (!IsStgSquareOffRequestSend) //if square of  then no need to check SL AND TP OR RE-ENTRY
+                        {
+                            bool Overall_SL_HIT = false, Overall_TP_HIT = false;
+                            if (stg_setting_value.IsOverallStopLossEnable == true && Portfolio_value.StopLoss > 0)
+                            {
+                                Overall_SL_HIT = algoCalculation.Is_overall_sl_hit(Portfolio_value.TotalEntryPremiumPaid,
+                                                                                                                         Portfolio_value.PNL,
+                                                                                                                         Portfolio_value.StopLoss);
+                                if (Overall_SL_HIT)
+                                {
+                                    logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for the Stg: " + stg_key);
+                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyStatus.CompletedByOverallSL);
+                                }
+
+                            }
+                            if (stg_setting_value.IsOverallReEntryOnTgtEnable == true && Portfolio_value.TargetProfit > 0)
+                            {
+
+                                Overall_TP_HIT = algoCalculation.Is_overall_tp_hit(Portfolio_value.TotalEntryPremiumPaid,
+                                                                                                                         Portfolio_value.PNL,
+                                                                                                                         Portfolio_value.TargetProfit);
+                                if (Overall_TP_HIT)
+                                {
+                                    logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for the Stg: " + stg_key);
+                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyStatus.CompletedByOverallTP);
+                                }
+                            }
+
+                            if (Overall_SL_HIT && Portfolio_value.ReEntrySL > 0)
+                            {
+                                Portfolio_value.ReEntrySL--;
+                                //code here for Rentry of STG
+                            }
+
+                            if (Overall_TP_HIT && Portfolio_value.ReEntryTP > 0)
+                            {
+                                Portfolio_value.ReEntryTP--;
+                                //Code Here for Rentry of STG
+                            }
+                        }
+                    }));
+
+                }
+            }
+            catch (Exception ex) { logFileWriter.WriteLog(EnumLogType.Error, ex.StackTrace + ex.Message); }
+        }
+
+
+        /// <summary>
+        /// Partial Square off using Straddle #0920 using strategy key and Leg Key
+        /// </summary>
+        /// <param name="portfolio_leg_value"></param>
+        /// <returns></returns>
+        private async Task SquareOffStraddle920Leg(InnerObject portfolio_leg_value, EnumStrategyStatus enumStrategyStatus = EnumStrategyStatus.None)
+        {
+            if (portfolio_leg_value.ExitPrice == 0)
+            {
+                try
+                {
+                    double _currentLTP = algoCalculation.GetStrikePriceLTP(portfolio_leg_value.Token);
+                    EnumPosition enumPosition = portfolio_leg_value.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+                    int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                    OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
+                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)portfolio_leg_value.Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
+                         Buysell: enumPosition, OrderType.LIMIT, 0, portfolio_leg_value.STG_ID);
+                    portfolio_leg_value.ExitPrice = _currentLTP;
+                    if (enumStrategyStatus == EnumStrategyStatus.None)
+                    {
+                        portfolio_leg_value.Status = enumStrategyStatus;
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    logFileWriter.DisplayLog(EnumLogType.Error, " Something went wrong while Squared off the Leg with TOKEN: " + portfolio_leg_value.Token + ex.Message + ex.StackTrace);
+
+                }
+            }
         }
 
         #endregion
+
+        /// <summary>
+        /// Strategy Square off using Strategy Key
+        /// </summary>
+        /// <param name="KeyOfStraddle"></param>
+        /// <returns></returns>
+        public async Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumStrategyStatus enumStrategyStatus = EnumStrategyStatus.None)
+        {
+
+            var _totalLeg = PM.InnerObject;
+            foreach (var leg in _totalLeg)
+            {
+                if (leg.ExitPrice == 0)
+                {
+                    if (enumStrategyStatus == EnumStrategyStatus.None)
+                        await SquareOffStraddle920Leg(leg);
+                    else
+                        await SquareOffStraddle920Leg(leg, enumStrategyStatus);
+
+
+                    await Task.Delay(50);
+                }
+            }
+
+
+            return true;
+        }
         /// <summary>
         /// fILE lOADING
         /// </summary>
@@ -133,7 +327,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         if (!General.Portfolios.ContainsKey(portfolioModel.Name))
                         {
                             General.Portfolios.TryAdd(portfolioModel.Name, portfolioModel);
-                            if (portfolioViewModel.StrategyDataCollection == null)
+                            if (PortfolioViewModel.StrategyDataCollection == null)
                                 throw new Exception("THE PortFolio VIEW->MODEL not initiated");
                             //portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
 
@@ -163,7 +357,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
                                         //ADD TO GUI
                                         General.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, General.Portfolios[portfolioModel.Name]);
-                                        if (portfolioViewModel.StrategyDataCollection == null)
+                                        if (PortfolioViewModel.StrategyDataCollection == null)
                                             throw new Exception("THE PortFolio VIEW -> MODEL not initiated");
                                     }
                                     catch (Exception ex)
@@ -174,7 +368,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                                 {
 
-                                    portfolioViewModel.StrategyDataCollection.Add(portfolioModel);
+                                    PortfolioViewModel.StrategyDataCollection.Add(portfolioModel);
 
                                 }), DispatcherPriority.Background, null);
 
@@ -187,6 +381,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     }
 
                 }
+                StartMonitoringCommand(); // Thread to watch
                 return true;
 
             }
@@ -208,13 +403,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
             {
                 foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
                 {//ALL STG
+                    double TotalPremium = 0;
 
                     var Papa = Task.Factory.StartNew((Action)(async () =>
                     {
                         List<Task> tasks = new();
                         var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
                         var Portfolio_value = General.Portfolios[stg_key];
-
                         //waiting for Entry Time
                         if (stg_setting_value.EntryTime >= DateTime.Now)
                         {
@@ -270,7 +465,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         portfolio_leg_value.Token = Token;
                                         portfolio_leg_value.TradingSymbol = TradingSymbol;
                                         portfolio_leg_value.Status = EnumStrategyStatus.Waiting;
-
+                                        portfolio_leg_value.TotalReentryOnSL = leg_Details.ReEntryOnSL;
+                                        portfolio_leg_value.TotalReentryOnTP = leg_Details.ReEntryOnTgt;
 
 
 
@@ -299,24 +495,24 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         }
                                         if (leg_Details.IsStopLossEnable == true)
                                         {
-                                            portfolio_leg_value.StopLoss = algoCalculation.GetLegStopLoss(leg_Details.SettingStopLoss,
+                                            portfolio_leg_value.StopLoss = Math.Round(algoCalculation.GetLegStopLoss(leg_Details.SettingStopLoss,
                                                                                                             leg_Details.OptionType,
                                                                                                             leg_Details.Position,
                                                                                                             leg_Details.StopLoss,
                                                                                                             leg_Details.SelectSegment,
                                                                                                             stg_setting_value.Index,
-                                                                                                            Token);
+                                                                                                            Token), 2);
                                         }
 
                                         if (leg_Details.IsTargetProfitEnable == true)
                                         {
-                                            portfolio_leg_value.TargetProfit = algoCalculation.GetLegTargetProfit(leg_Details.SettingTargetProfit,
+                                            portfolio_leg_value.TargetProfit = Math.Round(algoCalculation.GetLegTargetProfit(leg_Details.SettingTargetProfit,
                                                                                                                                 leg_Details.OptionType,
                                                                                                                                 leg_Details.Position,
                                                                                                                                 leg_Details.TargetProfit,
                                                                                                                                 leg_Details.SelectSegment,
                                                                                                                                 stg_setting_value.Index,
-                                                                                                                                Token);
+                                                                                                                                Token), 2);
                                         }
                                         double _currentLTP = algoCalculation.GetStrikePriceLTP(Token);
 
@@ -326,11 +522,14 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
                                         OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
                                         LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
-                                             Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID);
+                                             Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID); //Here the orderID and the StgID both are Same . will use same stg id in other updation
                                         //GUI
+                                        portfolio_leg_value.STG_ID = OrderID;
                                         portfolio_leg_value.EntryPrice = _currentLTP;
-                                        portfolio_leg_value.Status = EnumStrategyStatus.WaitingForConfirmation;
+                                        portfolio_leg_value.Status = EnumStrategyStatus.Running;
                                         portfolio_leg_value.EntryTime = DateTime.Now;
+
+                                        TotalPremium += (portfolio_leg_value.Qty * portfolio_leg_value.EntryPrice);
 
 
 
@@ -351,10 +550,10 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         //}
                                         // below function is more safe as above is missed to add in case of multi thread
                                         General.PortfolioLegByTokens.AddOrUpdate(Token, new List<InnerObject>() { portfolio_leg_value }, (key, list) =>
-                                            {
-                                                list.Add(portfolio_leg_value);
-                                                return list;
-                                            });
+                                             {
+                                                 list.Add(portfolio_leg_value);
+                                                 return list;
+                                             });
 
 
                                     }
@@ -372,6 +571,31 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             Task.WaitAll(tasks.ToArray());
 
                             //STG DETAILS when all leg place ---------------------------------------for all
+                            //StopLoss
+                            Portfolio_value.TotalEntryPremiumPaid = TotalPremium;
+
+                            await Task.Delay(1000);
+                            if (stg_setting_value.IsOverallStopLossEnable)
+                            {
+                                Portfolio_value.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
+                                                                                                                Portfolio_value.MTM,
+                                                                                                                stg_setting_value.SettingOverallStopLoss,
+                                                                                                                stg_setting_value.OverallStopLoss)
+                                                                                                                 , 2);
+
+                                Portfolio_value.ReEntrySL = stg_setting_value.OverallReEntryOnSL;
+                            }
+                            //TP
+                            if (stg_setting_value.IsOverallTargetEnable)
+                            {
+                                Portfolio_value.TargetProfit = Math.Round(algoCalculation.GetOverallTargetProfitValue(TotalPremium,
+                                                                                                               Portfolio_value.MTM,
+                                                                                                               stg_setting_value.SettingOverallTarget,
+                                                                                                               stg_setting_value.OverallTarget)
+                                                                                                                , 2);
+
+                                Portfolio_value.ReEntryTP = stg_setting_value.OverallReEntryOnTgt;
+                            }
 
                             //Square OFF all Leg TIMEBASED if Stg is TIMEBASED
                             if (stg_setting_value.EntryAndExitSetting == EnumEntryAndExit.TIMEBASED)
@@ -388,6 +612,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         await SquareOffStraddle920(Portfolio_value);
                                 }
                             }
+
+
                         }
                         else
                         {
@@ -404,80 +630,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
             }
         }
 
-
-
-        /// <summary>
-        /// Feed FO Utilization and Updation
-        /// </summary>
-        /// <param name="FeedLogTime"></param>
-        /// <param name="stFeed"></param>
-        public async Task DataUpdateFrom_FO(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
-        {
-
-        }
-
-        /// <summary>
-        /// FEED CM Utilization and Updation
-        /// </summary>
-        /// <param name="FeedLogTime"></param>
-        /// <param name="IndexName"></param>
-        public async Task DataUpdateFrom_CM(uint FeedLogTime, string IndexName)
-        {
-
-        }
-
-        /// <summary>
-        /// Start the Process for #920 
-        /// </summary>
-        /// <returns></returns>
-        public async Task<bool> StartStraddle920()
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Strategy Square off using Strategy Key
-        /// </summary>
-        /// <param name="KeyOfStraddle"></param>
-        /// <returns></returns>
-        public async Task<bool> SquareOffStraddle920(PortfolioModel PM)
-        {
-            if (PM.BuyTradedQty - PM.SellTradedQty != 0)
-            {
-                var _totalLeg = PM.InnerObject;
-                foreach (var leg in _totalLeg)
-                {
-                    if (leg.ExitPrice != 0)
-                    {
-                        //Get LTP
-
-                        double _currentLTP = algoCalculation.GetStrikePriceLTP(leg.Token);
-                        //qty
-                        //Token
-                        //S_Nnapi.PlaceOrder(tokenId, price, orderQty, transType, orderType, triggerPrice, marketWatch_OrderID, strUserdata);
-
-                        //NNAPI request Place the Leg Order.
-
-
-                        await Task.Delay(50);
-                    }
-                }
-            }
-
-
-            return true;
-        }
-
-        /// <summary>
-        /// Partial Square off using Straddle #0920 using strategy key and Leg Key
-        /// </summary>
-        /// <param name="KeyOfStraddle"></param>
-        /// <param name="LegKey"></param>
-        /// <returns></returns>
-        public async Task<bool> SquareOffStraddle920Leg(string KeyOfStraddle, string LegKey)
-        {
-            return true;
-        }
 
         /// <summary>
         /// Re Entry Straddle #0920  Using Key Entry

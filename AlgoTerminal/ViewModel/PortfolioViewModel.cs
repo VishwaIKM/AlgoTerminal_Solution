@@ -10,14 +10,15 @@ using System.Windows.Input;
 
 namespace AlgoTerminal.ViewModel
 {
-    public sealed class PortfolioViewModel : DockWindowViewModel, IPortfolioViewModel
+    public sealed class PortfolioViewModel : DockWindowViewModel
     {
-        private ObservableCollection<PortfolioModel>? _strategyView;
-        public ObservableCollection<PortfolioModel>? StrategyDataCollection { get => _strategyView; set { _strategyView = value; RaisePropertyChanged(nameof(StrategyDataCollection)); } }
+       
+        public static ObservableCollection<PortfolioModel>? StrategyDataCollection { get ; set; } 
         public PortfolioModel? SelectedItem {get;set;}
-
-    public PortfolioViewModel()
+        private IStraddleManager straddleManager;
+         public PortfolioViewModel(IStraddleManager straddleManager)
         {
+            this.straddleManager = straddleManager;
             StrategyDataCollection ??= new();
         }
 
@@ -30,6 +31,11 @@ namespace AlgoTerminal.ViewModel
             {
                 var result = MessageBox.Show("Do You Want to Stop the Strategy? " + SelectedItem.Name, "ALERT", MessageBoxButton.OKCancel);
                 var result2 = SelectedItem;
+                if(result == MessageBoxResult.Yes)
+                {
+                    straddleManager.SquareOffStraddle920(result2,EnumDeclaration.EnumStrategyStatus.Stopped);
+                }
+               
             }
             else
                 MessageBox.Show("Please Select One Stratrgy.");

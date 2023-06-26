@@ -1,10 +1,12 @@
 ﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.Request;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using FeedC;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
 namespace AlgoTerminal.Model.Response
@@ -19,13 +21,13 @@ namespace AlgoTerminal.Model.Response
         const string BankFutFormat = "Bank-F {0} ({1})";
         const string FinFutFormat = "Fin-F {0} ({1})";
         const int PriceDivisor = 100;
-        public static IDashboardModel _dashboard;
-        private readonly IStraddleManager _straddleManager;
+        public static IDashboardModel? _dashboard;
+
         public FeedCB_C(IDashboardModel dashboardModel)
         {
             _dashboard = dashboardModel;
         }
-        public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
+        private async Task PortFolioUpdate(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
             #region PortFolio Work
             if (General.PortfolioLegByTokens.ContainsKey(stFeed.Token))
@@ -47,16 +49,22 @@ namespace AlgoTerminal.Model.Response
                         //stg Update 
                         var stg = General.Portfolios[leg.StgName];// General.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();
                         double finalLtp = 0;
+                        double finalMtm = 0;
                         foreach (var x in stg.InnerObject)
                         {
                             finalLtp += x.PNL;
+                            finalMtm += x.MTM;
                         }
                         stg.PNL = Math.Round(finalLtp, 2);
+                        stg.MTM = Math.Round(finalMtm,2);
                     }
                 }
             }
             #endregion
 
+        }
+        private async Task HeaderUpdate(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
+        {
             #region Fut Price Update
             if (ContractDetails.NiftyFutureToken == stFeed.Token)
             {
@@ -72,8 +80,13 @@ namespace AlgoTerminal.Model.Response
             }
 
             #endregion
+        }
+        public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
+        {
 
-           
+            _ = PortFolioUpdate(FeedLogTime, stFeed);
+            _ = HeaderUpdate(FeedLogTime, stFeed);
+
 
         }
 

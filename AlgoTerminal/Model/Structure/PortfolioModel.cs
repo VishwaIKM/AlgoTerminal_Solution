@@ -83,8 +83,8 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private double _reEntrySl;
-        public double ReEntrySL
+        private int _reEntrySl;
+        public int ReEntrySL
         {
             get => _reEntrySl; set
             {
@@ -95,9 +95,9 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private double _reEntryTP;
+        private int _reEntryTP;
 
-        public double ReEntryTP
+        public int ReEntryTP
         {
             get => _reEntryTP; set
             {
@@ -109,6 +109,19 @@ namespace AlgoTerminal.Model.Structure
             }
         }
 
+
+        private double _mtm;
+        public double MTM
+        {
+            get => _mtm; set
+            {
+                if (_mtm != value)
+                {
+                    _mtm = value;
+                    OnPropertyChanged(nameof(MTM));
+                }
+            }
+        }
         public ObservableCollection<InnerObject> InnerObject { get; set; } = new ObservableCollection<InnerObject>();
 
         //For Calculation They Must update after Trade
@@ -117,12 +130,11 @@ namespace AlgoTerminal.Model.Structure
         public int BuyTradedQty { get; set; }
         public int SellTradedQty { get; set;}
         public double Expenses { get; set;}
-
-
-
+        public double TotalEntryPremiumPaid { get; internal set; }
     }
     public class InnerObject : BaseViewModel
     {
+        public int STG_ID { get; set; }
         private double _ltp;
         public double LTP
         {
@@ -324,6 +336,9 @@ namespace AlgoTerminal.Model.Structure
         //Hidden INFO
         public uint Token { get; set; }
         //For Calculation
+        public int TotalReentryOnSL { get;set; }
+        public int TotalReentryOnTP { get; set; }
+
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }
         public double BuyValue { get; set; }

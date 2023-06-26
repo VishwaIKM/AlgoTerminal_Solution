@@ -262,45 +262,45 @@ namespace AlgoTerminal.Model.Response
                 else
                     _logFileWriter.DisplayLog(EnumLogType.Sell, _logDisplay);
 
-                #region Portfolio
-                //Portfolio Screen only process automated order. Manaul Order should not be processed in Porfolio as they are not part of STg.
-                if (OrderManagerModel.Portfolio_Dicc_By_ClientID.TryGetValue(iUserData, out InnerObject value))
-                {
-                    var leg_Details = value;
+                //#region Portfolio
+                ////Portfolio Screen only process automated order. Manaul Order should not be processed in Porfolio as they are not part of STg.
+                //if (OrderManagerModel.Portfolio_Dicc_By_ClientID.TryGetValue(iUserData, out InnerObject value))
+                //{
+                //    var leg_Details = value;
 
-                    if(tradeBookModel.BuySell == EnumPosition.BUY)
-                    {
-                        leg_Details.BuyTradedQty += TradeQty;
-                        leg_Details.BuyValue = TradePrice * TradeQty;
-                        leg_Details.EntryPrice = Math.Round(leg_Details.BuyValue / leg_Details.BuyTradedQty,2);
-                    }
-                    else
-                    {
-                        leg_Details.SellTradedQty += TradeQty;
-                        leg_Details.SellTradedQty = TradePrice * TradeQty;
-                        leg_Details.EntryPrice = Math.Round(leg_Details.BuyValue / leg_Details.BuyTradedQty, 2);
-                    }
-                    //When Equal means Leg Complete --> IF Portfolio logic changes and Modify portfolio added Then Below logic may give incorrect data
-                    if(leg_Details.BuyTradedQty == leg_Details.SellTradedQty)
-                    {
-                        leg_Details.Status = EnumStrategyStatus.Complete;
-                        leg_Details.ExitTime = DateTime.Now;
+                //    if(tradeBookModel.BuySell == EnumPosition.BUY)
+                //    {
+                //        leg_Details.BuyTradedQty += TradeQty;
+                //        leg_Details.BuyValue = TradePrice * TradeQty;
+                //        leg_Details.EntryPrice = Math.Round(leg_Details.BuyValue / leg_Details.BuyTradedQty*100.0,2);
+                //    }
+                //    else
+                //    {
+                //        leg_Details.SellTradedQty += TradeQty;
+                //        leg_Details.SellTradedQty = TradePrice * TradeQty;
+                //        leg_Details.EntryPrice = Math.Round(leg_Details.BuyValue / leg_Details.BuyTradedQty*100.0, 2);
+                //    }
+                //    //When Equal means Leg Complete --> IF Portfolio logic changes and Modify portfolio added Then Below logic may give incorrect data
+                //    if(leg_Details.BuyTradedQty == leg_Details.SellTradedQty)
+                //    {
+                //        leg_Details.Status = EnumStrategyStatus.Complete;
+                //        leg_Details.ExitTime = DateTime.Now;
 
-                        if(leg_Details.BuySell == EnumPosition.BUY)
-                        {
-                            leg_Details.ExitPrice = leg_Details.SellValue / leg_Details.SellTradedQty;
-                        }
-                        else
-                        {
-                            leg_Details.ExitPrice = leg_Details.BuyValue / leg_Details.BuyTradedQty;
-                        }
-                    }
-                    else
-                    {
-                        leg_Details.Status = EnumStrategyStatus.Running;
-                    }
-                }
-                #endregion
+                //        if(leg_Details.BuySell == EnumPosition.BUY)
+                //        {
+                //            leg_Details.ExitPrice = leg_Details.SellValue / leg_Details.SellTradedQty;
+                //        }
+                //        else
+                //        {
+                //            leg_Details.ExitPrice = leg_Details.BuyValue / leg_Details.BuyTradedQty;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        leg_Details.Status = EnumStrategyStatus.Running;
+                //    }
+                //}
+                //#endregion
             }
             catch (Exception ex)
             {
