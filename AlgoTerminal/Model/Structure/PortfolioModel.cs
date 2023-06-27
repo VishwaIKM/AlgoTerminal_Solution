@@ -125,6 +125,7 @@ namespace AlgoTerminal.Model.Structure
         public ObservableCollection<InnerObject> InnerObject { get; set; } = new ObservableCollection<InnerObject>();
 
         //For Calculation They Must update after Trade
+       
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }
         public int BuyTradedQty { get; set; }
@@ -336,9 +337,8 @@ namespace AlgoTerminal.Model.Structure
         //Hidden INFO
         public uint Token { get; set; }
         //For Calculation
-        public int TotalReentryOnSL { get;set; }
-        public int TotalReentryOnTP { get; set; }
 
+        public double EntryUnderliying_INST { get; set; }
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }
         public double BuyValue { get; set; }

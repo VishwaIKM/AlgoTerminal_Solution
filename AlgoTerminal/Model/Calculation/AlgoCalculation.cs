@@ -1,6 +1,7 @@
 ﻿using AlgoTerminal.Model.FileManager;
 using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Services;
+using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using AlgoTerminal.ViewModel;
 using System;
@@ -340,12 +341,12 @@ namespace AlgoTerminal.Model.Calculation
         #endregion
 
 
-        #region Get StopLoss for Leg
+        #region Get LIVE StopLoss for Leg
         public double GetLegStopLoss(EnumLegSL enumLegSL,
             EnumOptiontype enumOptiontype, EnumPosition enumPosition,
             double StopLoss,
             EnumSegments enumSegments,
-            EnumIndex enumIndex, uint Token)
+            EnumIndex enumIndex, uint Token, InnerObject legDetails)
         {
             double entryPrice;
             if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
@@ -355,6 +356,8 @@ namespace AlgoTerminal.Model.Calculation
 
             if (enumSegments == EnumSegments.FUTURES)
                 enumOptiontype = EnumOptiontype.XX;
+
+            legDetails.EntryUnderliying_INST = entryPrice;
 
             return enumLegSL switch
             {
@@ -405,12 +408,12 @@ namespace AlgoTerminal.Model.Calculation
         }
         #endregion
 
-        #region Get Target Profit for Leg
+        #region Get LIVE Target Profit for Leg
         public double GetLegTargetProfit(EnumLegTargetProfit enumLegTP,
             EnumOptiontype enumOptiontype,
             EnumPosition enumPosition,
             double TargetProfit, EnumSegments enumSegments,
-            EnumIndex enumIndex, uint Token)
+            EnumIndex enumIndex, uint Token, InnerObject legDetails)
         {
             double entryPrice;
             if ((enumLegTP == EnumLegTargetProfit.UNDERLING || enumLegTP == EnumLegTargetProfit.UNDERLINGPERCENTAGE))
@@ -420,6 +423,8 @@ namespace AlgoTerminal.Model.Calculation
 
             if (enumSegments == EnumSegments.FUTURES)
                 enumOptiontype = EnumOptiontype.XX;
+
+            legDetails.EntryUnderliying_INST = entryPrice;
 
             return enumLegTP switch
             {
@@ -472,42 +477,195 @@ namespace AlgoTerminal.Model.Calculation
 
         #endregion
 
+        #region Get Target Profit for Leg When TP Hit
+        private double GetLegTargetProfit_OnEntryPrice(EnumLegTargetProfit enumLegTP,
+            EnumOptiontype enumOptiontype, EnumPosition enumPosition,
+            double TargetProfit,
+            EnumSegments enumSegments,
+            double entryPrice)
+        {
+
+
+            if (enumSegments == EnumSegments.FUTURES)
+                enumOptiontype = EnumOptiontype.XX;
+
+
+
+            return enumLegTP switch
+            {
+                EnumLegTargetProfit.POINTS => GetLegPoint_TP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.POINTPERCENTAGE => GetLegPointPercentage_TP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.UNDERLING => GetLegUnderlingTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                EnumLegTargetProfit.UNDERLINGPERCENTAGE => GetLegUnderlingPercentageTP(entryPrice, enumOptiontype, enumPosition, TargetProfit),
+                _ => throw new NotImplementedException(),
+            };
+        }
+        #endregion
+
+        #region Get StopLoss for Leg on Rentry with old Price
+        private double GetLegStopLoss_OnEntryPrice(EnumLegSL enumLegSL,
+            EnumOptiontype enumOptiontype, EnumPosition enumPosition,
+            double StopLoss,
+            EnumSegments enumSegments,
+            double entryPrice)
+        {
+
+            if (enumSegments == EnumSegments.FUTURES)
+                enumOptiontype = EnumOptiontype.XX;
+
+            return enumLegSL switch
+            {
+                EnumLegSL.POINTS => GetLegPoint_SL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.POINTPERCENTAGE => GetLegPointPercentage_SL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.UNDERLINGPERCENTAGE => GetLegPointPercentage_underlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                EnumLegSL.UNDERLING => GetLegPoint_UnderlyingSL(entryPrice, enumOptiontype, enumPosition, StopLoss),
+                _ => throw new NotImplementedException(),
+            };
+        }
+        #endregion
+
         #region Get Re-Entry Details for Leg When SL Hit
 
-        public InnerObject GetLegDetailsForRentry(EnumLegReEntryOnSL enumLegReEntryOnSL, InnerObject OldLegDetails)
+        public InnerObject GetLegDetailsForRentry_SLHIT(LegDetails leg_Details, InnerObject OldLegDetails, StrategyDetails stg_setting_value)
         {
-            return enumLegReEntryOnSL switch
+            return leg_Details.SettingReEntryOnSL switch
             {
-                EnumLegReEntryOnSL.RECOST => GetLegReEntryForCOST_SL(OldLegDetails),
+                EnumLegReEntryOnSL.RECOST => GetLegReEntryForCOST(OldLegDetails, leg_Details),
+                EnumLegReEntryOnSL.REREVCOST => GetLegReEntryForCOST(OldLegDetails, leg_Details, true),
+                EnumLegReEntryOnSL.REASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value),
+                EnumLegReEntryOnSL.REREVASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value, true),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        private InnerObject GetLegReEntryForCOST_SL(InnerObject OldLegDetails)
+        private InnerObject GetReEntryForASAP(InnerObject OldLegDetails, LegDetails leg_Details, StrategyDetails stg_setting_value, bool Reverse = false)
         {
             InnerObject newLegDetails = new();
-            newLegDetails.Status = EnumStrategyStatus.Added;
-            newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
-            newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
+            if (Reverse)
+                newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+            else
+                newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+
             newLegDetails.Qty = OldLegDetails.Qty;
-            if (newLegDetails.Name.Contains("."))
+            newLegDetails.TradingSymbol = OldLegDetails.TradingSymbol;
+            newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
+            newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
+            //Get Trading Symbol and Token
+            DateTime Expiry = GetLegExpiry(leg_Details.Expiry,
+                                                               stg_setting_value.Index,
+                                                               leg_Details.SelectSegment,
+                                                               leg_Details.OptionType);
+
+
+            double StrikeForLeg = EnumSegments.OPTIONS == leg_Details.SelectSegment ? GetStrike(leg_Details.StrikeCriteria,
+                                                               leg_Details.StrikeType,
+                                                               leg_Details.PremiumRangeLower,
+                                                               leg_Details.PremiumRangeUpper,
+                                                               leg_Details.Premium_or_StraddleWidth,
+                                                               stg_setting_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
+                                                               stg_setting_value.UnderlyingFrom,
+                                                               leg_Details.SelectSegment,
+                                                               leg_Details.Expiry,
+                                                               leg_Details.OptionType,
+                                                                newLegDetails.BuySell) :
+                                                               -0.01;
+
+            uint Token = EnumSegments.OPTIONS == leg_Details.SelectSegment ? ContractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_setting_value.Index, StrikeForLeg) :
+        ContractDetails.GetTokenByContractValue(Expiry, EnumOptiontype.XX, stg_setting_value.Index);
+            string TradingSymbol = ContractDetails.GetContractDetailsByToken(Token).TrdSymbol ?? throw new Exception("for " + Token + " Trading Symbol was not Found in Contract Details.");
+
+            newLegDetails.Token = Token;
+            newLegDetails.TradingSymbol = TradingSymbol;
+            newLegDetails.Status = EnumStrategyStatus.Added;
+            if (leg_Details.IsStopLossEnable == true)
             {
-                var data = newLegDetails.Name.Split('.');
+                newLegDetails.StopLoss = Math.Round(GetLegStopLoss(leg_Details.SettingStopLoss,
+                                                                                leg_Details.OptionType,
+                                                                                leg_Details.Position,
+                                                                                leg_Details.StopLoss,
+                                                                                leg_Details.SelectSegment,
+                                                                                stg_setting_value.Index,
+                                                                                Token, newLegDetails), 2);
+            }
+
+            if (leg_Details.IsTargetProfitEnable == true)
+            {
+                newLegDetails.TargetProfit = Math.Round(GetLegTargetProfit(leg_Details.SettingTargetProfit,
+                                                                                                    leg_Details.OptionType,
+                                                                                                    leg_Details.Position,
+                                                                                                    leg_Details.TargetProfit,
+                                                                                                    leg_Details.SelectSegment,
+                                                                                                    stg_setting_value.Index,
+                                                                                                    Token, newLegDetails), 2);
+            }
+            double _currentLTP = GetStrikePriceLTP(Token);
+            newLegDetails.EntryPrice = _currentLTP;
+
+            if (OldLegDetails.Name.Contains('.'))
+            {
+                var data = OldLegDetails.Name.Split('.');
                 var LastName = double.TryParse(data[1], out double value) ? value : 0;
                 if (LastName != 0)
                 {
+                    LastName /= 100.00;
                     LastName += 0.01;
-                    newLegDetails.Name = data[0] + ".01";
+                    newLegDetails.Name = data[0] + LastName;
                 }
             }
             else
             {
                 newLegDetails.Name = OldLegDetails.Name + ".01";
             }
-            newLegDetails.EntryTime = OldLegDetails.EntryTime;
-            newLegDetails.Token = OldLegDetails.Token;
 
+            return newLegDetails;
+
+        }
+
+        private InnerObject GetLegReEntryForCOST(InnerObject OldLegDetails, LegDetails leg_Details, bool Reverse = false)
+        {
+            InnerObject newLegDetails = new();
+            newLegDetails.Status = EnumStrategyStatus.Added;
+            if (Reverse)
+                newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+            else
+                newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+            newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
+            newLegDetails.Qty = OldLegDetails.Qty;
+            if (OldLegDetails.Name.Contains('.'))
+            {
+                var data = OldLegDetails.Name.Split('.');
+                var LastName = double.TryParse(data[1], out double value) ? value : 0;
+                if (LastName != 0)
+                {
+                    LastName /= 100.00;
+                    LastName += 0.01;
+                    newLegDetails.Name = data[0] + LastName;
+                }
+            }
+            else
+            {
+                newLegDetails.Name = OldLegDetails.Name + ".01";
+            }
+            newLegDetails.Token = OldLegDetails.Token;
             //calculate the STOP LOSS VALUE
+            newLegDetails.StopLoss = GetLegStopLoss_OnEntryPrice(leg_Details.SettingStopLoss,
+                                        leg_Details.OptionType,
+                                        newLegDetails.BuySell,
+                                        leg_Details.StopLoss,
+                                        leg_Details.SelectSegment,
+                                        OldLegDetails.EntryUnderliying_INST);
+
+            newLegDetails.TargetProfit = GetLegTargetProfit_OnEntryPrice(leg_Details.SettingTargetProfit,
+                                        leg_Details.OptionType,
+                                        newLegDetails.BuySell,
+                                        leg_Details.TargetProfit,
+                                        leg_Details.SelectSegment,
+                                        OldLegDetails.EntryUnderliying_INST);
+
+            newLegDetails.TradingSymbol = OldLegDetails.TradingSymbol;
+            newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
+            newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
+            newLegDetails.EntryUnderliying_INST = OldLegDetails.EntryUnderliying_INST;
 
             return newLegDetails;
 
@@ -517,7 +675,17 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Get Re-Entry Details for Leg When TP Hit
 
-
+        public InnerObject GetLegDetailsForRentry_TPHIT(LegDetails leg_Details, InnerObject OldLegDetails, StrategyDetails stg_setting_value)
+        {
+            return leg_Details.SettingReEntryOnTgt switch
+            {
+                EnumLegReEntryOnTarget.RECOST => GetLegReEntryForCOST(OldLegDetails, leg_Details),
+                EnumLegReEntryOnTarget.REREVCOST => GetLegReEntryForCOST(OldLegDetails, leg_Details, true),
+                EnumLegReEntryOnTarget.REASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value),
+                EnumLegReEntryOnTarget.REREVASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value, true),
+                _ => throw new NotImplementedException(),
+            };
+        }
 
         #endregion
 
@@ -531,7 +699,7 @@ namespace AlgoTerminal.Model.Calculation
         /// <param name="yStopLoss"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public bool GetTrailSLHit(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount_Percentage, double ltp)
+        private bool GetTrailSLHit(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount_Percentage, double ltp)
         {
 
             return enumLegTrailSL switch
@@ -544,7 +712,7 @@ namespace AlgoTerminal.Model.Calculation
 
         private bool GetLegPointPercentageTrailSL(double entryPrice, double xAmount_Percentage, double ltp)
         {
-            return entryPrice + entryPrice * xAmount_Percentage / 100 >= ltp;
+            return entryPrice + entryPrice * xAmount_Percentage / 100.00 >= ltp;
         }
 
         private bool GetLegPointTailSL(double entryPrice, double xAmount_Percentage, double ltp)
@@ -552,6 +720,31 @@ namespace AlgoTerminal.Model.Calculation
             return entryPrice + xAmount_Percentage >= ltp;
         }
 
+        #endregion
+
+        #region New Leg Trail SL HIT Value
+        public void UpdateLegSLTrail_IF_HIT(InnerObject portfolio_leg_value, LegDetails leg_Details)
+        {
+
+            if (GetTrailSLHit(leg_Details.SettingTrailEnable, portfolio_leg_value.EntryPrice, leg_Details.TrailSlAmount, GetStrikePriceLTP(portfolio_leg_value.Token)))
+            {
+                if(leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTS)
+                {
+                    if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                        portfolio_leg_value.StopLoss -= leg_Details.TrailSlStopLoss;
+                    else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                        portfolio_leg_value.StopLoss += leg_Details.TrailSlStopLoss;
+                }
+                else if(leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTPERCENTAGE)
+                {
+                    if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                        portfolio_leg_value.StopLoss = leg_Details.TrailSlStopLoss - leg_Details.TrailSlStopLoss * leg_Details.TrailSlStopLoss/100.00;
+                    else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                        portfolio_leg_value.StopLoss = leg_Details.TrailSlStopLoss + leg_Details.TrailSlStopLoss * leg_Details.TrailSlStopLoss / 100.00;
+                }
+               
+            }
+        }
         #endregion
 
         #region Get Expiry
@@ -863,6 +1056,38 @@ namespace AlgoTerminal.Model.Calculation
             return false;
 
         }
+
+
+
+        #endregion
+
+        #region Is Price Match For Re entry
+        public async Task<bool> IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
+        {
+            try
+            {
+                if (sL_HIT)
+                {
+                    while (entryPrice >= GetInstrumentPrice(token))
+                    {
+                        await Task.Delay(500);
+                    }
+                }
+                else if (tP_HIT)
+                {
+                    while (GetInstrumentPrice(token) <= entryPrice)
+                    {
+                        await Task.Delay(500);
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }

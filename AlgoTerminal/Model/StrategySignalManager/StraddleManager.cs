@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -129,15 +130,15 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                                     }
-
+                                    InnerObject innerObject = null;
                                     //check re-entry of Leg {Place =>if true}
                                     if (leg_Details.IsReEntryOnSLEnable == true && SL_HIT)
                                     {
-                                        if (portfolio_leg_value.TotalReentryOnSL > 0)
+                                        if (portfolio_leg_value.ReEntrySL > 0)
                                         {
-                                            portfolio_leg_value.TotalReentryOnSL--;
+                                            portfolio_leg_value.ReEntrySL--;
                                             //CODE HERE
-                                            var NewLeg = algoCalculation.GetLegDetailsForRentry(leg_Details.SettingReEntryOnSL,portfolio_leg_value);
+                                            innerObject = algoCalculation.GetLegDetailsForRentry_SLHIT(leg_Details,portfolio_leg_value, stg_setting_value);
 
                                             //calculate new StopLoss For Leg
 
@@ -145,12 +146,75 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     }
                                     if (leg_Details.IsReEntryOnTgtEnable == true && TP_HIT)
                                     {
-                                        if (portfolio_leg_value.TotalReentryOnTP > 0)
+                                        if (portfolio_leg_value.ReEntryTP > 0)
                                         {
-                                            portfolio_leg_value.TotalReentryOnTP--;
+                                            portfolio_leg_value.ReEntryTP--;
                                             //CODE HERE
-
+                                            innerObject = algoCalculation.GetLegDetailsForRentry_TPHIT(leg_Details, portfolio_leg_value, stg_setting_value);
                                         }
+                                    }
+
+                                    if(innerObject != null)
+                                    {
+                                        leg_value.TryAdd(innerObject.Name, leg_Details);
+                                        await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                                        {
+
+                                            Portfolio_value.InnerObject.Add(innerObject);
+
+                                        }), DispatcherPriority.Background, null);
+                                        General.Portfolios.TryUpdate(Portfolio_value.Name, Portfolio_value, General.Portfolios[Portfolio_value.Name]);
+
+                                        //Place the Order Using NNAPI 
+                                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, innerObject);
+
+                                        if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REASAP || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVASAP
+                                        || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REASAP || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVASAP)
+                                        {
+                                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                                                 Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID); //Here the orderID and the StgID both are Same . will use same stg id in other updation
+                                            innerObject.Status = EnumStrategyStatus.Running;                                                         //GUI
+                                        }
+                                        else if(leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.RECOST || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVCOST
+                                        || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.RECOST || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVCOST) 
+                                        {
+                                            //wait for the Price and then Fire
+                                            Task.Run(new Action(async () =>
+                                            {
+                                                var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
+                                                if (data == true)
+                                                {
+                                                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                                                Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+                                                innerObject.Status = EnumStrategyStatus.Running;
+                                                }
+                                            }));
+                                        }
+
+
+                                        innerObject.STG_ID = OrderID;
+                                     
+                                        innerObject.EntryTime = DateTime.Now;
+                                        General.PortfolioLegByTokens.AddOrUpdate(innerObject.Token, new List<InnerObject>() { innerObject }, (key, list) =>
+                                        {
+                                            list.Add(innerObject);
+                                            return list;
+                                        });
+
+                                       
+
+
+                                    }
+
+                                    #endregion
+
+
+                                    #region TRAIL SL FOR Leg Check and Update
+
+                                    if (leg_Details.IsTrailSlEnable == true)
+                                    {
+                                        algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value,leg_Details);
                                     }
                                     #endregion
                                 }
@@ -224,7 +288,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)portfolio_leg_value.Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
                          Buysell: enumPosition, OrderType.LIMIT, 0, portfolio_leg_value.STG_ID);
                     portfolio_leg_value.ExitPrice = _currentLTP;
-                    if (enumStrategyStatus == EnumStrategyStatus.None)
+                    portfolio_leg_value.ExitTime = DateTime.Now;
+                    if (enumStrategyStatus != EnumStrategyStatus.None)
                     {
                         portfolio_leg_value.Status = enumStrategyStatus;
                     }
@@ -465,8 +530,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         portfolio_leg_value.Token = Token;
                                         portfolio_leg_value.TradingSymbol = TradingSymbol;
                                         portfolio_leg_value.Status = EnumStrategyStatus.Waiting;
-                                        portfolio_leg_value.TotalReentryOnSL = leg_Details.ReEntryOnSL;
-                                        portfolio_leg_value.TotalReentryOnTP = leg_Details.ReEntryOnTgt;
+                                        portfolio_leg_value.ReEntrySL = leg_Details.ReEntryOnSL;
+                                        portfolio_leg_value.ReEntryTP = leg_Details.ReEntryOnTgt;
 
 
 
@@ -501,7 +566,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                                             leg_Details.StopLoss,
                                                                                                             leg_Details.SelectSegment,
                                                                                                             stg_setting_value.Index,
-                                                                                                            Token), 2);
+                                                                                                            Token, portfolio_leg_value), 2);
                                         }
 
                                         if (leg_Details.IsTargetProfitEnable == true)
@@ -512,7 +577,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                                                                 leg_Details.TargetProfit,
                                                                                                                                 leg_Details.SelectSegment,
                                                                                                                                 stg_setting_value.Index,
-                                                                                                                                Token), 2);
+                                                                                                                                Token, portfolio_leg_value), 2);
                                         }
                                         double _currentLTP = algoCalculation.GetStrikePriceLTP(Token);
 

@@ -31,9 +31,9 @@ namespace AlgoTerminal.ViewModel
             {
                 var result = MessageBox.Show("Do You Want to Stop the Strategy? " + SelectedItem.Name, "ALERT", MessageBoxButton.OKCancel);
                 var result2 = SelectedItem;
-                if(result == MessageBoxResult.Yes)
+                if(result == MessageBoxResult.OK)
                 {
-                    straddleManager.SquareOffStraddle920(result2,EnumDeclaration.EnumStrategyStatus.Stopped);
+                    straddleManager.SquareOffStraddle920(result2,EnumDeclaration.EnumStrategyStatus.Manualsquareoff);
                 }
                
             }

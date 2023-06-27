@@ -123,9 +123,9 @@ namespace AlgoTerminal.Model.Response
 
                 //OrderBook will remain common for auto order as well as manual order.
                 #region OrderBook Managment
-                if (OrderManagerModel.OrderBook_Dicc_By_ClientID.ContainsKey(iUserData))
+                if (OrderManagerModel.OrderBook_Dicc_By_ClientID.ContainsKey(AdminOrderID))
                 {
-                    OrderBookModel orderBookModel = OrderManagerModel.OrderBook_Dicc_By_ClientID[iUserData];
+                    OrderBookModel orderBookModel = OrderManagerModel.OrderBook_Dicc_By_ClientID[AdminOrderID];
                     orderBookModel.OrderQty = Qty;
                     orderBookModel.TradedQty = Qty - PendingQty;
                     orderBookModel.TriggerPrice = TriggerPrice;
@@ -174,7 +174,7 @@ namespace AlgoTerminal.Model.Response
                     orderBookModel.RejectionReason = RejectionReason;
 
                     //Add to ViewModel Obser
-                    if (OrderManagerModel.OrderBook_Dicc_By_ClientID.TryAdd(iUserData, orderBookModel))
+                    if (OrderManagerModel.OrderBook_Dicc_By_ClientID.TryAdd(AdminOrderID, orderBookModel))
                     {
                         Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                         {
