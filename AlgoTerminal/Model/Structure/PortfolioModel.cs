@@ -193,6 +193,7 @@ namespace AlgoTerminal.Model.Structure
                 if (_entryPrice != value)
                 {
                     _entryPrice = value;
+                    UpdateInFavorAmountforTrailSLleg = value;
                     OnPropertyChanged(nameof(EntryPrice));
                 }
             }
@@ -337,7 +338,8 @@ namespace AlgoTerminal.Model.Structure
         //Hidden INFO
         public uint Token { get; set; }
         //For Calculation
-
+        public EnumUnderlyingFrom enumUnderlyingFromForLeg { get; set; }
+        public double UpdateInFavorAmountforTrailSLleg { get; set; }
         public double EntryUnderliying_INST { get; set; }
         public double BuyAveragePrice { get; set; }
         public double SellAveragePrice { get; set; }

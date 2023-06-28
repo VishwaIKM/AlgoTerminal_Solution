@@ -90,8 +90,6 @@
                             <DataGridTextColumn Header="Qty" Width="*" Binding="{Binding Qty}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="SL" Width="50" Binding="{Binding StopLoss}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="TP" Width="50" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Re SL" Width="66" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Re TP" Width="66" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
                         </DataGrid.Columns>
 
@@ -131,8 +129,6 @@
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="SL" Width="*" Binding="{Binding StopLoss}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="TP" Width="*" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Re SL" Width="*" Binding="{Binding ReEntrySL}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Re TP" Width="*" Binding="{Binding ReEntryTP}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="UID" Width="100" Binding="{Binding UserID}" IsReadOnly="True"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
