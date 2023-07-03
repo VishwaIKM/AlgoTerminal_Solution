@@ -45,8 +45,15 @@ namespace AlgoTerminal.Model
         {
             try
             {
+                //Save ALL Data of Dicc
+                //Code Here....
+
+
+
                 var feedStarted = feed.FeedToStop();//Feed start
                 LoginViewModel.NNAPIRequest.LogOutRequest();
+
+               
             }
             catch(Exception ex)
             {

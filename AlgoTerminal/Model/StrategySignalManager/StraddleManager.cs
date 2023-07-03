@@ -8,7 +8,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -18,42 +17,42 @@ namespace AlgoTerminal.Model.StrategySignalManager
 {
     public class StraddleManager : IStraddleManager
     {
-
+        #region var & filed
         private readonly IStraddleDataBaseLoadFromCsv straddleDataBaseLoad;
         private readonly ILogFileWriter logFileWriter;
         private readonly IAlgoCalculation algoCalculation;
         DispatcherTimer dispatcherTimer = new();
+        #endregion
 
-
-
-
+        #region Methods & const.
         public StraddleManager(IStraddleDataBaseLoadFromCsv straddleDataBaseLoad,
             ILogFileWriter logFileWriter,
             IAlgoCalculation algoCalculation
            )
         {
-
             General.Portfolios ??= new();
             General.PortfolioLegByTokens ??= new();
             this.straddleDataBaseLoad = straddleDataBaseLoad;
             this.logFileWriter = logFileWriter;
             this.algoCalculation = algoCalculation;
-
-
-
-
         }
 
         #region Update The TRAIL SL ==> SL HIT ==> TP HIT ==> RE-ENTRY COMMAND:
-
+        /// <summary>
+        /// Time Init Method TIMESPAN()=> MILISECOND
+        /// </summary>
         private void StartMonitoringCommand()
         {
             dispatcherTimer.Tick += new EventHandler(MonitoringThread);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
             dispatcherTimer.Start();
         }
-
-        private async void MonitoringThread(object? sender, EventArgs e)
+        /// <summary>
+        /// Checking the Portfolio SL TP Trail SL and ReEntry
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MonitoringThread(object? sender, EventArgs e)
         {
 
             //TO DO:
@@ -63,6 +62,15 @@ namespace AlgoTerminal.Model.StrategySignalManager
             //4. Partail leg squre off or full stg if any leg sl hit
             try
             {
+                if (straddleDataBaseLoad.Master_Straddle_Dictionary == null)
+                    throw new Exception("Master STG is Empty Function from MonitoringThread.");
+
+                if (straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null)
+                    throw new Exception("Master LEG is Empty Function from MonitoringThread.");
+
+                if (General.Portfolios == null)
+                    throw new Exception("General Portfolio is Empty Function from MonitoringThread.");
+
 
                 foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
                 {//ALL STG
@@ -74,14 +82,18 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         var Portfolio_value = General.Portfolios[stg_key];
                         var leg_value = straddleDataBaseLoad.Straddle_LegDetails_Dictionary[stg_key];
                         foreach (string Leg in leg_value.Keys)
-                        {//ALL LEG
+                        {
+                            #region Leg watcher
                             var leg_Details = leg_value[Leg];
                             var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+                                                 
                             try
                             {
-                                if (portfolio_leg_value.ExitPrice == 0 && portfolio_leg_value.Status != EnumStrategyStatus.Added) // Exit price != 0 means this leg is Complete
+                                if (portfolio_leg_value.ExitPrice == 0 && portfolio_leg_value.Status != EnumStrategyStatus.Added && portfolio_leg_value.IsLegInMonitoringQue) // Exit price != 0 means this leg is Complete
                                 {
-                                    //Trail the SL for LEG
+                                    
+                                    portfolio_leg_value.IsLegInMonitoringQue = false;
+                               
                                     #region TRAIL SL FOR Leg Check and Update
 
                                     if (leg_Details.IsTrailSlEnable == true)
@@ -89,7 +101,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value, leg_Details);
                                     }
                                     #endregion
-                                    //Check Leg SL
+                               
                                     #region Check SL/ TP for LEG
                                     bool SL_HIT = false, TP_HIT = false;
                                     if (leg_Details.IsStopLossEnable == true && portfolio_leg_value.StopLoss > 0)
@@ -128,91 +140,25 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     {
                                         //leg squareOff
                                         await SquareOffStraddle920Leg(portfolio_leg_value);
+                                        ReEntryAndPlaceOrderCommon(SL_HIT,TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value,Portfolio_value,leg_value);
 
                                     }
                                     else if (stg_setting_value.SquareOff == EnumSquareOff.COMPLETE && (SL_HIT || TP_HIT))
                                     {
                                         IsStgSquareOffRequestSend = true;
-                                        //Stg SquareOff
+                                        //all Leg Square off
                                         await SquareOffStraddle920(Portfolio_value);
-
-
-                                    }
-                                    InnerObject innerObject = null;
-                                    //check re-entry of Leg {Place =>if true}
-                                    if (leg_Details.IsReEntryOnSLEnable == true && SL_HIT)
-                                    {
-                                        if (portfolio_leg_value.ReEntrySL > 0)
+                                        //Need to find Simple Solution  =================> MARK HERE
+                                        foreach(string ChildLeg in leg_value.Keys)
                                         {
-                                            portfolio_leg_value.ReEntrySL--;
-                                            //CODE HERE
-                                            innerObject = algoCalculation.GetLegDetailsForRentry_SLHIT(leg_Details,portfolio_leg_value, stg_setting_value);
-
-                                            //calculate new StopLoss For Leg
-
-                                        }
-                                    }
-                                    if (leg_Details.IsReEntryOnTgtEnable == true && TP_HIT)
-                                    {
-                                        if (portfolio_leg_value.ReEntryTP > 0)
-                                        {
-                                            portfolio_leg_value.ReEntryTP--;
-                                            //CODE HERE
-                                            innerObject = algoCalculation.GetLegDetailsForRentry_TPHIT(leg_Details, portfolio_leg_value, stg_setting_value);
-                                        }
-                                    }
-
-                                    if(innerObject != null)
-                                    {
-                                        leg_value.TryAdd(innerObject.Name, leg_Details);
-                                        await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                                        {
-
-                                            Portfolio_value.InnerObject.Add(innerObject);
-
-                                        }), DispatcherPriority.Background, null);
-                                        General.Portfolios.TryUpdate(Portfolio_value.Name, Portfolio_value, General.Portfolios[Portfolio_value.Name]);
-
-                                        //Place the Order Using NNAPI 
-                                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
-                                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, innerObject);
-
-                                        if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REASAP || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVASAP
-                                        || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REASAP || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVASAP)
-                                        {
-                                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
-                                                 Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID); //Here the orderID and the StgID both are Same . will use same stg id in other updation
-                                            innerObject.Status = EnumStrategyStatus.OrderPlaced;                                                         //GUI
-                                        }
-                                        else if(leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.RECOST || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVCOST
-                                        || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.RECOST || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVCOST) 
-                                        {
-                                            //wait for the Price and then Fire
-                                            Task.Run(new Action(async () =>
+                                            var child_leg_Details = leg_value[Leg];
+                                            var child_portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == ChildLeg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+                                            if (child_portfolio_leg_value.ExitPrice == 0 && child_portfolio_leg_value.Status != EnumStrategyStatus.Added)
                                             {
-                                                var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
-                                                if (data == true)
-                                                {
-                                                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
-                                                Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
-                                                innerObject.Status = EnumStrategyStatus.OrderPlaced;
-                                                }
-                                            }));
+                                                await SquareOffStraddle920Leg(child_portfolio_leg_value);
+                                                ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
+                                            }
                                         }
-
-
-                                        innerObject.STG_ID = OrderID;
-                                     
-                                        innerObject.EntryTime = DateTime.Now;
-                                        General.PortfolioLegByTokens.AddOrUpdate(innerObject.Token, new List<InnerObject>() { innerObject }, (key, list) =>
-                                        {
-                                            list.Add(innerObject);
-                                            return list;
-                                        });
-
-                                       
-
-
                                     }
 
                                     #endregion
@@ -222,7 +168,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             }
                             catch { }
 
+                            portfolio_leg_value.IsLegInMonitoringQue = true;
+                            #endregion Leg watcher End
+
                         }
+                        #region STG Watcher
                         if (!IsStgSquareOffRequestSend) //if square of  then no need to check SL AND TP OR RE-ENTRY
                         {
                             bool Overall_SL_HIT = false, Overall_TP_HIT = false;
@@ -251,26 +201,246 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 }
                             }
 
-                            if (Overall_SL_HIT && Portfolio_value.ReEntrySL > 0)
+                            if((Overall_SL_HIT && Portfolio_value.ReEntrySL > 0) || Overall_TP_HIT && Portfolio_value.ReEntryTP > 0)
                             {
-                                Portfolio_value.ReEntrySL--;
-                                //code here for Rentry of STG
+                                OverallStrategyReEntry(Overall_SL_HIT, Overall_TP_HIT, Portfolio_value, stg_key);
                             }
 
-                            if (Overall_TP_HIT && Portfolio_value.ReEntryTP > 0)
-                            {
-                                Portfolio_value.ReEntryTP--;
-                                //Code Here for Rentry of STG
-                            }
+
+                           
                         }
+                        #endregion Watcher end
                     }));
 
                 }
             }
-            catch (Exception ex) { logFileWriter.WriteLog(EnumLogType.Error, ex.StackTrace + ex.Message); }
+            catch (Exception ex) { logFileWriter.WriteLog(EnumLogType.Error, ex.Message + "  " + ex.StackTrace); }
         }
 
 
+        private void OverallStrategyReEntry(bool Overall_SL_HIT, bool Overall_TP_HIT, PortfolioModel Portfolio_value, string old_stg_key)
+        {
+            try
+            {
+                //Add to dic
+                //Master STG DIC + ALL LEG TO REENTER in Master leg DIC
+                //New Portfolio Dic
+                //New inner Object
+
+                if (Overall_SL_HIT)
+                    Portfolio_value.ReEntrySL--;
+                else
+                    Portfolio_value.ReEntryTP--;
+
+                //Clone the Master Dic <T> Value
+                var clone_stg_setting_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Master_Straddle_Dictionary[old_stg_key]);
+                var clone_leg_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Straddle_LegDetails_Dictionary[old_stg_key]);
+
+
+                //Change The Name 
+                string new_stg_key = OtherMethods.GetNewName(old_stg_key);
+                
+                //Add TO Master Table/Dic
+                if(straddleDataBaseLoad.Master_Straddle_Dictionary.ContainsKey(new_stg_key))
+                {
+                    //BUG
+                    logFileWriter.WriteLog(EnumLogType.Error, new_stg_key + "This key already added in Master_Straddle_Dictionary");
+                }
+                else
+                {
+                    straddleDataBaseLoad.Master_Straddle_Dictionary.TryAdd(new_stg_key, clone_stg_setting_value);
+                }
+                if (straddleDataBaseLoad.Straddle_LegDetails_Dictionary.ContainsKey(new_stg_key))
+                {
+                    //BUG
+                    logFileWriter.WriteLog(EnumLogType.Error, new_stg_key + "This key already added in Straddle_LegDetails_Dictionary");
+                }
+                else
+                {
+                    straddleDataBaseLoad.Straddle_LegDetails_Dictionary.TryAdd(new_stg_key, clone_leg_value);
+                }
+
+                //Add New Portfolio
+                PortfolioModel portfolioModel = new();
+                portfolioModel.Name = new_stg_key;
+                portfolioModel.Index = clone_stg_setting_value.Index;
+                portfolioModel.EntryTime = DateTime.Now;
+                portfolioModel.ExitTime = clone_stg_setting_value.ExitTime;
+                portfolioModel.UserID = clone_stg_setting_value.UserID;
+                portfolioModel.InnerObject ??= new();
+
+                if (!General.Portfolios.ContainsKey(portfolioModel.Name))
+                {
+                    General.Portfolios.TryAdd(portfolioModel.Name, portfolioModel);
+                 
+                    //Initial leg load in DataBase and GUI INIT
+                    foreach (var Leg in clone_leg_value.Keys)
+                    {
+                        try
+                        {
+                            var leg_value = clone_leg_value[Leg];
+                            InnerObject innerObject = new();
+                            innerObject.StgName = new_stg_key;
+                            innerObject.Name = Leg;
+
+                            //Change if Reverce --------------------------------------------------------------------------------------
+                            innerObject.BuySell = leg_value.Position;
+                            //-------------------------------------------------------------------------------------------------------
+
+                            innerObject.Status = EnumStrategyStatus.Added;
+                            innerObject.TradingSymbol = "Loading ...";
+                            innerObject.Qty = leg_value.Lots;
+                            innerObject.enumUnderlyingFromForLeg = clone_stg_setting_value.UnderlyingFrom;
+                            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                            {
+
+                                portfolioModel.InnerObject.Add(innerObject);
+
+                            }), DispatcherPriority.Background, null);
+
+                            //ADD TO GUI
+                            General.Portfolios.TryUpdate(portfolioModel.Name, portfolioModel, General.Portfolios[portfolioModel.Name]);
+                        }
+                        catch (Exception ex)
+                        {
+                            logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
+                        }
+                    }
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+
+                        PortfolioViewModel.StrategyDataCollection.Add(portfolioModel);
+
+                    }), DispatcherPriority.Background, null);
+
+
+
+                    //Place The Order according to Setting
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                logFileWriter.WriteLog(EnumLogType.Error,ex.Message + "  " +ex.StackTrace);
+            }
+        }
+
+
+
+        /// <summary>
+        ///  Make Re-Entry for the Order
+        /// </summary>
+        /// <param name="SL_HIT"></param>
+        /// <param name="TP_HIT"></param>
+        /// <param name="portfolio_leg_value"></param>
+        /// <param name="leg_Details"></param>
+        /// <param name="stg_setting_value"></param>
+        /// <param name="Portfolio_value"></param>
+        /// <param name="leg_value"></param>
+        private async void ReEntryAndPlaceOrderCommon(bool SL_HIT, bool TP_HIT, InnerObject portfolio_leg_value, LegDetails leg_Details, StrategyDetails stg_setting_value, PortfolioModel Portfolio_value, ConcurrentDictionary<string, LegDetails> leg_value)
+        {
+            try
+            {
+                InnerObject innerObject = null;
+                //check re-entry of Leg {Place =>if true}
+                if (leg_Details.IsReEntryOnSLEnable == true && SL_HIT)
+                {
+                    if (portfolio_leg_value.ReEntrySL > 0)
+                    {
+                        portfolio_leg_value.ReEntrySL--;
+                        //CODE HERE
+                        innerObject = algoCalculation.GetLegDetailsForRentry_SLHIT(leg_Details, portfolio_leg_value, stg_setting_value);
+
+                        //calculate new StopLoss For Leg
+
+                    }
+                }
+                if (leg_Details.IsReEntryOnTgtEnable == true && TP_HIT)
+                {
+                    if (portfolio_leg_value.ReEntryTP > 0)
+                    {
+                        portfolio_leg_value.ReEntryTP--;
+                        //CODE HERE
+                        innerObject = algoCalculation.GetLegDetailsForRentry_TPHIT(leg_Details, portfolio_leg_value, stg_setting_value);
+                    }
+                }
+
+                if (innerObject != null)
+                {
+                    leg_value.TryAdd(innerObject.Name, leg_Details);
+                    await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        Portfolio_value.InnerObject.Add(innerObject);
+                    }), DispatcherPriority.Background, null);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                    General.Portfolios.TryUpdate(Portfolio_value.Name, Portfolio_value, General.Portfolios[Portfolio_value.Name]);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+
+                    //Place the Order Using NNAPI 
+                    int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                    OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, innerObject);
+                    if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.RECOST || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVCOST
+                    || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.RECOST || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVCOST)
+                    {
+                        //wait for the Price and then Fire
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                        Task.Run(new Action(async () =>
+                        {
+                            var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
+                            if (data == true)
+                            {
+                                LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                            Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+                                innerObject.Status = EnumStrategyStatus.OrderPlaced;
+                            }
+                        }));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                    }
+                    else if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REASAP || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVASAP
+                    || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REASAP || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVASAP || leg_Details.IsSimpleMomentumEnable == false)
+                    {
+                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                             Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+                    }
+                    else if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REMOMENTUM || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVMOMENTUM
+                    || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REMOMENTUM || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVMOMENTUM)
+                    {
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                        Task.Run(new Action(async () =>
+                        {
+                            innerObject = algoCalculation.IsSimpleMovementumHitForRentry(innerObject, leg_Details, stg_setting_value);
+
+                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                    Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+                            innerObject.Status = EnumStrategyStatus.OrderPlaced;
+
+                        }));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                    }
+
+                    innerObject.STG_ID = OrderID;
+
+                    innerObject.EntryTime = DateTime.Now;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                    General.PortfolioLegByTokens.AddOrUpdate(innerObject.Token, new List<InnerObject>() { innerObject }, (key, list) =>
+                    {
+                        list.Add(innerObject);
+                        return list;
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                logFileWriter.WriteLog(EnumLogType.Error, ex.StackTrace+ex.Message);
+            }
+        }
+
+
+        #endregion
+
+
+        #region SquareOff Straddle 
         /// <summary>
         /// Partial Square off using Straddle #0920 using strategy key and Leg Key
         /// </summary>
@@ -304,9 +474,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 }
             }
         }
-
-        #endregion
-
         /// <summary>
         /// Strategy Square off using Strategy Key
         /// </summary>
@@ -333,6 +500,10 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
             return true;
         }
+
+        #endregion
+
+        #region INIT>>>
         /// <summary>
         /// fILE lOADING
         /// </summary>
@@ -695,6 +866,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
             }
         }
 
+        #endregion
+
 
         /// <summary>
         /// Re Entry Straddle #0920  Using Key Entry
@@ -706,6 +879,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
             return false;
         }
 
-
+        #endregion
     }
 }

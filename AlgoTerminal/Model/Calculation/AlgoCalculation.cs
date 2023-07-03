@@ -564,23 +564,105 @@ namespace AlgoTerminal.Model.Calculation
                 EnumLegReEntryOnSL.REREVCOST => GetLegReEntryForCOST(OldLegDetails, leg_Details, true),
                 EnumLegReEntryOnSL.REASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value),
                 EnumLegReEntryOnSL.REREVASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value, true),
-                EnumLegReEntryOnSL.REMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails,leg_Details,stg_setting_value),
-                EnumLegReEntryOnSL.REREVMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails,leg_Details,stg_setting_value,true),
+                EnumLegReEntryOnSL.REMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails, leg_Details, stg_setting_value),
+                EnumLegReEntryOnSL.REREVMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails, leg_Details, stg_setting_value, true),
                 _ => throw new NotImplementedException(),
             };
         }
         private InnerObject GetReEntryForMOMENTUM(InnerObject OldLegDetails, LegDetails leg_Details, StrategyDetails stg_setting_value, bool Reverse = false)
         {
+
+            if (leg_Details.IsSimpleMomentumEnable == false)
+            {
+                return GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value, Reverse);
+            }
+
             InnerObject newLegDetails = new();
             if (Reverse)
                 newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             else
                 newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+            newLegDetails.Qty = OldLegDetails.Qty;
+            newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
+            newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
 
+            //Get Trading Symbol and Token
+            DateTime Expiry = GetLegExpiry(leg_Details.Expiry,
+                                                               stg_setting_value.Index,
+                                                               leg_Details.SelectSegment,
+                                                               leg_Details.OptionType);
+            double StrikeForLeg = EnumSegments.OPTIONS == leg_Details.SelectSegment ? GetStrike(leg_Details.StrikeCriteria,
+                                                              leg_Details.StrikeType,
+                                                              leg_Details.PremiumRangeLower,
+                                                              leg_Details.PremiumRangeUpper,
+                                                              leg_Details.Premium_or_StraddleWidth,
+                                                              stg_setting_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
+                                                              stg_setting_value.UnderlyingFrom,
+                                                              leg_Details.SelectSegment,
+                                                              leg_Details.Expiry,
+                                                              leg_Details.OptionType,
+                                                               newLegDetails.BuySell) :
+                                                              -0.01;
+            uint Token = EnumSegments.OPTIONS == leg_Details.SelectSegment ? ContractDetails.GetTokenByContractValue(Expiry, leg_Details.OptionType, stg_setting_value.Index, StrikeForLeg) :
+       ContractDetails.GetTokenByContractValue(Expiry, EnumOptiontype.XX, stg_setting_value.Index);
+            string TradingSymbol = ContractDetails.GetContractDetailsByToken(Token).TrdSymbol ?? throw new Exception("for " + Token + " Trading Symbol was not Found in Contract Details.");
 
+            newLegDetails.Token = Token;
+            newLegDetails.TradingSymbol = TradingSymbol;
+            newLegDetails.Status = EnumStrategyStatus.Added;
 
+            //if (OldLegDetails.Name.Contains('.'))
+            //{
+            //    var data = OldLegDetails.Name.Split('.');
+            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
+            //    if (LastName != 0)
+            //    {
+            //        LastName /= 100.00;
+            //        LastName += 0.01;
+            //        newLegDetails.Name = data[0] + LastName;
+            //    }
+            //}
+            //else
+            //{
+            //    newLegDetails.Name = OldLegDetails.Name + ".01";
+            //}
+
+            newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
             return newLegDetails;
 
+        }
+        public InnerObject IsSimpleMovementumHitForRentry(InnerObject newLegDetails, LegDetails leg_Details, StrategyDetails stg_setting_value)
+        {
+            var data2 = GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
+                                                                    leg_Details.SimpleMomentum,
+                                                                    stg_setting_value.Index,
+                                                                    newLegDetails.Token).Result;
+
+            if (leg_Details.IsStopLossEnable == true)
+            {
+                newLegDetails.StopLoss = Math.Round(GetLegStopLoss(leg_Details.SettingStopLoss,
+                                                                                leg_Details.OptionType,
+                                                                                leg_Details.Position,
+                                                                                leg_Details.StopLoss,
+                                                                                leg_Details.SelectSegment,
+                                                                                stg_setting_value.Index,
+                                                                                newLegDetails.Token, newLegDetails), 2);
+            }
+
+            if (leg_Details.IsTargetProfitEnable == true)
+            {
+                newLegDetails.TargetProfit = Math.Round(GetLegTargetProfit(leg_Details.SettingTargetProfit,
+                                                                                                    leg_Details.OptionType,
+                                                                                                    leg_Details.Position,
+                                                                                                    leg_Details.TargetProfit,
+                                                                                                    leg_Details.SelectSegment,
+                                                                                                    stg_setting_value.Index,
+                                                                                                    newLegDetails.Token, newLegDetails), 2);
+            }
+
+            double _currentLTP = GetStrikePriceLTP(newLegDetails.Token);
+            newLegDetails.EntryPrice = _currentLTP;
+            return newLegDetails;
         }
         private InnerObject GetReEntryForASAP(InnerObject OldLegDetails, LegDetails leg_Details, StrategyDetails stg_setting_value, bool Reverse = false)
         {
@@ -644,22 +726,22 @@ namespace AlgoTerminal.Model.Calculation
             double _currentLTP = GetStrikePriceLTP(Token);
             newLegDetails.EntryPrice = _currentLTP;
 
-            if (OldLegDetails.Name.Contains('.'))
-            {
-                var data = OldLegDetails.Name.Split('.');
-                var LastName = double.TryParse(data[1], out double value) ? value : 0;
-                if (LastName != 0)
-                {
-                    LastName /= 100.00;
-                    LastName += 0.01;
-                    newLegDetails.Name = data[0] + LastName;
-                }
-            }
-            else
-            {
-                newLegDetails.Name = OldLegDetails.Name + ".01";
-            }
-
+            //if (OldLegDetails.Name.Contains('.'))
+            //{
+            //    var data = OldLegDetails.Name.Split('.');
+            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
+            //    if (LastName != 0)
+            //    {
+            //        LastName /= 100.00;
+            //        LastName += 0.01;
+            //        newLegDetails.Name = data[0] + LastName;
+            //    }
+            //}
+            //else
+            //{
+            //    newLegDetails.Name = OldLegDetails.Name + ".01";
+            //}
+            newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
             return newLegDetails;
 
         }
@@ -674,21 +756,22 @@ namespace AlgoTerminal.Model.Calculation
                 newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
             newLegDetails.Qty = OldLegDetails.Qty;
-            if (OldLegDetails.Name.Contains('.'))
-            {
-                var data = OldLegDetails.Name.Split('.');
-                var LastName = double.TryParse(data[1], out double value) ? value : 0;
-                if (LastName != 0)
-                {
-                    LastName /= 100.00;
-                    LastName += 0.01;
-                    newLegDetails.Name = data[0] + LastName;
-                }
-            }
-            else
-            {
-                newLegDetails.Name = OldLegDetails.Name + ".01";
-            }
+            newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
+            //if (OldLegDetails.Name.Contains('.'))
+            //{
+            //    var data = OldLegDetails.Name.Split('.');
+            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
+            //    if (LastName != 0)
+            //    {
+            //        LastName /= 100.00;
+            //        LastName += 0.01;
+            //        newLegDetails.Name = data[0] + LastName;
+            //    }
+            //}
+            //else
+            //{
+            //    newLegDetails.Name = OldLegDetails.Name + ".01";
+            //}
             newLegDetails.Token = OldLegDetails.Token;
             //calculate the STOP LOSS VALUE
             newLegDetails.StopLoss = GetLegStopLoss_OnEntryPrice(leg_Details.SettingStopLoss,
@@ -726,6 +809,8 @@ namespace AlgoTerminal.Model.Calculation
                 EnumLegReEntryOnTarget.REREVCOST => GetLegReEntryForCOST(OldLegDetails, leg_Details, true),
                 EnumLegReEntryOnTarget.REASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value),
                 EnumLegReEntryOnTarget.REREVASAP => GetReEntryForASAP(OldLegDetails, leg_Details, stg_setting_value, true),
+                EnumLegReEntryOnTarget.REMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails, leg_Details, stg_setting_value),
+                EnumLegReEntryOnTarget.REREVMOMENTUM => GetReEntryForMOMENTUM(OldLegDetails, leg_Details, stg_setting_value, true),
                 _ => throw new NotImplementedException(),
             };
         }
@@ -767,26 +852,27 @@ namespace AlgoTerminal.Model.Calculation
 
             if (GetTrailSLHit(leg_Details.SettingTrailEnable, portfolio_leg_value.UpdateInFavorAmountforTrailSLleg, leg_Details.TrailSlAmount, GetStrikePriceLTP(portfolio_leg_value.Token)))
             {
-                if(leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTS)
+                if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTS)
                 {
                     if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
                     { portfolio_leg_value.StopLoss -= leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg -= leg_Details.TrailSlAmount; }
                     else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
                     { portfolio_leg_value.StopLoss += leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg += leg_Details.TrailSlAmount; }
                 }
-                else if(leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTPERCENTAGE)
+                else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTPERCENTAGE)
                 {
                     if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
-                    { portfolio_leg_value.StopLoss = portfolio_leg_value.StopLoss - portfolio_leg_value.StopLoss * leg_Details.TrailSlStopLoss / 100.00;
-                      portfolio_leg_value.UpdateInFavorAmountforTrailSLleg = portfolio_leg_value.UpdateInFavorAmountforTrailSLleg - portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount / 100.00;
+                    {
+                        portfolio_leg_value.StopLoss = portfolio_leg_value.StopLoss - portfolio_leg_value.StopLoss * leg_Details.TrailSlStopLoss / 100.00;
+                        portfolio_leg_value.UpdateInFavorAmountforTrailSLleg = portfolio_leg_value.UpdateInFavorAmountforTrailSLleg - portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount / 100.00;
                     }
                     else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
-                       {
+                    {
                         portfolio_leg_value.StopLoss = portfolio_leg_value.StopLoss + portfolio_leg_value.StopLoss * leg_Details.TrailSlStopLoss / 100.00;
                         portfolio_leg_value.UpdateInFavorAmountforTrailSLleg = portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount / 100.00;
                     }
                 }
-               
+
             }
         }
         #endregion

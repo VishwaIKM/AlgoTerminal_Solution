@@ -348,5 +348,6 @@ namespace AlgoTerminal.Model.Structure
         public int BuyTradedQty { get; set; }
         public int SellTradedQty { get; set; }
         public double Expenses { get; set; }
+        public bool IsLegInMonitoringQue { get; set; } = true;
     }
 }
