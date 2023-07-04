@@ -19039,3 +19039,838 @@
 [03:29:58] Order Status : ClientID: 30 ModID: 20230627000065 Status: complete
 [03:29:58] Token: 60227 Traded Qty. : 50 Traded Price: 26530 Traded ID: 800058 ExchangeOrderId: 10000000049 AdminOrderID: 20230627000064
 [03:29:58] Order Status : ClientID: 21 ModID: 20230627000064 Status: complete
+[02:15:20][Error] On Line 5 Error : 
+[02:15:20][Error] On Line 5 Error : 
+[02:15:20][Error] On Line 5 Error : 
+[02:15:20][Error] On Line 6 Error : 
+[02:15:20][Error] On Line 6 Error : 
+[02:15:20][Error] On Line 6 Error : 
+[02:15:20][Error] On Line 7 Error : 
+[02:15:20][Error] On Line 7 Error : 
+[02:15:20][Error] On Line 7 Error : 
+[02:15:20][Error] On Line 9 Error : 
+[02:15:20][Error] On Line 9 Error : 
+[02:15:20][Error] On Line 9 Error : 
+[02:15:20][Error] On Line 10 Error : 
+[02:15:20][Error] On Line 10 Error : 
+[02:15:20][Error] On Line 10 Error : 
+[02:15:20][Error] On Line 11 Error : 
+[02:15:20][Error] On Line 11 Error : 
+[02:15:20][Error] On Line 11 Error : 
+[02:15:20][Error] On Line 12 Error : 
+[02:15:20][Error] On Line 12 Error : 
+[02:15:20][Error] On Line 12 Error : 
+[02:15:20]  Application StartUp Block Complete. 
+[02:16:00] Order Type :LIMIT Order ID :1 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:16:00] Order Type :LIMIT Order ID :2 TransType :S  Token Id :47078 Price :5015 Trigger Price: 0 has been Placed.
+[02:16:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:16:00] Order Status : ClientID: 1 ModID: 20230704000001 Status: put order request
+[02:16:00] Order Status : ClientID: 1 ModID: 20230704000001 Status: open pending
+[02:16:00] Order Status : ClientID: 2 ModID: 20230704000002 Status: put order request
+[02:16:00] Order Status : ClientID: 2 ModID: 20230704000002 Status: open pending
+[02:16:00] Order Status : ClientID: 3 ModID: 20230704000003 Status: put order request
+[02:16:00] Order Status : ClientID: 3 ModID: 20230704000003 Status: open pending
+[02:16:01] Order Status : ClientID: 1 ModID: 20230704000001 Status: rejected
+[02:16:01] Order Status : ClientID: 2 ModID: 20230704000002 Status: rejected
+[02:16:01] Order Status : ClientID: 3 ModID: 20230704000003 Status: rejected
+[02:16:04] SL HIT for Leg :LEG3  in the Stg: Stg1
+[02:16:04] Order Type :LIMIT Order ID :3 TransType :S  Token Id :47076 Price :7830 Trigger Price: 0 has been Placed.
+[02:16:04] Order Status : ClientID: 3 ModID: 20230704000004 Status: put order request
+[02:16:04] Order Status : ClientID: 3 ModID: 20230704000004 Status: open pending
+[02:16:04] Order Type :LIMIT Order ID :5 TransType :S  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:16:05] SL HIT for Leg :LEG3.01  in the Stg: Stg1
+[02:16:05] Order Type :LIMIT Order ID :5 TransType :B  Token Id :47076 Price :7820 Trigger Price: 0 has been Placed.
+[02:16:05] Order Type :LIMIT Order ID :7 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:16:05] Order Status : ClientID: 3 ModID: 20230704000004 Status: rejected
+[02:16:05] SL HIT for Leg :LEG30.02  in the Stg: Stg1
+[02:16:05] Order Type :LIMIT Order ID :7 TransType :S  Token Id :47076 Price :7820 Trigger Price: 0 has been Placed.
+[02:16:05] Order Status : ClientID: 5 ModID: 20230704000005 Status: put order request
+[02:16:05] Order Status : ClientID: 5 ModID: 20230704000005 Status: open pending
+[02:16:05] Order Status : ClientID: 5 ModID: 20230704000006 Status: put order request
+[02:16:05] Order Status : ClientID: 5 ModID: 20230704000006 Status: open pending
+[02:16:05] Order Status : ClientID: 7 ModID: 20230704000007 Status: put order request
+[02:16:05] Order Status : ClientID: 7 ModID: 20230704000007 Status: open pending
+[02:16:05] Order Status : ClientID: 7 ModID: 20230704000008 Status: put order request
+[02:16:05] Order Status : ClientID: 7 ModID: 20230704000008 Status: open pending
+[02:16:06] Order Status : ClientID: 5 ModID: 20230704000005 Status: rejected
+[02:16:06] Order Status : ClientID: 5 ModID: 20230704000006 Status: rejected
+[02:16:06] Order Status : ClientID: 7 ModID: 20230704000007 Status: rejected
+[02:16:06] Order Status : ClientID: 7 ModID: 20230704000008 Status: rejected
+[02:16:16] SL HIT for Leg :LEG2  in the Stg: Stg1
+[02:16:16] Order Type :LIMIT Order ID :2 TransType :B  Token Id :47078 Price :5140 Trigger Price: 0 has been Placed.
+[02:16:16] Order Type :LIMIT Order ID :10 TransType :S  Token Id :47078 Price :5015 Trigger Price: 0 has been Placed.
+[02:16:16] Order Status : ClientID: 2 ModID: 20230704000009 Status: put order request
+[02:16:16] Order Status : ClientID: 2 ModID: 20230704000009 Status: open pending
+[02:16:16] Order Status : ClientID: 10 ModID: 20230704000010 Status: put order request
+[02:16:16] Order Status : ClientID: 10 ModID: 20230704000010 Status: open pending
+[02:16:17] SL HIT for Leg :LEG2.01  in the Stg: Stg1
+[02:16:17] Order Type :LIMIT Order ID :10 TransType :B  Token Id :47078 Price :5140 Trigger Price: 0 has been Placed.
+[02:16:17] Order Type :LIMIT Order ID :12 TransType :S  Token Id :47078 Price :5015 Trigger Price: 0 has been Placed.
+[02:16:17] Order Status : ClientID: 2 ModID: 20230704000009 Status: rejected
+[02:16:17] Order Status : ClientID: 10 ModID: 20230704000010 Status: rejected
+[02:16:17] SL HIT for Leg :LEG20.02  in the Stg: Stg1
+[02:16:17] Order Type :LIMIT Order ID :12 TransType :B  Token Id :47078 Price :5140 Trigger Price: 0 has been Placed.
+[02:16:17] Order Status : ClientID: 10 ModID: 20230704000011 Status: put order request
+[02:16:17] Order Status : ClientID: 10 ModID: 20230704000011 Status: open pending
+[02:16:17] Order Status : ClientID: 12 ModID: 20230704000012 Status: put order request
+[02:16:17] Order Status : ClientID: 12 ModID: 20230704000012 Status: open pending
+[02:16:17] Order Status : ClientID: 12 ModID: 20230704000013 Status: put order request
+[02:16:17] Order Status : ClientID: 12 ModID: 20230704000013 Status: open pending
+[02:16:18] Order Status : ClientID: 10 ModID: 20230704000011 Status: rejected
+[02:16:18] Order Status : ClientID: 12 ModID: 20230704000012 Status: rejected
+[02:16:18] Order Status : ClientID: 12 ModID: 20230704000013 Status: rejected
+[02:17:12] SL HIT for Leg :LEG1  in the Stg: Stg1
+[02:17:12] Order Type :LIMIT Order ID :1 TransType :S  Token Id :47076 Price :7700 Trigger Price: 0 has been Placed.
+[02:17:13] Order Status : ClientID: 1 ModID: 20230704000014 Status: put order request
+[02:17:13] Order Status : ClientID: 1 ModID: 20230704000014 Status: open pending
+[02:17:13] Order Status : ClientID: 1 ModID: 20230704000014 Status: open
+[02:17:19] Token: 47076 Traded Qty. : 50 Traded Price: 7700 Traded ID: 800000 ExchangeOrderId: 10000000014 AdminOrderID: 20230704000014
+[02:17:19] Order Status : ClientID: 1 ModID: 20230704000014 Status: complete
+[02:17:33] Order Type :LIMIT Order ID :15 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:17:34] Order Status : ClientID: 15 ModID: 20230704000015 Status: put order request
+[02:17:34] Order Status : ClientID: 15 ModID: 20230704000015 Status: open pending
+[02:17:35] Order Status : ClientID: 15 ModID: 20230704000015 Status: open
+[02:17:46] Token: 47076 Traded Qty. : 50 Traded Price: 7815 Traded ID: 800001 ExchangeOrderId: 10000000015 AdminOrderID: 20230704000015
+[02:17:46] Order Status : ClientID: 15 ModID: 20230704000015 Status: complete
+[02:18:17] TP HIT for Leg :LEG1.01  in the Stg: Stg1
+[02:18:17] Order Type :LIMIT Order ID :15 TransType :S  Token Id :47076 Price :8335 Trigger Price: 0 has been Placed.
+[02:18:17] Order Type :LIMIT Order ID :17 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:18:17] Order Status : ClientID: 15 ModID: 20230704000016 Status: put order request
+[02:18:17] Order Status : ClientID: 15 ModID: 20230704000016 Status: open pending
+[02:18:17] Order Status : ClientID: 17 ModID: 20230704000017 Status: put order request
+[02:18:17] Order Status : ClientID: 17 ModID: 20230704000017 Status: open pending
+[02:18:17] TP HIT for Leg :LEG10.02  in the Stg: Stg1
+[02:18:17] Order Type :LIMIT Order ID :17 TransType :S  Token Id :47076 Price :8335 Trigger Price: 0 has been Placed.
+[02:18:17] Order Type :LIMIT Order ID :19 TransType :B  Token Id :47076 Price :7815 Trigger Price: 0 has been Placed.
+[02:18:18] TP HIT for Leg :LEG100.03  in the Stg: Stg1
+[02:18:18] Order Type :LIMIT Order ID :19 TransType :S  Token Id :47076 Price :8365 Trigger Price: 0 has been Placed.
+[02:18:18] Order Status : ClientID: 15 ModID: 20230704000016 Status: open
+[02:18:18] Order Status : ClientID: 17 ModID: 20230704000017 Status: open
+[02:18:18] Order Status : ClientID: 17 ModID: 20230704000018 Status: put order request
+[02:18:18] Order Status : ClientID: 17 ModID: 20230704000018 Status: open pending
+[02:18:18] Order Status : ClientID: 19 ModID: 20230704000019 Status: put order request
+[02:18:18] Order Status : ClientID: 19 ModID: 20230704000019 Status: open pending
+[02:18:18] Order Status : ClientID: 19 ModID: 20230704000020 Status: put order request
+[02:18:18] Order Status : ClientID: 19 ModID: 20230704000020 Status: open pending
+[02:18:19] Order Status : ClientID: 17 ModID: 20230704000018 Status: open
+[02:18:19] Order Status : ClientID: 19 ModID: 20230704000019 Status: open
+[02:18:19] Order Status : ClientID: 19 ModID: 20230704000020 Status: open
+[02:19:10] Token: 47076 Traded Qty. : 50 Traded Price: 8335 Traded ID: 800002 ExchangeOrderId: 10000000016 AdminOrderID: 20230704000016
+[02:19:10] Order Status : ClientID: 15 ModID: 20230704000016 Status: complete
+[02:19:10] Token: 47076 Traded Qty. : 50 Traded Price: 7815 Traded ID: 800003 ExchangeOrderId: 10000000017 AdminOrderID: 20230704000017
+[02:19:10] Order Status : ClientID: 17 ModID: 20230704000017 Status: complete
+[02:19:10] Token: 47076 Traded Qty. : 50 Traded Price: 8335 Traded ID: 800004 ExchangeOrderId: 10000000018 AdminOrderID: 20230704000018
+[02:19:10] Order Status : ClientID: 17 ModID: 20230704000018 Status: complete
+[02:19:10] Token: 47076 Traded Qty. : 50 Traded Price: 7815 Traded ID: 800005 ExchangeOrderId: 10000000019 AdminOrderID: 20230704000019
+[02:19:10] Order Status : ClientID: 19 ModID: 20230704000019 Status: complete
+[02:19:10] Token: 47076 Traded Qty. : 50 Traded Price: 8365 Traded ID: 800006 ExchangeOrderId: 10000000020 AdminOrderID: 20230704000020
+[02:19:10] Order Status : ClientID: 19 ModID: 20230704000020 Status: complete
+[02:28:57][Error] On Line 5 Error : 
+[02:28:57][Error] On Line 5 Error : 
+[02:28:57][Error] On Line 5 Error : 
+[02:28:57][Error] On Line 6 Error : 
+[02:28:57][Error] On Line 6 Error : 
+[02:28:57][Error] On Line 6 Error : 
+[02:28:57][Error] On Line 7 Error : 
+[02:28:57][Error] On Line 7 Error : 
+[02:28:57][Error] On Line 7 Error : 
+[02:28:57][Error] On Line 9 Error : 
+[02:28:57][Error] On Line 9 Error : 
+[02:28:57][Error] On Line 9 Error : 
+[02:28:57][Error] On Line 10 Error : 
+[02:28:57][Error] On Line 10 Error : 
+[02:28:57][Error] On Line 10 Error : 
+[02:28:57][Error] On Line 11 Error : 
+[02:28:57][Error] On Line 11 Error : 
+[02:28:57][Error] On Line 11 Error : 
+[02:28:57][Error] On Line 12 Error : 
+[02:28:57][Error] On Line 12 Error : 
+[02:28:57][Error] On Line 12 Error : 
+[02:28:57]  Application StartUp Block Complete. 
+[02:30:00] Order Type :LIMIT Order ID :1 TransType :S  Token Id :42697 Price :1944009 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :2 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :4 TransType :S  Token Id :47078 Price :4555 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :5 TransType :S  Token Id :47063 Price :1155 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :6 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:00] Order Type :LIMIT Order ID :7 TransType :B  Token Id :47062 Price :27870 Trigger Price: 0 has been Placed.
+[02:30:00] Order Status : ClientID: 1 ModID: 20230704000021 Status: put order request
+[02:30:00] Order Status : ClientID: 1 ModID: 20230704000021 Status: open pending
+[02:30:00] Order Status : ClientID: 2 ModID: 20230704000022 Status: put order request
+[02:30:00] Order Status : ClientID: 2 ModID: 20230704000022 Status: open pending
+[02:30:00] Order Status : ClientID: 3 ModID: 20230704000023 Status: put order request
+[02:30:00] Order Status : ClientID: 3 ModID: 20230704000023 Status: open pending
+[02:30:00] Order Status : ClientID: 4 ModID: 20230704000024 Status: put order request
+[02:30:00] Order Status : ClientID: 4 ModID: 20230704000024 Status: open pending
+[02:30:00] Order Status : ClientID: 5 ModID: 20230704000025 Status: put order request
+[02:30:00] Order Status : ClientID: 5 ModID: 20230704000025 Status: open pending
+[02:30:00] Order Status : ClientID: 6 ModID: 20230704000026 Status: put order request
+[02:30:00] Order Status : ClientID: 6 ModID: 20230704000026 Status: open pending
+[02:30:00] Order Status : ClientID: 7 ModID: 20230704000027 Status: put order request
+[02:30:00] Order Status : ClientID: 7 ModID: 20230704000027 Status: open pending
+[02:30:00] Order Status : ClientID: 1 ModID: 20230704000021 Status: rejected
+[02:30:00] Order Status : ClientID: 2 ModID: 20230704000022 Status: open
+[02:30:00] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800007 ExchangeOrderId: 10000000021 AdminOrderID: 20230704000022
+[02:30:00] Order Status : ClientID: 2 ModID: 20230704000022 Status: complete
+[02:30:01] Order Status : ClientID: 3 ModID: 20230704000023 Status: open
+[02:30:01] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800008 ExchangeOrderId: 10000000022 AdminOrderID: 20230704000023
+[02:30:01] Order Status : ClientID: 3 ModID: 20230704000023 Status: complete
+[02:30:01] Order Status : ClientID: 4 ModID: 20230704000024 Status: open
+[02:30:01] Token: 47078 Traded Qty. : 50 Traded Price: 4555 Traded ID: 800009 ExchangeOrderId: 10000000023 AdminOrderID: 20230704000024
+[02:30:01] Order Status : ClientID: 4 ModID: 20230704000024 Status: complete
+[02:30:01] Order Status : ClientID: 5 ModID: 20230704000025 Status: open
+[02:30:01] Token: 47063 Traded Qty. : 50 Traded Price: 1155 Traded ID: 800010 ExchangeOrderId: 10000000024 AdminOrderID: 20230704000025
+[02:30:01] Order Status : ClientID: 5 ModID: 20230704000025 Status: complete
+[02:30:01] Order Status : ClientID: 6 ModID: 20230704000026 Status: open
+[02:30:01] Token: 47076 Traded Qty. : 50 Traded Price: 7190 Traded ID: 800011 ExchangeOrderId: 10000000025 AdminOrderID: 20230704000026
+[02:30:01] Order Status : ClientID: 6 ModID: 20230704000026 Status: complete
+[02:30:01] Order Status : ClientID: 7 ModID: 20230704000027 Status: open
+[02:30:01] Token: 47062 Traded Qty. : 50 Traded Price: 27870 Traded ID: 800012 ExchangeOrderId: 10000000026 AdminOrderID: 20230704000027
+[02:30:01] Order Status : ClientID: 7 ModID: 20230704000027 Status: complete
+[02:30:04] SL HIT for Leg :LEG3  in the Stg: Stg1
+[02:30:04] Order Type :LIMIT Order ID :3 TransType :S  Token Id :47076 Price :7250 Trigger Price: 0 has been Placed.
+[02:30:04] Order Type :LIMIT Order ID :9 TransType :S  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:05] SL HIT for Leg :LEG3.01  in the Stg: Stg1
+[02:30:05] Order Type :LIMIT Order ID :9 TransType :B  Token Id :47076 Price :7175 Trigger Price: 0 has been Placed.
+[02:30:05] Order Status : ClientID: 3 ModID: 20230704000028 Status: put order request
+[02:30:05] Order Status : ClientID: 3 ModID: 20230704000028 Status: open pending
+[02:30:05] Order Status : ClientID: 9 ModID: 20230704000029 Status: put order request
+[02:30:05] Order Status : ClientID: 9 ModID: 20230704000029 Status: open pending
+[02:30:05] Order Status : ClientID: 9 ModID: 20230704000030 Status: put order request
+[02:30:05] Order Status : ClientID: 9 ModID: 20230704000030 Status: open pending
+[02:30:06] Order Status : ClientID: 3 ModID: 20230704000028 Status: open
+[02:30:06] Token: 47076 Traded Qty. : 250 Traded Price: 7250 Traded ID: 800013 ExchangeOrderId: 10000000027 AdminOrderID: 20230704000028
+[02:30:06] Order Status : ClientID: 3 ModID: 20230704000028 Status: complete
+[02:30:06] Order Status : ClientID: 9 ModID: 20230704000029 Status: open
+[02:30:06] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800014 ExchangeOrderId: 10000000028 AdminOrderID: 20230704000029
+[02:30:06] Order Status : ClientID: 9 ModID: 20230704000029 Status: complete
+[02:30:06] Order Type :LIMIT Order ID :11 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:06] Order Status : ClientID: 11 ModID: 20230704000031 Status: put order request
+[02:30:06] Order Status : ClientID: 11 ModID: 20230704000031 Status: open pending
+[02:30:07] Order Status : ClientID: 9 ModID: 20230704000030 Status: open
+[02:30:07] Token: 47076 Traded Qty. : 250 Traded Price: 7175 Traded ID: 800015 ExchangeOrderId: 10000000029 AdminOrderID: 20230704000030
+[02:30:07] Order Status : ClientID: 9 ModID: 20230704000030 Status: complete
+[02:30:07] Order Status : ClientID: 11 ModID: 20230704000031 Status: open
+[02:30:07] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800016 ExchangeOrderId: 10000000030 AdminOrderID: 20230704000031
+[02:30:07] Order Status : ClientID: 11 ModID: 20230704000031 Status: complete
+[02:30:07] TP HIT for Leg :LEG4  in the Stg: Stg2
+[02:30:07] Order Type :LIMIT Order ID :1 TransType :B  Token Id :42697 Price :1943905 Trigger Price: 0 has been Placed.
+[02:30:07] Order Type :LIMIT Order ID :13 TransType :S  Token Id :42697 Price :1943905 Trigger Price: 0 has been Placed.
+[02:30:08] TP HIT for Leg :LEG3  in the Stg: Stg2
+[02:30:08] Order Type :LIMIT Order ID :2 TransType :S  Token Id :47076 Price :7309 Trigger Price: 0 has been Placed.
+[02:30:08] Order Type :LIMIT Order ID :15 TransType :B  Token Id :47076 Price :7309 Trigger Price: 0 has been Placed.
+[02:30:08] Order Status : ClientID: 1 ModID: 20230704000032 Status: put order request
+[02:30:08] Order Status : ClientID: 1 ModID: 20230704000032 Status: open pending
+[02:30:08] Order Status : ClientID: 13 ModID: 20230704000033 Status: put order request
+[02:30:08] Order Status : ClientID: 13 ModID: 20230704000033 Status: open pending
+[02:30:08] Order Status : ClientID: 2 ModID: 20230704000034 Status: put order request
+[02:30:08] Order Status : ClientID: 2 ModID: 20230704000034 Status: open pending
+[02:30:08] Order Status : ClientID: 15 ModID: 20230704000035 Status: put order request
+[02:30:08] Order Status : ClientID: 15 ModID: 20230704000035 Status: open pending
+[02:30:09] Order Status : ClientID: 1 ModID: 20230704000032 Status: open
+[02:30:09] Token: 42697 Traded Qty. : 50 Traded Price: 1943905 Traded ID: 800017 ExchangeOrderId: 11000000002 AdminOrderID: 20230704000032
+[02:30:09] Order Status : ClientID: 1 ModID: 20230704000032 Status: complete
+[02:30:09] Order Status : ClientID: 13 ModID: 20230704000033 Status: open
+[02:30:09] Token: 42697 Traded Qty. : 50 Traded Price: 1943905 Traded ID: 800018 ExchangeOrderId: 11000000003 AdminOrderID: 20230704000033
+[02:30:09] Order Status : ClientID: 13 ModID: 20230704000033 Status: complete
+[02:30:09] TP HIT for Leg :LEG30.02  in the Stg: Stg1
+[02:30:09] Order Type :LIMIT Order ID :11 TransType :S  Token Id :47076 Price :7200 Trigger Price: 0 has been Placed.
+[02:30:09] Order Type :LIMIT Order ID :17 TransType :S  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:10] Order Status : ClientID: 2 ModID: 20230704000034 Status: rejected
+[02:30:10] Order Status : ClientID: 15 ModID: 20230704000035 Status: rejected
+[02:30:10] SL HIT for Leg :LEG300.03  in the Stg: Stg1
+[02:30:10] TP HIT for Leg :LEG300.03  in the Stg: Stg1
+[02:30:10] Order Type :LIMIT Order ID :17 TransType :B  Token Id :47076 Price :7200 Trigger Price: 0 has been Placed.
+[02:30:10] Order Type :LIMIT Order ID :19 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:30:10] Order Status : ClientID: 11 ModID: 20230704000036 Status: put order request
+[02:30:10] Order Status : ClientID: 11 ModID: 20230704000036 Status: open pending
+[02:30:10] Order Status : ClientID: 17 ModID: 20230704000037 Status: put order request
+[02:30:10] Order Status : ClientID: 17 ModID: 20230704000037 Status: open pending
+[02:30:10] Order Status : ClientID: 17 ModID: 20230704000038 Status: put order request
+[02:30:10] Order Status : ClientID: 17 ModID: 20230704000038 Status: open pending
+[02:30:10] Order Status : ClientID: 19 ModID: 20230704000039 Status: put order request
+[02:30:10] Order Status : ClientID: 19 ModID: 20230704000039 Status: open pending
+[02:30:11] Order Status : ClientID: 11 ModID: 20230704000036 Status: open
+[02:30:11] Token: 47076 Traded Qty. : 250 Traded Price: 7200 Traded ID: 800019 ExchangeOrderId: 10000000033 AdminOrderID: 20230704000036
+[02:30:11] Order Status : ClientID: 11 ModID: 20230704000036 Status: complete
+[02:30:11] Order Status : ClientID: 17 ModID: 20230704000037 Status: open
+[02:30:11] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800020 ExchangeOrderId: 10000000034 AdminOrderID: 20230704000037
+[02:30:11] Order Status : ClientID: 17 ModID: 20230704000037 Status: complete
+[02:30:12] Order Status : ClientID: 17 ModID: 20230704000038 Status: open
+[02:30:12] Token: 47076 Traded Qty. : 250 Traded Price: 7200 Traded ID: 800021 ExchangeOrderId: 10000000035 AdminOrderID: 20230704000038
+[02:30:12] Order Status : ClientID: 17 ModID: 20230704000038 Status: complete
+[02:30:12] Order Status : ClientID: 19 ModID: 20230704000039 Status: open
+[02:30:12] Token: 47076 Traded Qty. : 250 Traded Price: 7190 Traded ID: 800022 ExchangeOrderId: 10000000036 AdminOrderID: 20230704000039
+[02:30:12] Order Status : ClientID: 19 ModID: 20230704000039 Status: complete
+[02:30:15] SL HIT for Leg :LEG3000.04  in the Stg: Stg1
+[02:30:15] Order Type :LIMIT Order ID :19 TransType :S  Token Id :47076 Price :7209 Trigger Price: 0 has been Placed.
+[02:30:15] Order Status : ClientID: 19 ModID: 20230704000040 Status: put order request
+[02:30:15] Order Status : ClientID: 19 ModID: 20230704000040 Status: open pending
+[02:30:16] Order Status : ClientID: 19 ModID: 20230704000040 Status: rejected
+[02:30:19] TP HIT for Leg :LEG1  in the Stg: Stg2
+[02:30:19] SL HIT for Leg :LEG2  in the Stg: Stg1
+[02:30:19] Order Type :LIMIT Order ID :7 TransType :S  Token Id :47062 Price :28010 Trigger Price: 0 has been Placed.
+[02:30:19] Order Type :LIMIT Order ID :4 TransType :B  Token Id :47078 Price :4670 Trigger Price: 0 has been Placed.
+[02:30:19] Order Type :LIMIT Order ID :23 TransType :S  Token Id :47078 Price :4555 Trigger Price: 0 has been Placed.
+[02:30:19] Order Type :LIMIT Order ID :24 TransType :S  Token Id :47062 Price :28010 Trigger Price: 0 has been Placed.
+[02:30:19] SL HIT for Leg :LEG2.01  in the Stg: Stg1
+[02:30:19] Order Type :LIMIT Order ID :23 TransType :B  Token Id :47078 Price :4670 Trigger Price: 0 has been Placed.
+[02:30:19] Order Status : ClientID: 7 ModID: 20230704000041 Status: put order request
+[02:30:19] Order Status : ClientID: 7 ModID: 20230704000041 Status: open pending
+[02:30:19] Order Status : ClientID: 4 ModID: 20230704000042 Status: put order request
+[02:30:19] Order Status : ClientID: 4 ModID: 20230704000042 Status: open pending
+[02:30:19] Order Status : ClientID: 23 ModID: 20230704000043 Status: put order request
+[02:30:19] Order Status : ClientID: 23 ModID: 20230704000043 Status: open pending
+[02:30:19] Order Status : ClientID: 24 ModID: 20230704000044 Status: put order request
+[02:30:19] Order Status : ClientID: 24 ModID: 20230704000044 Status: open pending
+[02:30:19] Order Status : ClientID: 23 ModID: 20230704000045 Status: put order request
+[02:30:19] Order Status : ClientID: 23 ModID: 20230704000045 Status: open pending
+[02:30:19] Order Type :LIMIT Order ID :26 TransType :S  Token Id :47078 Price :4555 Trigger Price: 0 has been Placed.
+[02:30:20] Order Status : ClientID: 7 ModID: 20230704000041 Status: open
+[02:30:20] Token: 47062 Traded Qty. : 50 Traded Price: 28010 Traded ID: 800023 ExchangeOrderId: 10000000038 AdminOrderID: 20230704000041
+[02:30:20] Order Status : ClientID: 7 ModID: 20230704000041 Status: complete
+[02:30:20] Order Status : ClientID: 4 ModID: 20230704000042 Status: open
+[02:30:20] Token: 47078 Traded Qty. : 50 Traded Price: 4670 Traded ID: 800024 ExchangeOrderId: 10000000039 AdminOrderID: 20230704000042
+[02:30:20] Order Status : ClientID: 4 ModID: 20230704000042 Status: complete
+[02:30:20] SL HIT for Leg :LEG20.02  in the Stg: Stg1
+[02:30:20] Order Type :LIMIT Order ID :26 TransType :B  Token Id :47078 Price :4670 Trigger Price: 0 has been Placed.
+[02:30:20] Order Status : ClientID: 26 ModID: 20230704000046 Status: put order request
+[02:30:20] Order Status : ClientID: 26 ModID: 20230704000046 Status: open pending
+[02:30:20] Order Status : ClientID: 26 ModID: 20230704000047 Status: put order request
+[02:30:20] Order Status : ClientID: 26 ModID: 20230704000047 Status: open pending
+[02:30:21] Order Status : ClientID: 23 ModID: 20230704000043 Status: open
+[02:30:21] Token: 47078 Traded Qty. : 50 Traded Price: 4555 Traded ID: 800025 ExchangeOrderId: 10000000040 AdminOrderID: 20230704000043
+[02:30:21] Order Status : ClientID: 23 ModID: 20230704000043 Status: complete
+[02:30:21] Order Status : ClientID: 24 ModID: 20230704000044 Status: open
+[02:30:21] Token: 47062 Traded Qty. : 50 Traded Price: 28010 Traded ID: 800026 ExchangeOrderId: 10000000041 AdminOrderID: 20230704000044
+[02:30:21] Order Status : ClientID: 24 ModID: 20230704000044 Status: complete
+[02:30:21] Order Status : ClientID: 23 ModID: 20230704000045 Status: open
+[02:30:21] Token: 47078 Traded Qty. : 50 Traded Price: 4670 Traded ID: 800027 ExchangeOrderId: 10000000042 AdminOrderID: 20230704000045
+[02:30:21] Order Status : ClientID: 23 ModID: 20230704000045 Status: complete
+[02:30:21] Order Status : ClientID: 26 ModID: 20230704000046 Status: open
+[02:30:21] Token: 47078 Traded Qty. : 50 Traded Price: 4555 Traded ID: 800028 ExchangeOrderId: 10000000043 AdminOrderID: 20230704000046
+[02:30:21] Order Status : ClientID: 26 ModID: 20230704000046 Status: complete
+[02:30:21] Order Status : ClientID: 26 ModID: 20230704000047 Status: open
+[02:30:21] Token: 47078 Traded Qty. : 50 Traded Price: 4670 Traded ID: 800029 ExchangeOrderId: 10000000044 AdminOrderID: 20230704000047
+[02:30:21] Order Status : ClientID: 26 ModID: 20230704000047 Status: complete
+[02:31:27] SL HIT for Leg :LEG1  in the Stg: Stg1
+[02:31:27] Order Type :LIMIT Order ID :6 TransType :S  Token Id :47076 Price :7005 Trigger Price: 0 has been Placed.
+[02:31:28] Order Status : ClientID: 6 ModID: 20230704000048 Status: put order request
+[02:31:28] Order Status : ClientID: 6 ModID: 20230704000048 Status: open pending
+[02:31:28] Order Status : ClientID: 6 ModID: 20230704000048 Status: open
+[02:31:28] Token: 47076 Traded Qty. : 50 Traded Price: 7005 Traded ID: 800030 ExchangeOrderId: 10000000045 AdminOrderID: 20230704000048
+[02:31:28] Order Status : ClientID: 6 ModID: 20230704000048 Status: complete
+[02:32:11] Order Type :LIMIT Order ID :29 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:32:12] Order Status : ClientID: 29 ModID: 20230704000049 Status: put order request
+[02:32:12] Order Status : ClientID: 29 ModID: 20230704000049 Status: open pending
+[02:32:12] Order Status : ClientID: 29 ModID: 20230704000049 Status: open
+[02:32:12] Token: 47076 Traded Qty. : 50 Traded Price: 7190 Traded ID: 800031 ExchangeOrderId: 10000000046 AdminOrderID: 20230704000049
+[02:32:12] Order Status : ClientID: 29 ModID: 20230704000049 Status: complete
+[02:34:01] TP HIT for Leg :LEG2  in the Stg: Stg2
+[02:34:01] Order Type :LIMIT Order ID :5 TransType :B  Token Id :47063 Price :1055 Trigger Price: 0 has been Placed.
+[02:34:01] Order Type :LIMIT Order ID :31 TransType :B  Token Id :47063 Price :1055 Trigger Price: 0 has been Placed.
+[02:34:02] Order Status : ClientID: 5 ModID: 20230704000050 Status: put order request
+[02:34:02] Order Status : ClientID: 5 ModID: 20230704000050 Status: open pending
+[02:34:02] Order Status : ClientID: 31 ModID: 20230704000051 Status: put order request
+[02:34:02] Order Status : ClientID: 31 ModID: 20230704000051 Status: open pending
+[02:34:02] Order Status : ClientID: 5 ModID: 20230704000050 Status: open
+[02:34:02] Token: 47063 Traded Qty. : 50 Traded Price: 1055 Traded ID: 800032 ExchangeOrderId: 10000000047 AdminOrderID: 20230704000050
+[02:34:02] Order Status : ClientID: 5 ModID: 20230704000050 Status: complete
+[02:34:02] Order Status : ClientID: 31 ModID: 20230704000051 Status: open
+[02:34:02] Token: 47063 Traded Qty. : 50 Traded Price: 1055 Traded ID: 800033 ExchangeOrderId: 10000000048 AdminOrderID: 20230704000051
+[02:34:02] Order Status : ClientID: 31 ModID: 20230704000051 Status: complete
+[02:35:02] TP HIT for Leg :LEG1.01  in the Stg: Stg1
+[02:35:02] Order Type :LIMIT Order ID :29 TransType :S  Token Id :47076 Price :7715 Trigger Price: 0 has been Placed.
+[02:35:03] Order Type :LIMIT Order ID :33 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:35:03] Order Status : ClientID: 29 ModID: 20230704000052 Status: put order request
+[02:35:03] Order Status : ClientID: 29 ModID: 20230704000052 Status: open pending
+[02:35:03] Order Status : ClientID: 33 ModID: 20230704000053 Status: put order request
+[02:35:03] Order Status : ClientID: 33 ModID: 20230704000053 Status: open pending
+[02:35:03] TP HIT for Leg :LEG10.02  in the Stg: Stg1
+[02:35:03] Order Type :LIMIT Order ID :33 TransType :S  Token Id :47076 Price :7715 Trigger Price: 0 has been Placed.
+[02:35:03] Order Type :LIMIT Order ID :35 TransType :B  Token Id :47076 Price :7190 Trigger Price: 0 has been Placed.
+[02:35:03] Order Status : ClientID: 29 ModID: 20230704000052 Status: open
+[02:35:03] Token: 47076 Traded Qty. : 50 Traded Price: 7715 Traded ID: 800034 ExchangeOrderId: 10000000049 AdminOrderID: 20230704000052
+[02:35:03] Order Status : ClientID: 29 ModID: 20230704000052 Status: complete
+[02:35:03] Order Status : ClientID: 33 ModID: 20230704000053 Status: open
+[02:35:03] Token: 47076 Traded Qty. : 50 Traded Price: 7190 Traded ID: 800035 ExchangeOrderId: 10000000050 AdminOrderID: 20230704000053
+[02:35:03] Order Status : ClientID: 33 ModID: 20230704000053 Status: complete
+[02:35:04] TP HIT for Leg :LEG100.03  in the Stg: Stg1
+[02:35:04] Order Type :LIMIT Order ID :35 TransType :S  Token Id :47076 Price :7720 Trigger Price: 0 has been Placed.
+[02:35:04] Order Status : ClientID: 33 ModID: 20230704000054 Status: put order request
+[02:35:04] Order Status : ClientID: 33 ModID: 20230704000054 Status: open pending
+[02:35:04] Order Status : ClientID: 35 ModID: 20230704000055 Status: put order request
+[02:35:04] Order Status : ClientID: 35 ModID: 20230704000055 Status: open pending
+[02:35:04] Order Status : ClientID: 35 ModID: 20230704000056 Status: put order request
+[02:35:04] Order Status : ClientID: 35 ModID: 20230704000056 Status: open pending
+[02:35:04] Order Status : ClientID: 33 ModID: 20230704000054 Status: open
+[02:35:04] Token: 47076 Traded Qty. : 50 Traded Price: 7715 Traded ID: 800036 ExchangeOrderId: 10000000051 AdminOrderID: 20230704000054
+[02:35:04] Order Status : ClientID: 33 ModID: 20230704000054 Status: complete
+[02:35:04] Order Status : ClientID: 35 ModID: 20230704000055 Status: open
+[02:35:05] Token: 47076 Traded Qty. : 50 Traded Price: 7190 Traded ID: 800037 ExchangeOrderId: 10000000052 AdminOrderID: 20230704000055
+[02:35:05] Order Status : ClientID: 35 ModID: 20230704000055 Status: complete
+[02:35:05] Order Status : ClientID: 35 ModID: 20230704000056 Status: open
+[02:35:05] Token: 47076 Traded Qty. : 50 Traded Price: 7720 Traded ID: 800038 ExchangeOrderId: 10000000053 AdminOrderID: 20230704000056
+[02:35:05] Order Status : ClientID: 35 ModID: 20230704000056 Status: complete
+[02:49:29][Error] On Line 5 Error : 
+[02:49:29][Error] On Line 5 Error : 
+[02:49:29][Error] On Line 5 Error : 
+[02:49:29][Error] On Line 6 Error : 
+[02:49:29][Error] On Line 6 Error : 
+[02:49:29][Error] On Line 6 Error : 
+[02:49:29][Error] On Line 7 Error : 
+[02:49:29][Error] On Line 7 Error : 
+[02:49:29][Error] On Line 7 Error : 
+[02:49:29][Error] On Line 9 Error : 
+[02:49:29][Error] On Line 9 Error : 
+[02:49:29][Error] On Line 9 Error : 
+[02:49:29][Error] On Line 10 Error : 
+[02:49:29][Error] On Line 10 Error : 
+[02:49:29][Error] On Line 10 Error : 
+[02:49:29][Error] On Line 11 Error : 
+[02:49:29][Error] On Line 11 Error : 
+[02:49:29][Error] On Line 11 Error : 
+[02:49:29][Error] On Line 12 Error : 
+[02:49:29][Error] On Line 12 Error : 
+[02:49:29][Error] On Line 12 Error : 
+[02:49:29]  Application StartUp Block Complete. 
+[02:50:00] Order Type :LIMIT Order ID :1 TransType :S  Token Id :42697 Price :1945384 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :2 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :4 TransType :S  Token Id :47082 Price :3085 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :5 TransType :S  Token Id :47067 Price :1205 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :6 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:50:00] Order Type :LIMIT Order ID :7 TransType :B  Token Id :47064 Price :24320 Trigger Price: 0 has been Placed.
+[02:50:01] Order Status : ClientID: 1 ModID: 20230704000057 Status: put order request
+[02:50:01] Order Status : ClientID: 1 ModID: 20230704000057 Status: open pending
+[02:50:01] Order Status : ClientID: 2 ModID: 20230704000058 Status: put order request
+[02:50:01] Order Status : ClientID: 2 ModID: 20230704000058 Status: open pending
+[02:50:01] Order Status : ClientID: 3 ModID: 20230704000059 Status: put order request
+[02:50:01] Order Status : ClientID: 3 ModID: 20230704000059 Status: open pending
+[02:50:01] Order Status : ClientID: 4 ModID: 20230704000060 Status: put order request
+[02:50:01] Order Status : ClientID: 4 ModID: 20230704000060 Status: open pending
+[02:50:01] Order Status : ClientID: 5 ModID: 20230704000061 Status: put order request
+[02:50:01] Order Status : ClientID: 5 ModID: 20230704000061 Status: open pending
+[02:50:01] Order Status : ClientID: 6 ModID: 20230704000062 Status: put order request
+[02:50:01] Order Status : ClientID: 6 ModID: 20230704000062 Status: open pending
+[02:50:01] Order Status : ClientID: 7 ModID: 20230704000063 Status: put order request
+[02:50:01] Order Status : ClientID: 7 ModID: 20230704000063 Status: open pending
+[02:50:01] Order Status : ClientID: 1 ModID: 20230704000057 Status: rejected
+[02:50:01] Order Status : ClientID: 2 ModID: 20230704000058 Status: open
+[02:50:01] Token: 47078 Traded Qty. : 50 Traded Price: 5080 Traded ID: 800039 ExchangeOrderId: 10000000054 AdminOrderID: 20230704000058
+[02:50:01] Order Status : ClientID: 2 ModID: 20230704000058 Status: complete
+[02:50:01] Order Status : ClientID: 3 ModID: 20230704000059 Status: open
+[02:50:01] Token: 47078 Traded Qty. : 250 Traded Price: 5080 Traded ID: 800040 ExchangeOrderId: 10000000055 AdminOrderID: 20230704000059
+[02:50:01] Order Status : ClientID: 3 ModID: 20230704000059 Status: complete
+[02:50:02] Order Status : ClientID: 4 ModID: 20230704000060 Status: open
+[02:50:02] Token: 47082 Traded Qty. : 50 Traded Price: 3085 Traded ID: 800041 ExchangeOrderId: 10000000056 AdminOrderID: 20230704000060
+[02:50:02] Order Status : ClientID: 4 ModID: 20230704000060 Status: complete
+[02:50:02] Order Status : ClientID: 5 ModID: 20230704000061 Status: open
+[02:50:02] Token: 47067 Traded Qty. : 50 Traded Price: 1205 Traded ID: 800042 ExchangeOrderId: 10000000057 AdminOrderID: 20230704000061
+[02:50:02] Order Status : ClientID: 5 ModID: 20230704000061 Status: complete
+[02:50:02] Order Status : ClientID: 6 ModID: 20230704000062 Status: open
+[02:50:02] Token: 47078 Traded Qty. : 250 Traded Price: 5080 Traded ID: 800043 ExchangeOrderId: 10000000058 AdminOrderID: 20230704000062
+[02:50:02] Order Status : ClientID: 6 ModID: 20230704000062 Status: complete
+[02:50:02] Order Status : ClientID: 7 ModID: 20230704000063 Status: open
+[02:50:02] Token: 47064 Traded Qty. : 50 Traded Price: 24320 Traded ID: 800044 ExchangeOrderId: 10000000059 AdminOrderID: 20230704000063
+[02:50:02] Order Status : ClientID: 7 ModID: 20230704000063 Status: complete
+[02:50:02] TP HIT for Leg :LEG1  in the Stg: Stg2
+[02:50:02] Order Type :LIMIT Order ID :7 TransType :S  Token Id :47064 Price :24465 Trigger Price: 0 has been Placed.
+[02:50:02] Order Type :LIMIT Order ID :9 TransType :S  Token Id :47064 Price :24465 Trigger Price: 0 has been Placed.
+[02:50:03] Order Status : ClientID: 7 ModID: 20230704000064 Status: put order request
+[02:50:03] Order Status : ClientID: 7 ModID: 20230704000064 Status: open pending
+[02:50:03] Order Status : ClientID: 9 ModID: 20230704000065 Status: put order request
+[02:50:03] Order Status : ClientID: 9 ModID: 20230704000065 Status: open pending
+[02:50:03] Order Status : ClientID: 7 ModID: 20230704000064 Status: open
+[02:50:03] Token: 47064 Traded Qty. : 50 Traded Price: 24465 Traded ID: 800045 ExchangeOrderId: 10000000060 AdminOrderID: 20230704000064
+[02:50:03] Order Status : ClientID: 7 ModID: 20230704000064 Status: complete
+[02:50:03] Order Status : ClientID: 9 ModID: 20230704000065 Status: open
+[02:50:03] Token: 47064 Traded Qty. : 50 Traded Price: 24465 Traded ID: 800046 ExchangeOrderId: 10000000061 AdminOrderID: 20230704000065
+[02:50:03] Order Status : ClientID: 9 ModID: 20230704000065 Status: complete
+[02:50:04] SL HIT for Leg :LEG4  in the Stg: Stg2
+[02:50:04] Order Type :LIMIT Order ID :1 TransType :B  Token Id :42697 Price :1945490 Trigger Price: 0 has been Placed.
+[02:50:04] Order Type :LIMIT Order ID :11 TransType :S  Token Id :42697 Price :1945490 Trigger Price: 0 has been Placed.
+[02:50:05] Order Status : ClientID: 1 ModID: 20230704000066 Status: put order request
+[02:50:05] Order Status : ClientID: 1 ModID: 20230704000066 Status: open pending
+[02:50:05] Order Status : ClientID: 11 ModID: 20230704000067 Status: put order request
+[02:50:05] Order Status : ClientID: 11 ModID: 20230704000067 Status: open pending
+[02:50:05] Order Status : ClientID: 1 ModID: 20230704000066 Status: open
+[02:50:05] Token: 42697 Traded Qty. : 50 Traded Price: 1945490 Traded ID: 800047 ExchangeOrderId: 11000000005 AdminOrderID: 20230704000066
+[02:50:05] Order Status : ClientID: 1 ModID: 20230704000066 Status: complete
+[02:50:05] Order Status : ClientID: 11 ModID: 20230704000067 Status: open
+[02:50:05] Token: 42697 Traded Qty. : 50 Traded Price: 1945490 Traded ID: 800048 ExchangeOrderId: 11000000006 AdminOrderID: 20230704000067
+[02:50:05] Order Status : ClientID: 11 ModID: 20230704000067 Status: complete
+[02:50:05] TP HIT for Leg :LEG3  in the Stg: Stg1
+[02:50:05] Order Type :LIMIT Order ID :3 TransType :S  Token Id :47078 Price :5150 Trigger Price: 0 has been Placed.
+[02:50:05] Order Type :LIMIT Order ID :13 TransType :S  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:50:06] Order Status : ClientID: 3 ModID: 20230704000068 Status: put order request
+[02:50:06] Order Status : ClientID: 3 ModID: 20230704000068 Status: open pending
+[02:50:06] Order Status : ClientID: 13 ModID: 20230704000069 Status: put order request
+[02:50:06] Order Status : ClientID: 13 ModID: 20230704000069 Status: open pending
+[02:50:06] TP HIT for Leg :LEG3.01  in the Stg: Stg1
+[02:50:06] Order Type :LIMIT Order ID :13 TransType :B  Token Id :47078 Price :5150 Trigger Price: 0 has been Placed.
+[02:50:06] Order Type :LIMIT Order ID :15 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:50:06] Order Status : ClientID: 3 ModID: 20230704000068 Status: open
+[02:50:06] Token: 47078 Traded Qty. : 250 Traded Price: 5150 Traded ID: 800049 ExchangeOrderId: 10000000062 AdminOrderID: 20230704000068
+[02:50:06] Order Status : ClientID: 3 ModID: 20230704000068 Status: complete
+[02:50:06] Order Status : ClientID: 13 ModID: 20230704000069 Status: open
+[02:50:06] Token: 47078 Traded Qty. : 250 Traded Price: 5080 Traded ID: 800050 ExchangeOrderId: 10000000063 AdminOrderID: 20230704000069
+[02:50:06] Order Status : ClientID: 13 ModID: 20230704000069 Status: complete
+[02:50:06] TP HIT for Leg :LEG30.02  in the Stg: Stg1
+[02:50:06] Order Type :LIMIT Order ID :15 TransType :S  Token Id :47078 Price :5150 Trigger Price: 0 has been Placed.
+[02:50:07] Order Status : ClientID: 13 ModID: 20230704000070 Status: put order request
+[02:50:07] Order Status : ClientID: 13 ModID: 20230704000070 Status: open pending
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000071 Status: put order request
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000071 Status: open pending
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000072 Status: put order request
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000072 Status: open pending
+[02:50:07] Order Status : ClientID: 13 ModID: 20230704000070 Status: open
+[02:50:07] Token: 47078 Traded Qty. : 250 Traded Price: 5150 Traded ID: 800051 ExchangeOrderId: 10000000064 AdminOrderID: 20230704000070
+[02:50:07] Order Status : ClientID: 13 ModID: 20230704000070 Status: complete
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000071 Status: open
+[02:50:07] Token: 47078 Traded Qty. : 250 Traded Price: 5080 Traded ID: 800052 ExchangeOrderId: 10000000065 AdminOrderID: 20230704000071
+[02:50:07] Order Status : ClientID: 15 ModID: 20230704000071 Status: complete
+[02:50:08] Order Status : ClientID: 15 ModID: 20230704000072 Status: open
+[02:50:08] Token: 47078 Traded Qty. : 250 Traded Price: 5150 Traded ID: 800053 ExchangeOrderId: 10000000066 AdminOrderID: 20230704000072
+[02:50:08] Order Status : ClientID: 15 ModID: 20230704000072 Status: complete
+[02:50:12] SL HIT for Leg :LEG1  in the Stg: Stg1
+[02:50:12] SL HIT for Leg :LEG3  in the Stg: Stg2
+[02:50:12] Order Type :LIMIT Order ID :2 TransType :S  Token Id :47078 Price :4950 Trigger Price: 0 has been Placed.
+[02:50:12] Order Type :LIMIT Order ID :6 TransType :S  Token Id :47078 Price :4950 Trigger Price: 0 has been Placed.
+[02:50:12] Order Type :LIMIT Order ID :20 TransType :B  Token Id :47078 Price :4950 Trigger Price: 0 has been Placed.
+[02:50:13] Order Status : ClientID: 2 ModID: 20230704000073 Status: put order request
+[02:50:13] Order Status : ClientID: 2 ModID: 20230704000073 Status: open pending
+[02:50:13] Order Status : ClientID: 6 ModID: 20230704000074 Status: put order request
+[02:50:13] Order Status : ClientID: 6 ModID: 20230704000074 Status: open pending
+[02:50:13] Order Status : ClientID: 20 ModID: 20230704000075 Status: put order request
+[02:50:13] Order Status : ClientID: 20 ModID: 20230704000075 Status: open pending
+[02:50:13] Order Status : ClientID: 2 ModID: 20230704000073 Status: open
+[02:50:13] Token: 47078 Traded Qty. : 50 Traded Price: 4950 Traded ID: 800054 ExchangeOrderId: 10000000067 AdminOrderID: 20230704000073
+[02:50:13] Order Status : ClientID: 2 ModID: 20230704000073 Status: complete
+[02:50:13] Order Status : ClientID: 6 ModID: 20230704000074 Status: open
+[02:50:13] Token: 47078 Traded Qty. : 250 Traded Price: 4950 Traded ID: 800055 ExchangeOrderId: 10000000068 AdminOrderID: 20230704000074
+[02:50:13] Order Status : ClientID: 6 ModID: 20230704000074 Status: complete
+[02:50:14] Order Status : ClientID: 20 ModID: 20230704000075 Status: open
+[02:50:14] Token: 47078 Traded Qty. : 250 Traded Price: 4950 Traded ID: 800056 ExchangeOrderId: 10000000069 AdminOrderID: 20230704000075
+[02:50:14] Order Status : ClientID: 20 ModID: 20230704000075 Status: complete
+[02:51:32] Order Type :LIMIT Order ID :19 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:51:32] Order Status : ClientID: 19 ModID: 20230704000076 Status: put order request
+[02:51:32] Order Status : ClientID: 19 ModID: 20230704000076 Status: open pending
+[02:51:33] Order Status : ClientID: 19 ModID: 20230704000076 Status: open
+[02:51:33] Token: 47078 Traded Qty. : 50 Traded Price: 5080 Traded ID: 800057 ExchangeOrderId: 10000000070 AdminOrderID: 20230704000076
+[02:51:33] Order Status : ClientID: 19 ModID: 20230704000076 Status: complete
+[02:52:06] SL HIT for Leg :LEG2  in the Stg: Stg1
+[02:52:06] Order Type :LIMIT Order ID :4 TransType :B  Token Id :47082 Price :3185 Trigger Price: 0 has been Placed.
+[02:52:06] Order Type :LIMIT Order ID :22 TransType :S  Token Id :47082 Price :3085 Trigger Price: 0 has been Placed.
+[02:52:06] SL HIT for Leg :LEG2.01  in the Stg: Stg1
+[02:52:06] Order Type :LIMIT Order ID :22 TransType :B  Token Id :47082 Price :3185 Trigger Price: 0 has been Placed.
+[02:52:06] Order Type :LIMIT Order ID :24 TransType :S  Token Id :47082 Price :3085 Trigger Price: 0 has been Placed.
+[02:52:06] Order Status : ClientID: 4 ModID: 20230704000077 Status: put order request
+[02:52:06] Order Status : ClientID: 4 ModID: 20230704000077 Status: open pending
+[02:52:06] Order Status : ClientID: 22 ModID: 20230704000078 Status: put order request
+[02:52:06] Order Status : ClientID: 22 ModID: 20230704000078 Status: open pending
+[02:52:06] Order Status : ClientID: 22 ModID: 20230704000079 Status: put order request
+[02:52:06] Order Status : ClientID: 22 ModID: 20230704000079 Status: open pending
+[02:52:06] Order Status : ClientID: 24 ModID: 20230704000080 Status: put order request
+[02:52:06] Order Status : ClientID: 24 ModID: 20230704000080 Status: open pending
+[02:52:07] SL HIT for Leg :LEG20.02  in the Stg: Stg1
+[02:52:07] Order Type :LIMIT Order ID :24 TransType :B  Token Id :47082 Price :3185 Trigger Price: 0 has been Placed.
+[02:52:07] Order Status : ClientID: 4 ModID: 20230704000077 Status: open
+[02:52:07] Token: 47082 Traded Qty. : 50 Traded Price: 3185 Traded ID: 800058 ExchangeOrderId: 10000000071 AdminOrderID: 20230704000077
+[02:52:07] Order Status : ClientID: 4 ModID: 20230704000077 Status: complete
+[02:52:07] Order Status : ClientID: 22 ModID: 20230704000078 Status: open
+[02:52:07] Token: 47082 Traded Qty. : 50 Traded Price: 3085 Traded ID: 800059 ExchangeOrderId: 10000000072 AdminOrderID: 20230704000078
+[02:52:07] Order Status : ClientID: 22 ModID: 20230704000078 Status: complete
+[02:52:07] Order Status : ClientID: 24 ModID: 20230704000081 Status: put order request
+[02:52:07] Order Status : ClientID: 24 ModID: 20230704000081 Status: open pending
+[02:52:08] Order Status : ClientID: 22 ModID: 20230704000079 Status: open
+[02:52:08] Token: 47082 Traded Qty. : 50 Traded Price: 3185 Traded ID: 800060 ExchangeOrderId: 10000000073 AdminOrderID: 20230704000079
+[02:52:08] Order Status : ClientID: 22 ModID: 20230704000079 Status: complete
+[02:52:08] Order Status : ClientID: 24 ModID: 20230704000080 Status: open
+[02:52:08] Token: 47082 Traded Qty. : 50 Traded Price: 3085 Traded ID: 800061 ExchangeOrderId: 10000000074 AdminOrderID: 20230704000080
+[02:52:08] Order Status : ClientID: 24 ModID: 20230704000080 Status: complete
+[02:52:08] Order Status : ClientID: 24 ModID: 20230704000081 Status: open
+[02:52:08] Token: 47082 Traded Qty. : 50 Traded Price: 3185 Traded ID: 800062 ExchangeOrderId: 10000000075 AdminOrderID: 20230704000081
+[02:52:08] Order Status : ClientID: 24 ModID: 20230704000081 Status: complete
+[02:56:23] TP HIT for Leg :LEG2  in the Stg: Stg2
+[02:56:23] Order Type :LIMIT Order ID :5 TransType :B  Token Id :47067 Price :1105 Trigger Price: 0 has been Placed.
+[02:56:23] Order Type :LIMIT Order ID :27 TransType :B  Token Id :47067 Price :1105 Trigger Price: 0 has been Placed.
+[02:56:24] Order Status : ClientID: 5 ModID: 20230704000082 Status: put order request
+[02:56:24] Order Status : ClientID: 5 ModID: 20230704000082 Status: open pending
+[02:56:24] Order Status : ClientID: 27 ModID: 20230704000083 Status: put order request
+[02:56:24] Order Status : ClientID: 27 ModID: 20230704000083 Status: open pending
+[02:56:24] Order Status : ClientID: 5 ModID: 20230704000082 Status: open
+[02:56:24] Token: 47067 Traded Qty. : 50 Traded Price: 1105 Traded ID: 800063 ExchangeOrderId: 10000000076 AdminOrderID: 20230704000082
+[02:56:24] Order Status : ClientID: 5 ModID: 20230704000082 Status: complete
+[02:56:24] Order Status : ClientID: 27 ModID: 20230704000083 Status: open
+[02:56:24] Token: 47067 Traded Qty. : 50 Traded Price: 1105 Traded ID: 800064 ExchangeOrderId: 10000000077 AdminOrderID: 20230704000083
+[02:56:24] Order Status : ClientID: 27 ModID: 20230704000083 Status: complete
+[02:56:25] TP HIT for Leg :LEG1.01  in the Stg: Stg1
+[02:56:25] Order Type :LIMIT Order ID :19 TransType :S  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[02:56:25] Order Type :LIMIT Order ID :29 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:56:26] TP HIT for Leg :LEG10.02  in the Stg: Stg1
+[02:56:26] Order Type :LIMIT Order ID :29 TransType :S  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[02:56:26] Order Type :LIMIT Order ID :31 TransType :B  Token Id :47078 Price :5080 Trigger Price: 0 has been Placed.
+[02:56:26] Order Status : ClientID: 19 ModID: 20230704000084 Status: put order request
+[02:56:26] Order Status : ClientID: 19 ModID: 20230704000084 Status: open pending
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000085 Status: put order request
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000085 Status: open pending
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000086 Status: put order request
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000086 Status: open pending
+[02:56:26] Order Status : ClientID: 31 ModID: 20230704000087 Status: put order request
+[02:56:26] Order Status : ClientID: 31 ModID: 20230704000087 Status: open pending
+[02:56:26] Order Status : ClientID: 19 ModID: 20230704000084 Status: open
+[02:56:26] Token: 47078 Traded Qty. : 50 Traded Price: 5580 Traded ID: 800065 ExchangeOrderId: 10000000078 AdminOrderID: 20230704000084
+[02:56:26] Order Status : ClientID: 19 ModID: 20230704000084 Status: complete
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000085 Status: open
+[02:56:26] Token: 47078 Traded Qty. : 50 Traded Price: 5080 Traded ID: 800066 ExchangeOrderId: 10000000079 AdminOrderID: 20230704000085
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000085 Status: complete
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000086 Status: open
+[02:56:26] Token: 47078 Traded Qty. : 50 Traded Price: 5580 Traded ID: 800067 ExchangeOrderId: 10000000080 AdminOrderID: 20230704000086
+[02:56:26] Order Status : ClientID: 29 ModID: 20230704000086 Status: complete
+[02:56:26] Order Status : ClientID: 31 ModID: 20230704000087 Status: open
+[02:56:26] Token: 47078 Traded Qty. : 50 Traded Price: 5080 Traded ID: 800068 ExchangeOrderId: 10000000081 AdminOrderID: 20230704000087
+[02:56:26] Order Status : ClientID: 31 ModID: 20230704000087 Status: complete
+[02:56:28] TP HIT for Leg :LEG10.03  in the Stg: Stg1
+[02:56:28] Order Type :LIMIT Order ID :31 TransType :S  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[02:56:29] Order Status : ClientID: 31 ModID: 20230704000088 Status: put order request
+[02:56:29] Order Status : ClientID: 31 ModID: 20230704000088 Status: open pending
+[02:56:29] Order Status : ClientID: 31 ModID: 20230704000088 Status: open
+[02:56:29] Token: 47078 Traded Qty. : 50 Traded Price: 5580 Traded ID: 800069 ExchangeOrderId: 10000000082 AdminOrderID: 20230704000088
+[02:56:29] Order Status : ClientID: 31 ModID: 20230704000088 Status: complete
+[03:10:06][Error] On Line 5 Error : 
+[03:10:06][Error] On Line 5 Error : 
+[03:10:06][Error] On Line 5 Error : 
+[03:10:06][Error] On Line 6 Error : 
+[03:10:06][Error] On Line 6 Error : 
+[03:10:06][Error] On Line 6 Error : 
+[03:10:06][Error] On Line 7 Error : 
+[03:10:06][Error] On Line 7 Error : 
+[03:10:06][Error] On Line 7 Error : 
+[03:10:06][Error] On Line 9 Error : 
+[03:10:06][Error] On Line 9 Error : 
+[03:10:06][Error] On Line 9 Error : 
+[03:10:06][Error] On Line 10 Error : 
+[03:10:06][Error] On Line 10 Error : 
+[03:10:06][Error] On Line 10 Error : 
+[03:10:06][Error] On Line 11 Error : 
+[03:10:06][Error] On Line 11 Error : 
+[03:10:06][Error] On Line 11 Error : 
+[03:10:06][Error] On Line 12 Error : 
+[03:10:06][Error] On Line 12 Error : 
+[03:10:06][Error] On Line 12 Error : 
+[03:10:06]  Application StartUp Block Complete. 
+[03:11:00] Order Type :LIMIT Order ID :1 TransType :S  Token Id :42697 Price :1946570 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :2 TransType :B  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :3 TransType :B  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :4 TransType :B  Token Id :47064 Price :25305 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :5 TransType :S  Token Id :47067 Price :1060 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :6 TransType :S  Token Id :47082 Price :3415 Trigger Price: 0 has been Placed.
+[03:11:00] Order Type :LIMIT Order ID :7 TransType :B  Token Id :47078 Price :5580 Trigger Price: 0 has been Placed.
+[03:11:00] Order Status : ClientID: 1 ModID: 20230704000089 Status: put order request
+[03:11:00] Order Status : ClientID: 1 ModID: 20230704000089 Status: open pending
+[03:11:00] Order Status : ClientID: 2 ModID: 20230704000090 Status: put order request
+[03:11:00] Order Status : ClientID: 2 ModID: 20230704000090 Status: open pending
+[03:11:00] Order Status : ClientID: 3 ModID: 20230704000091 Status: put order request
+[03:11:00] Order Status : ClientID: 3 ModID: 20230704000091 Status: open pending
+[03:11:00] Order Status : ClientID: 4 ModID: 20230704000092 Status: put order request
+[03:11:00] Order Status : ClientID: 4 ModID: 20230704000092 Status: open pending
+[03:11:00] Order Status : ClientID: 5 ModID: 20230704000093 Status: put order request
+[03:11:00] Order Status : ClientID: 5 ModID: 20230704000093 Status: open pending
+[03:11:00] Order Status : ClientID: 6 ModID: 20230704000094 Status: put order request
+[03:11:00] Order Status : ClientID: 6 ModID: 20230704000094 Status: open pending
+[03:11:00] Order Status : ClientID: 7 ModID: 20230704000095 Status: put order request
+[03:11:00] Order Status : ClientID: 7 ModID: 20230704000095 Status: open pending
+[03:11:00] Order Status : ClientID: 1 ModID: 20230704000089 Status: open
+[03:11:00] Token: 42697 Traded Qty. : 50 Traded Price: 1946570 Traded ID: 800070 ExchangeOrderId: 11000000007 AdminOrderID: 20230704000089
+[03:11:00] Order Status : ClientID: 1 ModID: 20230704000089 Status: complete
+[03:11:00] Order Status : ClientID: 2 ModID: 20230704000090 Status: open
+[03:11:00] Token: 47078 Traded Qty. : 50 Traded Price: 5580 Traded ID: 800071 ExchangeOrderId: 10000000083 AdminOrderID: 20230704000090
+[03:11:00] Order Status : ClientID: 2 ModID: 20230704000090 Status: complete
+[03:11:00] Order Status : ClientID: 3 ModID: 20230704000091 Status: open
+[03:11:00] Token: 47078 Traded Qty. : 250 Traded Price: 5580 Traded ID: 800072 ExchangeOrderId: 10000000084 AdminOrderID: 20230704000091
+[03:11:00] Order Status : ClientID: 3 ModID: 20230704000091 Status: complete
+[03:11:00] Order Status : ClientID: 4 ModID: 20230704000092 Status: open
+[03:11:00] Token: 47064 Traded Qty. : 50 Traded Price: 25305 Traded ID: 800073 ExchangeOrderId: 10000000085 AdminOrderID: 20230704000092
+[03:11:00] Order Status : ClientID: 4 ModID: 20230704000092 Status: complete
+[03:11:00] Order Status : ClientID: 5 ModID: 20230704000093 Status: open
+[03:11:00] Token: 47067 Traded Qty. : 50 Traded Price: 1060 Traded ID: 800074 ExchangeOrderId: 10000000086 AdminOrderID: 20230704000093
+[03:11:00] Order Status : ClientID: 5 ModID: 20230704000093 Status: complete
+[03:11:00] Order Status : ClientID: 6 ModID: 20230704000094 Status: open
+[03:11:00] Token: 47082 Traded Qty. : 50 Traded Price: 3415 Traded ID: 800075 ExchangeOrderId: 10000000087 AdminOrderID: 20230704000094
+[03:11:00] Order Status : ClientID: 6 ModID: 20230704000094 Status: complete
+[03:11:00] Order Status : ClientID: 7 ModID: 20230704000095 Status: open
+[03:11:00] Token: 47078 Traded Qty. : 250 Traded Price: 5580 Traded ID: 800076 ExchangeOrderId: 10000000088 AdminOrderID: 20230704000095
+[03:11:00] Order Status : ClientID: 7 ModID: 20230704000095 Status: complete
+[03:11:01] SL HIT for Leg :LEG3  in the Stg: Stg1
+[03:11:01] Order Type :LIMIT Order ID :3 TransType :S  Token Id :47078 Price :5520 Trigger Price: 0 has been Placed.
+[03:11:02] Order Status : ClientID: 3 ModID: 20230704000096 Status: put order request
+[03:11:02] Order Status : ClientID: 3 ModID: 20230704000096 Status: open pending
+[03:11:02] Order Status : ClientID: 3 ModID: 20230704000096 Status: open
+[03:11:02] Token: 47078 Traded Qty. : 250 Traded Price: 5520 Traded ID: 800077 ExchangeOrderId: 10000000089 AdminOrderID: 20230704000096
+[03:11:02] Order Status : ClientID: 3 ModID: 20230704000096 Status: complete
+[03:11:08] SL HIT for Leg :LEG1  in the Stg: Stg1
+[03:11:08] SL HIT for Leg :LEG3  in the Stg: Stg2
+[03:11:08] Order Type :LIMIT Order ID :2 TransType :S  Token Id :47078 Price :5475 Trigger Price: 0 has been Placed.
+[03:11:08] Order Type :LIMIT Order ID :7 TransType :S  Token Id :47078 Price :5475 Trigger Price: 0 has been Placed.
+[03:11:08] Order Status : ClientID: 2 ModID: 20230704000097 Status: put order request
+[03:11:08] Order Status : ClientID: 2 ModID: 20230704000097 Status: open pending
+[03:11:08] Order Status : ClientID: 7 ModID: 20230704000098 Status: put order request
+[03:11:08] Order Status : ClientID: 7 ModID: 20230704000098 Status: open pending
+[03:11:08] Order Type :LIMIT Order ID :13 TransType :B  Token Id :47078 Price :5475 Trigger Price: 0 has been Placed.
+[03:11:08] Order Status : ClientID: 2 ModID: 20230704000097 Status: open
+[03:11:08] Token: 47078 Traded Qty. : 50 Traded Price: 5475 Traded ID: 800078 ExchangeOrderId: 10000000090 AdminOrderID: 20230704000097
+[03:11:08] Order Status : ClientID: 2 ModID: 20230704000097 Status: complete
+[03:11:08] Order Status : ClientID: 7 ModID: 20230704000098 Status: open
+[03:11:08] Token: 47078 Traded Qty. : 250 Traded Price: 5475 Traded ID: 800079 ExchangeOrderId: 10000000091 AdminOrderID: 20230704000098
+[03:11:08] Order Status : ClientID: 7 ModID: 20230704000098 Status: complete
+[03:11:08] Order Status : ClientID: 13 ModID: 20230704000099 Status: put order request
+[03:11:08] Order Status : ClientID: 13 ModID: 20230704000099 Status: open pending
+[03:11:09] Order Status : ClientID: 13 ModID: 20230704000099 Status: open
+[03:11:09] Token: 47078 Traded Qty. : 250 Traded Price: 5475 Traded ID: 800080 ExchangeOrderId: 10000000092 AdminOrderID: 20230704000099
+[03:11:09] Order Status : ClientID: 13 ModID: 20230704000099 Status: complete
+[03:11:11] TP HIT for Leg :LEG4  in the Stg: Stg2
+[03:11:11] Order Type :LIMIT Order ID :1 TransType :B  Token Id :42697 Price :1946470 Trigger Price: 0 has been Placed.
+[03:11:11] Order Type :LIMIT Order ID :15 TransType :S  Token Id :42697 Price :1946470 Trigger Price: 0 has been Placed.
+[03:11:11] Order Status : ClientID: 1 ModID: 20230704000100 Status: put order request
+[03:11:11] Order Status : ClientID: 1 ModID: 20230704000100 Status: open pending
+[03:11:11] Order Status : ClientID: 15 ModID: 20230704000101 Status: put order request
+[03:11:11] Order Status : ClientID: 15 ModID: 20230704000101 Status: open pending
+[03:11:11] Order Status : ClientID: 1 ModID: 20230704000100 Status: open
+[03:11:11] Token: 42697 Traded Qty. : 50 Traded Price: 1946470 Traded ID: 800081 ExchangeOrderId: 11000000008 AdminOrderID: 20230704000100
+[03:11:11] Order Status : ClientID: 1 ModID: 20230704000100 Status: complete
+[03:11:11] Order Status : ClientID: 15 ModID: 20230704000101 Status: open
+[03:11:11] Token: 42697 Traded Qty. : 50 Traded Price: 1946470 Traded ID: 800082 ExchangeOrderId: 11000000009 AdminOrderID: 20230704000101
+[03:11:11] Order Status : ClientID: 15 ModID: 20230704000101 Status: complete
+[03:11:12] TP HIT for Leg :LEG4.01  in the Stg: Stg2
+[03:11:12] Order Type :LIMIT Order ID :15 TransType :B  Token Id :42697 Price :1946300 Trigger Price: 0 has been Placed.
+[03:11:12] Order Type :LIMIT Order ID :17 TransType :S  Token Id :42697 Price :1946300 Trigger Price: 0 has been Placed.
+[03:11:12] Order Status : ClientID: 15 ModID: 20230704000102 Status: put order request
+[03:11:12] Order Status : ClientID: 15 ModID: 20230704000102 Status: open pending
+[03:11:12] Order Status : ClientID: 17 ModID: 20230704000103 Status: put order request
+[03:11:12] Order Status : ClientID: 17 ModID: 20230704000103 Status: open pending
+[03:11:12] Order Status : ClientID: 15 ModID: 20230704000102 Status: open
+[03:11:12] Token: 42697 Traded Qty. : 50 Traded Price: 1946300 Traded ID: 800083 ExchangeOrderId: 11000000010 AdminOrderID: 20230704000102
+[03:11:12] Order Status : ClientID: 15 ModID: 20230704000102 Status: complete
+[03:11:12] Order Status : ClientID: 17 ModID: 20230704000103 Status: open
+[03:11:12] Token: 42697 Traded Qty. : 50 Traded Price: 1946300 Traded ID: 800084 ExchangeOrderId: 11000000011 AdminOrderID: 20230704000103
+[03:11:12] Order Status : ClientID: 17 ModID: 20230704000103 Status: complete
+[03:11:13] SL HIT for Leg :LEG40.02  in the Stg: Stg2
+[03:11:13] Order Type :LIMIT Order ID :17 TransType :B  Token Id :42697 Price :1946470 Trigger Price: 0 has been Placed.
+[03:11:13] Order Type :LIMIT Order ID :19 TransType :S  Token Id :42697 Price :1946470 Trigger Price: 0 has been Placed.
+[03:11:13] Order Status : ClientID: 17 ModID: 20230704000104 Status: put order request
+[03:11:13] Order Status : ClientID: 17 ModID: 20230704000104 Status: open pending
+[03:11:13] Order Status : ClientID: 19 ModID: 20230704000105 Status: put order request
+[03:11:13] Order Status : ClientID: 19 ModID: 20230704000105 Status: open pending
+[03:11:13] Order Status : ClientID: 17 ModID: 20230704000104 Status: open
+[03:11:13] Token: 42697 Traded Qty. : 50 Traded Price: 1946470 Traded ID: 800085 ExchangeOrderId: 11000000012 AdminOrderID: 20230704000104
+[03:11:13] Order Status : ClientID: 17 ModID: 20230704000104 Status: complete
+[03:11:13] Order Status : ClientID: 19 ModID: 20230704000105 Status: open
+[03:11:13] Token: 42697 Traded Qty. : 50 Traded Price: 1946470 Traded ID: 800086 ExchangeOrderId: 11000000013 AdminOrderID: 20230704000105
+[03:11:13] Order Status : ClientID: 19 ModID: 20230704000105 Status: complete
+[03:11:17] SL HIT for Leg :LEG3.01  in the Stg: Stg2
+[03:11:17] Order Type :LIMIT Order ID :13 TransType :S  Token Id :47078 Price :5375 Trigger Price: 0 has been Placed.
+[03:11:17] Order Status : ClientID: 13 ModID: 20230704000106 Status: put order request
+[03:11:17] Order Status : ClientID: 13 ModID: 20230704000106 Status: open pending
+[03:11:18] Order Type :LIMIT Order ID :21 TransType :B  Token Id :47078 Price :5375 Trigger Price: 0 has been Placed.
+[03:11:18] SL HIT for Leg :LEG1  in the Stg: Stg2
+[03:11:18] Order Type :LIMIT Order ID :4 TransType :S  Token Id :47064 Price :25000 Trigger Price: 0 has been Placed.
+[03:11:18] Order Type :LIMIT Order ID :23 TransType :S  Token Id :47064 Price :25000 Trigger Price: 0 has been Placed.
+[03:11:18] Order Status : ClientID: 21 ModID: 20230704000107 Status: put order request
+[03:11:18] Order Status : ClientID: 21 ModID: 20230704000107 Status: open pending
+[03:11:18] Order Status : ClientID: 4 ModID: 20230704000108 Status: put order request
+[03:11:18] Order Status : ClientID: 4 ModID: 20230704000108 Status: open pending
+[03:11:18] Order Status : ClientID: 23 ModID: 20230704000109 Status: put order request
+[03:11:18] Order Status : ClientID: 23 ModID: 20230704000109 Status: open pending
+[03:11:19] Order Status : ClientID: 13 ModID: 20230704000106 Status: open
+[03:11:19] Token: 47078 Traded Qty. : 250 Traded Price: 5375 Traded ID: 800087 ExchangeOrderId: 10000000093 AdminOrderID: 20230704000106
+[03:11:19] Order Status : ClientID: 13 ModID: 20230704000106 Status: complete
+[03:11:19] Order Status : ClientID: 21 ModID: 20230704000107 Status: open
+[03:11:19] Token: 47078 Traded Qty. : 250 Traded Price: 5375 Traded ID: 800088 ExchangeOrderId: 10000000094 AdminOrderID: 20230704000107
+[03:11:19] Order Status : ClientID: 21 ModID: 20230704000107 Status: complete
+[03:11:19] Order Status : ClientID: 4 ModID: 20230704000108 Status: open
+[03:11:19] Token: 47064 Traded Qty. : 50 Traded Price: 25000 Traded ID: 800089 ExchangeOrderId: 10000000095 AdminOrderID: 20230704000108
+[03:11:19] Order Status : ClientID: 4 ModID: 20230704000108 Status: complete
+[03:11:19] Order Status : ClientID: 23 ModID: 20230704000109 Status: open
+[03:11:19] Token: 47064 Traded Qty. : 50 Traded Price: 25000 Traded ID: 800090 ExchangeOrderId: 10000000096 AdminOrderID: 20230704000109
+[03:11:19] Order Status : ClientID: 23 ModID: 20230704000109 Status: complete
+[03:11:26] TP HIT for Leg :LEG1.01  in the Stg: Stg2
+[03:11:26] Order Type :LIMIT Order ID :23 TransType :B  Token Id :47064 Price :25100 Trigger Price: 0 has been Placed.
+[03:11:26] Order Type :LIMIT Order ID :25 TransType :B  Token Id :47064 Price :25100 Trigger Price: 0 has been Placed.
+[03:11:26] Order Status : ClientID: 23 ModID: 20230704000110 Status: put order request
+[03:11:26] Order Status : ClientID: 23 ModID: 20230704000110 Status: open pending
+[03:11:26] Order Status : ClientID: 25 ModID: 20230704000111 Status: put order request
+[03:11:26] Order Status : ClientID: 25 ModID: 20230704000111 Status: open pending
+[03:11:27] Order Status : ClientID: 23 ModID: 20230704000110 Status: open
+[03:11:27] Token: 47064 Traded Qty. : 50 Traded Price: 25100 Traded ID: 800091 ExchangeOrderId: 10000000097 AdminOrderID: 20230704000110
+[03:11:27] Order Status : ClientID: 23 ModID: 20230704000110 Status: complete
+[03:11:27] Order Status : ClientID: 25 ModID: 20230704000111 Status: open
+[03:11:27] Token: 47064 Traded Qty. : 50 Traded Price: 25100 Traded ID: 800092 ExchangeOrderId: 10000000098 AdminOrderID: 20230704000111
+[03:11:27] Order Status : ClientID: 25 ModID: 20230704000111 Status: complete
+[03:11:29] SL HIT for Leg :LEG10.02  in the Stg: Stg2
+[03:11:29] Order Type :LIMIT Order ID :25 TransType :S  Token Id :47064 Price :25000 Trigger Price: 0 has been Placed.
+[03:11:29] Order Type :LIMIT Order ID :27 TransType :S  Token Id :47064 Price :25000 Trigger Price: 0 has been Placed.
+[03:11:29] Order Status : ClientID: 25 ModID: 20230704000112 Status: put order request
+[03:11:29] Order Status : ClientID: 25 ModID: 20230704000112 Status: open pending
+[03:11:29] Order Status : ClientID: 27 ModID: 20230704000113 Status: put order request
+[03:11:29] Order Status : ClientID: 27 ModID: 20230704000113 Status: open pending
+[03:11:30] Order Status : ClientID: 25 ModID: 20230704000112 Status: open
+[03:11:30] Token: 47064 Traded Qty. : 50 Traded Price: 25000 Traded ID: 800093 ExchangeOrderId: 10000000099 AdminOrderID: 20230704000112
+[03:11:30] Order Status : ClientID: 25 ModID: 20230704000112 Status: complete
+[03:11:30] Order Status : ClientID: 27 ModID: 20230704000113 Status: open
+[03:11:30] Token: 47064 Traded Qty. : 50 Traded Price: 25000 Traded ID: 800094 ExchangeOrderId: 10000000100 AdminOrderID: 20230704000113
+[03:11:30] Order Status : ClientID: 27 ModID: 20230704000113 Status: complete
+[03:11:54] TP HIT for Leg :LEG40.03  in the Stg: Stg2
+[03:11:54] Order Type :LIMIT Order ID :19 TransType :B  Token Id :42697 Price :1946300 Trigger Price: 0 has been Placed.
+[03:11:54] Order Status : ClientID: 19 ModID: 20230704000114 Status: put order request
+[03:11:54] Order Status : ClientID: 19 ModID: 20230704000114 Status: open pending
+[03:11:54] Order Status : ClientID: 19 ModID: 20230704000114 Status: open
+[03:11:54] Token: 42697 Traded Qty. : 50 Traded Price: 1946300 Traded ID: 800095 ExchangeOrderId: 11000000014 AdminOrderID: 20230704000114
+[03:11:54] Order Status : ClientID: 19 ModID: 20230704000114 Status: complete
+[03:11:58] TP HIT for Leg :LEG10.03  in the Stg: Stg2
+[03:11:58] Order Type :LIMIT Order ID :27 TransType :B  Token Id :47064 Price :25165 Trigger Price: 0 has been Placed.
+[03:11:58] Order Type :LIMIT Order ID :30 TransType :B  Token Id :47064 Price :25165 Trigger Price: 0 has been Placed.
+[03:11:58] Order Status : ClientID: 27 ModID: 20230704000115 Status: put order request
+[03:11:58] Order Status : ClientID: 27 ModID: 20230704000115 Status: open pending
+[03:11:58] Order Status : ClientID: 30 ModID: 20230704000116 Status: put order request
+[03:11:58] Order Status : ClientID: 30 ModID: 20230704000116 Status: open pending
+[03:11:58] Order Status : ClientID: 27 ModID: 20230704000115 Status: open
+[03:11:58] Token: 47064 Traded Qty. : 50 Traded Price: 25165 Traded ID: 800096 ExchangeOrderId: 10000000101 AdminOrderID: 20230704000115
+[03:11:58] Order Status : ClientID: 27 ModID: 20230704000115 Status: complete
+[03:11:58] Order Status : ClientID: 30 ModID: 20230704000116 Status: open
+[03:11:58] Token: 47064 Traded Qty. : 50 Traded Price: 25165 Traded ID: 800097 ExchangeOrderId: 10000000102 AdminOrderID: 20230704000116
+[03:11:58] Order Status : ClientID: 30 ModID: 20230704000116 Status: complete
+[03:12:01] TP HIT for Leg :LEG30.02  in the Stg: Stg2
+[03:12:01] Order Type :LIMIT Order ID :21 TransType :S  Token Id :47078 Price :5480 Trigger Price: 0 has been Placed.
+[03:12:01] Order Type :LIMIT Order ID :32 TransType :B  Token Id :47078 Price :5480 Trigger Price: 0 has been Placed.
+[03:12:02] Order Status : ClientID: 21 ModID: 20230704000117 Status: put order request
+[03:12:02] Order Status : ClientID: 21 ModID: 20230704000117 Status: open pending
+[03:12:02] Order Status : ClientID: 32 ModID: 20230704000118 Status: put order request
+[03:12:02] Order Status : ClientID: 32 ModID: 20230704000118 Status: open pending
+[03:12:02] Order Status : ClientID: 21 ModID: 20230704000117 Status: open
+[03:12:02] Token: 47078 Traded Qty. : 250 Traded Price: 5480 Traded ID: 800098 ExchangeOrderId: 10000000103 AdminOrderID: 20230704000117
+[03:12:02] Order Status : ClientID: 21 ModID: 20230704000117 Status: complete
+[03:12:02] Order Status : ClientID: 32 ModID: 20230704000118 Status: open
+[03:12:02] Token: 47078 Traded Qty. : 250 Traded Price: 5480 Traded ID: 800099 ExchangeOrderId: 10000000104 AdminOrderID: 20230704000118
+[03:12:02] Order Status : ClientID: 32 ModID: 20230704000118 Status: complete
+[03:12:34] SL HIT for Leg :LEG30.03  in the Stg: Stg2
+[03:12:34] Order Type :LIMIT Order ID :32 TransType :S  Token Id :47078 Price :5370 Trigger Price: 0 has been Placed.
+[03:12:34] Order Status : ClientID: 32 ModID: 20230704000119 Status: put order request
+[03:12:34] Order Status : ClientID: 32 ModID: 20230704000119 Status: open pending
+[03:12:34] Order Status : ClientID: 32 ModID: 20230704000119 Status: open
+[03:12:34] Token: 47078 Traded Qty. : 250 Traded Price: 5370 Traded ID: 800100 ExchangeOrderId: 10000000105 AdminOrderID: 20230704000119
+[03:12:34] Order Status : ClientID: 32 ModID: 20230704000119 Status: complete
+[03:12:34] SL HIT for Leg :LEG10.04  in the Stg: Stg2
+[03:12:34] Order Type :LIMIT Order ID :30 TransType :S  Token Id :47064 Price :25000 Trigger Price: 0 has been Placed.
+[03:12:35] Order Status : ClientID: 30 ModID: 20230704000120 Status: put order request
+[03:12:35] Order Status : ClientID: 30 ModID: 20230704000120 Status: open pending
+[03:12:35] Order Status : ClientID: 30 ModID: 20230704000120 Status: open
+[03:12:35] Token: 47064 Traded Qty. : 50 Traded Price: 25000 Traded ID: 800101 ExchangeOrderId: 10000000106 AdminOrderID: 20230704000120
+[03:12:35] Order Status : ClientID: 30 ModID: 20230704000120 Status: complete
+[03:16:56] TP HIT for Leg :LEG2  in the Stg: Stg1
+[03:16:56] Order Type :LIMIT Order ID :6 TransType :B  Token Id :47082 Price :2915 Trigger Price: 0 has been Placed.
+[03:16:56] Order Status : ClientID: 6 ModID: 20230704000121 Status: put order request
+[03:16:56] Order Status : ClientID: 6 ModID: 20230704000121 Status: open pending
+[03:16:57] Order Status : ClientID: 6 ModID: 20230704000121 Status: open
+[03:16:57] Token: 47082 Traded Qty. : 50 Traded Price: 2915 Traded ID: 800102 ExchangeOrderId: 10000000107 AdminOrderID: 20230704000121
+[03:16:57] Order Status : ClientID: 6 ModID: 20230704000121 Status: complete

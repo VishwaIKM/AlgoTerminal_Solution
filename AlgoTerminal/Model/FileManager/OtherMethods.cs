@@ -31,9 +31,10 @@ namespace AlgoTerminal.Model.FileManager
                 var LastName = double.TryParse(data[1], out double value) ? value : 0;
                 if (LastName != 0)
                 {
+                    var Name = data[0][..4];
                     LastName /= 100.00;
                     LastName += 0.01;
-                    NewName = data[0] + LastName;
+                    NewName = Name + LastName;
                 }
                 else
                 {

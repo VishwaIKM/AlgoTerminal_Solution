@@ -583,6 +583,7 @@ namespace AlgoTerminal.Model.Calculation
             else
                 newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             newLegDetails.Qty = OldLegDetails.Qty;
+            newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
             newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
 
@@ -636,7 +637,7 @@ namespace AlgoTerminal.Model.Calculation
             var data2 = GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
                                                                     leg_Details.SimpleMomentum,
                                                                     stg_setting_value.Index,
-                                                                    newLegDetails.Token).Result;
+                                                                    newLegDetails.Token,newLegDetails).Result;
 
             if (leg_Details.IsStopLossEnable == true)
             {
@@ -673,6 +674,7 @@ namespace AlgoTerminal.Model.Calculation
                 newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
 
             newLegDetails.Qty = OldLegDetails.Qty;
+            newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
             newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
             //Get Trading Symbol and Token
@@ -756,6 +758,7 @@ namespace AlgoTerminal.Model.Calculation
                 newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
             newLegDetails.Qty = OldLegDetails.Qty;
+            newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
             //if (OldLegDetails.Name.Contains('.'))
             //{
@@ -925,7 +928,7 @@ namespace AlgoTerminal.Model.Calculation
         public async Task<double> GetLegMomentumlock(EnumLegSimpleMomentum enumLegSimpleMomentum,
             double momentumPrice,
             EnumIndex enumIndex
-            , uint Token)
+            , uint Token, InnerObject innerObject)
         {
             double _current_Price;
             if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
@@ -948,7 +951,7 @@ namespace AlgoTerminal.Model.Calculation
                 EnumLegSimpleMomentum.UNDERLINGPERCENTAGE => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
                 _ => throw new NotImplementedException(),
             };
-
+            innerObject.Message = "Wating for Price " + value;
             if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
             {
                 if (momentumPrice > 0)
@@ -1170,26 +1173,75 @@ namespace AlgoTerminal.Model.Calculation
             return false;
 
         }
-
-        #endregion
-
-        #region Check if Overall TP is HIT
-
-        public bool Is_overall_tp_hit(double TotalPremium, double PnL, double OverallTargetProfit)
+        public bool Is_overall_sl_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value)
         {
-            var _currentPremium = TotalPremium + PnL;
-            if (OverallTargetProfit <= _currentPremium)
+            return stg_setting_value.SettingOverallStopLoss switch
+            {
+                EnumOverallStopLoss.MTM => CheckIfStopLossHitUsingMTM(portfolio_value),
+                EnumOverallStopLoss.TOTALPREMIUMPERCENTAGE => CheckIfStopLossHitUsingPremium(portfolio_value),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private bool CheckIfStopLossHitUsingPremium(PortfolioModel portfolio_value)
+        {
+            var _currentPremium = portfolio_value.TotalEntryPremiumPaid + portfolio_value.PNL;
+            if (portfolio_value.StopLoss >= _currentPremium)
             {
                 return true;
             }
 
             return false;
+        }
 
+        private bool CheckIfStopLossHitUsingMTM(PortfolioModel portfolio_value)
+        {
+
+            if (portfolio_value.StopLoss >= portfolio_value.MTM)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        #endregion
+
+        #region Check if Overall TP is HIT
+
+        public bool Is_overall_tp_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value)
+        {
+            return stg_setting_value.SettingOverallTarget switch
+            {
+                EnumOverallTarget.MTM => CheckIfTargetProfitHitUsingMTM(portfolio_value),
+                EnumOverallTarget.TOTALPREMIUMPERCENTAGE => CheckIfTargetProfitHitUsingPremium(portfolio_value),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private bool CheckIfTargetProfitHitUsingPremium(PortfolioModel portfolio_value)
+        {
+            var _currentPremium = portfolio_value.TotalEntryPremiumPaid + portfolio_value.PNL;
+            if (_currentPremium >= portfolio_value.TargetProfit)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool CheckIfTargetProfitHitUsingMTM(PortfolioModel portfolio_value)
+        {
+            if (portfolio_value.TargetProfit <= portfolio_value.MTM)
+            {
+                return true;
+            }
+
+            return false;
         }
 
 
-
         #endregion
+
 
         #region Is Price Match For Re entry
         public async Task<bool> IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
@@ -1217,7 +1269,64 @@ namespace AlgoTerminal.Model.Calculation
                 return false;
             }
         }
+        #endregion
 
+        #region overall Trailling Option
+        public void CheckAndUpdateOverallTrailingOption(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+            var data = stg_setting_value.SettingOverallTrallSL switch
+            {
+                EnumOverallTrailingOption.LOCK => CheckTheLock(portfolio_value, stg_setting_value),
+                EnumOverallTrailingOption.LOCKANDTRAIL => CheckTheLockAndTrail(portfolio_value, stg_setting_value),
+                EnumOverallTrailingOption.OVERALLTRAILANDSL => CheckTheOverallTrailAndSL(portfolio_value, stg_setting_value),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private bool CheckTheOverallTrailAndSL(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+            return stg_setting_value.SettingTrallingOption switch
+            {
+                EnumOverallTrailingOptionTrailAndSLSelected.MTM => CheckTrailSLusingMtm(portfolio_value, stg_setting_value),
+                EnumOverallTrailingOptionTrailAndSLSelected.TOTALPREMIUMPERCENTAGE => CheckTrailSLusingPremiumPercentage(portfolio_value, stg_setting_value),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private bool CheckTrailSLusingPremiumPercentage(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+            //check Premium in favour
+            var _currentPremium = portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg + portfolio_value.PNL;
+
+            //%% in favour 
+            var _neededAmountMove = portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg + portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg * stg_setting_value.TrailAmountMove / 100;
+
+
+            if (_currentPremium >= _neededAmountMove) 
+            {
+                portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg = _neededAmountMove;
+                portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + portfolio_value.StopLoss * stg_setting_value.TrailSLMove / 100.00,2);
+
+
+            }
+            return true;
+        }
+
+        private bool CheckTrailSLusingMtm(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+           //Check MTM in Favour 
+
+        }
+
+        private bool CheckTheLockAndTrail(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CheckTheLock(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

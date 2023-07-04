@@ -9,6 +9,5 @@ namespace AlgoTerminal.Model.Services
         Task<bool> FirstTimeDataLoadingOnGUI();
         Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumDeclaration.EnumStrategyStatus enumStrategyStatus = EnumDeclaration.EnumStrategyStatus.None);
         bool StraddleStartUP();
-        Task<bool> StrategyReEntryStraddle920(string KeyOfStraddle);
     }
 }

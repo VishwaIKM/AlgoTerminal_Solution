@@ -131,7 +131,23 @@ namespace AlgoTerminal.Model.Structure
         public int BuyTradedQty { get; set; }
         public int SellTradedQty { get; set;}
         public double Expenses { get; set;}
-        public double TotalEntryPremiumPaid { get; internal set; }
+        private double _totalEntryPremiumPaid;
+        public double TotalEntryPremiumPaid { get=> _totalEntryPremiumPaid; internal set {
+                _totalEntryPremiumPaid= value;
+                UpdateInFavorPremiumPaidforTrailSLleg = value;
+            } }
+        private double _initialMTM;
+        public double InitialMTM { get=>_initialMTM; internal set
+            {
+                if (_initialMTM != value)
+                {
+                    _initialMTM = value;
+                    UpdateInInitialMTMPaidforTrailSLleg = value;
+                }
+            }
+        }
+        public double UpdateInFavorPremiumPaidforTrailSLleg { get; set; }
+        public double UpdateInInitialMTMPaidforTrailSLleg { get; set; }
     }
     public class InnerObject : BaseViewModel
     {
@@ -170,6 +186,19 @@ namespace AlgoTerminal.Model.Structure
                 {
                     _tradingSymbol = value;
                     OnPropertyChanged(nameof(TradingSymbol));
+                }
+            }
+        }
+
+        private string _message = "Loading...";
+        public string Message
+        {
+            get => _message; set
+            {
+                if (_message != value)
+                {
+                    _message = value;
+                    OnPropertyChanged(nameof(Message));
                 }
             }
         }

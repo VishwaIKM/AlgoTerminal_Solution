@@ -67,6 +67,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
+                            <DataGridTextColumn Header="Message" Width="*" Binding="{Binding Message}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Entry Price" Width="*" Binding="{Binding EntryPrice}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Exit Price" Width="*" Binding="{Binding ExitPrice}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}" IsReadOnly="True"/>

@@ -128,11 +128,13 @@ namespace AlgoTerminal.Model.FileManager
                             if (_strategy[24].ToUpper() == "TRUE")
                             {
                                 strategyDetails.IsOverallTrallSLEnable = true;
-                                if (!Enum.TryParse(_strategy[25], out strategyDetails.SettingOverallTrallSL))
-                                    _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[25]);
                             }
                             if (!Enum.TryParse(_strategy[26], out strategyDetails.SettingTrallingOption))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[26]);
+
+                            if (!Enum.TryParse(_strategy[25], out strategyDetails.SettingOverallTrallSL))
+                                _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[25]);
+                          
                             if (!double.TryParse(_strategy[27], out strategyDetails.IfProfitReach))
                                 _logWriter.WriteLog(EnumLogType.Error, "On Line " + _row + " Error : " + _strategy[27]);
                             if (!double.TryParse(_strategy[28], out strategyDetails.LockProfit))

@@ -6,11 +6,12 @@ namespace AlgoTerminal.Model.Services
 {
     public interface IAlgoCalculation
     {
+        void CheckAndUpdateOverallTrailingOption(PortfolioModel portfolio_value, StrategyDetails stg_setting_value);
         double GetExpenses(uint Token, EnumDeclaration.EnumSegments enumSegments);
         InnerObject GetLegDetailsForRentry_SLHIT(LegDetails leg_Details, InnerObject OldLegDetails, StrategyDetails stg_setting_value);
         InnerObject GetLegDetailsForRentry_TPHIT(LegDetails leg_Details, InnerObject OldLegDetails, StrategyDetails stg_setting_value);
         DateTime GetLegExpiry(EnumDeclaration.EnumExpiry enumExpiry, EnumDeclaration.EnumIndex enumIndex, EnumDeclaration.EnumSegments enumSegments, EnumDeclaration.EnumOptiontype enumOptiontype);
-        Task<double> GetLegMomentumlock(EnumDeclaration.EnumLegSimpleMomentum enumLegSimpleMomentum, double momentumPrice, EnumDeclaration.EnumIndex enumIndex, uint Token);
+        Task<double> GetLegMomentumlock(EnumDeclaration.EnumLegSimpleMomentum enumLegSimpleMomentum, double momentumPrice, EnumDeclaration.EnumIndex enumIndex, uint Token, InnerObject innerObject);
         double GetLegStopLoss(EnumDeclaration.EnumLegSL enumLegSL, EnumDeclaration.EnumOptiontype enumOptiontype, EnumDeclaration.EnumPosition enumPosition, double StopLoss, EnumDeclaration.EnumSegments enumSegments, EnumDeclaration.EnumIndex enumIndex, uint Token, InnerObject legDetails);
         double GetLegTargetProfit(EnumDeclaration.EnumLegTargetProfit enumLegTP, EnumDeclaration.EnumOptiontype enumOptiontype, EnumDeclaration.EnumPosition enumPosition, double TargetProfit, EnumDeclaration.EnumSegments enumSegments, EnumDeclaration.EnumIndex enumIndex, uint Token, InnerObject legDetails);
         double GetMTM(double BuyAvg_Price, double SellAvg_Price, double Exp_, int BuyTrdqty, int SellTrdQty, uint Token);
@@ -23,8 +24,8 @@ namespace AlgoTerminal.Model.Services
         bool Get_if_TP_is_HIT(double CurrentTargetProfitValue, EnumDeclaration.EnumLegSL enumLegSL, EnumDeclaration.EnumOptiontype enumOptiontype, EnumDeclaration.EnumPosition enumPosition, EnumDeclaration.EnumIndex enumIndex, uint Token);
         Task<bool> IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token);
         InnerObject IsSimpleMovementumHitForRentry(InnerObject newLegDetails, LegDetails leg_Details, StrategyDetails stg_setting_value);
-        bool Is_overall_sl_hit(double TotalPremium, double PnL, double OverallStopLoss);
-        bool Is_overall_tp_hit(double TotalPremium, double PnL, double OverallTargetProfit);
+        bool Is_overall_sl_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value);
+        bool Is_overall_tp_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value);
         void UpdateLegSLTrail_IF_HIT(InnerObject portfolio_leg_value, LegDetails leg_Details);
     }
 }
