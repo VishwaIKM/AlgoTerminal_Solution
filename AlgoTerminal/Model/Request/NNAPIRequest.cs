@@ -1,4 +1,5 @@
-﻿using AlgoTerminal.Model.NNAPI;
+﻿using AlgoTerminal.Model.FileManager;
+using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Response;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.ViewModel;
@@ -79,11 +80,12 @@ namespace AlgoTerminal.Model.Request
                 int price = 0;
                 try
                 {
-                    price = (int)(price1 * 100);
                     if (price > 0 && orderQty > 0)
                     {
 
                         TransType transType = Buysell == EnumPosition.BUY ? TransType.B : TransType.S;
+                        price = (int)(price1 * 100);
+                        price = OtherMethods.RoundThePrice(price, transType);
                         Nnapi.PlaceOrder(tokenId, price, orderQty, transType, orderType, triggerPrice, marketWatch_OrderID, strUserdata);
 
                         if (transType == TransType.B)

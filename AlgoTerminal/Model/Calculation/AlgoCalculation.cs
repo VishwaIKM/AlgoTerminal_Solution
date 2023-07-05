@@ -1307,15 +1307,23 @@ namespace AlgoTerminal.Model.Calculation
                 portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg = _neededAmountMove;
                 portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + portfolio_value.StopLoss * stg_setting_value.TrailSLMove / 100.00,2);
 
-
+                return true;
             }
-            return true;
+            return false;
         }
 
         private bool CheckTrailSLusingMtm(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
         {
-           //Check MTM in Favour 
+            //Check MTM in Favour 
+            var _needMTMToMove = portfolio_value.UpdateInInitialMTMPaidforTrailSLleg + stg_setting_value.TrailAmountMove;
+            if(_needMTMToMove >= portfolio_value.MTM)
+            {
+                portfolio_value.UpdateInInitialMTMPaidforTrailSLleg = _needMTMToMove;
+                portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + stg_setting_value.TrailSLMove, 2);
 
+                return true;
+            }
+            return false;
         }
 
         private bool CheckTheLockAndTrail(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)

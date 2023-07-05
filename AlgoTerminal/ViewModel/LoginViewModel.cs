@@ -1,19 +1,12 @@
 ﻿using AlgoTerminal.Command;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using AlgoTerminal.Model.Structure;
 using AlgoTerminal.View;
 using AlgoTerminal.Model.Services;
-using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Request;
 using System.Windows.Threading;
-using System.Runtime.CompilerServices;
-using Microsoft.Extensions.DependencyInjection;
 using AlgoTerminal.Model.Response;
 
 namespace AlgoTerminal.ViewModel
@@ -125,8 +118,8 @@ namespace AlgoTerminal.ViewModel
 
                     await applicationManagerModel.ApplicationStartUpRequirement();
 
-                    BuySellView buySellView = App.AppHost!.Services.GetRequiredService<BuySellView>();
-                    buySellView.Show();
+                    //BuySellView buySellView = App.AppHost!.Services.GetRequiredService<BuySellView>();
+                    //buySellView.Show();
                 }
                 else
                 {

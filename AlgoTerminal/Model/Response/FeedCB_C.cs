@@ -44,7 +44,7 @@ namespace AlgoTerminal.Model.Response
                         uint Bid_Ask = leg.BuySell == EnumPosition.BUY ? stFeed.AskPrice1 : stFeed.BidPrice1;
                         leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
                         double Pnl = leg.BuySell == EnumPosition.BUY ? (leg.LTP - leg.EntryPrice) : (leg.EntryPrice - leg.LTP);
-                        leg.PNL = Math.Round((Pnl * leg.Qty - _exp) / 100.00, 2);
+                        leg.PNL = Math.Round((Pnl * leg.Qty - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
 
                         //stg Update 
                         var stg = General.Portfolios[leg.StgName];// General.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();

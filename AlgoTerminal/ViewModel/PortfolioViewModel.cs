@@ -12,19 +12,26 @@ namespace AlgoTerminal.ViewModel
 {
     public sealed class PortfolioViewModel : DockWindowViewModel
     {
-       
+        #region Prop & Ver
         public static ObservableCollection<PortfolioModel>? StrategyDataCollection { get ; set; } 
         public PortfolioModel? SelectedItem {get;set;}
         private IStraddleManager straddleManager;
-         public PortfolioViewModel(IStraddleManager straddleManager)
+        private RelayCommand2 stopCommand;
+
+        #endregion
+
+        #region Command
+        public ICommand StopCommand => stopCommand ??= new RelayCommand2(Stop);
+
+        #endregion
+
+        #region Methods
+
+        public PortfolioViewModel(IStraddleManager straddleManager)
         {
             this.straddleManager = straddleManager;
             StrategyDataCollection ??= new();
         }
-
-        private RelayCommand2 stopCommand;
-        public ICommand StopCommand => stopCommand ??= new RelayCommand2(Stop);
-
         private void Stop()
         {
             if (SelectedItem != null)
@@ -40,5 +47,7 @@ namespace AlgoTerminal.ViewModel
             else
                 MessageBox.Show("Please Select One Stratrgy.");
         }
+
+        #endregion
     }
 }

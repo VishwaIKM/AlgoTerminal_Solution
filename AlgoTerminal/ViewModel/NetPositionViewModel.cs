@@ -1,19 +1,33 @@
-﻿using AlgoTerminal.Model;
+﻿using AlgoTerminal.Command;
+using AlgoTerminal.Model;
 using AlgoTerminal.Model.Request;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.Structure;
+using AlgoTerminal.View;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace AlgoTerminal.ViewModel
 {
     public sealed class NetPositionViewModel : DockWindowViewModel
     {
+        #region Members prop
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         public static ObservableCollection<NetPositionModel> NetPositionCollection { get; set; }
+        public NetPositionModel? SelectedItem { get; set; }
         private readonly IFeed feed;
+
+
+        //cmd
+        private RelayCommand2 _buyOrderCommand;
+        private RelayCommand2 _sellOrderCommand;
+        #endregion
+
+        #region Methods
         public NetPositionViewModel(IFeed feed)
         {
             NetPositionCollection ??= new();
@@ -47,5 +61,37 @@ namespace AlgoTerminal.ViewModel
             await Task.Delay(101);
             #endregion
         }
+
+        private void ExecuteBuySellCommand(bool IsBuy = false)
+        {
+            if(SelectedItem == null) return;
+            else
+            {
+
+                //BuySellView buySellView = App.AppHost!.Services.GetRequiredService<BuySellView>();
+                //buySellView.Show();
+                var BuySellWindow = App.AppHost!.Services.GetRequiredService<BuySellView>();
+                BuySellWindow.Show();
+            }
+        }
+        #endregion
+
+
+        #region Command
+
+        public ICommand BuyOrderCommand => _buyOrderCommand ??= new RelayCommand2(BUY);
+
+        private void BUY()
+        {
+            ExecuteBuySellCommand(true);
+        }
+
+        public ICommand SellOrderCommand => _sellOrderCommand ??= new RelayCommand2(SELL);
+
+        private void SELL()
+        {
+            ExecuteBuySellCommand();
+        }
+        #endregion
     }
 }

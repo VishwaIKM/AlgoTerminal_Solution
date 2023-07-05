@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:AlgoTerminal.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=BuyOrderCommand}" Key="Add"/>
+        <KeyBinding Command="{Binding Path=SellOrderCommand}" Key="Subtract"/>
+    </UserControl.InputBindings>
     <Grid>
-        <DataGrid ItemsSource="{Binding NetPositionCollection}" AutoGenerateColumns="False"  CanUserSortColumns = "True" IsReadOnly="True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+        <DataGrid ItemsSource="{Binding NetPositionCollection}" AutoGenerateColumns="False"  CanUserSortColumns = "True" IsReadOnly="True"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Trading Symbol" Width="110" Binding="{Binding TradingSymbol}"/>
                 <DataGridTextColumn Header="Buy Qunatity" Width="110" Binding="{Binding BuyQuantity}"/>
@@ -19,6 +23,12 @@
                 <DataGridTextColumn Header="MTM" Width="110" Binding="{Binding MTM}"/>
                 <DataGridTextColumn Header="LTP" Width="110" Binding="{Binding LTP}"/>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="BUY" Command="{Binding BuyOrderCommand}" Foreground="White" Background="DarkGray" FontStyle="Italic" FontSize="14" InputGestureText="Ctrl+T" BorderBrush="Black" />
+                    <MenuItem Header="SELL" Command="{Binding SellOrderCommand}" Foreground="White" Background="DarkGray" FontStyle="Italic" FontSize="14" InputGestureText="Ctrl+T" BorderBrush="Black" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
 
         </DataGrid>
     </Grid>

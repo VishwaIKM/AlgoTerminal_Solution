@@ -202,9 +202,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             if (stg_setting_value.IsOverallReEntryOnTgtEnable == true && Portfolio_value.TargetProfit > 0)
                             {
 
-                                Overall_TP_HIT = algoCalculation.Is_overall_tp_hit(Portfolio_value.TotalEntryPremiumPaid,
-                                                                                                                         Portfolio_value.PNL,
-                                                                                                                         Portfolio_value.TargetProfit);
+                                Overall_TP_HIT = algoCalculation.Is_overall_tp_hit(stg_setting_value, Portfolio_value);
                                 if (Overall_TP_HIT)
                                 {
                                     logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for the Stg: " + stg_key);

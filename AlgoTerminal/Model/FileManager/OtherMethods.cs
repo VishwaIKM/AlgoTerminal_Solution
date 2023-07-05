@@ -1,12 +1,39 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using AlgoTerminal.Model.NNAPI;
 
 namespace AlgoTerminal.Model.FileManager
 {
 
     public class OtherMethods
     {
+        static readonly object _roundPriceLock = new();
+        /// <summary>
+        /// round the price for Buy and Sell according to ticksize
+        /// </summary>
+        /// <param name="priceInPaise"></param>
+        /// <param name="transType"></param>
+        /// <param name="ticksize"></param>
+        /// <returns></returns>
+        public static int RoundThePrice(double priceInPaise, TransType transType, int ticksize = 5)
+        {
+            lock (_roundPriceLock)
+            {
+                int _price = (int)priceInPaise;
+                if (transType == TransType.B)
+                {
+                    if (_price % ticksize != 0)
+                        _price += (ticksize - (_price % ticksize));
+                }
+                else
+                {
+                    _price -= (_price % ticksize);
+                }
+
+                return _price;
+            }
+        }
         public static T DeepCopy<T>(T other)
         {
             using MemoryStream ms = new();
