@@ -190,7 +190,7 @@ namespace AlgoTerminal.Model.Structure
             }
         }
 
-        private string _message = "Loading...";
+        private string _message = "...";
         public string Message
         {
             get => _message; set

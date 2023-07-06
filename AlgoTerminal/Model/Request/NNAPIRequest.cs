@@ -78,13 +78,14 @@ namespace AlgoTerminal.Model.Request
             lock (_placeOrderLock)
             {
                 int price = 0;
+                price = (int)(price1 * 100);
                 try
                 {
                     if (price > 0 && orderQty > 0)
                     {
 
                         TransType transType = Buysell == EnumPosition.BUY ? TransType.B : TransType.S;
-                        price = (int)(price1 * 100);
+                       
                         price = OtherMethods.RoundThePrice(price, transType);
                         Nnapi.PlaceOrder(tokenId, price, orderQty, transType, orderType, triggerPrice, marketWatch_OrderID, strUserdata);
 

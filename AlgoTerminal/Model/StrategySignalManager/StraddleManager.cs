@@ -566,6 +566,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 if (innerObject != null)
                 {
                     leg_value.TryAdd(innerObject.Name, leg_Details);
+                    General.PortfolioLegByTokens.AddOrUpdate(innerObject.Token, new List<InnerObject>() { innerObject }, (key, list) =>
+                    {
+                        list.Add(innerObject);
+                        return list;
+                    });
                     await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
                         Portfolio_value.InnerObject.Add(innerObject);

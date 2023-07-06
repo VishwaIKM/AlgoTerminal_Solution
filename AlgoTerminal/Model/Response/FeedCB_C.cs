@@ -1,11 +1,8 @@
 ﻿using AlgoTerminal.Model.FileManager;
-using AlgoTerminal.Model.Request;
-using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
 using FeedC;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 
@@ -40,11 +37,12 @@ namespace AlgoTerminal.Model.Response
                     {
                         //leg LTP Update ...
                         leg.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice) / 100.00, 2);
-                        double _exp = stFeed.BidPrice1 * STT_Opt + (stFeed.BidPrice1 + stFeed.AskPrice1) * Exp_Opt + stFeed.AskPrice1 * StampDuty_Opt;
+                        //double _exp = stFeed.BidPrice1 * STT_Opt + (stFeed.BidPrice1 + stFeed.AskPrice1) * Exp_Opt + stFeed.AskPrice1 * StampDuty_Opt;
                         uint Bid_Ask = leg.BuySell == EnumPosition.BUY ? stFeed.AskPrice1 : stFeed.BidPrice1;
-                        leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
+                        // leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
+                        leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask) / 100.00, 2);
                         double Pnl = leg.BuySell == EnumPosition.BUY ? (leg.LTP - leg.EntryPrice) : (leg.EntryPrice - leg.LTP);
-                        leg.PNL = Math.Round((Pnl * leg.Qty - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
+                        leg.PNL = Math.Round(Pnl * leg.Qty , 2);
 
                         //stg Update 
                         var stg = General.Portfolios[leg.StgName];// General.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();
@@ -83,11 +81,8 @@ namespace AlgoTerminal.Model.Response
         }
         public void Feed_CallBack(uint FeedLogTime, ONLY_MBP_DATA_7208 stFeed)
         {
-
             _ = PortFolioUpdate(FeedLogTime, stFeed);
             _ = HeaderUpdate(FeedLogTime, stFeed);
-
-
         }
 
         public void Messages(string msg)

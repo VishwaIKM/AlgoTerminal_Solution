@@ -66,12 +66,12 @@ namespace AlgoTerminal.Model.FileManager
                 else
                 {
                     //BUG
-                    NewName = OldName + ".01";
+                    NewName = OldName + "0.01";
                 }
             }
             else
             {
-                NewName = OldName + ".01";
+                NewName = OldName + "0.01";
             }
             return NewName;
         }

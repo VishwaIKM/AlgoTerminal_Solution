@@ -951,7 +951,7 @@ namespace AlgoTerminal.Model.Calculation
                 EnumLegSimpleMomentum.UNDERLINGPERCENTAGE => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
                 _ => throw new NotImplementedException(),
             };
-            innerObject.Message = "Wating for Price " + value;
+            innerObject.Message = "Momentum Price " + value;
             if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
             {
                 if (momentumPrice > 0)
