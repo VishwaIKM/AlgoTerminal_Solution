@@ -65,9 +65,9 @@ namespace AlgoTerminal.Model.Response
                     NetPositionModel netPositionModel = OrderManagerModel.NetPosition_Dicc_By_Token[Token];
                     netPositionModel.BuyQuantity = BuyTradedQty;
                     netPositionModel.SellQuantity = SellTradedQty;
-                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? BuyTradedValue / BuyTradedQty : 0;
-                    netPositionModel.SellAvgPrice = SellTradedQty != 0 ? SellTradedValue / SellTradedQty : 0;
-                    netPositionModel.NetValue = BuyTradedValue - SellTradedValue;
+                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? Math.Round(BuyTradedValue / (BuyTradedQty*100.00),2) : 0;
+                    netPositionModel.SellAvgPrice = SellTradedQty != 0 ? Math.Round(SellTradedValue / (SellTradedQty*100.00),2) : 0;
+                    netPositionModel.NetValue = Math.Round((BuyTradedValue - SellTradedValue)/100.00,2);
                     netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
                 }
                 else
@@ -76,9 +76,9 @@ namespace AlgoTerminal.Model.Response
                     netPositionModel.TradingSymbol = contract.TrdSymbol;
                     netPositionModel.BuyQuantity = BuyTradedQty;
                     netPositionModel.SellQuantity = SellTradedQty;
-                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0? BuyTradedValue / BuyTradedQty:0;
-                    netPositionModel.SellAvgPrice = SellTradedQty !=0 ?SellTradedValue/ SellTradedQty:0;
-                    netPositionModel.NetValue = BuyTradedValue - SellTradedValue;
+                    netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? Math.Round(BuyTradedValue / (BuyTradedQty * 100.00), 2) : 0;
+                    netPositionModel.SellAvgPrice = SellTradedQty != 0 ? Math.Round(SellTradedValue / (SellTradedQty * 100.00), 2) : 0;
+                    netPositionModel.NetValue = Math.Round((BuyTradedValue - SellTradedValue) / 100.00, 2);
                     netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
 
                     if(OrderManagerModel.NetPosition_Dicc_By_Token.TryAdd(Token,netPositionModel))
@@ -91,7 +91,9 @@ namespace AlgoTerminal.Model.Response
                     }
                     
                 }
-               
+              
+                
+                //STG OrderConfirm
             }
             catch(Exception ex)
             {

@@ -70,7 +70,7 @@ namespace AlgoTerminal.Model.Structure
         public double TrailAmountMove = 0;
         public double TrailSLMove = 0;
 
-      
+        
 
         //User
         public string? UserID;

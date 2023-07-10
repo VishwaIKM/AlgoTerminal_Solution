@@ -589,7 +589,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                         Task.Run(new Action(async () =>
                         {
-                            innerObject.Message = "Wating for Price " + innerObject.EntryPrice;
+                            innerObject.Message = "Re Entry COST Price " + innerObject.EntryPrice;
                             var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
                             if (data == true)
                             {

@@ -1162,17 +1162,7 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Check if Overall SL is HIT
 
-        public bool Is_overall_sl_hit(double TotalPremium, double PnL, double OverallStopLoss)
-        {
-            var _currentPremium = TotalPremium + PnL;
-            if (OverallStopLoss >= _currentPremium)
-            {
-                return true;
-            }
-
-            return false;
-
-        }
+     
         public bool Is_overall_sl_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value)
         {
             return stg_setting_value.SettingOverallStopLoss switch
@@ -1318,6 +1308,9 @@ namespace AlgoTerminal.Model.Calculation
             var _needMTMToMove = portfolio_value.UpdateInInitialMTMPaidforTrailSLleg + stg_setting_value.TrailAmountMove;
             if(_needMTMToMove >= portfolio_value.MTM)
             {
+
+
+
                 portfolio_value.UpdateInInitialMTMPaidforTrailSLleg = _needMTMToMove;
                 portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + stg_setting_value.TrailSLMove, 2);
 
@@ -1328,12 +1321,27 @@ namespace AlgoTerminal.Model.Calculation
 
         private bool CheckTheLockAndTrail(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
         {
-            throw new NotImplementedException();
+            if (portfolio_value.PNL >= stg_setting_value.IfProfitReach && portfolio_value.LockProfitUsed == 0)
+            {
+                portfolio_value.StopLoss = stg_setting_value.LockProfit;
+                portfolio_value.LockProfitUsed = 1;//WILL Update Once
+            }
+            else if(portfolio_value.LockProfitUsed == 1 && portfolio_value.StopLoss !=0)
+            {
+                //Code For Trail
+                CheckTrailSLusingMtm(portfolio_value, stg_setting_value);
+            }
+            return true;
         }
 
         private bool CheckTheLock(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
         {
-            throw new NotImplementedException();
+            if(portfolio_value.PNL >= stg_setting_value.IfProfitReach && portfolio_value.LockProfitUsed == 0)
+            {
+                portfolio_value.StopLoss = stg_setting_value.LockProfit;
+                portfolio_value.LockProfitUsed = 1;//WILL Update Once
+            }
+            return true;
         }
         #endregion
     }

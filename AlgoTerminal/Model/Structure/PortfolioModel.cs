@@ -9,7 +9,9 @@ namespace AlgoTerminal.Model.Structure
 {
     public class PortfolioModel:BaseViewModel
     {
+        public int LockProfitUsed { get; set; } = 0;
         private string _name = "Loading...";
+        
         public string Name {
             get => _name; set
             {

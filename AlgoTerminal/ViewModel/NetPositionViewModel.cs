@@ -52,7 +52,7 @@ namespace AlgoTerminal.ViewModel
                 {
                     if (feed.FeedC.dcFeedData.TryGetValue((ulong)item.Key, out FeedC.ONLY_MBP_DATA_7208 oNLY_MBP_DATA_7208))
                     {
-                        item.Value.LTP = Math.Round(Convert.ToDouble(oNLY_MBP_DATA_7208.LastTradedPrice), 2);
+                        item.Value.LTP = Math.Round(Convert.ToDouble(oNLY_MBP_DATA_7208.LastTradedPrice)/100.00, 2);
                         item.Value.MTM = Math.Round(item.Value.NetValue + item.Value.NetQuantity * item.Value.LTP, 2);
                     }
                 }
