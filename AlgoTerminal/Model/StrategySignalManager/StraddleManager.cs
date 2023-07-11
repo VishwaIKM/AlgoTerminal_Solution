@@ -478,7 +478,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         if (stg_setting_value.IsOverallStopLossEnable)
                         {
                             Portfolio_value.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
-                                                                                                            Portfolio_value.MTM,
+                                                                                                            Portfolio_value.PNL,
                                                                                                             stg_setting_value.SettingOverallStopLoss,
                                                                                                             stg_setting_value.OverallStopLoss)
                                                                                                              , 2);

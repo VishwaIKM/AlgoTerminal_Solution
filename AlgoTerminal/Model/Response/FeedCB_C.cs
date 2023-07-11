@@ -40,21 +40,21 @@ namespace AlgoTerminal.Model.Response
                         //double _exp = stFeed.BidPrice1 * STT_Opt + (stFeed.BidPrice1 + stFeed.AskPrice1) * Exp_Opt + stFeed.AskPrice1 * StampDuty_Opt;
                         uint Bid_Ask = leg.BuySell == EnumPosition.BUY ? stFeed.AskPrice1 : stFeed.BidPrice1;
                         // leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask - Math.Abs(leg.Qty) * _exp) / 100.00, 2);
-                        leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask) / 100.00, 2);
+                       // leg.MTM = Math.Round(((leg.Qty * leg.EntryPrice) + Math.Abs(leg.Qty) * Bid_Ask) / 100.00, 2);
                         double Pnl = leg.BuySell == EnumPosition.BUY ? (leg.LTP - leg.EntryPrice) : (leg.EntryPrice - leg.LTP);
                         leg.PNL = Math.Round(Pnl * leg.Qty , 2);
 
                         //stg Update 
                         var stg = General.Portfolios[leg.StgName];// General.Portfolios.Where(x => x.Value.InnerObject.Contains(leg)).FirstOrDefault();
                         double finalLtp = 0;
-                        double finalMtm = 0;
+                        //double finalMtm = 0;
                         foreach (var x in stg.InnerObject)
                         {
                             finalLtp += x.PNL;
-                            finalMtm += x.MTM;
+                            //finalMtm += x.MTM;
                         }
                         stg.PNL = Math.Round(finalLtp, 2);
-                        stg.MTM = Math.Round(finalMtm,2);
+                        //stg.MTM = Math.Round(finalMtm,2);
                     }
                 }
             }

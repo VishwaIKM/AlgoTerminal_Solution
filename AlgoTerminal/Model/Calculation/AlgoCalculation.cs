@@ -637,7 +637,7 @@ namespace AlgoTerminal.Model.Calculation
             var data2 = GetLegMomentumlock(leg_Details.SettingSimpleMomentum,
                                                                     leg_Details.SimpleMomentum,
                                                                     stg_setting_value.Index,
-                                                                    newLegDetails.Token,newLegDetails).Result;
+                                                                    newLegDetails.Token, newLegDetails).Result;
 
             if (leg_Details.IsStopLossEnable == true)
             {
@@ -1127,12 +1127,12 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetOverallStopLossValueUsingMtm(double stopLossValue, double TotalMTM)
         {
-            return TotalMTM - stopLossValue;
+            return  -stopLossValue;
         }
 
         private double GetOverallStopLossValueUsingPremium(double TotalPremium, double stopLossValue)
         {
-            return TotalPremium - (TotalPremium * stopLossValue / 100.0);
+            return -(TotalPremium - (TotalPremium * stopLossValue / 100.0));
         }
 
         #endregion
@@ -1162,7 +1162,7 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Check if Overall SL is HIT
 
-     
+
         public bool Is_overall_sl_hit(StrategyDetails stg_setting_value, PortfolioModel portfolio_value)
         {
             return stg_setting_value.SettingOverallStopLoss switch
@@ -1187,7 +1187,7 @@ namespace AlgoTerminal.Model.Calculation
         private bool CheckIfStopLossHitUsingMTM(PortfolioModel portfolio_value)
         {
 
-            if (portfolio_value.StopLoss >= portfolio_value.MTM)
+            if (portfolio_value.StopLoss >= portfolio_value.PNL)
             {
                 return true;
             }
@@ -1221,7 +1221,7 @@ namespace AlgoTerminal.Model.Calculation
 
         private bool CheckIfTargetProfitHitUsingMTM(PortfolioModel portfolio_value)
         {
-            if (portfolio_value.TargetProfit <= portfolio_value.MTM)
+            if (portfolio_value.TargetProfit <= portfolio_value.PNL)
             {
                 return true;
             }
@@ -1292,10 +1292,20 @@ namespace AlgoTerminal.Model.Calculation
             var _neededAmountMove = portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg + portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg * stg_setting_value.TrailAmountMove / 100;
 
 
-            if (_currentPremium >= _neededAmountMove) 
+            if (_currentPremium >= _neededAmountMove)
             {
+
+                //Check Big JUMP
+                var jump = _neededAmountMove - portfolio_value.PNL;
+                int remainder;
+                int quotient = Math.DivRem((int)jump, (int)stg_setting_value.TrailAmountMove, out remainder);
+
+                if (quotient < 1)
+                    quotient = 1;
+
+
                 portfolio_value.UpdateInFavorPremiumPaidforTrailSLleg = _neededAmountMove;
-                portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + portfolio_value.StopLoss * stg_setting_value.TrailSLMove / 100.00,2);
+                portfolio_value.StopLoss = Math.Round(portfolio_value.StopLoss + (stg_setting_value.TrailSLMove * quotient), 2);
 
                 return true;
             }
@@ -1306,13 +1316,20 @@ namespace AlgoTerminal.Model.Calculation
         {
             //Check MTM in Favour 
             var _needMTMToMove = portfolio_value.UpdateInInitialMTMPaidforTrailSLleg + stg_setting_value.TrailAmountMove;
-            if(_needMTMToMove >= portfolio_value.MTM)
+            if (portfolio_value.PNL >= _needMTMToMove)
             {
+                //Check THE big JUMP
 
+                var jump =  portfolio_value.PNL - _needMTMToMove;
+                int remainder;
+                int quotient = Math.DivRem((int)jump, (int)stg_setting_value.TrailAmountMove, out remainder);
+
+                if(quotient < 1)
+                    quotient =1;
 
 
                 portfolio_value.UpdateInInitialMTMPaidforTrailSLleg = _needMTMToMove;
-                portfolio_value.StopLoss = Math.Round (portfolio_value.StopLoss + stg_setting_value.TrailSLMove, 2);
+                portfolio_value.StopLoss = Math.Round(portfolio_value.StopLoss + (stg_setting_value.TrailSLMove * quotient), 2);
 
                 return true;
             }
@@ -1323,10 +1340,13 @@ namespace AlgoTerminal.Model.Calculation
         {
             if (portfolio_value.PNL >= stg_setting_value.IfProfitReach && portfolio_value.LockProfitUsed == 0)
             {
+                stg_setting_value.IsOverallStopLossEnable = true;
+                stg_setting_value.SettingOverallStopLoss = EnumOverallStopLoss.MTM;
+
                 portfolio_value.StopLoss = stg_setting_value.LockProfit;
                 portfolio_value.LockProfitUsed = 1;//WILL Update Once
             }
-            else if(portfolio_value.LockProfitUsed == 1 && portfolio_value.StopLoss !=0)
+            else if (portfolio_value.LockProfitUsed == 1 && portfolio_value.StopLoss != 0)
             {
                 //Code For Trail
                 CheckTrailSLusingMtm(portfolio_value, stg_setting_value);
@@ -1336,8 +1356,12 @@ namespace AlgoTerminal.Model.Calculation
 
         private bool CheckTheLock(PortfolioModel portfolio_value, StrategyDetails stg_setting_value)
         {
-            if(portfolio_value.PNL >= stg_setting_value.IfProfitReach && portfolio_value.LockProfitUsed == 0)
+            if (portfolio_value.PNL >= stg_setting_value.IfProfitReach && portfolio_value.LockProfitUsed == 0)
             {
+
+                stg_setting_value.IsOverallStopLossEnable = true;
+                stg_setting_value.SettingOverallStopLoss = EnumOverallStopLoss.MTM;
+
                 portfolio_value.StopLoss = stg_setting_value.LockProfit;
                 portfolio_value.LockProfitUsed = 1;//WILL Update Once
             }
