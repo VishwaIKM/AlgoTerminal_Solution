@@ -37,7 +37,7 @@ namespace AlgoTerminal.Model.Request
         /// </summary>
         public int InitializeServer()
         {
-            return Nnapi.Init("192.168.1.50", 3007);
+            return Nnapi.Init(App.ModServerIP, App.ModServerPort);
         }
 
 

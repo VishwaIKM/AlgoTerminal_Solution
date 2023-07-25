@@ -53,8 +53,8 @@ namespace AlgoTerminal.Model.Request
                 FeedCM = new FeedCM.FeedCMIdxC(_CM);
 
                 //SEND REQUEST TO DLL FEED-->C
-                status = FeedC.Init("233.1.2.5", "", "192.168.1.50", 34330, cNetId);
-                status = FeedCM.Init("233.1.2.5", "", "192.168.1.50", 34074);
+                status = FeedC.Init("233.1.2.5", "", App.InterFaceIP, 34330, cNetId);
+                status = FeedCM.Init("233.1.2.5", "", App.InterFaceIP, 34074);
             }
             catch (Exception ex)
             {

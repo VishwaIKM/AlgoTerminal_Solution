@@ -5,5 +5,6 @@ namespace AlgoTerminal.Model.Services
     public interface IApplicationManagerModel
     {
         Task<bool> ApplicationStartUpRequirement();
+        void ApplicationStopRequirement();
     }
 }

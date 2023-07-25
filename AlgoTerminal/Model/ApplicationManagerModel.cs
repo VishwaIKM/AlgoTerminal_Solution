@@ -3,6 +3,7 @@ using AlgoTerminal.Model.Services;
 using AlgoTerminal.ViewModel;
 using System;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AlgoTerminal.Model
 {
@@ -12,12 +13,12 @@ namespace AlgoTerminal.Model
         private readonly IStraddleManager straddleManager;
         private readonly IFeed feed;
 
-        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager,IFeed feed)
+        public ApplicationManagerModel(ILogFileWriter logFileWriter, IStraddleManager straddleManager, IFeed feed)
         {
             this.feed = feed;
             this.logFileWriter = logFileWriter;
             this.straddleManager = straddleManager;
-          
+
         }
 
         public async Task<bool> ApplicationStartUpRequirement()
@@ -33,13 +34,13 @@ namespace AlgoTerminal.Model
                 await straddleManager.DataUpdateRequest();// Fire The Orders
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logFileWriter.DisplayLog(Structure.EnumDeclaration.EnumLogType.Error, " Application StartUp Block failed.");
                 logFileWriter.WriteLog(Structure.EnumDeclaration.EnumLogType.Error, ex.ToString());
                 return false;
             }
-          
+
         }
         public void ApplicationStopRequirement()
         {
@@ -52,14 +53,14 @@ namespace AlgoTerminal.Model
 
                 var feedStarted = feed.FeedToStop();//Feed start
                 LoginViewModel.NNAPIRequest.LogOutRequest();
+                Environment.Exit(0);
 
-               
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logFileWriter.WriteLog(Structure.EnumDeclaration.EnumLogType.Error, ex.ToString());
             }
-        
+
         }
     }
 }

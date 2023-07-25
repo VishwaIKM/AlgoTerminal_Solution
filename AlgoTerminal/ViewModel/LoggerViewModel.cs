@@ -14,7 +14,7 @@ namespace AlgoTerminal.ViewModel
         {
             LogDataCollection ??= new();
             _LogFileWriter = logFileWriter;
-            _LogFileWriter.Start(@"D:\Development Vishwa\AlgoTerminal_Solution\UnitTest_Resources", "Log.txt");
+            _LogFileWriter.Start(App.logFilePath, "Log.txt");
             
         }
 

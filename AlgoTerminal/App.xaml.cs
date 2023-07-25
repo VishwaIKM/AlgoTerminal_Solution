@@ -1,7 +1,6 @@
 ﻿using AlgoTerminal.Model;
 using AlgoTerminal.Model.Calculation;
 using AlgoTerminal.Model.FileManager;
-using AlgoTerminal.Model.NNAPI;
 using AlgoTerminal.Model.Request;
 using AlgoTerminal.Model.Response;
 using AlgoTerminal.Model.Services;
@@ -12,6 +11,7 @@ using AlgoTerminal.ViewModel;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Windows;
 
 namespace AlgoTerminal
@@ -23,6 +23,10 @@ namespace AlgoTerminal
     {
         public static IHost? AppHost { get; private set; }
         public static string? straddlePath;
+        public static string? logFilePath;
+        public static string? InterFaceIP;
+        public static string? ModServerIP;
+        public static int ModServerPort = 0;
 
         public App()
         {
@@ -34,10 +38,12 @@ namespace AlgoTerminal
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
-                    //File HardCode Path
+                    //File HardCode Path And Config
                     straddlePath = hostContext.Configuration.GetConnectionString("StraddleFilePath");
-
-
+                    logFilePath = hostContext.Configuration.GetConnectionString("LogFilePath");
+                    InterFaceIP = hostContext.Configuration.GetConnectionString("InterFaceIP");
+                    ModServerIP = hostContext.Configuration.GetConnectionString("ModServerIP");
+                    Int32.TryParse(hostContext.Configuration.GetConnectionString("ModServerPort"), out ModServerPort);
                     //DBContext ...
 
                     //Model ...
@@ -121,8 +127,10 @@ namespace AlgoTerminal
 
         protected override async void OnExit(ExitEventArgs e)
         {
+            var ApplicationManager = AppHost!.Services.GetRequiredService<IApplicationManagerModel>();
             await AppHost!.StopAsync();
             base.OnExit(e);
+            ApplicationManager.ApplicationStopRequirement();
         }
     }
 }
