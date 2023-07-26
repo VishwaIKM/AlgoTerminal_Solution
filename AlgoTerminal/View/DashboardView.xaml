@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:AlgoTerminal.View" 
         xmlns:dock="https://github.com/Dirkster99/AvalonDock"
+        xmlns:AVBehav="clr-namespace:AlgoTerminal.View.ViewSerializer"
         mc:Ignorable="d"
         xmlns:vm ="clr-namespace:AlgoTerminal.ViewModel"
         WindowStartupLocation="CenterScreen"
@@ -26,7 +27,7 @@
             <Label Content="{Binding Path=DashboardModel.BankNiftyFut}" Margin="10" FontSize="18"  VerticalAlignment="Center"/>
             <Label Content="{Binding Path=DashboardModel.FinNifty}" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
             <Label Content="{Binding Path=DashboardModel.FinNiftyFut}" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
-            
+            <Button Command="{Binding Path = DockManagerViewModel.ADLayout.SaveLayoutCommand}">save </Button>
         </StackPanel>
         <Menu Grid.Row="1" DataContext="{Binding MenuViewModel}" ItemsSource="{Binding Items}">
             <Menu.Resources>
@@ -44,6 +45,8 @@
                          DataContext="{Binding DockManagerViewModel}"
                          DocumentsSource="{Binding Documents}"
                          AnchorablesSource="{Binding Anchorables}" 
+                         AVBehav:DockLayoutSerializer.LoadLayoutCommand="{Binding ADLayout.LoadLayoutCommand}"
+                         AVBehav:DockLayoutSerializer.SaveLayoutCommand="{Binding ADLayout.SaveLayoutCommand}"
                             >
 
             <dock:DockingManager.Resources>

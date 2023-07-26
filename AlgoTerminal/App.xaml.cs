@@ -6,6 +6,8 @@ using AlgoTerminal.Model.Response;
 using AlgoTerminal.Model.Services;
 using AlgoTerminal.Model.StrategySignalManager;
 using AlgoTerminal.Model.Structure;
+using AlgoTerminal.NewView;
+using AlgoTerminal.NewViewModel;
 using AlgoTerminal.View;
 using AlgoTerminal.ViewModel;
 using Microsoft.Extensions.Configuration;
@@ -73,6 +75,7 @@ namespace AlgoTerminal
                     services.AddSingleton<LoginViewModel>();
                     services.AddSingleton<OrderBookViewModel>();
                     services.AddSingleton<BuySellViewModel>();
+                    services.AddSingleton<HomeViewModel>();
 
                     //View ....
                     services.AddSingleton<DashboardView>(x => new()
@@ -82,6 +85,10 @@ namespace AlgoTerminal
                     services.AddSingleton<LoginView>(x=>new()
                     {
                         DataContext=x.GetRequiredService<LoginViewModel>()
+                    });
+                    services.AddSingleton<HomeView>(x => new()
+                    {
+                        DataContext = x.GetRequiredService<HomeViewModel>()
                     });
 
                     //USERCONTROL'S
@@ -118,7 +125,10 @@ namespace AlgoTerminal
         {
             await AppHost!.StartAsync();
 
-            var _runTheWPF = AppHost!.Services.GetRequiredService<LoginView>();
+            //var _runTheWPF = AppHost!.Services.GetRequiredService<LoginView>();
+            //this.MainWindow = _runTheWPF;
+            //_runTheWPF.Show();
+            var _runTheWPF = AppHost!.Services.GetRequiredService<HomeView>();
             this.MainWindow = _runTheWPF;
             _runTheWPF.Show();
 

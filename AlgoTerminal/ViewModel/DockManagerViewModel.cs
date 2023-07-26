@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlgoTerminal.Command;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -35,6 +36,51 @@ namespace AlgoTerminal.ViewModel
                     this.Documents.Add(document);
                 else
                     this.Documents.Remove(document);
+            }
+        }
+        private DockLayoutViewModel mAVLayout = null;
+        public DockLayoutViewModel ADLayout
+        {
+            get
+            {
+                if (this.mAVLayout == null)
+                    this.mAVLayout = new DockLayoutViewModel();
+
+                return this.mAVLayout;
+            }
+        }
+        public static string LayoutFileName
+        {
+            get
+            {
+                return "Layout.config";
+            }
+        }
+        public static string DirAppData
+        {
+            get
+            {
+                string dirPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                                 System.IO.Path.DirectorySeparatorChar + Company;
+
+                try
+                {
+                    if (System.IO.Directory.Exists(dirPath) == false)
+                        System.IO.Directory.CreateDirectory(dirPath);
+                }
+                catch
+                {
+                }
+
+                return dirPath;
+            }
+        }
+
+        public static string Company
+        {
+            get
+            {
+                return "Vishwa";
             }
         }
     }
