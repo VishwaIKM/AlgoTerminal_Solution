@@ -15,7 +15,7 @@ namespace AlgoTerminal.ViewModel
             LogDataCollection ??= new();
             _LogFileWriter = logFileWriter;
             _LogFileWriter.Start(App.logFilePath, "Log.txt");
-            
+
         }
 
 

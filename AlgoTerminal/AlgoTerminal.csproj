@@ -27,12 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.DockManager.Themes.VS2019\OpenControls.Wpf.DockManager.Themes.VS2019.csproj" />
-    <ProjectReference Include="C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.DockManager\OpenControls.Wpf.DockManager.csproj" />
-    <ProjectReference Include="C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.Utilities\OpenControls.Wpf.Utilities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="FeedC">
       <HintPath>bin\Debug\net7.0-windows7.0\FeedC.dll</HintPath>
     </Reference>

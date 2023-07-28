@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
+using static System.Net.WebRequestMethods;
 
 namespace AlgoTerminal.Model.Calculation
 {
@@ -116,9 +117,11 @@ namespace AlgoTerminal.Model.Calculation
 
             double _ATMStraddleprice = Convert.ToDouble(_feed.FeedC.dcFeedData[Token[0]].LastTradedPrice + _feed.FeedC.dcFeedData[Token[1]].LastTradedPrice) / 100.00;
             StraddleWidth = ATMStrike + premium_or_StraddleValue * _ATMStraddleprice;
-            uint nearest = ContractDetails.ContractDetailsToken[Token[0]].LotSize;
-            double StraddleWidthNearestStrike = (double)Math.Round(StraddleWidth / nearest) * nearest;
-            return StraddleWidthNearestStrike;
+            var list = ContractDetails.ContractDetailsToken.Where(y => y.Value.Symbol == enumIndex.ToString().ToUpper() &&
+                y.Value.Opttype == enumOptiontype).Select(x => x.Value.Strike).ToList().Distinct();
+            //uint nearest = ContractDetails.ContractDetailsToken[Token[0]].LotSize;
+            //double StraddleWidthNearestStrike = (double)Math.Round(StraddleWidth / nearest) * nearest;
+            return list.Aggregate((x, y) => Math.Abs(x - StraddleWidth) < Math.Abs(y - StraddleWidth) ? x : y);
         }
         private double GetStrikeType(EnumStrikeType strike_type,
             EnumIndex enumIndex, EnumUnderlyingFrom enumUnderlyingFrom,
@@ -261,12 +264,27 @@ namespace AlgoTerminal.Model.Calculation
         #region IS SL HIT FOR LEG
         public bool Get_if_SL_is_HIT(double CurrentStopLossValue, EnumLegSL enumLegSL,
             EnumOptiontype enumOptiontype, EnumPosition enumPosition,
-            EnumIndex enumIndex, uint Token)
+            EnumIndex enumIndex, uint Token, EnumUnderlyingFrom underlyingFrom)
         {
             double CurrentPrice;
             if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
             {
-                CurrentPrice = UnderLingValue(enumIndex);
+                if (underlyingFrom == EnumUnderlyingFrom.CASH)
+                {
+                    CurrentPrice = UnderLingValue(enumIndex);
+                }
+                else
+                {
+                    DateTime exp = GetLegExpiry(EnumExpiry.MONTHLY, enumIndex, EnumSegments.FUTURES, enumOptiontype);
+                    uint FUTToken = ContractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                    && x.Value.Opttype == EnumOptiontype.XX
+                    && x.Value.Symbol == enumIndex.ToString())
+                         .Select(s => s.Key)
+                         .FirstOrDefault();
+                    //underlying Token
+                    CurrentPrice = GetInstrumentPrice(FUTToken);
+                }
+
                 if (CurrentPrice != 0)
                 {
                     if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
@@ -302,12 +320,28 @@ namespace AlgoTerminal.Model.Calculation
         #region IS TP HIT FOR LEG
         public bool Get_if_TP_is_HIT(double CurrentTargetProfitValue, EnumLegSL enumLegSL,
             EnumOptiontype enumOptiontype, EnumPosition enumPosition,
-            EnumIndex enumIndex, uint Token)
+            EnumIndex enumIndex, uint Token, EnumUnderlyingFrom underlyingFrom)
         {
             double CurrentPrice;
             if ((enumLegSL == EnumLegSL.UNDERLING || enumLegSL == EnumLegSL.UNDERLINGPERCENTAGE))
             {
-                CurrentPrice = UnderLingValue(enumIndex);
+                if (underlyingFrom == EnumUnderlyingFrom.CASH)
+                {
+                    CurrentPrice = UnderLingValue(enumIndex);
+                }
+                else
+                {
+                    DateTime exp = GetLegExpiry(EnumExpiry.MONTHLY, enumIndex, EnumSegments.FUTURES, enumOptiontype);
+                    uint FUTToken = ContractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                    && x.Value.Opttype == EnumOptiontype.XX
+                    && x.Value.Symbol == enumIndex.ToString())
+                         .Select(s => s.Key)
+                         .FirstOrDefault();
+                    //underlying Token
+                    CurrentPrice = GetInstrumentPrice(FUTToken);
+                }
+
+                //CurrentPrice = UnderLingValue(enumIndex);
                 if (CurrentPrice != 0)
                 {
                     if ((enumPosition == EnumPosition.BUY && enumOptiontype == EnumOptiontype.PE) || ((enumOptiontype == EnumOptiontype.CE || enumOptiontype == EnumOptiontype.XX) && enumPosition == EnumPosition.SELL))
@@ -850,33 +884,95 @@ namespace AlgoTerminal.Model.Calculation
         {
             return entryPrice + xAmount_Percentage >= ltp;
         }
-        public void UpdateLegSLTrail_IF_HIT(InnerObject portfolio_leg_value, LegDetails leg_Details)
+
+        private double GetLtpForUnderLine(StrategyDetails stg_setting_value, LegDetails leg_Details)
+        {
+            double ltp;
+            if (stg_setting_value.UnderlyingFrom == EnumUnderlyingFrom.CASH)
+            {
+                ltp = UnderLingValue(stg_setting_value.Index);
+            }
+            else
+            {
+                DateTime exp = GetLegExpiry(EnumExpiry.MONTHLY, stg_setting_value.Index, EnumSegments.FUTURES, leg_Details.OptionType);
+                uint FUTToken = ContractDetails.ContractDetailsToken.Where(x => x.Value.Expiry == exp
+                && x.Value.Opttype == EnumOptiontype.XX
+                && x.Value.Symbol == stg_setting_value.Index.ToString())
+                     .Select(s => s.Key)
+                     .FirstOrDefault();
+                //underlying Token
+                ltp = GetInstrumentPrice(FUTToken);
+            }
+            return ltp;
+        }
+
+        public void UpdateLegSLTrail_IF_HIT(InnerObject portfolio_leg_value, LegDetails leg_Details, StrategyDetails stg_setting_value)
         {
 
-            if (GetTrailSLHit(leg_Details.SettingTrailEnable, portfolio_leg_value.UpdateInFavorAmountforTrailSLleg, leg_Details.TrailSlAmount, GetStrikePriceLTP(portfolio_leg_value.Token)))
+            //if (GetTrailSLHit(leg_Details.SettingTrailEnable, portfolio_leg_value.UpdateInFavorAmountforTrailSLleg, leg_Details.TrailSlAmount, GetStrikePriceLTP(portfolio_leg_value.Token)))
+            //{
+            double ltp =0;
+            if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLING || leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLINGPERCENTAGE)
             {
-                if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTS)
+                ltp = GetLtpForUnderLine(stg_setting_value, leg_Details);
+            }
+            else
+            {
+                ltp = GetStrikePriceLTP(portfolio_leg_value.Token);
+            }
+
+            if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTS || leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLING)
+            {
+             
+
+                if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
                 {
-                    if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
-                    { portfolio_leg_value.StopLoss -= leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg -= leg_Details.TrailSlAmount; }
-                    else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
-                    { portfolio_leg_value.StopLoss += leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg += leg_Details.TrailSlAmount; }
+                    if (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + leg_Details.TrailSlAmount >= ltp)
+                    {
+                        portfolio_leg_value.StopLoss -= leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg -= leg_Details.TrailSlAmount;
+                    }
                 }
-                else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTPERCENTAGE)
+                else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
                 {
-                    if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                    if (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + leg_Details.TrailSlAmount >= ltp)
+                    {
+                        portfolio_leg_value.StopLoss += leg_Details.TrailSlStopLoss; portfolio_leg_value.UpdateInFavorAmountforTrailSLleg += leg_Details.TrailSlAmount;
+                    }
+                }
+            }
+            else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.POINTPERCENTAGE || leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLINGPERCENTAGE)
+            {
+             
+                if (portfolio_leg_value.BuySell == EnumPosition.BUY && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                {
+                    if (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount) >= ltp)
                     {
                         portfolio_leg_value.StopLoss = portfolio_leg_value.StopLoss - portfolio_leg_value.StopLoss * leg_Details.TrailSlStopLoss / 100.00;
                         portfolio_leg_value.UpdateInFavorAmountforTrailSLleg = portfolio_leg_value.UpdateInFavorAmountforTrailSLleg - portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount / 100.00;
                     }
-                    else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                }
+                else if (portfolio_leg_value.BuySell == EnumPosition.SELL && (leg_Details.OptionType == EnumOptiontype.CE || leg_Details.OptionType == EnumOptiontype.XX || leg_Details.OptionType == EnumOptiontype.PE))
+                {
+                    if (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + (portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount) >= ltp)
                     {
                         portfolio_leg_value.StopLoss = portfolio_leg_value.StopLoss + portfolio_leg_value.StopLoss * leg_Details.TrailSlStopLoss / 100.00;
                         portfolio_leg_value.UpdateInFavorAmountforTrailSLleg = portfolio_leg_value.UpdateInFavorAmountforTrailSLleg + portfolio_leg_value.UpdateInFavorAmountforTrailSLleg * leg_Details.TrailSlAmount / 100.00;
                     }
                 }
-
             }
+            //else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLING)
+            //{
+            //    double ltp = GetLtpForUnderLine(stg_setting_value, leg_Details);
+            //}
+            //else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLINGPERCENTAGE)
+            //{
+            //    double ltp = GetLtpForUnderLine(stg_setting_value, leg_Details);
+
+            //}
+
+
+
+            //}
         }
         #endregion
 
@@ -1127,7 +1223,7 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetOverallStopLossValueUsingMtm(double stopLossValue, double TotalMTM)
         {
-            return  -stopLossValue;
+            return -stopLossValue;
         }
 
         private double GetOverallStopLossValueUsingPremium(double TotalPremium, double stopLossValue)
@@ -1320,12 +1416,12 @@ namespace AlgoTerminal.Model.Calculation
             {
                 //Check THE big JUMP
 
-                var jump =  portfolio_value.PNL - _needMTMToMove;
+                var jump = portfolio_value.PNL - _needMTMToMove;
                 int remainder;
                 int quotient = Math.DivRem((int)jump, (int)stg_setting_value.TrailAmountMove, out remainder);
 
-                if(quotient < 1)
-                    quotient =1;
+                if (quotient < 1)
+                    quotient = 1;
 
 
                 portfolio_value.UpdateInInitialMTMPaidforTrailSLleg = _needMTMToMove;

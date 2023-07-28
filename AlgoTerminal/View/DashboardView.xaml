@@ -27,7 +27,6 @@
             <Label Content="{Binding Path=DashboardModel.BankNiftyFut}" Margin="10" FontSize="18"  VerticalAlignment="Center"/>
             <Label Content="{Binding Path=DashboardModel.FinNifty}" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
             <Label Content="{Binding Path=DashboardModel.FinNiftyFut}" Margin="10"  FontSize="18" VerticalAlignment="Center"/>
-            <Button Command="{Binding Path = DockManagerViewModel.ADLayout.SaveLayoutCommand}">save </Button>
         </StackPanel>
         <Menu Grid.Row="1" DataContext="{Binding MenuViewModel}" ItemsSource="{Binding Items}">
             <Menu.Resources>

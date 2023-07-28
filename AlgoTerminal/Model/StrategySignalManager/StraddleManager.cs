@@ -98,7 +98,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
                                     if (leg_Details.IsTrailSlEnable == true)
                                     {
-                                        algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value, leg_Details);
+                                        algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value, leg_Details, stg_setting_value);
                                     }
                                     #endregion
 
@@ -111,7 +111,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                         leg_Details.OptionType,
                                                                                         leg_Details.Position,
                                                                                         stg_setting_value.Index,
-                                                                                        portfolio_leg_value.Token);
+                                                                                        portfolio_leg_value.Token,
+                                                                                        stg_setting_value.UnderlyingFrom);
 
                                         if (SL_HIT)
                                         {
@@ -127,7 +128,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                                                         leg_Details.OptionType,
                                                                                         leg_Details.Position,
                                                                                         stg_setting_value.Index,
-                                                                                        portfolio_leg_value.Token);
+                                                                                        portfolio_leg_value.Token,
+                                                                                        stg_setting_value.UnderlyingFrom);
                                         if (TP_HIT)
                                         {
                                             logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
@@ -160,10 +162,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                             }
                                         }
                                     }
-
                                     #endregion
-
-
                                 }
                             }
                             catch { }
@@ -1005,8 +1004,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                                  list.Add(portfolio_leg_value);
                                                  return list;
                                              });
-
-
                                     }
                                     catch (Exception ex)
                                     {

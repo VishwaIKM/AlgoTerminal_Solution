@@ -7,12 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoTerminal", "AlgoTermina
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestAlgo", "UnitTestAlgo\UnitTestAlgo.csproj", "{06AD493E-714B-432B-AFCB-3A048FFB9711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenControls.Wpf.DockManager", "C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.DockManager\OpenControls.Wpf.DockManager.csproj", "{C4D43E50-84B0-47FF-888E-7C8351368BD6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenControls.Wpf.DockManager.Themes.VS2019", "C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.DockManager.Themes.VS2019\OpenControls.Wpf.DockManager.Themes.VS2019.csproj", "{968C6AFE-1E13-4F9D-B8FC-28B2A2168C9D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenControls.Wpf.Utilities", "C:\Users\Vishwa\Downloads\OpenControls.Wpf\OpenControls.Wpf\OpenControls.Wpf.Utilities\OpenControls.Wpf.Utilities.csproj", "{117F1160-81BF-42CD-B48C-E73BEC059B30}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,18 +21,6 @@ Global
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06AD493E-714B-432B-AFCB-3A048FFB9711}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4D43E50-84B0-47FF-888E-7C8351368BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4D43E50-84B0-47FF-888E-7C8351368BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4D43E50-84B0-47FF-888E-7C8351368BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4D43E50-84B0-47FF-888E-7C8351368BD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{968C6AFE-1E13-4F9D-B8FC-28B2A2168C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{968C6AFE-1E13-4F9D-B8FC-28B2A2168C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{968C6AFE-1E13-4F9D-B8FC-28B2A2168C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{968C6AFE-1E13-4F9D-B8FC-28B2A2168C9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{117F1160-81BF-42CD-B48C-E73BEC059B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{117F1160-81BF-42CD-B48C-E73BEC059B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{117F1160-81BF-42CD-B48C-E73BEC059B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{117F1160-81BF-42CD-B48C-E73BEC059B30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

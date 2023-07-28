@@ -191,7 +191,9 @@
         public enum EnumLegTrailSL : int
         {
             POINTS,
+            UNDERLING,
             POINTPERCENTAGE,
+            UNDERLINGPERCENTAGE
         }
 
         public enum EnumLegReEntryOnTarget : int
