@@ -644,7 +644,7 @@ namespace AlgoTerminal.Model.Calculation
 
             newLegDetails.Token = Token;
             newLegDetails.TradingSymbol = TradingSymbol;
-            newLegDetails.Status = EnumStrategyStatus.Added;
+            
 
             //if (OldLegDetails.Name.Contains('.'))
             //{
@@ -737,7 +737,7 @@ namespace AlgoTerminal.Model.Calculation
 
             newLegDetails.Token = Token;
             newLegDetails.TradingSymbol = TradingSymbol;
-            newLegDetails.Status = EnumStrategyStatus.Added;
+            
             if (leg_Details.IsStopLossEnable == true)
             {
                 newLegDetails.StopLoss = Math.Round(GetLegStopLoss(leg_Details.SettingStopLoss,
@@ -761,22 +761,7 @@ namespace AlgoTerminal.Model.Calculation
             }
             double _currentLTP = GetStrikePriceLTP(Token);
             newLegDetails.EntryPrice = _currentLTP;
-
-            //if (OldLegDetails.Name.Contains('.'))
-            //{
-            //    var data = OldLegDetails.Name.Split('.');
-            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
-            //    if (LastName != 0)
-            //    {
-            //        LastName /= 100.00;
-            //        LastName += 0.01;
-            //        newLegDetails.Name = data[0] + LastName;
-            //    }
-            //}
-            //else
-            //{
-            //    newLegDetails.Name = OldLegDetails.Name + ".01";
-            //}
+           
             newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
             return newLegDetails;
 
@@ -785,7 +770,7 @@ namespace AlgoTerminal.Model.Calculation
         private InnerObject GetLegReEntryForCOST(InnerObject OldLegDetails, LegDetails leg_Details, bool Reverse = false)
         {
             InnerObject newLegDetails = new();
-            newLegDetails.Status = EnumStrategyStatus.Added;
+           
             if (Reverse)
                 newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             else
@@ -794,21 +779,7 @@ namespace AlgoTerminal.Model.Calculation
             newLegDetails.Qty = OldLegDetails.Qty;
             newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
-            //if (OldLegDetails.Name.Contains('.'))
-            //{
-            //    var data = OldLegDetails.Name.Split('.');
-            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
-            //    if (LastName != 0)
-            //    {
-            //        LastName /= 100.00;
-            //        LastName += 0.01;
-            //        newLegDetails.Name = data[0] + LastName;
-            //    }
-            //}
-            //else
-            //{
-            //    newLegDetails.Name = OldLegDetails.Name + ".01";
-            //}
+          
             newLegDetails.Token = OldLegDetails.Token;
             //calculate the STOP LOSS VALUE
             newLegDetails.StopLoss = GetLegStopLoss_OnEntryPrice(leg_Details.SettingStopLoss,
@@ -1047,7 +1018,7 @@ namespace AlgoTerminal.Model.Calculation
                 EnumLegSimpleMomentum.UNDERLINGPERCENTAGE => GetLegSimple_UnderlyingPointPercentage(momentumPrice, _current_Price),
                 _ => throw new NotImplementedException(),
             };
-            innerObject.Message = "Momentum Price " + value;
+            innerObject.Message = EnumStrategyMessage.MOMENTUM;
             if (enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTS || enumLegSimpleMomentum == EnumLegSimpleMomentum.POINTPERCENTAGE)
             {
                 if (momentumPrice > 0)
@@ -1211,43 +1182,43 @@ namespace AlgoTerminal.Model.Calculation
 
         #region Get Overall SL Value
 
-        public double GetOverallStopLossValue(double TotalPremium, double TotalMTM, EnumOverallStopLoss enumOverallStopLoss, double stopLossValue)
+        public double GetOverallStopLossValue(double TotalPremium, EnumOverallStopLoss enumOverallStopLoss, double stopLossValue)
         {
             return enumOverallStopLoss switch
             {
                 EnumOverallStopLoss.TOTALPREMIUMPERCENTAGE => GetOverallStopLossValueUsingPremium(TotalPremium, stopLossValue),
-                EnumOverallStopLoss.MTM => GetOverallStopLossValueUsingMtm(stopLossValue, TotalMTM),
+                EnumOverallStopLoss.MTM => GetOverallStopLossValueUsingMtm(stopLossValue),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        private double GetOverallStopLossValueUsingMtm(double stopLossValue, double TotalMTM)
+        private double GetOverallStopLossValueUsingMtm(double stopLossValue)
         {
             return -stopLossValue;
         }
 
         private double GetOverallStopLossValueUsingPremium(double TotalPremium, double stopLossValue)
         {
-            return -(TotalPremium - (TotalPremium * stopLossValue / 100.0));
+            return - (TotalPremium * stopLossValue / 100.0);
         }
 
         #endregion
 
         #region Get Overall TP Value
 
-        public double GetOverallTargetProfitValue(double TotalPremium, double TotalMTM, EnumOverallTarget enumOverallTargetProfit, double TargetPofit)
+        public double GetOverallTargetProfitValue(double TotalPremium, EnumOverallTarget enumOverallTargetProfit, double TargetPofit)
         {
             return enumOverallTargetProfit switch
             {
                 EnumOverallTarget.TOTALPREMIUMPERCENTAGE => GetOverallTPValueUsingPremium(TotalPremium, TargetPofit),
-                EnumOverallTarget.MTM => GetOverallTPValueUsingMtm(TargetPofit, TotalMTM),
+                EnumOverallTarget.MTM => GetOverallTPValueUsingMtm(TargetPofit, TotalPremium),
                 _ => throw new NotImplementedException(),
             };
         }
 
-        private double GetOverallTPValueUsingMtm(double targetPofit, double totalMTM)
+        private double GetOverallTPValueUsingMtm(double targetPofit, double TotalPremium)
         {
-            return totalMTM + targetPofit;
+            return TotalPremium + targetPofit;
         }
 
         private double GetOverallTPValueUsingPremium(double totalPremium, double targetPofit)
@@ -1350,7 +1321,7 @@ namespace AlgoTerminal.Model.Calculation
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch { }
             {
                 return false;
             }

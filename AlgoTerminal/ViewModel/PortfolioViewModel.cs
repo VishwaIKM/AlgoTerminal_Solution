@@ -40,7 +40,7 @@ namespace AlgoTerminal.ViewModel
                 var result2 = SelectedItem;
                 if(result == MessageBoxResult.OK)
                 {
-                    straddleManager.SquareOffStraddle920(result2,EnumDeclaration.EnumStrategyStatus.Manualsquareoff);
+                    straddleManager.SquareOffStraddle920(result2,EnumDeclaration.EnumStrategyMessage.MANUAL_SQUAREOFF);
                 }
                
             }

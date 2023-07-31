@@ -112,18 +112,6 @@ namespace AlgoTerminal.Model.Structure
         }
 
 
-        private double _mtm;
-        public double MTM
-        {
-            get => _mtm; set
-            {
-                if (_mtm != value)
-                {
-                    _mtm = value;
-                    OnPropertyChanged(nameof(MTM));
-                }
-            }
-        }
         public ObservableCollection<InnerObject> InnerObject { get; set; } = new ObservableCollection<InnerObject>();
 
         //For Calculation They Must update after Trade
@@ -154,6 +142,10 @@ namespace AlgoTerminal.Model.Structure
     public class InnerObject : BaseViewModel
     {
         public int STG_ID { get; set; }
+        public int Entry_OrderID { get; set; } = 0;
+        public int Exit_OrderID { get; set; } = 0;
+        public bool IsLegCancelledOrRejected { get; set; } = false; //in Case of Momentum or ORM if Overall square of hit. we will not place new order. 
+  
         private double _ltp;
         public double LTP
         {
@@ -192,8 +184,8 @@ namespace AlgoTerminal.Model.Structure
             }
         }
 
-        private string _message = "...";
-        public string Message
+        private EnumStrategyMessage _message = EnumStrategyMessage.NONE;
+        public EnumStrategyMessage Message
         {
             get => _message; set
             {
@@ -204,7 +196,7 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private EnumStrategyStatus _status = EnumStrategyStatus.None;
+        private EnumStrategyStatus _status;
         public EnumStrategyStatus Status
         {
             get => _status; set
@@ -265,18 +257,18 @@ namespace AlgoTerminal.Model.Structure
                 }
             }
         }
-        private double _mtm;
-        public double MTM
-        {
-            get => _mtm; set
-            {
-                if (_mtm != value)
-                {
-                    _mtm = value;
-                    OnPropertyChanged(nameof(MTM));
-                }
-            }
-        }
+        //private double _mtm;
+        //public double MTM
+        //{
+        //    get => _mtm; set
+        //    {
+        //        if (_mtm != value)
+        //        {
+        //            _mtm = value;
+        //            OnPropertyChanged(nameof(MTM));
+        //        }
+        //    }
+        //}
         public bool IsMyValueNegative { get { return PNL < 0; }}
         private double _pnl;
         public double PNL
@@ -372,13 +364,6 @@ namespace AlgoTerminal.Model.Structure
         public EnumUnderlyingFrom enumUnderlyingFromForLeg { get; set; }
         public double UpdateInFavorAmountforTrailSLleg { get; set; }
         public double EntryUnderliying_INST { get; set; }
-        public double BuyAveragePrice { get; set; }
-        public double SellAveragePrice { get; set; }
-        public double BuyValue { get; set; }
-        public double SellValue { get; set; }
-        public int BuyTradedQty { get; set; }
-        public int SellTradedQty { get; set; }
-        public double Expenses { get; set; }
         public bool IsLegInMonitoringQue { get; set; } = true;
     }
 }

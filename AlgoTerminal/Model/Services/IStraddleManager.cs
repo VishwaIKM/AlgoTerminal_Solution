@@ -7,7 +7,7 @@ namespace AlgoTerminal.Model.Services
     {
         Task DataUpdateRequest();
         Task<bool> FirstTimeDataLoadingOnGUI();
-        Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumDeclaration.EnumStrategyStatus enumStrategyStatus = EnumDeclaration.EnumStrategyStatus.None);
+        Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumDeclaration.EnumStrategyMessage enumStrategyMessage = EnumDeclaration.EnumStrategyMessage.NONE);
         bool StraddleStartUP();
     }
 }

@@ -156,6 +156,32 @@ namespace AlgoTerminal.Model.Response
                                 OrderBookViewModel.CloseOrderBook.Add(orderBookModel);
 
                         }), DispatcherPriority.Background, null);
+
+                        //PORTFOLIO STATUS
+                        if (OrderManagerModel.Portfolio_Dicc_By_ClientID.TryGetValue(iUserData, out InnerObject value))
+                        {
+                            if(value.Entry_OrderID == iUserData && orderBookModel.OrderQty == orderBookModel.TradedQty)
+                            {
+                                value.Status = EnumStrategyStatus.RUNING;
+                            }
+                            else if(value.Exit_OrderID == iUserData && orderBookModel.OrderQty == orderBookModel.TradedQty)
+                            {
+                                value.Status = EnumStrategyStatus.COMPLETED;
+                            }
+                            else if(value.Entry_OrderID == iUserData && orderBookModel.OrderQty > orderBookModel.TradedQty && orderBookModel.OrderQty>0)
+                            {
+                                value.Status = EnumStrategyStatus.ENTRY_PARTIALLY_TRADED;
+                            }
+                            else if (value.Exit_OrderID == iUserData && orderBookModel.OrderQty > orderBookModel.TradedQty && orderBookModel.OrderQty > 0)
+                            {
+                                value.Status = EnumStrategyStatus.EXIT_PARTIALLY_TRADED;
+                            }
+                            else if(RejectionReason.Contains("NSE Error") || RejectionReason.Contains("Server Not Connected"))
+                            {
+                                value.Status = EnumStrategyStatus.REJECTED;
+                                value.Message = EnumStrategyMessage.ERROR;
+                            }
+                        }
                     }
 
                 }

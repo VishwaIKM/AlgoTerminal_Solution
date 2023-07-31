@@ -89,7 +89,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
                             try
                             {
-                                if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status != EnumStrategyStatus.Added) && portfolio_leg_value.IsLegInMonitoringQue) // Exit price != 0 means this leg is Complete
+                                if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status == EnumStrategyStatus.RUNING) &&
+                                (portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
+                                && portfolio_leg_value.IsLegInMonitoringQue) // Exit price != 0 means this leg is Complete
                                 {
 
                                     portfolio_leg_value.IsLegInMonitoringQue = false;
@@ -117,7 +119,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         if (SL_HIT)
                                         {
                                             logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
-                                            portfolio_leg_value.Status = EnumStrategyStatus.CompleteBySL;
+                                            //portfolio_leg_value.Status = EnumStrategyStatus.CompleteBySL;
                                         }
                                     }
 
@@ -133,7 +135,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         if (TP_HIT)
                                         {
                                             logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
-                                            portfolio_leg_value.Status = EnumStrategyStatus.CompleteByTP;
+                                            //portfolio_leg_value.Status = EnumStrategyStatus.CompleteByTP;
                                         }
                                     }
                                     //Check if partial squre of enable or complete
@@ -141,7 +143,14 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     if (stg_setting_value.SquareOff == EnumSquareOff.PARTIAL && (SL_HIT || TP_HIT))
                                     {
                                         //leg squareOff
-                                        await SquareOffStraddle920Leg(portfolio_leg_value);
+                                        //check if current order is Partial
+
+
+                                        if (SL_HIT)
+                                            await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_SL_HIT);
+                                        if (TP_HIT)
+                                            await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_TP_HIT);
+
                                         ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value, Portfolio_value, leg_value);
 
                                     }
@@ -149,15 +158,26 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     {
                                         IsStgSquareOffRequestSend = true;
                                         //all Leg Square off
-                                        await SquareOffStraddle920(Portfolio_value);
+                                        //await SquareOffStraddle920(Portfolio_value);
                                         //Need to find Simple Solution  =================> MARK HERE
                                         foreach (string ChildLeg in leg_value.Keys)
                                         {
                                             var child_leg_Details = leg_value[Leg];
                                             var child_portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == ChildLeg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
-                                            if (child_portfolio_leg_value.ExitPrice == 0 && child_portfolio_leg_value.Status != EnumStrategyStatus.Added)
+                                           if (child_portfolio_leg_value.ExitPrice == 0)// && (child_portfolio_leg_value.Status != EnumStrategyStatus.ENTRY_ADDED) &&
+                                //(child_portfolio_leg_value.Status != EnumStrategyStatus.REJECTED) && (child_portfolio_leg_value.Status != EnumStrategyStatus.COMPLETED))
                                             {
-                                                await SquareOffStraddle920Leg(child_portfolio_leg_value);
+                                                //TO DO:
+                                                //RE_VISIT THE ABOVE IF CONDITION
+                                                //Partial order is tradded. Cancel the Order and Square of Pending Quantity. 
+                                                //OPEN ORDER => Cancel and ReEntry as per its setting
+                                                //OPEN ORDER CAN NOT SQUARE OFF
+                                                
+                                                if (child_portfolio_leg_value.Status == EnumStrategyStatus.RUNING|| child_portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
+                                                {
+                                                    await SquareOffStraddle920Leg(child_portfolio_leg_value);
+                                                }
+                                                
                                                 ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
                                             }
                                         }
@@ -176,7 +196,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         {
                             #region Trailing Options Check and Update
 
-                            if(stg_setting_value.IsOverallTrallingOptionEnable == true)
+                            if (stg_setting_value.IsOverallTrallingOptionEnable == true)
                             {
                                 algoCalculation.CheckAndUpdateOverallTrailingOption(Portfolio_value, stg_setting_value);
                             }
@@ -194,7 +214,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 if (Overall_SL_HIT)
                                 {
                                     logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for the Stg: " + stg_key);
-                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyStatus.CompletedByOverallSL);
+                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyMessage.OVERALL_SL_HIT);
                                 }
 
                             }
@@ -205,7 +225,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 if (Overall_TP_HIT)
                                 {
                                     logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for the Stg: " + stg_key);
-                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyStatus.CompletedByOverallTP);
+                                    await SquareOffStraddle920(Portfolio_value, EnumStrategyMessage.OVERALL_TP_HIT);
                                 }
                             }
 
@@ -303,7 +323,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             innerObject.StgName = new_stg_key;
                             innerObject.Name = Leg;
                             innerObject.BuySell = leg_value.Position;
-                            innerObject.Status = EnumStrategyStatus.Added;
                             innerObject.TradingSymbol = "Loading ...";
                             innerObject.Qty = leg_value.Lots;
                             innerObject.enumUnderlyingFromForLeg = clone_stg_setting_value.UnderlyingFrom;
@@ -324,7 +343,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     }
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-
                         PortfolioViewModel.StrategyDataCollection.Add(portfolioModel);
 
                     }), DispatcherPriority.Background, null);
@@ -334,7 +352,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     //Place The Order according to Setting
                     double TotalPremium = 0;
 
-                    var Papa = Task.Factory.StartNew((Action)(async () =>
+                    var MainTask = Task.Factory.StartNew((Action)(async () =>
                     {
                         List<Task> tasks = new();
                         var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[new_stg_key];
@@ -345,7 +363,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         foreach (string Leg in leg_value.Keys)
                         {//ALL LEG
 
-                            var bacha = Task.Factory.StartNew(async () =>
+                            var ChildTask = Task.Factory.StartNew(async () =>
                             {
                                 var leg_Details = leg_value[Leg];
                                 var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
@@ -385,7 +403,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     //Porfolio leg Update
                                     portfolio_leg_value.Token = Token;
                                     portfolio_leg_value.TradingSymbol = TradingSymbol;
-                                    portfolio_leg_value.Status = EnumStrategyStatus.Waiting;
                                     portfolio_leg_value.ReEntrySL = leg_Details.ReEntryOnSL;
                                     portfolio_leg_value.ReEntryTP = leg_Details.ReEntryOnTgt;
 
@@ -434,19 +451,26 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                                     //Place the Order Using NNAPI 
-                                    int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
-                                    OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
-                                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
-                                         Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID); //Here the orderID and the StgID both are Same . will use same stg id in other updation
-                                                                                                             //GUI
-                                    portfolio_leg_value.STG_ID = OrderID;
-                                    portfolio_leg_value.EntryPrice = _currentLTP;
-                                    portfolio_leg_value.Status = EnumStrategyStatus.OrderPlaced;
-                                    portfolio_leg_value.EntryTime = DateTime.Now;
+                                    if (!portfolio_leg_value.IsLegCancelledOrRejected)
+                                    {
+                                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
+                                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
+                                             Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID);
+                                        //portfolio_leg_value.STG_ID = OrderID;
+                                        portfolio_leg_value.EntryPrice = _currentLTP;
+                                        portfolio_leg_value.Status = EnumStrategyStatus.ENTRY_ADDED;
+                                        portfolio_leg_value.EntryTime = DateTime.Now;
+                                        logFileWriter.DisplayLog(EnumLogType.Info, $"Order ID {OrderID} Entry Postion Mapped with LEG: {portfolio_leg_value.Name}  OF STG {new_stg_key}");
 
-                                    TotalPremium += (portfolio_leg_value.Qty * portfolio_leg_value.EntryPrice);
+                                        TotalPremium += (portfolio_leg_value.Qty * portfolio_leg_value.EntryPrice);
+                                    }
+                                    else
+                                    {
+                                        portfolio_leg_value.Status = EnumStrategyStatus.REJECTED;
+                                        portfolio_leg_value.Message = EnumStrategyMessage.ORDER_CANCELLED_BY_SYSTEM;
 
-
+                                    }
                                     General.PortfolioLegByTokens.AddOrUpdate(Token, new List<InnerObject>() { portfolio_leg_value }, (key, list) =>
                                     {
                                         list.Add(portfolio_leg_value);
@@ -457,12 +481,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 }
                                 catch (Exception ex)
                                 {
-                                    portfolio_leg_value.Status = EnumStrategyStatus.Error;
+                                    portfolio_leg_value.Status = EnumStrategyStatus.REJECTED;
                                     logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                                 }
 
                             });
-                            tasks.Add(bacha);
+                            tasks.Add(ChildTask);
                         }
                         //STG Detail when any leg place--------------------------------------- any leg
 
@@ -471,13 +495,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         //STG DETAILS when all leg place ---------------------------------------for all
                         //StopLoss
                         Portfolio_value.TotalEntryPremiumPaid = TotalPremium;
-                        Portfolio_value.InitialMTM = Portfolio_value.MTM;
-
-                        await Task.Delay(1000);
                         if (stg_setting_value.IsOverallStopLossEnable)
                         {
                             Portfolio_value.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
-                                                                                                            Portfolio_value.PNL,
                                                                                                             stg_setting_value.SettingOverallStopLoss,
                                                                                                             stg_setting_value.OverallStopLoss)
                                                                                                              , 2);
@@ -488,7 +508,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         if (stg_setting_value.IsOverallTargetEnable)
                         {
                             Portfolio_value.TargetProfit = Math.Round(algoCalculation.GetOverallTargetProfitValue(TotalPremium,
-                                                                                                           Portfolio_value.MTM,
                                                                                                            stg_setting_value.SettingOverallTarget,
                                                                                                            stg_setting_value.OverallTarget)
                                                                                                             , 2);
@@ -581,6 +600,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     //Place the Order Using NNAPI 
                     int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
                     OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, innerObject);
+                    innerObject.Entry_OrderID = OrderID;
                     if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.RECOST || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVCOST
                     || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.RECOST || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVCOST)
                     {
@@ -588,13 +608,23 @@ namespace AlgoTerminal.Model.StrategySignalManager
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                         Task.Run(new Action(async () =>
                         {
-                            innerObject.Message = "Re Entry COST Price " + innerObject.EntryPrice;
+                            innerObject.Message = EnumStrategyMessage.RE_ENTRY;
                             var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
                             if (data == true)
                             {
-                                LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
-                            Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
-                                innerObject.Status = EnumStrategyStatus.OrderPlaced;
+                                if (!innerObject.IsLegCancelledOrRejected)
+                                {
+                                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                                Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+
+                                    innerObject.Status = EnumStrategyStatus.ENTRY_ADDED;
+
+                                }
+                                else
+                                {
+                                    innerObject.Status = EnumStrategyStatus.REJECTED;
+                                }
+
                             }
                         }));
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -602,9 +632,17 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     else if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REASAP || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVASAP
                     || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REASAP || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVASAP)
                     {
-                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                        if (!innerObject.IsLegCancelledOrRejected)
+                        {
+                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
                              Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
-                        innerObject.Status = EnumStrategyStatus.OrderPlaced;
+                            innerObject.Status = EnumStrategyStatus.ENTRY_ADDED;
+                        }
+                        else
+                        {
+                            innerObject.Status = EnumStrategyStatus.REJECTED;
+                        }
+
                     }
                     else if (leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REMOMENTUM || leg_Details.SettingReEntryOnSL == EnumLegReEntryOnSL.REREVMOMENTUM
                     || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REMOMENTUM || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVMOMENTUM)
@@ -612,26 +650,42 @@ namespace AlgoTerminal.Model.StrategySignalManager
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                         if (leg_Details.IsSimpleMomentumEnable == false)
                         {
-                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                            if (!innerObject.IsLegCancelledOrRejected)
+                            {
+                                LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
                             Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
-                            innerObject.Status = EnumStrategyStatus.OrderPlaced;
+                                innerObject.Status = EnumStrategyStatus.ENTRY_ADDED;
+                            }
+                            else
+                            {
+                                innerObject.Status = EnumStrategyStatus.REJECTED;
+                            }
+
                         }
                         else
                         {
-                            Task.Run(new Action(async () =>
+                            Task.Run(new Action(() =>
                             {
                                 innerObject = algoCalculation.IsSimpleMovementumHitForRentry(innerObject, leg_Details, stg_setting_value);
 
-                                LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
-                        Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
-                                innerObject.Status = EnumStrategyStatus.OrderPlaced;
+                                if (!innerObject.IsLegCancelledOrRejected)
+                                {
+                                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)innerObject.Token, price1: innerObject.EntryPrice, orderQty: innerObject.Qty,
+                            Buysell: innerObject.BuySell, OrderType.LIMIT, 0, OrderID);
+                                    innerObject.Status = EnumStrategyStatus.ENTRY_ADDED;
+                                }
+                                else
+                                {
+                                    innerObject.Status = EnumStrategyStatus.REJECTED;
+                                }
+
 
                             }));
                         }
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                     }
 
-                    innerObject.STG_ID = OrderID;
+                    //innerObject.STG_ID = OrderID;
 
                     innerObject.EntryTime = DateTime.Now;
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
@@ -658,26 +712,41 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="portfolio_leg_value"></param>
         /// <returns></returns>
-        private async Task SquareOffStraddle920Leg(InnerObject portfolio_leg_value, EnumStrategyStatus enumStrategyStatus = EnumStrategyStatus.None)
+        private async Task SquareOffStraddle920Leg(InnerObject portfolio_leg_value, EnumStrategyMessage enumStrategyMessage = EnumStrategyMessage.NONE)
         {
             if (portfolio_leg_value.ExitPrice == 0)
             {
                 try
                 {
-                    double _currentLTP = algoCalculation.GetStrikePriceLTP(portfolio_leg_value.Token);
-                    EnumPosition enumPosition = portfolio_leg_value.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
-                    int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
-                    OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
-                    LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)portfolio_leg_value.Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
-                         Buysell: enumPosition, OrderType.LIMIT, 0, portfolio_leg_value.STG_ID);
-                    portfolio_leg_value.ExitPrice = _currentLTP;
-                    portfolio_leg_value.ExitTime = DateTime.Now;
-                    if (enumStrategyStatus != EnumStrategyStatus.None)
+                    if (portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
                     {
-                        portfolio_leg_value.Status = enumStrategyStatus;
+                        //GET ADMIN ORDER ID AND SEND CANCEL REQUEST.
+                        //CHECK TOTAL TRADED QUANTIY.
+                        //SEND EXIT FOR SAME QUANTIY.
                     }
+                    else if (portfolio_leg_value.Status == EnumStrategyStatus.NONE || portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_ADDED)
+                    {
+                        portfolio_leg_value.IsLegCancelledOrRejected = true;// so new order will not be placed which is in QUE
+                    }
+                    else if (portfolio_leg_value.Status == EnumStrategyStatus.RUNING)
+                    {
 
-
+                        double _currentLTP = algoCalculation.GetStrikePriceLTP(portfolio_leg_value.Token);
+                        EnumPosition enumPosition = portfolio_leg_value.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
+                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)portfolio_leg_value.Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
+                             Buysell: enumPosition, OrderType.LIMIT, 0, OrderID);
+                        portfolio_leg_value.ExitPrice = _currentLTP;
+                        portfolio_leg_value.ExitTime = DateTime.Now;
+                        portfolio_leg_value.Status = EnumStrategyStatus.EXIT_ADDED;
+                        portfolio_leg_value.Exit_OrderID = OrderID;
+                        logFileWriter.DisplayLog(EnumLogType.Info, $"Order ID {OrderID} EXIT Postion Mapped with LEG: {portfolio_leg_value.Name}  OF STG {portfolio_leg_value.StgName}");
+                        if (enumStrategyMessage != EnumStrategyMessage.NONE)
+                        {
+                            portfolio_leg_value.Message = enumStrategyMessage;
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -691,7 +760,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// </summary>
         /// <param name="KeyOfStraddle"></param>
         /// <returns></returns>
-        public async Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumStrategyStatus enumStrategyStatus = EnumStrategyStatus.None)
+        public async Task<bool> SquareOffStraddle920(PortfolioModel PM, EnumStrategyMessage enumStrategyMessage = EnumStrategyMessage.NONE)
         {
 
             var _totalLeg = PM.InnerObject;
@@ -699,10 +768,10 @@ namespace AlgoTerminal.Model.StrategySignalManager
             {
                 if (leg.ExitPrice == 0)
                 {
-                    if (enumStrategyStatus == EnumStrategyStatus.None)
+                    if (enumStrategyMessage == EnumStrategyMessage.NONE)
                         await SquareOffStraddle920Leg(leg);
                     else
-                        await SquareOffStraddle920Leg(leg, enumStrategyStatus);
+                        await SquareOffStraddle920Leg(leg, enumStrategyMessage);
 
 
                     await Task.Delay(50);
@@ -794,7 +863,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         innerObject.StgName = stg_key;
                                         innerObject.Name = Leg;
                                         innerObject.BuySell = leg_value.Position;
-                                        innerObject.Status = EnumStrategyStatus.Added;
                                         innerObject.TradingSymbol = "Loading ...";
                                         innerObject.Qty = leg_value.Lots;
                                         innerObject.enumUnderlyingFromForLeg = stg_value.UnderlyingFrom;
@@ -855,7 +923,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 {//ALL STG
                     double TotalPremium = 0;
 
-                    var Papa = Task.Factory.StartNew((Action)(async () =>
+                    var stgTask = Task.Factory.StartNew((Action)(async () =>
                     {
                         List<Task> tasks = new();
                         var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
@@ -874,7 +942,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             foreach (string Leg in leg_value.Keys)
                             {//ALL LEG
 
-                                var bacha = Task.Factory.StartNew(async () =>
+                                var legTask = Task.Factory.StartNew(async () =>
                                 {
                                     var leg_Details = leg_value[Leg];
                                     var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
@@ -914,7 +982,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         //Porfolio leg Update
                                         portfolio_leg_value.Token = Token;
                                         portfolio_leg_value.TradingSymbol = TradingSymbol;
-                                        portfolio_leg_value.Status = EnumStrategyStatus.Waiting;
                                         portfolio_leg_value.ReEntrySL = leg_Details.ReEntryOnSL;
                                         portfolio_leg_value.ReEntryTP = leg_Details.ReEntryOnTgt;
 
@@ -967,19 +1034,26 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                         double _currentLTP = algoCalculation.GetStrikePriceLTP(Token);
 
 
-
-                                        //Place the Order Using NNAPI 
-                                        int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
-                                        OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
-                                        LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
-                                             Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID); //Here the orderID and the StgID both are Same . will use same stg id in other updation
-                                        //GUI
-                                        portfolio_leg_value.STG_ID = OrderID;
-                                        portfolio_leg_value.EntryPrice = _currentLTP;
-                                        portfolio_leg_value.Status = EnumStrategyStatus.OrderPlaced;
-                                        portfolio_leg_value.EntryTime = DateTime.Now;
-
-                                        TotalPremium += (portfolio_leg_value.Qty * portfolio_leg_value.EntryPrice);
+                                        if (!portfolio_leg_value.IsLegCancelledOrRejected)
+                                        {
+                                            //Place the Order Using NNAPI 
+                                            int OrderID = OrderManagerModel.GetOrderId();//Get the client unique ID
+                                            OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
+                                            LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
+                                                 Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID);
+                                            //portfolio_leg_value.STG_ID = OrderID;
+                                            portfolio_leg_value.Entry_OrderID = OrderID;
+                                            portfolio_leg_value.EntryPrice = _currentLTP;
+                                            portfolio_leg_value.Status = EnumStrategyStatus.ENTRY_ADDED;
+                                            portfolio_leg_value.EntryTime = DateTime.Now;
+                                            logFileWriter.DisplayLog(EnumLogType.Info, $"Order ID {OrderID} Entry Postion Mapped with LEG: {portfolio_leg_value.Name}  OF STG {stg_key}");
+                                            TotalPremium += (portfolio_leg_value.Qty * portfolio_leg_value.EntryPrice);
+                                        }
+                                        else
+                                        {
+                                            portfolio_leg_value.Message = EnumStrategyMessage.ORDER_CANCELLED_BY_SYSTEM;
+                                            portfolio_leg_value.Status = EnumStrategyStatus.REJECTED;
+                                        }
 
 
 
@@ -1007,12 +1081,13 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                     }
                                     catch (Exception ex)
                                     {
-                                        portfolio_leg_value.Status = EnumStrategyStatus.Error;
+                                        portfolio_leg_value.Status = EnumStrategyStatus.REJECTED;
+                                        portfolio_leg_value.Message = EnumStrategyMessage.ERROR;
                                         logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
                                     }
 
                                 });
-                                tasks.Add(bacha);
+                                tasks.Add(legTask);
                             }
                             //STG Detail when any leg place--------------------------------------- any leg
 
@@ -1021,13 +1096,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             //STG DETAILS when all leg place ---------------------------------------for all
                             //StopLoss
                             Portfolio_value.TotalEntryPremiumPaid = TotalPremium;
-                            Portfolio_value.InitialMTM = Portfolio_value.MTM;
+
 
                             await Task.Delay(1000);
                             if (stg_setting_value.IsOverallStopLossEnable)
                             {
                                 Portfolio_value.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
-                                                                                                                Portfolio_value.MTM,
                                                                                                                 stg_setting_value.SettingOverallStopLoss,
                                                                                                                 stg_setting_value.OverallStopLoss)
                                                                                                                  , 2);
@@ -1038,7 +1112,6 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             if (stg_setting_value.IsOverallTargetEnable)
                             {
                                 Portfolio_value.TargetProfit = Math.Round(algoCalculation.GetOverallTargetProfitValue(TotalPremium,
-                                                                                                               Portfolio_value.MTM,
                                                                                                                stg_setting_value.SettingOverallTarget,
                                                                                                                stg_setting_value.OverallTarget)
                                                                                                                 , 2);
@@ -1047,6 +1120,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             }
 
                             //Square OFF all Leg TIMEBASED if Stg is TIMEBASED
+
                             if (stg_setting_value.EntryAndExitSetting == EnumEntryAndExit.TIMEBASED)
                             {
                                 int SquareofSeconds = (int)(stg_setting_value.ExitTime - DateTime.Now).TotalSeconds;

@@ -72,7 +72,7 @@
                             <DataGridTextColumn Header="Exit Price" Width="*" Binding="{Binding ExitPrice}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Entry Time" Width="*" Binding="{Binding EntryTime}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Exit Time" Width="*" Binding="{Binding ExitTime}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="C P/L" Width="*" Binding="{Binding PNL}" IsReadOnly="True">
+                            <DataGridTextColumn Header="C P/L" Width="80" Binding="{Binding PNL}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -86,10 +86,10 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="B/S" Width="*" Binding="{Binding BuySell}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Qty" Width="*" Binding="{Binding Qty}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="SL" Width="50" Binding="{Binding StopLoss}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="TP" Width="50" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="B/S" Width="80" Binding="{Binding BuySell}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Qty" Width="80" Binding="{Binding Qty}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="SL" Width="80" Binding="{Binding StopLoss}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="TP" Width="80" Binding="{Binding TargetProfit}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="LTP" Width="66" Binding="{Binding LTP}" IsReadOnly="True"/>
                         </DataGrid.Columns>
 
