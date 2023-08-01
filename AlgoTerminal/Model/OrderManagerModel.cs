@@ -14,13 +14,13 @@ namespace AlgoTerminal.Model
         public static ConcurrentDictionary<long, OrderBookModel> OrderBook_Dicc_By_ClientID = new();//key=>ADMINOrderID
         public static ConcurrentDictionary<int, InnerObject> Portfolio_Dicc_By_ClientID = new(); //leg wise details //key=>OrderID
         public static ConcurrentDictionary<int, NetPositionModel> NetPosition_Dicc_By_Token = new();//KEY IS TOKEN
-
+       
 
         #endregion
 
         #region Methods
 
-
+      
         public static int GetOrderId()
         {
             lock (_locker)
@@ -32,10 +32,10 @@ namespace AlgoTerminal.Model
         {
             lock (_locker)
             {
-                _orderId = orderId; ;
+                _orderId = orderId;
             }
         }
-      
+
        
         #endregion
     }
