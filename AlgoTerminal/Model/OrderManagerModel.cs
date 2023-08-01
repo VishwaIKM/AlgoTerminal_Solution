@@ -11,9 +11,9 @@ namespace AlgoTerminal.Model
         private static int _orderId;
         private static readonly object _locker = new();
 
-        public static ConcurrentDictionary<long, OrderBookModel> OrderBook_Dicc_By_ClientID = new();//key=>OrderID
+        public static ConcurrentDictionary<long, OrderBookModel> OrderBook_Dicc_By_ClientID = new();//key=>ADMINOrderID
         public static ConcurrentDictionary<int, InnerObject> Portfolio_Dicc_By_ClientID = new(); //leg wise details //key=>OrderID
-        public static ConcurrentDictionary<int, NetPositionModel> NetPosition_Dicc_By_Token = new();
+        public static ConcurrentDictionary<int, NetPositionModel> NetPosition_Dicc_By_Token = new();//KEY IS TOKEN
        
 
         #endregion

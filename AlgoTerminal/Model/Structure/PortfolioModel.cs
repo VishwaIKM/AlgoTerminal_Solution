@@ -115,29 +115,16 @@ namespace AlgoTerminal.Model.Structure
         public ObservableCollection<InnerObject> InnerObject { get; set; } = new ObservableCollection<InnerObject>();
 
         //For Calculation They Must update after Trade
-       
-        public double BuyAveragePrice { get; set; }
-        public double SellAveragePrice { get; set; }
         public int BuyTradedQty { get; set; }
         public int SellTradedQty { get; set;}
-        public double Expenses { get; set;}
         private double _totalEntryPremiumPaid;
         public double TotalEntryPremiumPaid { get=> _totalEntryPremiumPaid; internal set {
                 _totalEntryPremiumPaid= value;
                 UpdateInFavorPremiumPaidforTrailSLleg = value;
             } }
-        private double _initialMTM;
-        public double InitialMTM { get=>_initialMTM; internal set
-            {
-                if (_initialMTM != value)
-                {
-                    _initialMTM = value;
-                    UpdateInInitialMTMPaidforTrailSLleg = value;
-                }
-            }
-        }
         public double UpdateInFavorPremiumPaidforTrailSLleg { get; set; }
         public double UpdateInInitialMTMPaidforTrailSLleg { get; set; }
+        public bool IsSTGCompleted { get; set; } = false;
     }
     public class InnerObject : BaseViewModel
     {

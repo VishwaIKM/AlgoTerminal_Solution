@@ -33,7 +33,7 @@ namespace AlgoTerminal.Model.Response
                 foreach (var leg in legs)
                 {
                     //MTM//LTP when order is placed
-                    if (leg.EntryPrice != 0 && leg.ExitPrice == 0)
+                    if (leg.EntryPrice != 0 && leg.ExitPrice == 0 && leg.Status != EnumStrategyStatus.REJECTED)
                     {
                         //leg LTP Update ...
                         leg.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice) / 100.00, 2);
@@ -55,6 +55,18 @@ namespace AlgoTerminal.Model.Response
                         }
                         stg.PNL = Math.Round(finalLtp, 2);
                         //stg.MTM = Math.Round(finalMtm,2);
+                    }
+                    else if(leg.PNL != 0 && leg.Status == EnumStrategyStatus.REJECTED)
+                    {
+                        var stg = General.Portfolios[leg.StgName];
+                        double finalLtp = 0;
+                        leg.PNL = 0;
+                        foreach (var x in stg.InnerObject)
+                        {
+                            finalLtp += x.PNL;
+                            //finalMtm += x.MTM;
+                        }
+                        stg.PNL = Math.Round(finalLtp, 2);
                     }
                 }
             }

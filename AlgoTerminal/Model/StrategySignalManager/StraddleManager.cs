@@ -6,6 +6,7 @@ using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
         private readonly IStraddleDataBaseLoadFromCsv straddleDataBaseLoad;
         private readonly ILogFileWriter logFileWriter;
         private readonly IAlgoCalculation algoCalculation;
+        
         DispatcherTimer dispatcherTimer = new();
         #endregion
 
@@ -41,158 +43,164 @@ namespace AlgoTerminal.Model.StrategySignalManager
         /// <summary>
         /// Time Init Method TIMESPAN()=> MILISECOND
         /// </summary>
-        private void StartMonitoringCommand()
+        private async void StartMonitoringCommand()
         {
-            dispatcherTimer.Tick += new EventHandler(MonitoringThread);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
-            dispatcherTimer.Start();
+            while ( true )
+            {
+               await MonitoringThread();
+                await Task.Delay(400);
+            }
+            //dispatcherTimer.Tick += new EventHandler(MonitoringThread);
+            //dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            //dispatcherTimer.Start();
         }
+        private readonly Object locked= new();
         /// <summary>
         /// Checking the Portfolio SL TP Trail SL and ReEntry
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MonitoringThread(object? sender, EventArgs e)
+        private async Task MonitoringThread()
         {
+            
+                //TO DO:
+                //1. IS SL HIT SQUARE OFF CHECK IF RENTRY ON SL |(LEG/STG) => Decrement the RE Count
+                //2. IS TP HIT SQUARE OFF CHECK IF RENTRY ON TP |(LEG/STG) => Decrement the RE Count
+                //3. IS TRAIL SL AMOUNT HIT => Update TARIL AND SL FOR LEG or STG
+                //4. Partail leg squre off or full stg if any leg sl hit
+                try
+                {
+                    if (straddleDataBaseLoad.Master_Straddle_Dictionary == null)
+                        throw new Exception("Master STG is Empty Function from MonitoringThread.");
 
-            //TO DO:
-            //1. IS SL HIT SQUARE OFF CHECK IF RENTRY ON SL |(LEG/STG) => Decrement the RE Count
-            //2. IS TP HIT SQUARE OFF CHECK IF RENTRY ON TP |(LEG/STG) => Decrement the RE Count
-            //3. IS TRAIL SL AMOUNT HIT => Update TARIL AND SL FOR LEG or STG
-            //4. Partail leg squre off or full stg if any leg sl hit
-            try
-            {
-                if (straddleDataBaseLoad.Master_Straddle_Dictionary == null)
-                    throw new Exception("Master STG is Empty Function from MonitoringThread.");
+                    if (straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null)
+                        throw new Exception("Master LEG is Empty Function from MonitoringThread.");
 
-                if (straddleDataBaseLoad.Straddle_LegDetails_Dictionary == null)
-                    throw new Exception("Master LEG is Empty Function from MonitoringThread.");
-
-                if (General.Portfolios == null)
-                    throw new Exception("General Portfolio is Empty Function from MonitoringThread.");
+                    if (General.Portfolios == null)
+                        throw new Exception("General Portfolio is Empty Function from MonitoringThread.");
 
 
-                foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
-                {//ALL STG
-                    var Parent = Task.Factory.StartNew((Action)(async () =>
-                    {
-
-                        bool IsStgSquareOffRequestSend = false;
+                    foreach (string stg_key in straddleDataBaseLoad.Master_Straddle_Dictionary.Keys)
+                    {//ALL STG
                         var stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[stg_key];
                         var Portfolio_value = General.Portfolios[stg_key];
                         var leg_value = straddleDataBaseLoad.Straddle_LegDetails_Dictionary[stg_key];
-                        foreach (string Leg in leg_value.Keys)
+                        var Parent = Task.Factory.StartNew((Action)(async () =>
                         {
-                            #region Leg watcher
-                            var leg_Details = leg_value[Leg];
-                            var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
 
-                            try
+
+
+                            foreach (string Leg in leg_value.Keys)
                             {
-                                if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status == EnumStrategyStatus.RUNING) &&
-                                (portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
-                                && portfolio_leg_value.IsLegInMonitoringQue) // Exit price != 0 means this leg is Complete
+                                #region Leg watcher
+                                var leg_Details = leg_value[Leg];
+                                var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+
+                                try
                                 {
-
-                                    portfolio_leg_value.IsLegInMonitoringQue = false;
-
-                                    #region TRAIL SL FOR Leg Check and Update
-
-                                    if (leg_Details.IsTrailSlEnable == true)
+                                    if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status == EnumStrategyStatus.RUNING) &&
+                                    (portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
+                                    && portfolio_leg_value.IsLegInMonitoringQue) // Exit price != 0 means this leg is Complete
                                     {
-                                        algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value, leg_Details, stg_setting_value);
-                                    }
-                                    #endregion
 
-                                    #region Check SL/ TP for LEG
-                                    bool SL_HIT = false, TP_HIT = false;
-                                    if (leg_Details.IsStopLossEnable == true && portfolio_leg_value.StopLoss > 0)
-                                    {
-                                        SL_HIT = algoCalculation.Get_if_SL_is_HIT(portfolio_leg_value.StopLoss,
-                                                                                        leg_Details.SettingStopLoss,
-                                                                                        leg_Details.OptionType,
-                                                                                        leg_Details.Position,
-                                                                                        stg_setting_value.Index,
-                                                                                        portfolio_leg_value.Token,
-                                                                                        stg_setting_value.UnderlyingFrom);
+                                        portfolio_leg_value.IsLegInMonitoringQue = false;
 
-                                        if (SL_HIT)
+                                        #region TRAIL SL FOR Leg Check and Update
+
+                                        if (leg_Details.IsTrailSlEnable == true)
                                         {
-                                            logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
-                                            //portfolio_leg_value.Status = EnumStrategyStatus.CompleteBySL;
+                                            algoCalculation.UpdateLegSLTrail_IF_HIT(portfolio_leg_value, leg_Details, stg_setting_value);
                                         }
-                                    }
+                                        #endregion
 
-                                    if (leg_Details.IsTargetProfitEnable == true && portfolio_leg_value.TargetProfit > 0)
-                                    {
-                                        TP_HIT = algoCalculation.Get_if_TP_is_HIT(portfolio_leg_value.TargetProfit,
-                                                                                        leg_Details.SettingStopLoss,
-                                                                                        leg_Details.OptionType,
-                                                                                        leg_Details.Position,
-                                                                                        stg_setting_value.Index,
-                                                                                        portfolio_leg_value.Token,
-                                                                                        stg_setting_value.UnderlyingFrom);
-                                        if (TP_HIT)
+                                        #region Check SL/ TP for LEG
+                                        bool SL_HIT = false, TP_HIT = false;
+                                        if (leg_Details.IsStopLossEnable == true && portfolio_leg_value.StopLoss > 0)
                                         {
-                                            logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
-                                            //portfolio_leg_value.Status = EnumStrategyStatus.CompleteByTP;
-                                        }
-                                    }
-                                    //Check if partial squre of enable or complete
+                                            SL_HIT = algoCalculation.Get_if_SL_is_HIT(portfolio_leg_value.StopLoss,
+                                                                                            leg_Details.SettingStopLoss,
+                                                                                            leg_Details.OptionType,
+                                                                                            leg_Details.Position,
+                                                                                            stg_setting_value.Index,
+                                                                                            portfolio_leg_value.Token,
+                                                                                            stg_setting_value.UnderlyingFrom);
 
-                                    if (stg_setting_value.SquareOff == EnumSquareOff.PARTIAL && (SL_HIT || TP_HIT))
-                                    {
-                                        //leg squareOff
-                                        //check if current order is Partial
-
-
-                                        if (SL_HIT)
-                                            await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_SL_HIT);
-                                        if (TP_HIT)
-                                            await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_TP_HIT);
-
-                                        ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value, Portfolio_value, leg_value);
-
-                                    }
-                                    else if (stg_setting_value.SquareOff == EnumSquareOff.COMPLETE && (SL_HIT || TP_HIT))
-                                    {
-                                        IsStgSquareOffRequestSend = true;
-                                        //all Leg Square off
-                                        //await SquareOffStraddle920(Portfolio_value);
-                                        //Need to find Simple Solution  =================> MARK HERE
-                                        foreach (string ChildLeg in leg_value.Keys)
-                                        {
-                                            var child_leg_Details = leg_value[Leg];
-                                            var child_portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == ChildLeg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
-                                           if (child_portfolio_leg_value.ExitPrice == 0)// && (child_portfolio_leg_value.Status != EnumStrategyStatus.ENTRY_ADDED) &&
-                                //(child_portfolio_leg_value.Status != EnumStrategyStatus.REJECTED) && (child_portfolio_leg_value.Status != EnumStrategyStatus.COMPLETED))
+                                            if (SL_HIT)
                                             {
-                                                //TO DO:
-                                                //RE_VISIT THE ABOVE IF CONDITION
-                                                //Partial order is tradded. Cancel the Order and Square of Pending Quantity. 
-                                                //OPEN ORDER => Cancel and ReEntry as per its setting
-                                                //OPEN ORDER CAN NOT SQUARE OFF
-                                                
-                                                if (child_portfolio_leg_value.Status == EnumStrategyStatus.RUNING|| child_portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
-                                                {
-                                                    await SquareOffStraddle920Leg(child_portfolio_leg_value);
-                                                }
-                                                
-                                                ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
+                                                logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
+                                                //portfolio_leg_value.Status = EnumStrategyStatus.CompleteBySL;
                                             }
                                         }
+
+                                        if (leg_Details.IsTargetProfitEnable == true && portfolio_leg_value.TargetProfit > 0)
+                                        {
+                                            TP_HIT = algoCalculation.Get_if_TP_is_HIT(portfolio_leg_value.TargetProfit,
+                                                                                            leg_Details.SettingStopLoss,
+                                                                                            leg_Details.OptionType,
+                                                                                            leg_Details.Position,
+                                                                                            stg_setting_value.Index,
+                                                                                            portfolio_leg_value.Token,
+                                                                                            stg_setting_value.UnderlyingFrom);
+                                            if (TP_HIT)
+                                            {
+                                                logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for Leg :" + Leg + "  in the Stg: " + stg_key);
+                                                //portfolio_leg_value.Status = EnumStrategyStatus.CompleteByTP;
+                                            }
+                                        }
+                                        //Check if partial squre of enable or complete
+
+                                        if (stg_setting_value.SquareOff == EnumSquareOff.PARTIAL && (SL_HIT || TP_HIT))
+                                        {
+                                            //leg squareOff
+                                            //check if current order is Partial
+
+
+                                            if (SL_HIT)
+                                                await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_SL_HIT);
+                                            if (TP_HIT)
+                                                await SquareOffStraddle920Leg(portfolio_leg_value, EnumStrategyMessage.LEG_TP_HIT);
+
+                                            ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value, Portfolio_value, leg_value);
+
+                                        }
+                                        else if (stg_setting_value.SquareOff == EnumSquareOff.COMPLETE && (SL_HIT || TP_HIT))
+                                        {
+                                         
+                                            //all Leg Square off
+                                            //await SquareOffStraddle920(Portfolio_value);
+                                            //Need to find Simple Solution  =================> MARK HERE
+                                            foreach (string ChildLeg in leg_value.Keys)
+                                            {
+                                                var child_leg_Details = leg_value[Leg];
+                                                var child_portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == ChildLeg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
+                                                if (child_portfolio_leg_value.ExitPrice == 0)// && (child_portfolio_leg_value.Status != EnumStrategyStatus.ENTRY_ADDED) &&
+                                                                                             //(child_portfolio_leg_value.Status != EnumStrategyStatus.REJECTED) && (child_portfolio_leg_value.Status != EnumStrategyStatus.COMPLETED))
+                                                {
+                                                    //TO DO:
+                                                    //RE_VISIT THE ABOVE IF CONDITION
+                                                    //Partial order is tradded. Cancel the Order and Square of Pending Quantity. 
+                                                    //OPEN ORDER => Cancel and ReEntry as per its setting
+                                                    //OPEN ORDER CAN NOT SQUARE OFF
+
+                                                    if (child_portfolio_leg_value.Status == EnumStrategyStatus.RUNING || child_portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
+                                                    {
+                                                        await SquareOffStraddle920Leg(child_portfolio_leg_value);
+                                                    }
+
+                                                    ReEntryAndPlaceOrderCommon(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
+                                                }
+                                            }
+                                        }
+                                        #endregion
                                     }
-                                    #endregion
                                 }
+                                catch { }
+
+                                portfolio_leg_value.IsLegInMonitoringQue = true;
+                                #endregion Leg watcher End
+
                             }
-                            catch { }
-
-                            portfolio_leg_value.IsLegInMonitoringQue = true;
-                            #endregion Leg watcher End
-
-                        }
+                        }));
                         #region STG Watcher
-                        if (!IsStgSquareOffRequestSend) //if square of  then no need to check SL AND TP OR RE-ENTRY
+                        if (Portfolio_value.PNL != 0 && !Portfolio_value.IsSTGCompleted) //if square of then no need to check SL AND TP OR RE-ENTRY
                         {
                             #region Trailing Options Check and Update
 
@@ -203,28 +211,27 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
                             #endregion
 
-
-
-
                             #region SL AND TP HIT AND REENTRY
                             bool Overall_SL_HIT = false, Overall_TP_HIT = false;
-                            if (stg_setting_value.IsOverallStopLossEnable == true && Portfolio_value.StopLoss > 0)
+                            if (stg_setting_value.IsOverallStopLossEnable == true && Portfolio_value.StopLoss != 0)
                             {
                                 Overall_SL_HIT = algoCalculation.Is_overall_sl_hit(stg_setting_value, Portfolio_value);
                                 if (Overall_SL_HIT)
                                 {
+                                    Portfolio_value.IsSTGCompleted = true;
                                     logFileWriter.DisplayLog(EnumLogType.Info, "SL HIT for the Stg: " + stg_key);
                                     await SquareOffStraddle920(Portfolio_value, EnumStrategyMessage.OVERALL_SL_HIT);
                                 }
 
                             }
-                            if (stg_setting_value.IsOverallReEntryOnTgtEnable == true && Portfolio_value.TargetProfit > 0)
+                            if (stg_setting_value.IsOverallReEntryOnTgtEnable == true && Portfolio_value.TargetProfit != 0)
                             {
 
                                 Overall_TP_HIT = algoCalculation.Is_overall_tp_hit(stg_setting_value, Portfolio_value);
                                 if (Overall_TP_HIT)
                                 {
-                                    logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for the Stg: " + stg_key);
+                                Portfolio_value.IsSTGCompleted = true;
+                                logFileWriter.DisplayLog(EnumLogType.Info, "TP HIT for the Stg: " + stg_key);
                                     await SquareOffStraddle920(Portfolio_value, EnumStrategyMessage.OVERALL_TP_HIT);
                                 }
                             }
@@ -236,11 +243,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             #endregion
                         }
                         #endregion Watcher end
-                    }));
 
+                    }
                 }
-            }
-            catch (Exception ex) { logFileWriter.WriteLog(EnumLogType.Error, ex.Message + "  " + ex.StackTrace); }
+                catch (Exception ex) { logFileWriter.WriteLog(EnumLogType.Error, ex.Message + "  " + ex.StackTrace); }
+
+            Task.CompletedTask.Wait();
         }
 
 
@@ -256,9 +264,10 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
 
                 //Clone the Master Dic <T> Value
-                var clone_stg_setting_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Master_Straddle_Dictionary[old_stg_key]);
-                var clone_leg_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Straddle_LegDetails_Dictionary[old_stg_key]);
-
+                //var clone_stg_setting_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Master_Straddle_Dictionary[old_stg_key]);
+                //var clone_leg_value = OtherMethods.DeepCopy(straddleDataBaseLoad.Straddle_LegDetails_Dictionary[old_stg_key]);
+                var clone_stg_setting_value = straddleDataBaseLoad.Master_Straddle_Dictionary[old_stg_key];
+                var clone_leg_value = straddleDataBaseLoad.Straddle_LegDetails_Dictionary[old_stg_key];
                 //Decrement in Count of reEntry
                 if (Overall_SL_HIT)
                     clone_stg_setting_value.OverallReEntryOnSL--;
@@ -338,7 +347,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         }
                         catch (Exception ex)
                         {
-                            logFileWriter.WriteLog(EnumDeclaration.EnumLogType.Error, ex.ToString());
+                            logFileWriter.WriteLog(EnumLogType.Error, ex.ToString());
                         }
                     }
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
@@ -532,8 +541,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         }
 
                     }));
-                }
-
+                } 
             }
             catch (Exception ex)
             {
@@ -723,10 +731,39 @@ namespace AlgoTerminal.Model.StrategySignalManager
                         //GET ADMIN ORDER ID AND SEND CANCEL REQUEST.
                         //CHECK TOTAL TRADED QUANTIY.
                         //SEND EXIT FOR SAME QUANTIY.
+                        long AdminOrderID = OrderManagerModel.OrderBook_Dicc_By_ClientID.Where(xx => xx.Value.ClientID == portfolio_leg_value.Entry_OrderID).Select(zz => zz.Key).FirstOrDefault();
+                        if (AdminOrderID != null || AdminOrderID == 0)
+                        {
+                            LoginViewModel.NNAPIRequest.CancelOrderRequest(AdminOrderID);
+                        }
+
                     }
-                    else if (portfolio_leg_value.Status == EnumStrategyStatus.NONE || portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_ADDED)
+                    else if (portfolio_leg_value.Status == EnumStrategyStatus.NONE)
                     {
-                        portfolio_leg_value.IsLegCancelledOrRejected = true;// so new order will not be placed which is in QUE
+                        portfolio_leg_value.IsLegCancelledOrRejected = true;// so new order will not be placed if the Order in Placing QUE.
+                    }
+                    else if(portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_ADDED)
+                    {
+                        //send cancel Request 
+                        try
+                        {
+                           var details = OrderManagerModel.OrderBook_Dicc_By_ClientID.Where(xx=>xx.Value.ClientID == portfolio_leg_value.Entry_OrderID).FirstOrDefault();
+                            if(details.Key != null && details.Key != 0)
+                            {
+                                if (details.Value.Status.Contains("open"))
+                                {
+                                    LoginViewModel.NNAPIRequest.CancelOrderRequest(details.Key);
+                                }
+                                else
+                                {
+                                    logFileWriter.DisplayLog(EnumLogType.Error, $"Can't Send Cancel Request For Open Orded MOD ID: {details.Key} and Client ID: {portfolio_leg_value.Entry_OrderID}");
+                                }
+                            }
+                        }
+                        catch(Exception ex)
+                        {
+                            logFileWriter.DisplayLog(EnumLogType.Error, " Unable to find Moderator ID: " + portfolio_leg_value.Token + ex.Message + ex.StackTrace);
+                        }
                     }
                     else if (portfolio_leg_value.Status == EnumStrategyStatus.RUNING)
                     {
@@ -899,7 +936,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     }
 
                 }
-                StartMonitoringCommand(); // Thread to watch
+                Task.Run(()=>StartMonitoringCommand()); // Thread to watch
                 return true;
 
             }

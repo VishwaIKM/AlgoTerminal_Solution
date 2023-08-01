@@ -67,7 +67,7 @@ namespace AlgoTerminal.Model.Response
                     netPositionModel.SellQuantity = SellTradedQty;
                     netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? Math.Round(BuyTradedValue / (BuyTradedQty*100.00),2) : 0;
                     netPositionModel.SellAvgPrice = SellTradedQty != 0 ? Math.Round(SellTradedValue / (SellTradedQty*100.00),2) : 0;
-                    netPositionModel.NetValue = Math.Round((BuyTradedValue - SellTradedValue)/100.00,2);
+                    netPositionModel.NetValue = Math.Round((-BuyTradedValue + SellTradedValue)/100.00,2);
                     netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
                 }
                 else
@@ -78,7 +78,7 @@ namespace AlgoTerminal.Model.Response
                     netPositionModel.SellQuantity = SellTradedQty;
                     netPositionModel.BuyAvgPrice = BuyTradedQty != 0 ? Math.Round(BuyTradedValue / (BuyTradedQty * 100.00), 2) : 0;
                     netPositionModel.SellAvgPrice = SellTradedQty != 0 ? Math.Round(SellTradedValue / (SellTradedQty * 100.00), 2) : 0;
-                    netPositionModel.NetValue = Math.Round((BuyTradedValue - SellTradedValue) / 100.00, 2);
+                    netPositionModel.NetValue = Math.Round((-BuyTradedValue + SellTradedValue) / 100.00, 2);
                     netPositionModel.NetQuantity = BuyTradedQty - SellTradedQty;
 
                     if(OrderManagerModel.NetPosition_Dicc_By_Token.TryAdd(Token,netPositionModel))
@@ -160,7 +160,18 @@ namespace AlgoTerminal.Model.Response
                         //PORTFOLIO STATUS
                         if (OrderManagerModel.Portfolio_Dicc_By_ClientID.TryGetValue(iUserData, out InnerObject value))
                         {
-                            if(value.Entry_OrderID == iUserData && orderBookModel.OrderQty == orderBookModel.TradedQty)
+                           
+                            if (RejectionReason.Contains("NSE Error") || RejectionReason.Contains("Server Not Connected"))
+                            {
+                                value.Status = EnumStrategyStatus.REJECTED;
+                                value.Message = EnumStrategyMessage.ERROR;
+                            }
+                            else if (Status.Contains("cancelled"))
+                            {
+                                value.Status = EnumStrategyStatus.REJECTED;
+                                value.Message = EnumStrategyMessage.ORDER_CANCELLED_BY_SYSTEM;
+                            }
+                            else if (value.Entry_OrderID == iUserData && orderBookModel.OrderQty == orderBookModel.TradedQty)
                             {
                                 value.Status = EnumStrategyStatus.RUNING;
                             }
@@ -176,11 +187,7 @@ namespace AlgoTerminal.Model.Response
                             {
                                 value.Status = EnumStrategyStatus.EXIT_PARTIALLY_TRADED;
                             }
-                            else if(RejectionReason.Contains("NSE Error") || RejectionReason.Contains("Server Not Connected"))
-                            {
-                                value.Status = EnumStrategyStatus.REJECTED;
-                                value.Message = EnumStrategyMessage.ERROR;
-                            }
+                            
                         }
                     }
 

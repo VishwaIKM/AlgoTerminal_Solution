@@ -48,7 +48,7 @@
                         <!--Below is LegDetails binding-->
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Width="auto" Binding="{Binding Name}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Name" Width="70" Binding="{Binding Name}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Trading Symbol" Width="*" Binding="{Binding TradingSymbol}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
