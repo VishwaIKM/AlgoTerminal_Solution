@@ -131,6 +131,7 @@ namespace AlgoTerminal.Model.Structure
         public int STG_ID { get; set; }
         public int Entry_OrderID { get; set; } = 0;
         public int Exit_OrderID { get; set; } = 0;
+
         public bool IsLegCancelledOrRejected { get; set; } = false; //in Case of Momentum or ORM if Overall square of hit. we will not place new order. 
   
         private double _ltp;
