@@ -124,3 +124,55 @@
 [03:32:14][Error] On Line 12 Error : 
 [03:32:14]  Application StartUp Block Complete. 
 [03:32:16] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[05:34:29][Error] On Line 5 Error : 
+[05:34:29][Error] On Line 5 Error : 
+[05:34:29][Error] On Line 5 Error : 
+[05:34:29][Error] On Line 6 Error : 
+[05:34:29][Error] On Line 6 Error : 
+[05:34:29][Error] On Line 6 Error : 
+[05:34:29][Error] On Line 7 Error : 
+[05:34:29][Error] On Line 7 Error : 
+[05:34:29][Error] On Line 7 Error : 
+[05:34:29][Error] On Line 8 Error : 
+[05:34:29][Error] On Line 8 Error : 
+[05:34:29][Error] On Line 8 Error : 
+[05:34:29][Error] On Line 9 Error : 
+[05:34:29][Error] On Line 9 Error : 
+[05:34:29][Error] On Line 9 Error : 
+[05:34:29][Error] On Line 10 Error : 
+[05:34:29][Error] On Line 10 Error : 
+[05:34:29][Error] On Line 10 Error : 
+[05:34:29][Error] On Line 11 Error : 
+[05:34:29][Error] On Line 11 Error : 
+[05:34:29][Error] On Line 11 Error : 
+[05:34:29][Error] On Line 12 Error : 
+[05:34:29][Error] On Line 12 Error : 
+[05:34:29][Error] On Line 12 Error : 
+[05:34:29]  Application StartUp Block Complete. 
+[05:34:30] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1
+[05:37:47][Error] On Line 5 Error : 
+[05:37:47][Error] On Line 5 Error : 
+[05:37:47][Error] On Line 5 Error : 
+[05:37:47][Error] On Line 6 Error : 
+[05:37:47][Error] On Line 6 Error : 
+[05:37:47][Error] On Line 6 Error : 
+[05:37:47][Error] On Line 7 Error : 
+[05:37:47][Error] On Line 7 Error : 
+[05:37:47][Error] On Line 7 Error : 
+[05:37:47][Error] On Line 8 Error : 
+[05:37:47][Error] On Line 8 Error : 
+[05:37:47][Error] On Line 8 Error : 
+[05:37:47][Error] On Line 9 Error : 
+[05:37:47][Error] On Line 9 Error : 
+[05:37:47][Error] On Line 9 Error : 
+[05:37:47][Error] On Line 10 Error : 
+[05:37:47][Error] On Line 10 Error : 
+[05:37:47][Error] On Line 10 Error : 
+[05:37:47][Error] On Line 11 Error : 
+[05:37:47][Error] On Line 11 Error : 
+[05:37:47][Error] On Line 11 Error : 
+[05:37:47][Error] On Line 12 Error : 
+[05:37:47][Error] On Line 12 Error : 
+[05:37:47][Error] On Line 12 Error : 
+[05:37:47]  Application StartUp Block Complete. 
+[05:38:15] Can not placed the Streatgy. Time is Already passed NameOfThe Stg : Stg1

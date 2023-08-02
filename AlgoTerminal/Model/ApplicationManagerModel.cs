@@ -29,7 +29,7 @@ namespace AlgoTerminal.Model
                 var feedStarted = feed.InitializeFeedDll();//Feed start
                 await Task.Delay(1000);
                 var daat = straddleManager.StraddleStartUP(); // File Load          
-                await straddleManager.FirstTimeDataLoadingOnGUI();// GUI Load
+                var firsttimeload = await straddleManager.FirstTimeDataLoadingOnGUI();// GUI Load
                 await Task.Delay(1000);
                 await straddleManager.DataUpdateRequest();// Fire The Orders
                 return true;

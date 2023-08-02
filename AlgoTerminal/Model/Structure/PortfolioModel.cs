@@ -351,6 +351,7 @@ namespace AlgoTerminal.Model.Structure
         public EnumUnderlyingFrom enumUnderlyingFromForLeg { get; set; }
         public double UpdateInFavorAmountforTrailSLleg { get; set; }
         public double EntryUnderliying_INST { get; set; }
-        public bool IsLegInMonitoringQue { get; set; } = true;
+        public bool IsLegInMonitoringQue { get; set; } = false;
+        public bool IsLegCompleted { get; set; } = false;   
     }
 }

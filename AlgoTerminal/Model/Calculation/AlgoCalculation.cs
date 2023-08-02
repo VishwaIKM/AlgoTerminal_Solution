@@ -7,6 +7,7 @@ using AlgoTerminal.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using static AlgoTerminal.Model.Structure.EnumDeclaration;
 using static System.Net.WebRequestMethods;
@@ -615,7 +616,7 @@ namespace AlgoTerminal.Model.Calculation
             if (Reverse)
                 newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             else
-                newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+                newLegDetails.BuySell = OldLegDetails.BuySell;
             newLegDetails.Qty = OldLegDetails.Qty;
             newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
@@ -631,7 +632,7 @@ namespace AlgoTerminal.Model.Calculation
                                                               leg_Details.PremiumRangeLower,
                                                               leg_Details.PremiumRangeUpper,
                                                               leg_Details.Premium_or_StraddleWidth,
-                                                              stg_setting_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
+                                                              stg_setting_value.Index,
                                                               stg_setting_value.UnderlyingFrom,
                                                               leg_Details.SelectSegment,
                                                               leg_Details.Expiry,
@@ -644,24 +645,6 @@ namespace AlgoTerminal.Model.Calculation
 
             newLegDetails.Token = Token;
             newLegDetails.TradingSymbol = TradingSymbol;
-            
-
-            //if (OldLegDetails.Name.Contains('.'))
-            //{
-            //    var data = OldLegDetails.Name.Split('.');
-            //    var LastName = double.TryParse(data[1], out double value) ? value : 0;
-            //    if (LastName != 0)
-            //    {
-            //        LastName /= 100.00;
-            //        LastName += 0.01;
-            //        newLegDetails.Name = data[0] + LastName;
-            //    }
-            //}
-            //else
-            //{
-            //    newLegDetails.Name = OldLegDetails.Name + ".01";
-            //}
-
             newLegDetails.Name = OtherMethods.GetNewName(OldLegDetails.Name);
             return newLegDetails;
 
@@ -705,13 +688,12 @@ namespace AlgoTerminal.Model.Calculation
             if (Reverse)
                 newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             else
-                newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+                newLegDetails.BuySell = OldLegDetails.BuySell;
 
             newLegDetails.Qty = OldLegDetails.Qty;
             newLegDetails.StgName = OldLegDetails.StgName;
             newLegDetails.ReEntryTP = OldLegDetails.ReEntryTP;
             newLegDetails.ReEntrySL = OldLegDetails.ReEntrySL;
-            //Get Trading Symbol and Token
             DateTime Expiry = GetLegExpiry(leg_Details.Expiry,
                                                                stg_setting_value.Index,
                                                                leg_Details.SelectSegment,
@@ -723,7 +705,7 @@ namespace AlgoTerminal.Model.Calculation
                                                                leg_Details.PremiumRangeLower,
                                                                leg_Details.PremiumRangeUpper,
                                                                leg_Details.Premium_or_StraddleWidth,
-                                                               stg_setting_value.Index,//NIFTY/BANKNIFTY/FINNIFTY
+                                                               stg_setting_value.Index,
                                                                stg_setting_value.UnderlyingFrom,
                                                                leg_Details.SelectSegment,
                                                                leg_Details.Expiry,
@@ -774,7 +756,7 @@ namespace AlgoTerminal.Model.Calculation
             if (Reverse)
                 newLegDetails.BuySell = OldLegDetails.BuySell == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
             else
-                newLegDetails.BuySell = OldLegDetails.BuySell;// == EnumPosition.BUY ? EnumPosition.SELL : EnumPosition.BUY;
+                newLegDetails.BuySell = OldLegDetails.BuySell;
             newLegDetails.EntryPrice = OldLegDetails.EntryPrice;
             newLegDetails.Qty = OldLegDetails.Qty;
             newLegDetails.StgName = OldLegDetails.StgName;
@@ -880,8 +862,7 @@ namespace AlgoTerminal.Model.Calculation
         public void UpdateLegSLTrail_IF_HIT(InnerObject portfolio_leg_value, LegDetails leg_Details, StrategyDetails stg_setting_value)
         {
 
-            //if (GetTrailSLHit(leg_Details.SettingTrailEnable, portfolio_leg_value.UpdateInFavorAmountforTrailSLleg, leg_Details.TrailSlAmount, GetStrikePriceLTP(portfolio_leg_value.Token)))
-            //{
+          
             double ltp =0;
             if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLING || leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLINGPERCENTAGE)
             {
@@ -931,19 +912,6 @@ namespace AlgoTerminal.Model.Calculation
                     }
                 }
             }
-            //else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLING)
-            //{
-            //    double ltp = GetLtpForUnderLine(stg_setting_value, leg_Details);
-            //}
-            //else if (leg_Details.SettingTrailEnable == EnumLegTrailSL.UNDERLINGPERCENTAGE)
-            //{
-            //    double ltp = GetLtpForUnderLine(stg_setting_value, leg_Details);
-
-            //}
-
-
-
-            //}
         }
         #endregion
 
@@ -1301,7 +1269,7 @@ namespace AlgoTerminal.Model.Calculation
 
 
         #region Is Price Match For Re entry
-        public async Task<bool> IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
+        public bool IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
         {
             try
             {
@@ -1309,14 +1277,14 @@ namespace AlgoTerminal.Model.Calculation
                 {
                     while (entryPrice >= GetInstrumentPrice(token))
                     {
-                        await Task.Delay(500);
+                        Thread.Sleep(500);
                     }
                 }
                 else if (tP_HIT)
                 {
                     while (GetInstrumentPrice(token) <= entryPrice)
                     {
-                        await Task.Delay(500);
+                        Thread.Sleep(500);
                     }
                 }
                 return true;
