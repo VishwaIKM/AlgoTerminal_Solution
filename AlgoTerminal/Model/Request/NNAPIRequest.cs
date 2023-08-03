@@ -156,6 +156,7 @@ namespace AlgoTerminal.Model.Request
             lock (_cancelOrderLock)
             {
                 Nnapi.CancelOrder(_adminOrderId);
+                logFileWriter.DisplayLog(EnumLogType.Info, $"Cancel Order Send to Modrator with AdminId: {_adminOrderId}");
                 //General.S_Logger.DisplayLog(E_Log_Type.Success, "Cancel Order Send to Modrator with AdminId: " + _adminOrderId);
             }
         }

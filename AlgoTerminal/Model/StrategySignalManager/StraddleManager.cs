@@ -152,7 +152,9 @@ namespace AlgoTerminal.Model.StrategySignalManager
 
                 }
                 //Task.Run(()=>StartMonitoringCommand()); // Thread to watch
+#pragma warning disable CS4014 
                 MONITORING();
+#pragma warning restore CS4014 
                 return IsValid;
 
             }
@@ -272,24 +274,24 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 }
                 Task.WaitAll(tasks.ToArray());
 
-                Portfolio_value.TotalEntryPremiumPaid = TotalPremium;
+                portfolioModel.TotalEntryPremiumPaid = TotalPremium;
                 if (clone_stg_setting_value.IsOverallStopLossEnable)
                 {
-                    Portfolio_value.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
+                    portfolioModel.StopLoss = Math.Round(algoCalculation.GetOverallStopLossValue(TotalPremium,
                                                                                                     clone_stg_setting_value.SettingOverallStopLoss,
                                                                                                     clone_stg_setting_value.OverallStopLoss)
                                                                                                      , 2);
 
-                    Portfolio_value.ReEntrySL = clone_stg_setting_value.OverallReEntryOnSL;
+                    portfolioModel.ReEntrySL = clone_stg_setting_value.OverallReEntryOnSL;
                 }
                 if (clone_stg_setting_value.IsOverallTargetEnable)
                 {
-                    Portfolio_value.TargetProfit = Math.Round(algoCalculation.GetOverallTargetProfitValue(TotalPremium,
+                    portfolioModel.TargetProfit = Math.Round(algoCalculation.GetOverallTargetProfitValue(TotalPremium,
                                                                                                    clone_stg_setting_value.SettingOverallTarget,
                                                                                                    clone_stg_setting_value.OverallTarget)
                                                                                                     , 2);
 
-                    Portfolio_value.ReEntryTP = clone_stg_setting_value.OverallReEntryOnTgt;
+                    portfolioModel.ReEntryTP = clone_stg_setting_value.OverallReEntryOnTgt;
                 }
                 return true;
             }
@@ -402,6 +404,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     OrderManagerModel.Portfolio_Dicc_By_ClientID.TryAdd(OrderID, portfolio_leg_value);
                     LoginViewModel.NNAPIRequest.PlaceOrderRequest((int)Token, price1: _currentLTP, orderQty: portfolio_leg_value.Qty,
                          Buysell: portfolio_leg_value.BuySell, OrderType.LIMIT, 0, OrderID);
+                    portfolio_leg_value.Entry_OrderID = OrderID;
                     portfolio_leg_value.EntryPrice = _currentLTP;
                     portfolio_leg_value.Status = EnumStrategyStatus.ENTRY_ADDED;
                     portfolio_leg_value.EntryTime = DateTime.Now;
@@ -435,9 +438,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
         #region Leg RE-ENTRY Place
         public async Task<bool> PortfolioLegReEntry(bool SL_HIT, bool TP_HIT, InnerObject portfolio_leg_value, LegDetails leg_Details, StrategyDetails stg_setting_value, PortfolioModel Portfolio_value, ConcurrentDictionary<string, LegDetails> leg_value)
         {
+           // bool statusofReEntry = false;
+            InnerObject? innerObject = null;
             try
             {
-                InnerObject? innerObject = null;
+               
                 #region GET SL RE ENTRY
                 if (leg_Details.IsReEntryOnSLEnable == true && SL_HIT)
                 {
@@ -486,7 +491,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.RECOST || leg_Details.SettingReEntryOnTgt == EnumLegReEntryOnTarget.REREVCOST)
                     {
                         innerObject.Message = EnumStrategyMessage.RE_ENTRY;
-                        var data = algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
+                        var data = await algoCalculation.IsMyPriceHITforCost(SL_HIT, TP_HIT, innerObject.EntryPrice, innerObject.Token);
                         if (data == true)
                         {
                             if (!innerObject.IsLegCancelledOrRejected)
@@ -564,16 +569,22 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     innerObject.IsLegInMonitoringQue = false;
                 }
                 #endregion
+                //statusofReEntry = true;
 
             }
             catch (Exception ex)
             {
+               // statusofReEntry = false;
                 logFileWriter.DisplayLog(EnumLogType.Error, Log: ex.ToString());
                 return false;
             }
             finally
             {
-
+                //if (statusofReEntry)
+                //    logFileWriter.DisplayLog(EnumLogType.Info, $"[RE ENTRY] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
+                //else
+                //    logFileWriter.DisplayLog(EnumLogType.Warning, $"[RE ENTRY: FAILED] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
+                innerObject.IsLegInMonitoringQue = false;
             }
             return true;
         }
@@ -658,7 +669,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             var details = OrderManagerModel.OrderBook_Dicc_By_ClientID.Where(xx => xx.Value.ClientID == portfolio_leg_value.Entry_OrderID).FirstOrDefault();
                             if (details.Key is not 0)
                             {
-                                if (details.Value.Status.Contains("open"))
+                                if ((details.Value.Status.Contains("open")|| details.Value.Status.Contains("put order request"))&& !details.Value.Status.Contains("cancel"))
                                 {
                                     LoginViewModel.NNAPIRequest.CancelOrderRequest(details.Key);
                                 }
@@ -732,11 +743,11 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 }
                 finally
                 {
-                    await Task.Delay(100);
+                    await Task.Delay(50);
                 }
             }
         }
-        #region PortfolioMonitor
+        #region PortfolioMonitor 
         public async Task<bool> PortfolioMonitor_STG()
         {
             try
@@ -823,7 +834,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                             foreach (string Leg in leg_value.Keys)
                             {
 #pragma warning disable CS4014
-                                PortfolioMonitor_LEG(Leg, stg_key); // Cause not awaited call
+                                PortfolioMonitor_LEG(Leg, stg_key); // Cause not awaited call //TASK FOR INDIVISUALE LEG
 #pragma warning restore CS4014
                             }
                         }
@@ -836,7 +847,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 logFileWriter.DisplayLog(EnumLogType.Error, Log: "Error In PortfolioMonitor_STG()" + ex.ToString());
                 return false;
             }
-            await Task.Delay(500);
+            await Task.Delay(1000);
             return true;
         }
         #endregion
@@ -861,8 +872,8 @@ namespace AlgoTerminal.Model.StrategySignalManager
                 var leg_value = straddleDataBaseLoad.Straddle_LegDetails_Dictionary[stg_key];
                 var leg_Details = leg_value[Leg];
                 var portfolio_leg_value = Portfolio_value.InnerObject.Where(xxx => xxx.Name == Leg).FirstOrDefault() ?? throw new Exception("Leg was not Loaded in GUI or Portfolios.");
-                if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status == EnumStrategyStatus.RUNING) &&
-                               (portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
+                if (portfolio_leg_value.ExitPrice == 0 && (portfolio_leg_value.Status == EnumStrategyStatus.RUNING ||
+                               portfolio_leg_value.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED)
                                && !portfolio_leg_value.IsLegInMonitoringQue && !portfolio_leg_value.IsLegCompleted)
                 {
                     portfolio_leg_value.IsLegInMonitoringQue = true;
@@ -935,7 +946,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                 logFileWriter.DisplayLog(EnumLogType.Warning, $"[SQUARE OFF BY TP HIT: FAILED] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
                         }
 
-                        var statusofReEntry = await PortfolioLegReEntry(SL_HIT, TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value, Portfolio_value, leg_value);
+                        bool statusofReEntry = await  PortfolioLegReEntry(SL_HIT, TP_HIT, portfolio_leg_value, leg_Details, stg_setting_value, Portfolio_value, leg_value);
                         if (statusofReEntry)
                             logFileWriter.DisplayLog(EnumLogType.Info, $"[RE ENTRY] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
                         else
@@ -969,11 +980,12 @@ namespace AlgoTerminal.Model.StrategySignalManager
                                             logFileWriter.DisplayLog(EnumLogType.Warning, $"[SQUARE OFF BY TP HIT ALL LEG SQUAREOFF: FAILED] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
                                     }
                                 }
-                                var statusofReEntry = await PortfolioLegReEntry(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
+                                bool statusofReEntry = await PortfolioLegReEntry(SL_HIT, TP_HIT, child_portfolio_leg_value, child_leg_Details, stg_setting_value, Portfolio_value, leg_value);
                                 if (statusofReEntry)
                                     logFileWriter.DisplayLog(EnumLogType.Info, $"[RE ENTRY] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
                                 else
                                     logFileWriter.DisplayLog(EnumLogType.Warning, $"[RE ENTRY: FAILED] STG {Portfolio_value.Name} LEG {portfolio_leg_value.Name}");
+
                             }
                         }
                     }
@@ -982,7 +994,7 @@ namespace AlgoTerminal.Model.StrategySignalManager
                     portfolio_leg_value.IsLegInMonitoringQue = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             } 

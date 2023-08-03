@@ -817,26 +817,26 @@ namespace AlgoTerminal.Model.Calculation
         /// <param name="yStopLoss"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        private bool GetTrailSLHit(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount_Percentage, double ltp)
-        {
+        //private bool GetTrailSLHit(EnumLegTrailSL enumLegTrailSL, double entryPrice, double xAmount_Percentage, double ltp)
+        //{
 
-            return enumLegTrailSL switch
-            {
-                EnumLegTrailSL.POINTS => GetLegPointTailSL(entryPrice, xAmount_Percentage, ltp),
-                EnumLegTrailSL.POINTPERCENTAGE => GetLegPointPercentageTrailSL(entryPrice, xAmount_Percentage, ltp),
-                _ => throw new NotImplementedException(),
-            };
-        }
+        //    return enumLegTrailSL switch
+        //    {
+        //        EnumLegTrailSL.POINTS => GetLegPointTailSL(entryPrice, xAmount_Percentage, ltp),
+        //        EnumLegTrailSL.POINTPERCENTAGE => GetLegPointPercentageTrailSL(entryPrice, xAmount_Percentage, ltp),
+        //        _ => throw new NotImplementedException(),
+        //    };
+        //}
 
-        private bool GetLegPointPercentageTrailSL(double entryPrice, double xAmount_Percentage, double ltp)
-        {
-            return entryPrice + entryPrice * xAmount_Percentage / 100.00 >= ltp;
-        }
+        //private bool GetLegPointPercentageTrailSL(double entryPrice, double xAmount_Percentage, double ltp)
+        //{
+        //    return entryPrice + entryPrice * xAmount_Percentage / 100.00 >= ltp;
+        //}
 
-        private bool GetLegPointTailSL(double entryPrice, double xAmount_Percentage, double ltp)
-        {
-            return entryPrice + xAmount_Percentage >= ltp;
-        }
+        //private bool GetLegPointTailSL(double entryPrice, double xAmount_Percentage, double ltp)
+        //{
+        //    return entryPrice + xAmount_Percentage >= ltp;
+        //}
 
         private double GetLtpForUnderLine(StrategyDetails stg_setting_value, LegDetails leg_Details)
         {
@@ -1186,12 +1186,12 @@ namespace AlgoTerminal.Model.Calculation
 
         private double GetOverallTPValueUsingMtm(double targetPofit, double TotalPremium)
         {
-            return TotalPremium + targetPofit;
+            return targetPofit;
         }
 
         private double GetOverallTPValueUsingPremium(double totalPremium, double targetPofit)
         {
-            return totalPremium + (totalPremium * targetPofit / 100.0);
+            return (totalPremium * targetPofit / 100.0);
         }
         #endregion
 
@@ -1269,7 +1269,7 @@ namespace AlgoTerminal.Model.Calculation
 
 
         #region Is Price Match For Re entry
-        public bool IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
+        public async Task<bool> IsMyPriceHITforCost(bool sL_HIT, bool tP_HIT, double entryPrice, uint token)
         {
             try
             {
@@ -1277,14 +1277,14 @@ namespace AlgoTerminal.Model.Calculation
                 {
                     while (entryPrice >= GetInstrumentPrice(token))
                     {
-                        Thread.Sleep(500);
+                        await Task.Delay(300);
                     }
                 }
                 else if (tP_HIT)
                 {
                     while (GetInstrumentPrice(token) <= entryPrice)
                     {
-                        Thread.Sleep(500);
+                        await Task.Delay(300);
                     }
                 }
                 return true;

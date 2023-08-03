@@ -33,7 +33,7 @@ namespace AlgoTerminal.Model.Response
                 foreach (var leg in legs)
                 {
                     //MTM//LTP when order is placed
-                    if (leg.EntryPrice != 0 && leg.ExitPrice == 0 && leg.Status != EnumStrategyStatus.REJECTED)
+                    if (leg.EntryPrice != 0 && leg.ExitPrice == 0 && (leg.Status == EnumStrategyStatus.ENTRY_PARTIALLY_TRADED ||leg.Status == EnumStrategyStatus.RUNING))
                     {
                         //leg LTP Update ...
                         leg.LTP = Math.Round(Convert.ToDouble(stFeed.LastTradedPrice) / 100.00, 2);
